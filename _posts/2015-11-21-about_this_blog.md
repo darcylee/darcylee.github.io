@@ -2,7 +2,7 @@
 layout:     post
 title:      "关于Blog，我有话要说"
 subtitle:   "About This Blog"
-date:       2015-12-2 12:00:00
+date:       2015-11-21 12:00:00
 author:     darcylee
 header-img: "img/contact-bg.jpg"
 tags: [about]
