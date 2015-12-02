@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "About Blog"
+title:      "关于Blog，我有话要说"
 subtitle:   "About This Blog"
 date:       2015-12-02 12:00:00
 author:     darcylee
