@@ -1,0 +1,96 @@
+# Site settings
+title: Darcylee's Blog
+SEOTitle: Darcylee's Blog | -Li.j!a.泉 Blog
+header-img: img/home-bg.jpg
+email: darcylee1986@gmail.com
+description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @rucle 的个人博客，与你一起发现更大的世界。"
+keyword: "darcylee, rucle, @rucle, -Li.j!a.泉 Blog, 博客, 个人网站, "
+url: "http://darcylee.gitcafe.io"              # your host, for absolute URL
+baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+
+
+
+# SNS settings
+RSS: false
+weibo_username:     darcylee2012
+zhihu_username:     darcylee
+github_username:    darcylee
+twitter_username:   darcylee1986
+# facebook_username:  darcy.lee.794
+
+
+
+# Build settings
+highlighter: pygments
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# Disqus settings
+#disqus_username: _your_disqus_short_name_
+
+# Duoshuo settings
+duoshuo_username: darcylee
+# Share component is depend on Comment so we can NOT use share only.
+duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+
+
+
+
+# Analytics settings
+# Baidu Analytics
+#ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+# Google Analytics
+#ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+#ga_domain: huangxuan.me
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "写写c/c++，学学ios&Andorid，H5，javascript，prel，bash，swift，python......世界那么大，我要多看看。"
+sidebar-avatar: /img/avatar-darcylee.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+
+# Friends
+friends: [
+#    {
+#        title: "天镶的博客",
+#        href: "http://lingyu.wang/"
+#    },{
+#        title: "Luke的自留地",
+#        href: "http://hmqk1995.github.io"
+#    },{
+#        title: "SmdCn's Blog",
+#        href: "http://blog.smdcn.net"
+#    },{
+#        title: "解旻的博客",
+#        href: "http://xieminis.me/"
+#    },{
+#        title: "DHong Say",
+#        href: "http://dhong.co"
+#    },{
+#        title: "尹峰以为",
+#        href: "http://ingf.github.io/"
+#    }
+]
