@@ -9,7 +9,7 @@ tags: [about]
 ---
 
 
-###缘由
+### 缘由
 
 在某个无聊到蛋疼的晚上，在网上瞎逛，无意间接触到一个叫`jeklly`的技术，百度之。才发现原来一直关注的个人博客，好几个都是基于这个技术实现的，原来不知道，看到那些漂亮的个人博客网站都羡慕不已，先不看blog的内容写如何，单看到能开个人blog，就觉得博主好🐂（牛）。这个叫`jeklly`的，让我眼睛一亮，所以百度了一个晚上，找theme装环境……。最终fork了[Hux](https://github.com/huxpro/huxpro.github.io/)的theme，建了这个[**blog**👉](http://darcylee.gitcafe.io)。
 
