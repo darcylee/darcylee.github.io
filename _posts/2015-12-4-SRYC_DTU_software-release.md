@@ -25,7 +25,7 @@ tags: [objective-c, 学习笔记]
 
 ### 修改记录
 
-* **2015年12月2日**
+* **2015年12月2日**[->下载地址](http://pan.baidu.com/s/1dEtMWLF)
 1. `sryc_dtu`压力字段名称修改为`"press"`,版本升级到`EM-SRYC-V1.2.2`
 1. pc工具`ToolKit-upload.exe` 新增离线数据查看功能，版本升级为`v1.2.0` 。
 2. pc工具`ToolKit-upload.exe` 压力字段名称同步修改为`"press"`。
