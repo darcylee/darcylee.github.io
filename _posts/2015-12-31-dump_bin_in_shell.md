@@ -17,7 +17,7 @@ hexdump命令一般用来查看“二进制”文件的十六进制编码，但�
 
 
 ```
-lijq@server /opt/tftpboot/rootfs/qt » hexdump --help
+lijq@server » hexdump --help
 hexdump: invalid option -- '-'
 usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
                [-s skip] [file ...]
@@ -59,7 +59,7 @@ usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
 示例：
 
 ```
-lijq@server /opt/tftpboot/rootfs/qt » hexdump -e '16/1 "%02X " " | "' -e '16/1 "%_p" "\n"' rootfs.ubi
+lijq@server » hexdump -e '16/1 "%02X " " | "' -e '16/1 "%_p" "\n"' rootfs.ubi
 55 42 49 23 01 00 00 00 00 00 00 00 00 00 00 00 | UBI#............
 00 00 08 00 00 00 10 00 2A AD C9 72 00 00 00 00 | ........*..r....
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
@@ -79,7 +79,7 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
 `xxd --help` 查看详细使用方法
 
 ```
-lijq@server /opt/tftpboot/rootfs/qt » xxd --help
+lijq@server » xxd --help
 Usage:
        xxd [options] [infile [outfile]]
     or
@@ -119,7 +119,7 @@ Options:
 >从0x500000处开始显示64个字节
 
 ```
-lijq@server /opt/tftpboot/rootfs/qt » xxd -s 0x500000 -l 64 rootfs.ubi
+lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
 0500000: 5542 4923 0100 0000 0000 0000 0000 0000  UBI#............
 0500010: 0000 0800 0000 1000 2aad c972 0000 0000  ........*..r....
 0500020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
