@@ -3,6 +3,7 @@ layout:     post
 title:      "两个命令行察看二进制文件的工具"
 subtitle:   "hexdump、xxd"
 date:       2015-12-31 10:19:30 +0800
+header-img: "img/post-bg-unix.jpg"
 author:     darcylee
 tags:       Linux shell
 ---
