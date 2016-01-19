@@ -5,7 +5,7 @@ subtitle:   "swift学习笔记01, Optional类型"
 date:       2016-1-8 15:19:30 +0800
 header-img: "img/post-bg-default.jpg"
 author:     darcylee
-tags:       swift 学习笔记
+tags:       [swift, 学习笔记]
 
 ---
 使用可选类型（optionals）来处理值可能缺失的情况。可选类型表示：

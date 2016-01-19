@@ -74,15 +74,15 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 
 # Friends
 friends: [
-#    {
-#        title: "天镶的博客",
-#        href: "http://lingyu.wang/"
-#    },{
-#        title: "Luke的自留地",
-#        href: "http://hmqk1995.github.io"
-#    },{
-#        title: "SmdCn's Blog",
-#        href: "http://blog.smdcn.net"
+    {
+        title: "王巍(@onevcat)",
+        href: "http://onevcat.com"
+    },{
+        title: "唐巧的技术博客",
+        href: "http://blog.devtang.com"
+    },{
+        title: "casatwy's Blog",
+        href: "http://casatwy.com"
 #    },{
 #        title: "解旻的博客",
 #        href: "http://xieminis.me/"
@@ -92,5 +92,5 @@ friends: [
 #    },{
 #        title: "尹峰以为",
 #        href: "http://ingf.github.io/"
-#    }
+    }
 ]
