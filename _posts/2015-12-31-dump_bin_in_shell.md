@@ -5,7 +5,7 @@ subtitle:   "hexdump、xxd"
 date:       2015-12-31 10:19:30 +0800
 header-img: "img/post-bg-debian.jpg"
 author:     darcylee
-tags:       Linux shell
+tags:       [linux, shell]
 ---
 
 > 1. hexdump
