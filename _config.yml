@@ -18,10 +18,10 @@ github_username:    darcylee
 twitter_username:   darcylee1986
 # facebook_username:  darcy.lee.794
 
-
+gems: [jekyll-paginate]
 
 # Build settings
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
@@ -83,14 +83,5 @@ friends: [
     },{
         title: "casatwy's Blog",
         href: "http://casatwy.com"
-#    },{
-#        title: "解旻的博客",
-#        href: "http://xieminis.me/"
-#    },{
-#        title: "DHong Say",
-#        href: "http://dhong.co"
-#    },{
-#        title: "尹峰以为",
-#        href: "http://ingf.github.io/"
     }
 ]
