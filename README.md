@@ -7,4 +7,4 @@
 ## Thanks
 
 This them is forked form [Huxpro/huxpro.github.io](https://github.com/huxpro/huxpro.github.io/)
-Thanks Hux Jekyll and gitcafe Pages!
+Thanks Hux Jekyll and coding Pages!
