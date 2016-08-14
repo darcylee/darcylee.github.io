@@ -12,22 +12,24 @@ tags:       [学习笔记, zephyr]
 ## 关于`zephyr™`项目
 
 [zephyr™](https://www.zephyrproject.org), 首先它是一个开源的项目，主要目的是针对资源有限的系统设计的实时的系统内核，可以胜任从简单的嵌入式传感器到复杂的物联网网关等应用场景。官方的文档也相对比较完整，可以[移步官网了解一下](https://www.zephyrproject.org/doc/)。
-该项目开源于今天2月份，到目前版本已升级到1.5.0，使用git可以clone整个仓库
+该项目开源于今年2月份，到目前版本已升级到1.5.0
+
+获取源代码
 
 ```
 $ git clone https://gerrit.zephyrproject.org/r/zephyr
 ```
-zephyr™使用类似linux内核`Kbuild`构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的[QuickStart](https://www.zephyrproject.org/doc/getting_started/getting_started.html)文档后，很容易上手开发的， 文档中提供了三个不同平台`linux`、`windows`、`macOS`的开发环境设置介绍，如果你目前使用的是`linux`或者`windows`平台可以绕道了，因为接下去我要说的是基于`macOS`平台的开发环境设置。
+zephyr™使用类似linux内核`Kbuild`构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的[QuickStart](https://www.zephyrproject.org/doc/getting_started/getting_started.html)文档后，很容易上手开发的， 文档中提供了三个不同平台`linux`、`windows`、`macOS`的开发环境设置介绍，如果你目前使用的是`linux`或者`windows`平台可以移步[官网]()，寻找相对应平台的说明。这里我们要说的是基于`macOS`平台的开发环境设置。
 
 虽然官网有给出`macOS`平台的[开发环境设置指南](https://www.zephyrproject.org/doc/getting_started/installation_mac.html)，但是还是会碰到一些问题，我这里记录了一下我的设置过程，以及我碰到的问题的解决办法，希望能帮到和我一样想在`macOS`平台上做基于`zephyr`的嵌入式开发的朋友。
 
 ## 开发环境设置
 
-* 首先请把系统设计到`Mac OS X 10.11 (El Capitan)`，我是基于这个版本来设置的。
+* 首先请把系统升级到`Mac OS X 10.11 (El Capitan)`，我是基于这个版本来设置的，官网也有相应的声明。
 
 #### 安装依赖包
 
-安装`Homebrew`， 安装过的同学跳过， `Homebrew`好比debian系Linux系统里的`apt-get`工具，很好很强大。安装很简单，移步`Homebrew`[官网](http://brew.sh)，按照上面的说明安装。
+安装`Homebrew`， 安装过的同学跳过， `Homebrew`好比debian系Linux系统里的`apt-get`工具，很好很强大。安装很简单，移步[Homebrew官网](http://brew.sh)，按照上面的说明安装。
 
 继续安装一些工具
 
@@ -40,17 +42,29 @@ $ brew install grep --with-default-names
 
 $ pip3 install ply
 
+$ brew install gettext
 ```
+
+稍作设置
+
+```
+$ brew edit crosstool-ng
+```
+添加下面一行到`depends`section
+
+	depends_on 'grep' => '--default-names'
 
 安装`Crosstool-ng`
 
 ```
 $ brew install crosstool-ng
+
+$ brew link --force gettext
 ```
 
 #### 编译工具链
 
-编译工具链需要一个大小写敏感的分区，使用`macOS`自带的`diskutil`可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫`excs`，**_注意Format的选择_**
+`macOS`使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用`macOS`自带的`diskutil`可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫`excs`，**_注意Format的选择_**
 ![img](/img/in-post/post_zephyr_on_mac/creat_case-sensitive.png)
 
 创建好后，在`／Volumes`下面会多出一个文件夹，也就是你创建的新分区。
@@ -73,7 +87,7 @@ $ mkdir build src x-tools
 $ cd build
 ```
 
-复制zephyr项目下面的配置文件到build,zephyr提供了2个平台的配置，x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。`${ZEPHYR_BASE}`为你zephyr项目的根目录
+复制zephyr项目下面的配置文件到`build`目录，zephyr提供了2个平台的配置x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。`${ZEPHYR_BASE}`为你zephyr项目的根目录
 
 ```
 $ cp ${ZEPHYR_BASE}/scripts/cross_compiler/arm.config .config
@@ -102,7 +116,7 @@ CT_WORK_DIR="${CT_TOP_DIR}/.build"
 CT_PREFIX_DIR="/Volumes/excs/CrossToolNG/x-tools/${CT_TARGET}"
 CT_INSTALL_DIR="${CT_PREFIX_DIR}"
 ...
-＃ 下面2行很重要，必须为n，不让编译不过
+＃ 下面2行很重要，必须为n，不然编译不过
 CT_WANTS_STATIC_LINK=n
 CT_CC_STATIC_LIBSTDCXX=n
 ...
@@ -134,7 +148,7 @@ gcc version 5.3.0 (Homebrew gcc 5.3.0)
 $ ct-ng build
 ```
 
-又是一个漫长的等待，大概15分钟左右。提示编译成功， 我们察看一下`x-tools`文件夹
+又是一个漫长的等待，大概15分钟左右，提示编译成功。我们察看一下`x-tools`文件夹
 
 ```
 $ cd /Volumes/excs/CrossToolNG/x-tools
@@ -142,7 +156,7 @@ $ cd /Volumes/excs/CrossToolNG/x-tools
 $ ls
 arm-none-eabi 
 ```
-工具链产生了，试验一下
+交叉编译工具链产生了，试验一下
 
 ```
 $ cd arm-none-eabi/bin 
@@ -218,7 +232,7 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked,
 
 到这里你的环境基本上配置好了。
 
-可以把上面的环境变量设置到`~/.zephyrrc`中，这样下次就不要重新eport了
+可以把上面的环境变量设置到`~/.zephyrrc`中，这样下次就不需要重新export了
 
 ```
 $ cat ~/.zephyrrc
@@ -226,9 +240,9 @@ export XTOOLS_TOOLCHAIN_PATH=/Volumes/CrossToolNG/x-tools
 export ZEPHYR_GCC_VARIANT=xtools
 ```
 
-如果你觉得最开始分布到那8G左右到空间比较浪费，我们可以`x-tools`文件做一个`dmg`，这样有用的时候打开这个dmg就可以了。
+如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个`dmg`，这样有用的时候打开这个`dmg`就可以了。
 
-打开`diskutil`工具，选择`File->New Image->Image from folder`,选择`x-tools`文件夹
+打开`diskutil`工具，选择`File->New Image->Image from folder`,选择`/Volumes/excs/CrossToolNG/x-tools`文件夹
 ![img](/img/in-post/post_zephyr_on_mac/make_xtool_dmg.png)
 
 生成一个`dmg`![img](/img/in-post/post_zephyr_on_mac/xtool_dmg.png)，有用的时候打开, 就会在`／Volumes`，多出`x-tools`文件夹
@@ -244,12 +258,15 @@ export XTOOLS_TOOLCHAIN_PATH=/Volumes/x-tools
 ```
 这样，就可以把8G的分区`excs`删除，把磁盘空间还给`macOS`系统了。
 
-### 使用`menuconfig`配置工程遇到的错误
+
+
+## 使用`menuconfig`配置工程遇到的错误
 
 具体错误如下
 
 ```
-dl@rMBP /work/proj/ex_projects/zephyr/samples/hello_world/microkernel (git:master ●) [Sun Aug 14 09:26:23 2016]
+$ cd ${ZEPHYR_BASE}/samples/hello_world/microkernel
+
 $ make menuconfig
   GEN     ./Makefile
   HOSTLD  scripts/kconfig/mconf
