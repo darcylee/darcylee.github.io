@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "搭建简单的git服务器"
-subtitle:   "在数梅派上搭建简单git服务器"
+subtitle:   "在树莓派上搭建简单git服务器"
 date:       2016-10-10 10:19:30
 header-img: "img/post-bg-rpi.jpg"
 author:     darcylee
