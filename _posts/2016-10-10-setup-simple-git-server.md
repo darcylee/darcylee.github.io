@@ -42,7 +42,7 @@ tags:       [linux, git, RaspberryPi]
 
 如果觉得手动导入比较麻烦，可以使用下面方法导入
 
-> ssh-copy-id git@server[^1]
+> ssh-copy-id -i /your/path/of/id_rsa.pub git@server[^1]
 
 ##  创建一个仓库
 
