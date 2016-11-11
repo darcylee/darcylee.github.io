@@ -173,6 +173,17 @@ layout: default
                         </ul>
                     </div>
                 </section>
+                <!-- 热门文章 -->
+                <hr>
+                <h5>热门文章</h5>
+                <ul class="list-inline">
+                  {% for page in site.hotpages %}
+                  <li>
+                    <a target="_blank" href="{{page.href  | prepend: site.baseurl}}">{{page.title}}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
@@ -183,6 +194,13 @@ layout: default
                     {% endfor %}
                 </ul>
                 {% endif %}
+
+                <!--Begin Last Visitor -->
+                <hr>
+                <h5>最近访客</h5>
+                <ul class="ds-recent-visitors" data-num-items="20" style="padding-left:0px;"></ul>
+                <!--End Last Visitor -->
+
     		</div>
         {% endif %}
 	</div>

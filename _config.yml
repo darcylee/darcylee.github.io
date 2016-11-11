@@ -73,6 +73,21 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Featured
 future: true
 
+# hotpages
+hotpages: [
+    {
+        title: "zephyr项目在macos平台的开发",
+        href:  "http://darcylee.coding.me/2016/08/14/Develop_zephry_project_on_mac/"
+    }, {
+        title: "搭建简单的git服务器",
+        href:  "http://darcylee.coding.me/2016/10/10/setup-simple-git-server/"
+    },{
+        title: "命令行连接VPN",
+        href:  "http://darcylee.coding.me/2016/01/29/vpn_on_command_line/"
+    }
+]
+
+
 
 # Friends
 friends: [
