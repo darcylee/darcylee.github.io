@@ -5,6 +5,7 @@ subtitle:   "macOS平台环境设置"
 date:       2016-8-14 12:19:30
 header-img: "img/post-bg-zephyr.png"
 author:     darcylee
+catalog:    true
 tags:       [学习笔记, zephyr]
 
 ---
@@ -139,7 +140,7 @@ COLLECT_LTO_WRAPPER=/usr/local/Cellar/gcc/5.3.0/libexec/gcc/x86_64-apple-darwin1
 Target: x86_64-apple-darwin15.6.0
 Configured with: ../configure --build=x86_64-apple-darwin15.6.0 --prefix=/usr/local/Cellar/gcc/5.3.0 --libdir=/usr/local/Cellar/gcc/5.3.0/lib/gcc/5 --enable-languages=c,c++,objc,obj-c++,fortran --program-suffix=-5 --with-gmp=/usr/local/opt/gmp --with-mpfr=/usr/local/opt/mpfr --with-mpc=/usr/local/opt/libmpc --with-isl=/usr/local/opt/isl --with-system-zlib --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --with-build-config=bootstrap-debug --disable-werror --with-pkgversion='Homebrew gcc 5.3.0' --with-bugurl=https://github.com/Homebrew/homebrew/issues --enable-plugin --disable-nls --enable-multilib --with-native-system-header-dir=/usr/include --with-sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
 Thread model: posix
-gcc version 5.3.0 (Homebrew gcc 5.3.0) 
+gcc version 5.3.0 (Homebrew gcc 5.3.0)
 ```
 
 一切准备就绪，ok，开始编译工具链
@@ -154,12 +155,12 @@ $ ct-ng build
 $ cd /Volumes/excs/CrossToolNG/x-tools
 
 $ ls
-arm-none-eabi 
+arm-none-eabi
 ```
 交叉编译工具链产生了，试验一下
 
 ```
-$ cd arm-none-eabi/bin 
+$ cd arm-none-eabi/bin
 
 $ ./arm-none-eabi-gcc -v
 Using built-in specs.
@@ -168,7 +169,7 @@ COLLECT_LTO_WRAPPER=/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/libexec/gcc/
 Target: arm-none-eabi
 Configured with: /Volumes/excs/CrossToolNG/build/.build/src/gcc-5.2.0/configure --build=x86_64-build_apple-darwin15.6.0 --host=x86_64-build_apple-darwin15.6.0 --target=arm-none-eabi --prefix=/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi --with-local-prefix=/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-sysroot=/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-newlib --enable-threads=no --disable-shared --with-pkgversion='crosstool-NG crosstool-ng-1.22.0' --with-float=soft --enable-__cxa_atexit --with-gmp=/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpfr=/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpc=/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-isl=/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-cloog=/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-libelf=/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --enable-lto --enable-target-optspace --disable-libgomp --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-nls --disable-multilib --enable-languages=c
 Thread model: single
-gcc version 5.2.0 (crosstool-NG crosstool-ng-1.22.0) 
+gcc version 5.2.0 (crosstool-NG crosstool-ng-1.22.0)
 ```
 
 没有问题，很好
@@ -226,7 +227,7 @@ scripts/kconfig/conf --silentoldconfig Kconfig
 察看编译出来的`elf`文件，确实是arm平台的
 
 ```
-$ file zephyr.elf 
+$ file zephyr.elf
 zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, not stripped
 ```
 
@@ -295,12 +296,3 @@ $ brew install ncurses
 ```
 export PKG_CONFIG_PATH=/usr/local/opt/ncurses/lib/pkgconfig:$PKG_CONFIG_PATH
 ```
-
-
-
-
-
-
-
-
-

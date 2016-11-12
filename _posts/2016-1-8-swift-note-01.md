@@ -5,6 +5,7 @@ subtitle:   "swift学习笔记01, Optional类型"
 date:       2016-1-8 15:19:30 +0800
 header-img: "img/post-bg-default.jpg"
 author:     darcylee
+catalog:    true
 tags:       [swift, 学习笔记]
 
 ---
@@ -68,7 +69,7 @@ if optionalVal != nil {
 当你确定可选类型确实包含值之后，你可以在可选的名字后面加一个感叹号（!）来获取值。这被称为可选值的强制解析（forced unwrapping）：
 
 ```
-var optionalVal: String? 
+var optionalVal: String?
 optionalVal ＝ “123s” //如果没有值，则下面的if判断会出现编译错误
 if let actValue = Int(optionalVal!) {
     print("\(optionalVal) has an integer value \(actValue)")

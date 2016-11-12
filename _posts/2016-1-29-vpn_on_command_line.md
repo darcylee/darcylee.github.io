@@ -5,6 +5,7 @@ subtitle:   "using VPN on the command line"
 date:       2016-1-29 10:19:30 +0800
 header-img: "img/post-bg-debian.jpg"
 author:     darcylee
+catalog:    true
 tags:       [linux, shell]
 
 ---
@@ -15,7 +16,7 @@ tags:       [linux, shell]
 
 ```bash
 dl@debian ~/work  [Fri 29 Jan 2016 09:48:55 AM CST]
-$ sudo apt-get install pptp-linux 
+$ sudo apt-get install pptp-linux
 ```
 
 #### 2. 创建`VPN`连接
@@ -46,17 +47,17 @@ remote IP address 192.168.99.1
 
 ```bash
 dl@debian ~/work  [Fri 29 Jan 2016 09:52:58 AM CST]
-$ ifconfig 
+$ ifconfig
 eth0      ....
 
 lo        ....
 
-ppp0      Link encap:Point-to-Point Protocol  
+ppp0      Link encap:Point-to-Point Protocol
           inet addr:192.168.99.12  P-t-P:192.168.99.1  Mask:255.255.255.255
           UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1496  Metric:1
           RX packets:6 errors:0 dropped:0 overruns:0 frame:0
           TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:3 
+          collisions:0 txqueuelen:3
           RX bytes:60 (60.0 B)  TX bytes:66 (66.0 B)
 ```
 
@@ -162,5 +163,3 @@ $ curl ifconfig.me
 ```
 
 至于如何自动完成路由的添加，目前还没有试验出来。等发现了添加说明。
-
-

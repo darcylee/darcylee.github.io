@@ -5,6 +5,7 @@ subtitle:   "在树莓派上搭建简单git服务器"
 date:       2016-10-10 10:19:30
 header-img: "img/post-bg-rpi.jpg"
 author:     darcylee
+catalog:    true
 tags:       [linux, git, RaspberryPi]
 
 ---
