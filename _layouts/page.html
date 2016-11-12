@@ -173,9 +173,9 @@ layout: default
                         </ul>
                     </div>
                 </section>
-                <!-- 热门文章 -->
+                <!-- Begin Hot Articles -->
                 <hr>
-                <h5>热门文章</h5>
+                <h5>HOT ARTICLES</h5>
                 <ul class="list-inline">
                   {% for page in site.hotpages %}
                   <li>
@@ -183,6 +183,7 @@ layout: default
                   </li>
                   {% endfor %}
                 </ul>
+                <!-- End Hot Articles -->
 
                 <!-- Friends Blog -->
                 {% if site.friends %}
@@ -197,11 +198,33 @@ layout: default
 
                 <!--Begin Last Visitor -->
                 <hr>
-                <h5>最近访客</h5>
+                <h5>VISITORS</h5>
                 <ul class="ds-recent-visitors" data-num-items="20" style="padding-left:0px;"></ul>
                 <!--End Last Visitor -->
 
     		</div>
+        {% endif %}
+
+        {% if site.duoshuo_username %}
+        <!-- Duoshuo hacking -->
+        <input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+         // dynamic User hacking by Hux
+         var _user = document.getElementById('dsUser').value;
+         // duoshuo comment query.
+         var duoshuoQuery = {short_name: _user };
+         (function() {
+             var ds = document.createElement('script');
+             ds.type = 'text/javascript';ds.async = true;
+             ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+             ds.charset = 'UTF-8';
+             (document.getElementsByTagName('head')[0]
+           || document.getElementsByTagName('body')[0]).appendChild(ds);
+         })();
+        </script>
+        <!-- 多说公共JS代码 end -->
         {% endif %}
 	</div>
 </div>
