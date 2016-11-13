@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: darcylee1986@gmail.com
 description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @rucle 的个人博客，与你一起发现更大的世界。"
 keyword: "darcylee, rucle, @rucle, -Li.j!a.泉 Blog, 博客, 个人网站, "
-url: "http://darcylee.coding.me"              # your host, for absolute URL
+url: "https://darcylee.coding.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -88,13 +88,13 @@ service-worker: true
 hotpages: [
     {
         title: "zephyr项目在macos平台的开发",
-        href:  "http://darcylee.coding.me/2016/08/14/Develop_zephry_project_on_mac/"
+        href:  "https://darcylee.coding.me/2016/08/14/Develop_zephry_project_on_mac/"
     }, {
         title: "搭建简单的git服务器",
-        href:  "http://darcylee.coding.me/2016/10/10/setup-simple-git-server/"
+        href:  "https://darcylee.coding.me/2016/10/10/setup-simple-git-server/"
     },{
         title: "命令行连接VPN",
-        href:  "http://darcylee.coding.me/2016/01/29/vpn_on_command_line/"
+        href:  "https://darcylee.coding.me/2016/01/29/vpn_on_command_line/"
     }
 ]
 

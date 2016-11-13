@@ -2,7 +2,7 @@
     "name": "DL-blog",
     "title": "-Li.j!a.泉 Blog",
     "version": "1.0.0",
-    "homepage": "http://darcylee.coding.me",
+    "homepage": "https://darcylee.coding.me",
     "author": "darcylee",
     "devDependencies": {
         "grunt": "~0.4.5",
