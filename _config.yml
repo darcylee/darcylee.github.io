@@ -51,7 +51,7 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: coding-dl
+duoshuo_username: blog-darcylee-com
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
@@ -88,13 +88,13 @@ service-worker: true
 hotpages: [
     {
         title: "zephyr项目在macos平台的开发",
-        href:  "https://darcylee.coding.me/2016/08/14/Develop_zephry_project_on_mac/"
+        href:  "https://blog.darcylee.com.cn/2016/08/14/Develop_zephry_project_on_mac/"
     }, {
         title: "搭建简单的git服务器",
-        href:  "https://darcylee.coding.me/2016/10/10/setup-simple-git-server/"
+        href:  "https://blog.darcylee.com.cn/2016/10/10/setup-simple-git-server/"
     },{
         title: "命令行连接VPN",
-        href:  "https://darcylee.coding.me/2016/01/29/vpn_on_command_line/"
+        href:  "https://blog.darcylee.com.cn/2016/01/29/vpn_on_command_line/"
     }
 ]
 
