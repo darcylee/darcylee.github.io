@@ -2,7 +2,7 @@
  * sw.js
  * ===========================================================
  * Copyright 2016 @huxpro
- * Licensed under Apache 2.0 
+ * Licensed under Apache 2.0
  * Register service worker.
  * ========================================================== */
 
@@ -10,7 +10,7 @@ const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
-  "darcylee.coding.me",
+  "darcylee.com.cn",
   "yanshuo.io",
   "cdnjs.cloudflare.com"
 ]
@@ -22,8 +22,8 @@ const getFixedUrl = (req) => {
   url = new URL(req.url)
 
   // 1. fixed http URL
-  // Just keep syncing with location.protocol 
-  // fetch(httpURL) belongs to active mixed content. 
+  // Just keep syncing with location.protocol
+  // fetch(httpURL) belongs to active mixed content.
   // And fetch(httpRequest) is not supported yet.
   url.protocol = self.location.protocol
 
@@ -42,7 +42,7 @@ const getFixedUrl = (req) => {
 // which checks for a GET request with an Accept: text/html header.
 const isNavigationReq = (req) => (req.mode === 'navigate' || (req.method === 'GET' && req.headers.get('accept').includes('text/html')))
 
-// Redirect in SW manually fixed github pages 404s on repo?blah 
+// Redirect in SW manually fixed github pages 404s on repo?blah
 // If It's a navigation req and it's url.pathname isn't end with '/' (indicate github might well 404 on it )
 // it should be a dir/repo request and need to be fixed (a.k.a be redirected)
 // P.S. An url.pathname has no '.' can not indicate it's file (e.g. http://test.com/api/version/1.2/)
@@ -92,7 +92,7 @@ self.addEventListener('activate',  event => {
 /**
  *  @Functional Fetch
  *  All network requests are being intercepted here.
- * 
+ *
  *  void respondWith(Promise<Response> r);
  */
 self.addEventListener('fetch', event => {
@@ -103,14 +103,14 @@ self.addEventListener('fetch', event => {
 
   // Skip some of cross-origin requests, like those for Google Analytics.
   if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
-    
-    // Redirect in SW manually fixed github pages 404s on repo?blah 
+
+    // Redirect in SW manually fixed github pages 404s on repo?blah
     if(shouldRedirect(event.request)){
       event.respondWith(Response.redirect(getRedirectUrl(event.request)))
       return;
     }
 
-    // Stale-while-revalidate 
+    // Stale-while-revalidate
     // similar to HTTP's stale-while-revalidate: https://www.mnot.net/blog/2007/12/12/stale
     // Upgrade from Jake's to Surma's: https://gist.github.com/surma/eb441223daaedf880801ad80006389f1
     const cached = caches.match(event.request);
@@ -120,7 +120,7 @@ self.addEventListener('fetch', event => {
 
     // Call respondWith() with whatever we get first.
     // If the fetch fails (e.g disconnected), wait for the cache.
-    // If there’s nothing in cache, wait for the fetch. 
+    // If there’s nothing in cache, wait for the fetch.
     // If neither yields a response, return offline pages.
     event.respondWith(
       Promise.race([fetched.catch(_ => cached), cached])
