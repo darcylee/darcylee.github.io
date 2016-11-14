@@ -62,8 +62,8 @@ duoshuo_share: true                     # set to false if you want to use Commen
 # Baidu Analytics
 ba_track_id: 21ec442bb527ffca4aab599ab65721e0
 # Google Analytics
-ga_track_id: 'UA-87338131-1'            # Format: UA-xxxxxx-xx
-ga_domain: blog.darcylee.com.cn
+#ga_track_id: 'UA-87338131-1'            # Format: UA-xxxxxx-xx
+#ga_domain: blog.darcylee.com.cn
 
 
 
