@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: darcylee1986@gmail.com
 description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @rucle 的个人博客，与你一起发现更大的世界。"
 keyword: "darcylee, rucle, @rucle, -Li.j!a.泉 Blog, 博客, 个人网站, "
-url: "https://darcylee.com.cn"              # your host, for absolute URL
+url: "https://blog.darcylee.com.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -60,7 +60,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Analytics settings
 # Baidu Analytics
-#ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+ba_track_id: 21ec442bb527ffca4aab599ab65721e0
 # Google Analytics
 #ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
 #ga_domain: huangxuan.me
