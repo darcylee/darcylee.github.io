@@ -85,18 +85,18 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 # hotpages
-hotpages: [
-    {
-        title: "zephyr项目在macos平台的开发",
-        href:  "https://blog.darcylee.com.cn/2016/08/14/Develop_zephry_project_on_mac/"
-    }, {
-        title: "搭建简单的git服务器",
-        href:  "https://blog.darcylee.com.cn/2016/10/10/setup-simple-git-server/"
-    },{
-        title: "命令行连接VPN",
-        href:  "https://blog.darcylee.com.cn/2016/01/29/vpn_on_command_line/"
-    }
-]
+# hotpages: [
+#     {
+#         title: "zephyr项目在macos平台的开发",
+#         href:  "https://blog.darcylee.com.cn/2016/08/14/Develop_zephry_project_on_mac/"
+#     }, {
+#         title: "搭建简单的git服务器",
+#         href:  "https://blog.darcylee.com.cn/2016/10/10/setup-simple-git-server/"
+#     },{
+#         title: "命令行连接VPN",
+#         href:  "https://blog.darcylee.com.cn/2016/01/29/vpn_on_command_line/"
+#     }
+# ]
 
 
 
