@@ -17,7 +17,7 @@ tags:       [学习笔记, zephyr]
 
 获取源代码
 
-```
+```shell
 $ git clone https://gerrit.zephyrproject.org/r/zephyr
 ```
 zephyr™使用类似linux内核`Kbuild`构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的[QuickStart](https://www.zephyrproject.org/doc/getting_started/getting_started.html)文档后，很容易上手开发的， 文档中提供了三个不同平台`linux`、`windows`、`macOS`的开发环境设置介绍，如果你目前使用的是`linux`或者`windows`平台可以移步[官网]()，寻找相对应平台的说明。这里我们要说的是基于`macOS`平台的开发环境设置。
@@ -34,7 +34,7 @@ zephyr™使用类似linux内核`Kbuild`构建系统来组织整个项目的，�
 
 继续安装一些工具
 
-```
+```shell
 $ brew install gettext qemu help2man mpfr gmp coreutils wget python3
 
 $ brew tap homebrew/dupes
@@ -48,7 +48,7 @@ $ brew install gettext
 
 稍作设置
 
-```
+```shell
 $ brew edit crosstool-ng
 ```
 添加下面一行到`depends`section
@@ -57,7 +57,7 @@ $ brew edit crosstool-ng
 
 安装`Crosstool-ng`
 
-```
+```shell
 $ brew install crosstool-ng
 
 $ brew link --force gettext
@@ -70,13 +70,13 @@ $ brew link --force gettext
 
 创建好后，在`／Volumes`下面会多出一个文件夹，也就是你创建的新分区。
 
-```
+```shell
 $ ls /Volumes/
 Macintosh HD excs
 ```
 进入`excs`（根据你创建的分区名称）
 
-```
+```shell
 $ cd /Volumes/excs
 
 $ mkdir CrossToolNG
@@ -90,14 +90,14 @@ $ cd build
 
 复制zephyr项目下面的配置文件到`build`目录，zephyr提供了2个平台的配置x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。`${ZEPHYR_BASE}`为你zephyr项目的根目录
 
-```
+```shell
 $ cp ${ZEPHYR_BASE}/scripts/cross_compiler/arm.config .config
 ```
 有配置过`Crosstool-ng`的童鞋也可以自行配置，这里不再说。
 
 开始构建工具链，首先
 
-```
+```shell
 $ ct-ng menuconfig
 ```
 执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
@@ -106,7 +106,7 @@ $ ct-ng menuconfig
 
 打开`.config`文件再次确认下路径设置
 
-```
+```shell
 ...
 #
 # Paths
@@ -125,14 +125,14 @@ CT_CC_STATIC_LIBSTDCXX=n
 
 在开始编译之前，我推荐使用`Homebrew`安装gcc，不要使用`macOS`自带的gcc版本，我一开始使用自带的gcc版本编译错误，当时没有截图， 错误信息没办法提供给你们看了。安装gcc命令很简单， 如下：
 
-```
+```shell
 $ brew install gcc
 ```
 过程很漫长，差不多20分钟左右（15年中旬15寸低配macbookpro）， 在安装过程中本本风扇狂转。。。我也是醉了。。回归正题
 
 安装完成后确认一下
 
-```
+```shell
 $ gcc -v
 Using built-in specs.
 COLLECT_GCC=gcc
@@ -145,13 +145,13 @@ gcc version 5.3.0 (Homebrew gcc 5.3.0)
 
 一切准备就绪，ok，开始编译工具链
 
-```
+```shell
 $ ct-ng build
 ```
 
 又是一个漫长的等待，大概15分钟左右，提示编译成功。我们察看一下`x-tools`文件夹
 
-```
+```shell
 $ cd /Volumes/excs/CrossToolNG/x-tools
 
 $ ls
@@ -159,7 +159,7 @@ arm-none-eabi
 ```
 交叉编译工具链产生了，试验一下
 
-```
+```shell
 $ cd arm-none-eabi/bin
 
 $ ./arm-none-eabi-gcc -v
@@ -176,7 +176,7 @@ gcc version 5.2.0 (crosstool-NG crosstool-ng-1.22.0)
 
 回到`zephyr`工程目录
 
-```
+```shell
 $ cd ${ZEPHYR_BASE}
 
 $ source zephry_env.sh
@@ -184,13 +184,13 @@ $ source zephry_env.sh
 
 编译一个例子程序helloworld试试， go
 
-```
+```shell
 $ cd samples/hello_world/microkernel
 ```
 
 在编译前，先设置2个环境变量
 
-```
+```shell
 $ export ZEPHYR_GCC_VARIANT=xtools
 
 $ export XTOOLS_TOOLCHAIN_PATH=/Volumes/excs/CrossToolNG/x-tools
@@ -198,7 +198,7 @@ $ export XTOOLS_TOOLCHAIN_PATH=/Volumes/excs/CrossToolNG/x-tools
 
 编译helloworld
 
-```
+```shell
 $ make BOARD=frdm_k64f
 Using /Users/dl/work/proj/ex_projects/zephyr/boards/frdm_k64f/frdm_k64f_defconfig as base
 Merging /Users/dl/work/proj/ex_projects/zephyr/kernel/configs/nano.config
@@ -226,7 +226,7 @@ scripts/kconfig/conf --silentoldconfig Kconfig
 
 察看编译出来的`elf`文件，确实是arm平台的
 
-```
+```shell
 $ file zephyr.elf
 zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, not stripped
 ```
@@ -235,7 +235,7 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked,
 
 可以把上面的环境变量设置到`~/.zephyrrc`中，这样下次就不需要重新export了
 
-```
+```shell
 $ cat ~/.zephyrrc
 export XTOOLS_TOOLCHAIN_PATH=/Volumes/CrossToolNG/x-tools
 export ZEPHYR_GCC_VARIANT=xtools
@@ -248,13 +248,13 @@ export ZEPHYR_GCC_VARIANT=xtools
 
 生成一个`dmg`![img](/img/in-post/post_zephyr_on_mac/xtool_dmg.png)，有用的时候打开, 就会在`／Volumes`，多出`x-tools`文件夹
 
-```
+```shell
 $ ls ／Volumes
 Macintosh HD   x-tools
 ```
 然后环境变量做相应的变更
 
-```
+```shell
 export XTOOLS_TOOLCHAIN_PATH=/Volumes/x-tools
 ```
 这样，就可以把8G的分区`excs`删除，把磁盘空间还给`macOS`系统了。
@@ -265,7 +265,7 @@ export XTOOLS_TOOLCHAIN_PATH=/Volumes/x-tools
 
 具体错误如下
 
-```
+```shell
 $ cd ${ZEPHYR_BASE}/samples/hello_world/microkernel
 
 $ make menuconfig
@@ -287,12 +287,12 @@ Undefined symbols for architecture x86_64:
 
 解决办法
 
-```
+```shell
 $ brew install ncurses
 ```
 
 然后在`~/.zephyrrc`中添加`ncurse`pkgconfig
 
-```
+```shell
 export PKG_CONFIG_PATH=/usr/local/opt/ncurses/lib/pkgconfig:$PKG_CONFIG_PATH
 ```

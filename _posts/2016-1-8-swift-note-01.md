@@ -23,7 +23,7 @@ tags:       [swift, 学习笔记]
 
 下面的例子使用这种构造器来尝试将一个String转换成Int：
 
-```
+```swift
 let possibleNumber = "123"
 let convertedNumber = Int(possibleNumber)
 // convertedNumber 被推测为类型 "Int?"， 或者类型 "optional Int"
@@ -35,7 +35,7 @@ nil
 
 你可以给可选变量赋值为nil来表示它没有值：
 
-```
+```swift
 var serverResponseCode: Int? = 404
 // serverResponseCode 包含一个可选的 Int 值 404
 serverResponseCode = nil
@@ -46,7 +46,7 @@ serverResponseCode = nil
 
 如果你声明一个可选常量或者变量但是没有赋值，它们会自动被设置为nil：
 
-```
+```swift
 var surveyAnswer: String?
 // surveyAnswer 被自动设置为 nil
 ```
@@ -56,7 +56,7 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 
 可以使用if语句和nil比较来判断一个可选值是否包含值
 
-```
+```swift
 var optionalVal: String?
 
 if optionalVal != nil {
@@ -68,7 +68,7 @@ if optionalVal != nil {
 
 当你确定可选类型确实包含值之后，你可以在可选的名字后面加一个感叹号（!）来获取值。这被称为可选值的强制解析（forced unwrapping）：
 
-```
+```swift
 var optionalVal: String?
 optionalVal ＝ “123s” //如果没有值，则下面的if判断会出现编译错误
 if let actValue = Int(optionalVal!) {
@@ -91,7 +91,7 @@ if let actValue = Int(optionalVal!) {
 
 空合运算符等同于下面的表达式：
 
-```
+```swift
 a != nil ? a! : b
 ```
 
@@ -99,7 +99,7 @@ a != nil ? a! : b
 
 再一个例子
 
-```
+```swift
 let defaultName = "xiaoli"
 var userDefinedName: String?;   //默认值为 nil
 
