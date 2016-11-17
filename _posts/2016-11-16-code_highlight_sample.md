@@ -456,5 +456,46 @@ connect_call:  .long 283
 /* all addresses are network byte-order (big-endian) */
 server_addr:            .long 0x0100007f ; localhost
 server_port:            .hword 0x0b1a
+```
 
+#### javascript
+
+```javascript
+/*
+ * Execute a callback function & remove it from the Cordova object
+ */
+Cordova.callback = function() {
+    var scId = arguments[0];
+    var callbackRef = null;
+
+    var parameters = [];
+    for( var i = 1; i < arguments.length; i++ ) {
+        //debug.log( "Adding parameter " + arguments[i] );
+        parameters[i-1] = arguments[i];
+    }
+    // Keep reference to callback
+    callbackRef = Cordova.callbacks[scId];
+
+    // Even IDs are success-, odd are error-callbacks - make sure we remove both
+    if( (scId % 2) !== 0 ) {
+        scId = scId - 1;
+    }
+    // Remove both the success as well as the error callback from the stack
+    Cordova.callbacks.splice( scId, 2 );
+
+    // Finally run the callback
+    if( typeof callbackRef == "function" ) callbackRef.apply( this, parameters );
+};
+
+/*
+ * Enable a plugin for use within Cordova
+ */
+Cordova.enablePlugin = function( pluginName ) {
+    // Enable the plugin
+    console.log("typeof pluginName");
+    Cordova.plugins[pluginName] = true;
+
+    // Run constructor for plugin if available
+    if( typeof Cordova.constructors[pluginName] == "function" ) Cordova.constructors[pluginName]();
+}
 ```
