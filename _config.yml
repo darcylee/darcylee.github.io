@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: darcylee1986@gmail.com
 description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @rucle 的个人博客，与你一起发现更大的世界。"
 keyword: "darcylee, rucle, @rucle, -Li.j!a.泉 Blog, 博客, 个人网站, "
-url: "https://www.darcylee.com.cn"              # your host, for absolute URL
+url: "http://www.darcylee.com.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
