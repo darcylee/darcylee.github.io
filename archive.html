@@ -1,0 +1,32 @@
+---
+title: Archive
+layout: page
+header-img: "img/archive-bg.jpg"
+---
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12">
+
+      <!-- 归档列表 -->
+      {% for post in site.posts %}
+      {% unless post.next %}
+      <h3>{{ post.date | date: '%Y' }}</h3>
+      {% else %}
+      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+      {% if year != nyear %}
+      <h3>{{ post.date | date: '%Y' }}</h3>
+      {% endif %}
+      {% endunless %}
+      <li>
+        <!-- <span class="date">[{{ post.date | date:"%d. %b" }}]</span> -->
+        <font color="blue">[{{ post.date | date: "%m-%d" }}]</font>
+        <a target="_blank" href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
