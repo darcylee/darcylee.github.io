@@ -3,9 +3,7 @@ layout:     post
 title:      "swift－Optional类型"
 subtitle:   "swift学习笔记01, Optional类型"
 date:       2016-1-8 15:19:30 +0800
-header-img: "img/post-bg-default.jpg"
-author:     darcylee
-catalog:    true
+catalog:    false
 tags:       [swift, 学习笔记]
 
 ---

@@ -6,7 +6,6 @@ date:       2016-11-4 14:19:30
 header-img: "img/post-bg-unix.jpg"
 author:     darcylee
 tags:       [note, linux]
-
 ---
 
 > 主要针对在`debian8` 和 `ubuntu-gnome-1604`linux系统使用过程中遇到的问题
