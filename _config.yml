@@ -1,11 +1,11 @@
 # Site settings
-title: "Darcylee's Blog"
-SEOTitle: "Darcylee Blog | 李家泉的博客"
+title: "Gitlee's Blog"
+SEOTitle: "Gitlee Blog | 李家泉的博客"
 header-img: img/home-bg.jpg
 email: darcylee1986@gmail.com
-description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @rucle 的个人博客，与你一起发现更大的世界。"
-keyword: "darcylee, rucle, @rucle, -Li.j!a.泉 Blog, 博客, 个人网站, "
-url: "http://www.darcylee.com.cn"              # your host, for absolute URL
+description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。"
+keyword: "darcylee, rucle, @rucle, 李家泉的博客 darcylee Blog, 博客, 个人网站, gitlee blog gitlee"
+url: "http://www.gitlee.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -69,10 +69,11 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 21ec442bb527ffca4aab599ab65721e0
+# ba_track_id: 21ec442bb527ffca4aab599ab65721e0
+ba_track_id: 5a898ca7bdbd80b38db866387473aeca
 # Google Analytics
 #ga_track_id: 'UA-87338131-1'            # Format: UA-xxxxxx-xx
-#ga_domain: www.darcylee.com.cn
+#ga_domain: www.gitlee.com
 
 
 
@@ -97,13 +98,13 @@ service-worker: true
 # hotpages: [
 #     {
 #         title: "zephyr项目在macos平台的开发",
-#         href:  "https://www.darcylee.com.cn/2016/08/14/Develop_zephry_project_on_mac/"
+#         href:  "https://www.gitlee.com/2016/08/14/Develop_zephry_project_on_mac/"
 #     }, {
 #         title: "搭建简单的git服务器",
-#         href:  "https://www.darcylee.com.cn/2016/10/10/setup-simple-git-server/"
+#         href:  "https://www.gitlee.com/2016/10/10/setup-simple-git-server/"
 #     },{
 #         title: "命令行连接VPN",
-#         href:  "https://www.darcylee.com.cn/2016/01/29/vpn_on_command_line/"
+#         href:  "https://www.gitlee.com/2016/01/29/vpn_on_command_line/"
 #     }
 # ]
 
