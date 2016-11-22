@@ -4,7 +4,7 @@ SEOTitle: "Gitlee Blog | 李家泉的博客"
 header-img: img/home-bg.jpg
 email: darcylee1986@gmail.com
 description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。"
-keyword: "darcylee, rucle, @rucle, 李家泉的博客 darcylee Blog, 博客, 个人网站, gitlee blog gitlee"
+keyword: "gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog"
 url: "http://www.gitlee.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -34,7 +34,7 @@ defaults:
     scope:
       path: "" # an empty string here means all files in the project
     values:
-      author: "darcylee"
+      author: "gitlee"
       header-img: "img/post-bg-default.jpg"
       catalog: true
       categories: blog
