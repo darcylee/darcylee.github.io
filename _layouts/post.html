@@ -62,7 +62,7 @@ layout: default
 
                 <hr style="visibility: hidden;">
 
-                {% if site.duoshuo_share && site.duoshuo_username %}
+                {% if site.duoshuo_share and site.duoshuo_username %}
                 <!-- 多说 Share start -->
                 <div class="ds-share"
                     style="text-align: right"
@@ -161,7 +161,7 @@ layout: default
                 <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
                 <div class="tags">
         				  {% for tag in site.tags %}
-                  {% if tag[1].size > {{site.featured-condition-size}} %}
+                  {% if tag[1].size > site.featured-condition-size %}
 		              <a target="_blank"  href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                     {{ tag[0] }}
                   </a>
@@ -244,9 +244,9 @@ layout: default
 <script>
     async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
+            visible: 'always',
+            placement: 'right',
+            icon: '§'
         };
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })

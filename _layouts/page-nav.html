@@ -49,7 +49,7 @@ layout: default
                   <h5><a target="_blank" href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
                   <div class="tags">
         				    {% for tag in site.tags %}
-                    {% if tag[1].size > {{site.featured-condition-size}} %}
+                    {% if tag[1].size > site.featured-condition-size %}
                 		<a target="_blank" href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                       {{ tag[0] }}
                     </a>
@@ -82,7 +82,7 @@ layout: default
                 postlist-container
             ">
     			{{ content }}
-    			
+
 					  <hr>
             <!-- 多说评论框 start -->
             <div class="comment">
@@ -94,7 +94,7 @@ layout: default
             </div>
             <!-- 多说评论框 end -->
 
-					
+
     		</div>
     <!-- Sidebar Container -->
             <div class="
@@ -111,7 +111,7 @@ layout: default
                     <h5><a target="_blank" href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
                     <div class="tags">
                       {% for tag in site.tags %}
-                      {% if tag[1].size > {{site.featured-condition-size}} %}
+                      {% if tag[1].size > site.featured-condition-size %}
                       <a target="_blank" href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                         {{ tag[0] }}
                       </a>
