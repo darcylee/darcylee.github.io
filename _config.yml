@@ -95,18 +95,22 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 # hotpages
-# hotpages: [
-#     {
-#         title: "zephyr项目在macos平台的开发",
-#         href:  "https://www.gitlee.com/2016/08/14/Develop_zephry_project_on_mac/"
-#     }, {
-#         title: "搭建简单的git服务器",
-#         href:  "https://www.gitlee.com/2016/10/10/setup-simple-git-server/"
-#     },{
-#         title: "命令行连接VPN",
-#         href:  "https://www.gitlee.com/2016/01/29/vpn_on_command_line/"
-#     }
-# ]
+hotpages: [
+    {
+        title: "Code Highlight Sample",
+        href: "http://www.gitlee.com/blog/code_highlight_sample/"
+    },
+    {
+        title: "zephyr项目在macos平台的开发",
+        href:  "http://www.gitlee.com/blog/Develop_zephry_project_on_mac/"
+    }, {
+        title: "搭建简单的git服务器",
+        href:  "http://www.gitlee.com/blog/setup-simple-git-server/"
+    },{
+        title: "命令行连接VPN",
+        href:  "http://www.gitlee.com/blog/vpn_on_command_line/"
+    }
+]
 
 
 
