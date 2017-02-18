@@ -2,8 +2,9 @@
 layout:     post
 title:      "title"
 subtitle:   "subtitle"
-date:       2015-12-31 10:19:30
+date:       2015-12-31
 tags:       [tag1, tag2]
+
 ---
 
 default:

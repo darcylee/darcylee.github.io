@@ -2,7 +2,7 @@
 layout:     post
 title:      "zephyr项目在macos平台的开发"
 subtitle:   "macOS平台环境设置"
-date:       2016-8-14 12:19:30
+date:       2016-8-14
 header-img: "img/post-bg-zephyr.png"
 author:     darcylee
 catalog:    true
