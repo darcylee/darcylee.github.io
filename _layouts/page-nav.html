@@ -232,12 +232,13 @@ layout: default
                 </ul>
                 {% endif %}
 
-                <!--Begin Last Visitor -->
-                <hr>
-                <h5>VISITORS</h5>
-                <ul class="ds-recent-visitors" data-num-items="20" style="padding-left:0px;"></ul>
-                <!--End Last Visitor -->
-
+				<!--Begin Last Visitor -->
+				{% if site.duoshuo_username %}
+				<hr>
+				<h5>VISITORS</h5>
+				<ul class="ds-recent-visitors" data-num-items="20" style="padding-left:0px;"></ul>
+				{% endif %}
+				<!--End Last Visitor -->
     		</div>
         {% endif %}
 
