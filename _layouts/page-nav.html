@@ -25,100 +25,86 @@ layout: default
     <!-- PostList Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
                 {{ content }}
-								<hr>
-                <!-- 多说评论框 start -->
-                <div class="comment">
-                  <div class="ds-thread"
-                       data-thread-key="{{page.id}}"
-                       data-title="{{page.title}}"
-                       data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
-                  </div>
-                </div>
-                <!-- 多说评论框 end -->
-
-                <!-- gitment 评论框 start -->
-                {% if site.gitment_owner %}
-                <div id="container"></div>
-                <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-                <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-                <script>
-                 var client_id = "{{site.gitment_client_id}}"
-                 var client_secret = "{{site.gitment_client_secret}}"
-                 var gitment = new Gitment({
-                     id:  "{{page.id}}",
-                     owner: "{{site.gitment_owner}}",
-                     repo: "{{site.gitment_repo}}",
-                     oauth: {
-                         client_id: client_id,
-                         client_secret: client_secret,
-                     },
-                 })
-                 gitment.render('container')
-                </script>
-                {% endif %}
-                <!-- gitment 评论框 end -->
-
-
-
             </div>
-    <!-- Sidebar Container -->
+            <!-- Sidebar Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+                        col-lg-8 col-lg-offset-2
+                        col-md-10 col-md-offset-1
+                        sidebar-container">
 
-                <!-- Featured Tags -->
-                {% if site.featured-tags %}
+              <!-- Featured Tags -->
+              {% if site.featured-tags %}
               <section>
                 <!-- no hr -->
-                  <h5><a target="_blank" href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
-                  <div class="tags">
-        				    {% for tag in site.tags %}
-                    {% if tag[1].size > site.featured-condition-size %}
-                		<a target="_blank" href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-                      {{ tag[0] }}
-                    </a>
-                    {% endif %}
-        				    {% endfor %}
-        			    </div>
+                <h5><a target="_blank" href="{{'/tags/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
+                <div class="tags">
+        		  {% for tag in site.tags %}
+                  {% if tag[1].size > site.featured-condition-size %}
+                  <a target="_blank" href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                    {{ tag[0] }}
+                  </a>
+                  {% endif %}
+        		  {% endfor %}
+        		</div>
               </section>
-                {% endif %}
+              {% endif %}
 
-                <!-- Friends Blog -->
-                {% if site.friends %}
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-                  {% for friend in site.friends %}
-                  <li><a target="_blank" href="{{friend.href}}">{{friend.title}}</a></li>
-                  {% endfor %}
-                </ul>
-                {% endif %}
+              <!-- Friends Blog -->
+              {% if site.friends %}
+              <hr>
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                {% for friend in site.friends %}
+                <li><a target="_blank" href="{{friend.href}}">{{friend.title}}</a></li>
+                {% endfor %}
+              </ul>
+              {% endif %}
             </div>
-        {% else %}
+            {% else %}
 
-<!-- USE SIDEBAR -->
-    <!-- PostList Container -->
+            <!-- USE SIDEBAR -->
+            <!-- PostList Container -->
     		<div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                postlist-container
-            ">
-    			{{ content }}
+                        col-lg-8 col-lg-offset-1
+                        col-md-8 col-md-offset-1
+                        col-sm-12
+                        col-xs-12
+                        postlist-container
+                        ">
+    		  {{ content }}
 
-					  <hr>
-            <!-- 多说评论框 start -->
-            <div class="comment">
+			  <hr>
+              <!-- 多说评论框 start -->
+              <div class="comment">
                 <div class="ds-thread"
-                    data-thread-key="{{page.id}}"
-                    data-title="{{page.title}}"
-                    data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
+                     data-thread-key="{{page.id}}"
+                     data-title="{{page.title}}"
+                     data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
                 </div>
-            </div>
-            <!-- 多说评论框 end -->
+              </div>
+              <!-- 多说评论框 end -->
 
+              <!-- gitment 评论框 start -->
+              {% if site.gitment_owner %}
+              <div id="container"></div>
+              <link rel="stylesheet" href="/css/gitment-style-default.css">
+              <script src="/js/gitment.browser.js"></script>
+              <script>
+               var client_id = "{{site.gitment_client_id}}"
+               var client_secret = "{{site.gitment_client_secret}}"
+               var gitment = new Gitment({
+                   id:  "{{page.id}}",
+                   owner: "{{site.gitment_owner}}",
+                   repo: "{{site.gitment_repo}}",
+                   oauth: {
+                       client_id: client_id,
+                       client_secret: client_secret,
+                   },
+               })
+               gitment.render('container')
+              </script>
+              {% endif %}
+              <!-- gitment 评论框 end -->
 
     		</div>
     <!-- Sidebar Container -->
