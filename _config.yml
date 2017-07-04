@@ -95,17 +95,17 @@ service-worker: true
 hotpages: [
     {
         title: "Code Highlight Sample",
-        href: "http://www.gitlee.com/blog/code_highlight_sample/"
+        href: "/blog/code_highlight_sample/"
     },
     {
         title: "zephyr项目在macos平台的开发",
-        href:  "http://www.gitlee.com/blog/Develop_zephry_project_on_mac/"
+        href:  "/blog/Develop_zephry_project_on_mac/"
     }, {
         title: "搭建简单的git服务器",
-        href:  "http://www.gitlee.com/blog/setup-simple-git-server/"
+        href:  "/blog/setup-simple-git-server/"
     },{
         title: "命令行连接VPN",
-        href:  "http://www.gitlee.com/blog/vpn_on_command_line/"
+        href:  "/blog/vpn_on_command_line/"
     }
 ]
 
