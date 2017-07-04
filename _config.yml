@@ -40,7 +40,7 @@ anchorjs: true                         # if you want to customize anchor. check 
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 
 
@@ -55,14 +55,18 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: gitlee
+# disqus_username: gitlee
 
 # Duoshuo settings
 #duoshuo_username: darcylee
 # Share component is depend on Comment so we can NOT use share only.
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-
+# gitment settings
+gitment_owner: darcylee
+gitment_repo: gitlee.com
+gitment_client_id: e07fb815a8d03ba875dc
+gitment_client_secret: 8e5e26e1f87801afed7077d2ddd16ff6bd44c89d
 
 
 # Analytics settings

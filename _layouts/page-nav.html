@@ -28,13 +28,38 @@ layout: default
 								<hr>
                 <!-- 多说评论框 start -->
                 <div class="comment">
-                    <div class="ds-thread"
-                        data-thread-key="{{page.id}}"
-                        data-title="{{page.title}}"
-                        data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
-                    </div>
+                  <div class="ds-thread"
+                       data-thread-key="{{page.id}}"
+                       data-title="{{page.title}}"
+                       data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
+                  </div>
                 </div>
                 <!-- 多说评论框 end -->
+
+                <!-- gitment 评论框 start -->
+                {% if site.gitment_owner %}
+                <div id="container"></div>
+                <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+                <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                <script>
+                 var client_id = "{{site.gitment_client_id}}"
+                 var client_secret = "{{site.gitment_client_secret}}"
+                 var gitment = new Gitment({
+                     id:  "{{page.id}}",
+                     owner: "{{site.gitment_owner}}",
+                     repo: "{{site.gitment_repo}}",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                {% endif %}
+                <!-- gitment 评论框 end -->
+
+
+
             </div>
     <!-- Sidebar Container -->
             <div class="
