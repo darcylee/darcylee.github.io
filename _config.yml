@@ -57,11 +57,6 @@ kramdown:
 # Disqus settings
 # disqus_username: gitlee
 
-# Duoshuo settings
-#duoshuo_username: darcylee
-# Share component is depend on Comment so we can NOT use share only.
-#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
-
 # gitment settings
 gitment_owner: darcylee
 gitment_repo: gitlee.com

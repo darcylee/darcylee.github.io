@@ -192,10 +192,7 @@ layout: default
                     <a target="_blank" href="{{page.href  | prepend: site.baseurl}}">{{page.title}}</a>
                   </li>
                   {% endfor %}
-                  <!-- 多说热评文章 start -->
-	                <div class="ds-top-threads" data-range="daily" data-num-items="5"></div>
-                  <!-- 多说热评文章 end -->
-                </ul>
+               </ul>
                 <!-- End Hot Articles -->
 
                 <!-- Friends Blog -->
@@ -208,38 +205,8 @@ layout: default
                   {% endfor %}
                 </ul>
                 {% endif %}
-
-                <!--Begin Last Visitor -->
-				{% if site.duoshuo_username %}
-				<hr>
-				<h5>VISITORS</h5>
-				<ul class="ds-recent-visitors" data-num-items="20" style="padding-left:0px;"></ul>
-				{% endif %}
-				<!--End Last Visitor -->
-
     		</div>
         {% endif %}
 
-        {% if site.duoshuo_username %}
-        <!-- Duoshuo hacking -->
-        <input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
-
-        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-        <script type="text/javascript">
-         // dynamic User hacking by Hux
-         var _user = document.getElementById('dsUser').value;
-         // duoshuo comment query.
-         var duoshuoQuery = {short_name: _user };
-         (function() {
-             var ds = document.createElement('script');
-             ds.type = 'text/javascript';ds.async = true;
-             ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-             ds.charset = 'UTF-8';
-             (document.getElementsByTagName('head')[0]
-           || document.getElementsByTagName('body')[0]).appendChild(ds);
-         })();
-        </script>
-        <!-- 多说公共JS代码 end -->
-        {% endif %}
-	</div>
+</div>
 </div>
