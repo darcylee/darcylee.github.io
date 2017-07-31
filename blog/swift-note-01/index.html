@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="iUwPtQHa_fNHOiRb8XE0eoW4AHpe8lYXqZ7dZv9pmgE" />
+    <meta name="baidu-site-verification" content="WL6lV17Um6" />
+    <meta name="baidu-site-verification" content="42RzV6AoEN" />
+    <meta baidu-gxt-verify-token="579ad5c0551c141d1d37e08df0506358">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
+    <meta name="theme-color" content="#000000">
+
+    <title>swift－Optional类型 - Gitlee Blog | 李家泉的博客</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.gitlee.com/blog/swift-note-01/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gitlee's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/resource/">resource</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-default.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-default.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <div class="tags">
+                    
+                      <a target="_blank" class="tag" href="/tags/#swift" title="swift">swift</a>
+                      
+                      <a target="_blank" class="tag" href="/tags/#学习笔记" title="学习笔记">学习笔记</a>
+                      
+                  </div>
+                    <h1>swift－Optional类型</h1>
+                    
+                    
+                    <h2 class="subheading">swift学习笔记01, Optional类型</h2>
+                    
+                    <span class="meta">Posted by gitlee on January 8, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<p>使用可选类型（optionals）来处理值可能缺失的情况。可选类型表示：</p>
+
+<ul>
+  <li>有值，等于 x</li>
+</ul>
+
+<p>或者</p>
+
+<ul>
+  <li>没有值</li>
+</ul>
+
+<blockquote>
+  <p>C 和 Objective-C 中并没有可选类型这个概念。最接近的是 Objective-C 中的一个特性，一个方法要不返回一个对象要不返回nil，nil表示“缺少一个合法的对象”。然而，这只对对象起作用——对于结构体，基本的 C 类型或者枚举类型不起作用。对于这些类型，Objective-C 方法一般会返回一个特殊值（比如NSNotFound）来暗示值缺失。这种方法假设方法的调用者知道并记得对特殊值进行判断。然而，Swift 的可选类型可以让你暗示_任意类型_的值缺失，并不需要一个特殊值。</p>
+</blockquote>
+
+<p>一个例子。Swift 的String类型有一种构造器，作用是将一个String值转换成一个Int值。然而，并不是所有的字符串都可以转换成一个整数。字符串”123”可以被转换成数字123，但是字符串”hello, world”不行。</p>
+
+<p>下面的例子使用这种构造器来尝试将一个String转换成Int：</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">possibleNumber</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="k">let</span> <span class="nv">convertedNumber</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="n">possibleNumber</span><span class="p">)</span>
+<span class="c1">// convertedNumber 被推测为类型 "Int?"， 或者类型 "optional Int"</span>
+</code></pre>
+</div>
+
+<p>因为该构造器可能会失败，所以它返回一个可选类型（optional）Int，而不是一个Int。一个可选的Int被写作Int?而不是Int。问号暗示包含的值是可选类型，也就是说可能包含Int值也可能不包含值。（不能包含其他任何值比如Bool值或者String值。只能是Int或者什么都没有。）</p>
+
+<p>nil</p>
+
+<p>你可以给可选变量赋值为nil来表示它没有值：</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">serverResponseCode</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="mi">404</span>
+<span class="c1">// serverResponseCode 包含一个可选的 Int 值 404</span>
+<span class="n">serverResponseCode</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="c1">// serverResponseCode 现在不包含值</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>nil不能用于非可选的常量和变量。如果你的代码中有常量或者变量需要处理值缺失的情况，请把它们声明成对应的可选类型。</p>
+</blockquote>
+
+<p>如果你声明一个可选常量或者变量但是没有赋值，它们会自动被设置为nil：</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">surveyAnswer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+<span class="c1">// surveyAnswer 被自动设置为 nil</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>注意：
+Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是一个指向不存在对象的指针。在 Swift 中，nil不是指针——它是一个确定的值，用来表示值缺失。任何类型的可选状态都可以被设置为nil，不只是对象类型。</p>
+</blockquote>
+
+<p>可以使用if语句和nil比较来判断一个可选值是否包含值</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">optionalVal</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+
+<span class="k">if</span> <span class="n">optionalVal</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"optionalVal contains some string"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"optionalVal is nothing!"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>当你确定可选类型确实包含值之后，你可以在可选的名字后面加一个感叹号（!）来获取值。这被称为可选值的强制解析（forced unwrapping）：</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">optionalVal</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+<span class="n">optionalVal</span> <span class="err">＝</span> <span class="err">“</span><span class="mi">123</span><span class="n">s</span><span class="err">”</span> <span class="c1">//如果没有值，则下面的if判断会出现编译错误</span>
+<span class="k">if</span> <span class="k">let</span> <span class="nv">actValue</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="n">optionalVal</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">optionalVal</span><span class="se">)</span><span class="s"> has an integer value </span><span class="se">\(</span><span class="n">actValue</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span>  <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">optionalVal</span><span class="se">)</span><span class="s"> could not be converted to an integer"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>还没明白，这样的一个可选属性的设置，在实际编程里面，主要用在什么样的情况下。</p>
+
+<p>顺道提下swift里面对可选类型判断的运算符：</p>
+
+<p><strong>空合运算符 (Nil Coalescing Operator)</strong></p>
+
+<p>空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:</p>
+
+<ul>
+  <li>表达式a必须是Optional类型</li>
+  <li>默认值b的类型必须要和a存储值的类型保持一致</li>
+</ul>
+
+<p>空合运算符等同于下面的表达式：</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">?</span> <span class="n">a</span><span class="o">!</span> <span class="p">:</span> <span class="n">b</span>
+</code></pre>
+</div>
+
+<p>上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中值，反之当a中值为空时，返回默认值b。无疑空合运算符(??)提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具可读性。</p>
+
+<p>再一个例子</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">defaultName</span> <span class="o">=</span> <span class="s">"xiaoli"</span>
+<span class="k">var</span> <span class="nv">userDefinedName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?;</span>   <span class="c1">//默认值为 nil</span>
+
+<span class="k">var</span> <span class="nv">NameToUse</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
+<span class="c1">// userDefinedName 的值为空，所以 NameToUse 的值为 "xiaoli"</span>
+
+<span class="n">userDefinedName</span> <span class="o">=</span> <span class="s">"zhangsan"</span><span class="p">;</span>
+<span class="k">var</span> <span class="nv">NameToUse1</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
+<span class="c1">// userDefinedName 有值，则 NameToUse 的值为 ”zhangsan”</span>
+</code></pre>
+</div>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                      <a href="/blog/dump_bin_in_shell/" data-toggle="tooltip" data-placement="top" title="两个命令行察看二进制文件的工具">
+                        Previous<br>
+                        <span>两个命令行察看二进制文件的工具</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/vpn_on_command_line/" data-toggle="tooltip" data-placement="top" title="命令行连接VPN">
+                        Next<br>
+                        <span>命令行连接VPN</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                <!-- gitment 评论框 start -->
+                
+                <div id="container"></div>
+                <link rel="stylesheet" href="/css/gitment-style-default.css">
+                <script src="/js/gitment.browser.js"></script>
+                <script>
+                 var client_id = "e07fb815a8d03ba875dc"
+                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
+                 var gitment = new Gitment({
+                     id:  "/blog/swift-note-01",
+                     owner: "darcylee",
+                     repo: "gitlee.com",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                
+                <!-- gitment 评论框 end -->
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+              <!-- Featured Tags -->
+              
+              <section>
+                <hr class="hidden-sm hidden-xs">
+                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+        				  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
+                    学习笔记
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
+                    linux
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
+                    shell
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
+                    note
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+        			  </div>
+              </section>
+              
+              <!-- Friends Blog -->
+
+              
+
+              <hr>
+
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                
+                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
+                
+                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                
+                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                
+              </ul>
+              
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+ function async(u, c) {
+     var d = document, t = 'script',
+         o = d.createElement(t),
+         s = d.getElementsByTagName(t)[0];
+     o.src = u;
+     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+     s.parentNode.insertBefore(o, s);
+ }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+            visible: 'always',
+            placement: 'right',
+            icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/darcylee2012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/darcylee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                      <a target="_blank" href="/feed.xml">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Gitlee's Blog 2015-2017
+                  <br>
+                  Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+
+<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+ async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '5a898ca7bdbd80b38db866387473aeca';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+<!-- baidu 自动推送 -->
+<script>
+ (function(){
+   var bp = document.createElement('script');
+   var curProtocol = window.location.protocol.split(':')[0];
+   if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+   }
+   else{
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+   }
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(bp, s);
+ })();
+</script>
+<!-- end baidu 自动推送 -->
+
+
+
+<!-- Image to hack wechat -->
+  <!-- <img src="/img/icon_wechat.png" width="100" height="100" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

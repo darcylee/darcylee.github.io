@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="iUwPtQHa_fNHOiRb8XE0eoW4AHpe8lYXqZ7dZv9pmgE" />
+    <meta name="baidu-site-verification" content="WL6lV17Um6" />
+    <meta name="baidu-site-verification" content="42RzV6AoEN" />
+    <meta baidu-gxt-verify-token="579ad5c0551c141d1d37e08df0506358">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
+    <meta name="theme-color" content="#000000">
+
+    <title>两个命令行察看二进制文件的工具 - Gitlee Blog | 李家泉的博客</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.gitlee.com/blog/dump_bin_in_shell/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gitlee's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/resource/">resource</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-debian.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-debian.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <div class="tags">
+                    
+                      <a target="_blank" class="tag" href="/tags/#linux" title="linux">linux</a>
+                      
+                      <a target="_blank" class="tag" href="/tags/#shell" title="shell">shell</a>
+                      
+                  </div>
+                    <h1>两个命令行察看二进制文件的工具</h1>
+                    
+                    
+                    <h2 class="subheading">hexdump、xxd</h2>
+                    
+                    <span class="meta">Posted by darcylee on December 31, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<blockquote>
+  <ol>
+    <li>hexdump</li>
+    <li>xxd</li>
+  </ol>
+</blockquote>
+
+<h2 id="hexdump">hexdump</h2>
+<p>hexdump命令一般用来查看“二进制”文件的十六进制编码，但实际上它能查看任何文件，而不只限于二进制文件</p>
+
+<p>命令行输入：<code class="highlighter-rouge">hexdump --help</code>查看详细介绍：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » hexdump --help
+hexdump: invalid option -- '-'
+usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
+               [-s skip] [file ...]
+       hd      [-bcdovx]  [-e fmt] [-f fmt_file] [-n length]
+               [-s skip] [file ...]
+               
+</code></pre>
+</div>
+
+<p>语法选项</p>
+
+<blockquote>
+  <p>huxdump [选项] [文件] …</p>
+
+  <p>-n length 只格式化输入文件的前length个字节。 
+-C 输出规范的十六进制和ASCII码。 
+-b 单字节八进制显示。 
+-c 单字节字符显示。 
+-d 双字节十进制显示。 
+-o 双字节八进制显示。 
+-x 双字节十六进制显示。 
+-s 从偏移量开始输出。 
+-e 指定格式字符串，格式字符串包含在一对单引号中，格式字符串形如：’a/b “format1” “format2”‘。</p>
+</blockquote>
+
+<p>每个格式字符串由三部分组成，每个由空格分隔，第一个形如a/b，b表示对每b个输入字节应用format1格式，a表示对每a个输入字节应用format2格式，一般a&gt;b，且b只能为1，2，4，另外a可以省略，省略则a=1。format1和format2中可以使用类似printf的格式字符串，如：</p>
+
+<blockquote>
+  <p>%02d：两位十进制 
+%03x：三位十六进制 
+%02o：两位八进制 
+%c：单个字符等</p>
+</blockquote>
+
+<p>还有一些特殊的用法：</p>
+
+<blockquote>
+  <p>%_ad：标记下一个输出字节的序号，用十进制表示。 
+%_ax：标记下一个输出字节的序号，用十六进制表示。 
+%_ao：标记下一个输出字节的序号，用八进制表示。 
+%_p：对不能以常规字符显示的用 . 代替。</p>
+</blockquote>
+
+<p>同一行如果要显示多个格式字符串，则可以跟多个-e选项。</p>
+
+<p>示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » hexdump -e '16/1 "%02X " " | "' -e '16/1 "%_p" "\n"' rootfs.ubi
+55 42 49 23 01 00 00 00 00 00 00 00 00 00 00 00 | UBI#............
+00 00 08 00 00 00 10 00 2A AD C9 72 00 00 00 00 | ........*..r....
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+00 00 00 00 00 00 00 00 00 00 00 00 F2 06 B0 A2 | ................
+FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
+*
+55 42 49 21 01 01 00 05 7F FF EF FF 00 00 00 00 | UBI!............
+...
+...
+</code></pre>
+</div>
+
+<p>部分引用自<a href="http://man.linuxde.net/hexdump">linuxde</a></p>
+
+<h2 id="xxd">xxd</h2>
+
+<p><code class="highlighter-rouge">xxd --help</code> 查看详细使用方法</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » xxd --help
+Usage:
+       xxd [options] [infile [outfile]]
+    or
+       xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]
+Options:
+    -a          toggle autoskip: A single '*' replaces nul-lines. Default off.
+    -b          binary digit dump (incompatible with -ps,-i,-r). Default hex.
+    -c cols     format &lt;cols&gt; octets per line. Default 16 (-i: 12, -ps: 30).
+    -E          show characters in EBCDIC. Default ASCII.
+    -g          number of octets per group in normal output. Default 2.
+    -h          print this summary.
+    -i          output in C include file style.
+    -l len      stop after &lt;len&gt; octets.
+    -ps         output in postscript plain hexdump style.
+    -r          reverse operation: convert (or patch) hexdump into binary.
+    -r -s off   revert with &lt;off&gt; added to file positions found in hexdump.
+    -s [+][-]seek  start at &lt;seek&gt; bytes abs. (or +: rel.) infile offset.
+    -u          use upper case hex letters.
+    -v          show version: "xxd V1.10 27oct98 by Juergen Weigert".
+</code></pre>
+</div>
+
+<p>语法</p>
+
+<blockquote>
+  <p>xxd [options] [infile [outfile]]
+xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]</p>
+</blockquote>
+
+<p>常用选项</p>
+
+<blockquote>
+  <p>-b: 以二进制格式显示，每个字符将被转化成8个0/1的数据
+-l: 只显示N个字符，<code class="highlighter-rouge">-l N</code>
+-s: [+][-]seek 从infile的绝对或者想对位置开始显示， <code class="highlighter-rouge">-s offset</code>
+-u: 以大写字母输出，默认小写字母输出
+-g: 显示方式，<code class="highlighter-rouge">-g N</code> 以N个byte为一组输出，默认是2</p>
+</blockquote>
+
+<p>例子</p>
+
+<blockquote>
+  <p>从0x500000处开始显示64个字节</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
+0500000: 5542 4923 0100 0000 0000 0000 0000 0000  UBI#............
+0500010: 0000 0800 0000 1000 2aad c972 0000 0000  ........*..r....
+0500020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+0500030: 0000 0000 0000 0000 0000 0000 f206 b0a2  ................
+</code></pre>
+</div>
+<p>这个对调试通讯协议出错的时候特别有用</p>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                      <a href="/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/" data-toggle="tooltip" data-placement="top" title="Objective－C 实例化">
+                        Previous<br>
+                        <span>Objective－C 实例化</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/swift-note-01/" data-toggle="tooltip" data-placement="top" title="swift－Optional类型">
+                        Next<br>
+                        <span>swift－Optional类型</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                <!-- gitment 评论框 start -->
+                
+                <div id="container"></div>
+                <link rel="stylesheet" href="/css/gitment-style-default.css">
+                <script src="/js/gitment.browser.js"></script>
+                <script>
+                 var client_id = "e07fb815a8d03ba875dc"
+                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
+                 var gitment = new Gitment({
+                     id:  "/blog/dump_bin_in_shell",
+                     owner: "darcylee",
+                     repo: "gitlee.com",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                
+                <!-- gitment 评论框 end -->
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+              <!-- Featured Tags -->
+              
+              <section>
+                <hr class="hidden-sm hidden-xs">
+                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+        				  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
+                    学习笔记
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
+                    linux
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
+                    shell
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
+                    note
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+        			  </div>
+              </section>
+              
+              <!-- Friends Blog -->
+
+              
+
+              <hr>
+
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                
+                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
+                
+                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                
+                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                
+              </ul>
+              
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+ function async(u, c) {
+     var d = document, t = 'script',
+         o = d.createElement(t),
+         s = d.getElementsByTagName(t)[0];
+     o.src = u;
+     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+     s.parentNode.insertBefore(o, s);
+ }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+            visible: 'always',
+            placement: 'right',
+            icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/darcylee2012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/darcylee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                      <a target="_blank" href="/feed.xml">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Gitlee's Blog 2015-2017
+                  <br>
+                  Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+
+<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+ async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '5a898ca7bdbd80b38db866387473aeca';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+<!-- baidu 自动推送 -->
+<script>
+ (function(){
+   var bp = document.createElement('script');
+   var curProtocol = window.location.protocol.split(':')[0];
+   if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+   }
+   else{
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+   }
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(bp, s);
+ })();
+</script>
+<!-- end baidu 自动推送 -->
+
+
+
+<!-- Image to hack wechat -->
+  <!-- <img src="/img/icon_wechat.png" width="100" height="100" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

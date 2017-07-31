@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="iUwPtQHa_fNHOiRb8XE0eoW4AHpe8lYXqZ7dZv9pmgE" />
+    <meta name="baidu-site-verification" content="WL6lV17Um6" />
+    <meta name="baidu-site-verification" content="42RzV6AoEN" />
+    <meta baidu-gxt-verify-token="579ad5c0551c141d1d37e08df0506358">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
+    <meta name="theme-color" content="#000000">
+
+    <title>Objective－C 实例化 - Gitlee Blog | 李家泉的博客</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.gitlee.com/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gitlee's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/resource/">resource</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-obj.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-obj.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <div class="tags">
+                    
+                      <a target="_blank" class="tag" href="/tags/#objective-c" title="objective-c">objective-c</a>
+                      
+                      <a target="_blank" class="tag" href="/tags/#学习笔记" title="学习笔记">学习笔记</a>
+                      
+                  </div>
+                    <h1>Objective－C 实例化</h1>
+                    
+                    
+                    <h2 class="subheading">OC</h2>
+                    
+                    <span class="meta">Posted by gitlee on December 1, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="类实例化">类实例化</h1>
+
+<p>类的实例化位导致两个问题：构造函数、析构函数和赋值运算符如何实现，以及如何分配内存。</p>
+
+<p>在 C++ 中，变量默认是“自动的”：除非被声明为static，否则变量仅在自己的定义块中有意义。动态分配的内存可以一直使用，直到调用了free()或者delete。C++ 中，所有对象都遵循这一规则。</p>
+
+<p>然而在 Objective-C 中，所有对象都是动态分配的。其实这也是符合逻辑的，因为 C++ 更加 static，而 Objective-C 则更加动态。除非能够在运行时动态分配内存，否则 Objective-C 实现不了这么多动态的特性。</p>
+
+<h2 id="构造函数和初始化函数">构造函数和初始化函数</h2>
+
+<h3 id="分配allocation和初始化initialization的区别">分配<em>allocation</em>和初始化<em>initialization</em>的区别</h3>
+<p>在 <code class="highlighter-rouge">C++</code> 中，内存分配和对象初始化都是在构造函数中完成的。在 <code class="highlighter-rouge">Objective-C</code> 中，这是两个不同的函数。</p>
+
+<p>内存分配由类方法 <code class="highlighter-rouge">alloc</code> 完成，此时将初始化所有的实例数据。实例数据将被初始化为 <code class="highlighter-rouge">0</code>，除了一个名为<code class="highlighter-rouge">isa</code>的<code class="highlighter-rouge">NSObject</code>的指针。这个指针将在运行时指向对象的实际类型。实例数据根据传入的参数初始化为某一特定的值，这一过程将在一个实例方法 <code class="highlighter-rouge">instance method</code> 中完成。这个方法通常命名为<code class="highlighter-rouge">init</code>。因此，构造过程被明确地分为两步：内存分配和初始化。<code class="highlighter-rouge">alloc</code>消息被发送给类，而<code class="highlighter-rouge">init</code>消息则被发送给由<code class="highlighter-rouge">alloc</code>创建出来的新的对象。初始化过程不是可选的，<code class="highlighter-rouge">alloc</code>之后应该跟着<code class="highlighter-rouge">init</code>，之后，父类的init也会被调用，直到<code class="highlighter-rouge">NSObject</code>的<code class="highlighter-rouge">init</code>方法。这一方法完成了很多重要的工作。</p>
+
+<p>在 C<code class="highlighter-rouge">+</code>+ 中，构造函数的名字是规定好的，必须与类名一致。在 <code class="highlighter-rouge">Objective-C</code> 中，初始化方法与普通方法没有什么区别。你可以用任何名字，只不过通常都是选用 <code class="highlighter-rouge">init</code> 这个名字。然而，我们还是强烈建议，<strong>初始化方法名字一定要用<code class="highlighter-rouge">init</code>或者 <code class="highlighter-rouge">init</code> 开头的字符串。</strong></p>
+
+<h3 id="使用alloc和init">使用<code class="highlighter-rouge">alloc</code>和<code class="highlighter-rouge">init</code></h3>
+
+<p>调用<code class="highlighter-rouge">alloc</code>之后将返回一个新的对象，并且应该给这个对象发送一个<code class="highlighter-rouge">init</code>消息。<code class="highlighter-rouge">init</code>调用之后也会返回一个对象。通常，这就是初始化完成的对象。有时候，如果使用单例模式，<code class="highlighter-rouge">init</code>可能会返回另外的对象（单例模式要求始终返回同一对象）。因此，<code class="highlighter-rouge">init</code>的返回值不应该被忽略。通常，<code class="highlighter-rouge">alloc</code>和<code class="highlighter-rouge">init</code>都会在一行上。</p>
+
+<p>c++</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Foo</span><span class="o">*</span> <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>Objective-C</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">Foo</span><span class="o">*</span> <span class="n">foo1</span> <span class="o">=</span> <span class="p">[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">];</span>
+<span class="p">[</span><span class="n">foo1</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 这是不好的行为：应该使用 init 的返回值
+</span><span class="n">Foo</span><span class="o">*</span> <span class="n">foo2</span> <span class="o">=</span> <span class="p">[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">];</span>
+<span class="n">foo2</span> <span class="o">=</span> <span class="p">[</span><span class="n">foo2</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 正确，不过看上去很啰嗦
+</span><span class="n">Foo</span><span class="o">*</span> <span class="n">foo3</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 正确，这才是通常的做法
+</span></code></pre>
+</div>
+
+<p>为检查内存分配是否成功，C++ 可以判断 new 返回的指针是否是 0（如果使用的是 new(nothrow)运算符）。在 Objective-C 中，检查返回值是否是nil就已经足够了。</p>
+
+<h3 id="初始化方法的正确示例代码">初始化方法的正确示例代码</h3>
+
+<p>一个正确的初始化方法应该有如下特点：</p>
+
+<ul>
+  <li>名字以 init 开始；</li>
+  <li>返回能够使用的对象；</li>
+  <li>调用父类的 init 方法，直到NSObject的init方法被调用；</li>
+  <li>保存[super init…]的返回值；</li>
+  <li>处理构造期间出现的任何错误，无论是自己的还是父类的。</li>
+</ul>
+
+<p>下面一些代码：</p>
+
+<p>c++</p>
+
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Point2D</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Point2D</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">Point2D</span><span class="o">::</span><span class="n">Point2D</span><span class="p">(</span><span class="kt">int</span> <span class="n">anX</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anY</span><span class="p">)</span> <span class="p">{</span><span class="n">x</span> <span class="o">=</span> <span class="n">anX</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">anY</span><span class="p">;}</span>
+<span class="p">...</span>
+
+<span class="n">Point2D</span>  <span class="n">p1</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">Point2D</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Objective-C</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Point2D</span> <span class="p">:</span> <span class="nc">NSObject</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 注意，在 Objective-C 中，id 类似于 void *
+// (id) 就是对象的“一般”类型
+</span><span class="o">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">initWithX</span><span class="o">:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">anX</span> <span class="n">andY</span><span class="o">:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">anY</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">Point2D</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">anX</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">anY</span>
+<span class="p">{</span>
+    <span class="c1">// 调用父类的初始化方法
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 如果父类是 NSObject，必须进行 init 操作
+</span>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 如果父类 init 失败，返回 nil
+</span>    <span class="c1">// 父类调用成功，进行自己的初始化操作
+</span>    <span class="n">self</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">anX</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">anY</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span> <span class="c1">// 返回指向自己的指针
+</span><span class="p">}</span>
+<span class="k">@end</span>
+
+<span class="p">...</span>
+
+<span class="n">Point2D</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Point2D</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithX</span><span class="p">:</span><span class="mi">3</span> <span class="nf">andY</span><span class="p">:</span><span class="mi">4</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h2 id="self--super-init">self = [super init…]</h2>
+
+<p>在上一篇提到的代码中，最不可思议的可能就是这句<code class="highlighter-rouge">self = [super init...]</code>。回想一下，self是每个方法的一个隐藏参数，指向当前对象。因此，这是一个局部变量。那么，为什么我们要改变一个局部变量的值呢？事实上，<code class="highlighter-rouge">self</code>必须要改变。我们将在下面解释为什么要这样做。</p>
+
+<p><code class="highlighter-rouge">[super init]</code>实际上返回不同于当前对象的另外一个对象。单例模式就是这样一种情况。然而， 有一个 API 可以用一个对象替换新分配的对象。<code class="highlighter-rouge">Core Data</code>（<code class="highlighter-rouge">Apple</code> 提供的 <code class="highlighter-rouge">Cocoa</code> 里面的一个 <code class="highlighter-rouge">API</code>）就是用了这种 <code class="highlighter-rouge">API</code>，对实例数据做一些特殊的操作，从而让这些数据能够和数据库的字段关联起来。当继承<code class="highlighter-rouge">NSManagedObject</code>类的时候，就需要仔细对待这种替换。在这种情形下，<code class="highlighter-rouge">self</code>就要指向两个对象：一个是<code class="highlighter-rouge">alloc</code>返回的对象，一个是<code class="highlighter-rouge">[super init]</code>返回的对象。修改<code class="highlighter-rouge">self</code>的值对代码有一定的影响：每次访问实例数据的时候都是隐式的。</p>
+
+<p>正如下面的代码所示：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">B</span> <span class="p">:</span> <span class="nc">A</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">B</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">init</span>
+<span class="p">{</span>
+    <span class="c1">// 此时，self 指向 alloc 返回的值
+</span>    <span class="c1">// 假设 A 进行了替换操作，返回一个不同的 self
+</span>    <span class="n">id</span> <span class="n">newSelf</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">];</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// 输出 self-&gt;i 的值
+</span>    <span class="n">self</span> <span class="o">=</span> <span class="n">newSelf</span><span class="p">;</span> <span class="c1">// 有人会认为 i 没有变化
+</span>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// 事实上，此时的 self-&gt;i, 实际是 newSelf-&gt;i,
+</span>                     <span class="c1">// 和之前的值可能不一样了
+</span>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+<span class="p">...</span>
+<span class="n">B</span><span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="n">B</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">self = [super init]</code>简洁明了，也不必担心以后会引入 bug。然而，我们应该注意旧的<code class="highlighter-rouge">self</code>指向的对象的命运：它必须被释放。第一规则很简单：谁替换<code class="highlighter-rouge">self</code>指针，谁就要负责处理旧的<code class="highlighter-rouge">self</code>指针。在这里，也就是<code class="highlighter-rouge">[super init]</code>负责完成这一操作。例如，如果你创建<code class="highlighter-rouge">NSManagedObject</code>子类（这个类会执行替换操作），你就不必担心旧的<code class="highlighter-rouge">self</code>指针。事实上，<code class="highlighter-rouge">NSManagedObject</code>的开发者必须考虑这种处理。因此，如果你要创建一个执行替换操作的类，你必须知道如何在初始化过程中释放旧有对象。这种操作同错误处理很类似：如果因为非法参数、不可访问的资源造成构造失败，我们要如何处理？</p>
+
+<h2 id="初始化错误">初始化错误</h2>
+
+<p>初始化出错可能发生在三个地方：</p>
+
+<ol>
+  <li>调用[super init…]之前：如果构造函数参数非法，那么初始化应该立即停止；</li>
+  <li>调用[super init…]期间：如果父类调用失败，那么当前的初始化操作也应该停止；</li>
+  <li>调用[super init…]之后：例如资源分配失败等。</li>
+</ol>
+
+<p>在上面每一种情形中，只要失败，就应该返回<code class="highlighter-rouge">nil</code>；相应的处理应该由发生错误的对象去完成。这里，我们主要关心的是1, 3情况。要释放当前对象，我们调用<code class="highlighter-rouge">[self release]</code>即可。</p>
+
+<p>在调用<code class="highlighter-rouge">dealloc</code>之后，对象的析构才算完成。因此，<code class="highlighter-rouge">dealloc</code>的实现必须同初始化方法兼容。事实上，<code class="highlighter-rouge">alloc</code>将所有的实例数据初始化成 <code class="highlighter-rouge">0</code> 是相当有用的。</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">A</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">initWithN</span><span class="o">:</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">value</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">A</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithN</span><span class="p">:(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="nv">value</span>
+<span class="p">{</span>
+    <span class="c1">// 第一种情况：参数合法吗？
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 我们需要一个正值
+</span>    <span class="p">{</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 第二种情况：父类调用成功吗？
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 即是 self 被替换，它也是父类
+</span>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 错误发生时，谁负责释放 self？
+</span>    <span class="c1">// 第三种情况：初始化能够完成吗？
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// 尝试分配资源
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="c1">// 如果分配失败，我们希望发生错误
+</span>    <span class="p">{</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@end@interface</span> <span class="nc">A</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">initWithN</span><span class="o">:</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">value</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">A</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithN</span><span class="p">:(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="nv">value</span>
+<span class="p">{</span>
+    <span class="c1">// 第一种情况：参数合法吗？
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 我们需要一个正值
+</span>    <span class="p">{</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 第二种情况：父类调用成功吗？
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 即是 self 被替换，它也是父类
+</span>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 错误发生时，谁负责释放 self？
+</span>    <span class="c1">// 第三种情况：初始化能够完成吗？
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// 尝试分配资源
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="c1">// 如果分配失败，我们希望发生错误
+</span>    <span class="p">{</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre>
+</div>
+
+<h2 id="将构造过程合并为allocinit">将构造过程合并为alloc+init</h2>
+
+<p>有时候，alloc和init被分割成两个部分显得很罗嗦。幸运的是，我们也可以将其合并在一起。这主要牵扯到 Objective-C 的内存管理机制。简单来说，作为一个构造函数，它的名字必须以类名开头，其行为类似init，但要自己实现alloc。然而，这个对象需要注册到autorelease池中，除非发送retain消息，否则其生命周期是有限制的。以下即是示例代码：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">// 啰嗦的写法
+</span><span class="n">NSNumber</span><span class="o">*</span> <span class="n">tmp1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSNumber</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFloat</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">];</span>
+<span class="p">...</span>
+<span class="p">[</span><span class="n">tmp1</span> <span class="nf">release</span><span class="p">];</span>
+<span class="c1">// 简洁一些
+</span><span class="n">NSNumber</span><span class="o">*</span> <span class="n">tmp2</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="nf">numberWithFloat</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">];</span>
+<span class="p">...</span>
+<span class="c1">// 无需调用 release
+</span></code></pre>
+</div>
+
+<h2 id="默认构造函数指定初始化函数">默认构造函数：指定初始化函数</h2>
+
+<p>在 <code class="highlighter-rouge">Objective-C</code> 中，默认构造函数没有实在的意义，因为所有对象都是动态分配内存，也就是说，构造函数都是确定的。但是，一个常用的构造函数确实可以精简代码。事实上，一个正确的初始化过程通常类似于：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// "init" 或其他父类恰当的函数
+</span>    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="c1">// 父类初始化成功，继续其他操作……
+</span><span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>剪贴复制代码是一个不良习惯。好的做法是，将共同代码放到一个独立的函数中，通常称为“指定初始化函数”。通常这种指定初始化函数会包含很多参数，因为 <code class="highlighter-rouge">Objective-C</code> 不允许参数有默认值。</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">self</span> <span class="nf">initWithX</span><span class="p">:</span><span class="n">x</span> <span class="nf">andY</span><span class="p">:</span><span class="mi">0</span> <span class="n">andZ</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">y</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">self</span> <span class="nf">initWithX</span><span class="p">:</span><span class="n">x</span> <span class="nf">andY</span><span class="p">:</span><span class="n">y</span> <span class="n">andZ</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// 指定初始化函数
+</span><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">y</span> <span class="nf">andZ</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">z</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>如果指定初始化函数没有最大数量的参数，那基本上就没什么用处：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">// 以下代码就有很多重复部分
+</span><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="c1">// 指定初始化函数
+</span><span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">y</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">self</span> <span class="nf">initWithX</span><span class="p">:</span><span class="n">x</span><span class="p">])</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">y</span> <span class="nf">andZ</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">z</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">self</span> <span class="nf">initWithX</span><span class="p">:</span><span class="n">x</span><span class="p">])</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="初始化列表和实例数据的默认值">初始化列表和实例数据的默认值</h2>
+
+<p><code class="highlighter-rouge">Objective-C</code> 中不存在 <code class="highlighter-rouge">C++</code> 构造函数的初始化列表的概念。然而，不同于 <code class="highlighter-rouge">C++</code>，<code class="highlighter-rouge">Objective-C</code> 的alloc会将所有实例数据初始化成 <code class="highlighter-rouge">0</code>，因此指针也会被初始化成<code class="highlighter-rouge">nil</code>。<code class="highlighter-rouge">C++</code> 中，对象属性不同于指针，但是在 <code class="highlighter-rouge">Objective-C</code> 中，所有对象都被当做指针处理。</p>
+
+<h2 id="虚构造函数">虚构造函数</h2>
+
+<p><code class="highlighter-rouge">Objective-C</code> 中存在虚构造函数。我们将在后面的章节中详细讲诉这个问题。</p>
+
+<h2 id="类构造函数">类构造函数</h2>
+
+<p>在 <code class="highlighter-rouge">Objective-C</code> 中，类本身就是对象，因此它也有自己的构造函数，并且也能够被重定义。它显然是一个类函数，继承自NSObject，其原型是<code class="highlighter-rouge">+(void) initialize</code>;。</p>
+
+<p>第一次使用这个类或其子类的时候，这个函数将被自动调用。但这并不意味着，对于指定的类，这个函数只被调用一次。事实上，如果子类没有定义<code class="highlighter-rouge">+(void) initialize</code>;，那么 <code class="highlighter-rouge">Objective-C</code> 将调用其父类的<code class="highlighter-rouge">+(void) initialize</code>;。</p>
+
+<h2 id="析构函数">析构函数</h2>
+<p>在 <code class="highlighter-rouge">C++</code> 中，析构函数同构造函数一样，是一个特殊的函数。在 <code class="highlighter-rouge">Objective-C</code> 中，析构函数也是一个普通的实例函数，叫做<code class="highlighter-rouge">dealloc</code>。<code class="highlighter-rouge">C++</code> 中，当对象被释放时，析构函数将自动调用；<code class="highlighter-rouge">Objective-C</code> 也是类似的，但是释放对象的方式有所不同。</p>
+
+<p>析构函数永远不应该被显式调用。在 <code class="highlighter-rouge">C++</code> 中存在这么一种情况：开发者自己在析构时管理内存池。但是在 <code class="highlighter-rouge">Objective-C</code> 中没有这种限制。你可以在 <code class="highlighter-rouge">Cocoa</code> 中使用自定义的内存区域，但是这并不会影响平常的内存的分配、释放机制。</p>
+
+<p>C++</p>
+
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Point2D</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="o">~</span><span class="n">Point2D</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="n">Point2D</span><span class="o">::~</span><span class="n">Point2D</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre>
+</div>
+
+<p>Objective-C</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Point2D</span> <span class="p">:</span> <span class="nc">NSObject</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">dealloc</span><span class="p">;</span> <span class="c1">// 该方法可以被重定义
+</span><span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">Point2D</span>
+<span class="c1">// 在这个例子中，重定义并不需要
+</span><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">dealloc</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">dealloc</span><span class="p">];</span> <span class="c1">// 不要忘记调用父类代码
+</span><span class="p">}</span>
+<span class="k">@end</span>
+</code></pre>
+</div>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                      <a href="/blog/about_this_blog/" data-toggle="tooltip" data-placement="top" title="关于Blog，我有话要说">
+                        Previous<br>
+                        <span>关于Blog，我有话要说</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/dump_bin_in_shell/" data-toggle="tooltip" data-placement="top" title="两个命令行察看二进制文件的工具">
+                        Next<br>
+                        <span>两个命令行察看二进制文件的工具</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                <!-- gitment 评论框 start -->
+                
+                <div id="container"></div>
+                <link rel="stylesheet" href="/css/gitment-style-default.css">
+                <script src="/js/gitment.browser.js"></script>
+                <script>
+                 var client_id = "e07fb815a8d03ba875dc"
+                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
+                 var gitment = new Gitment({
+                     id:  "/blog/objc_实例化",
+                     owner: "darcylee",
+                     repo: "gitlee.com",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                
+                <!-- gitment 评论框 end -->
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+              <!-- Featured Tags -->
+              
+              <section>
+                <hr class="hidden-sm hidden-xs">
+                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+        				  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
+                    学习笔记
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
+                    linux
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
+                    shell
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
+                    note
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+        			  </div>
+              </section>
+              
+              <!-- Friends Blog -->
+
+              
+
+              <hr>
+
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                
+                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
+                
+                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                
+                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                
+              </ul>
+              
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+ function async(u, c) {
+     var d = document, t = 'script',
+         o = d.createElement(t),
+         s = d.getElementsByTagName(t)[0];
+     o.src = u;
+     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+     s.parentNode.insertBefore(o, s);
+ }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+            visible: 'always',
+            placement: 'right',
+            icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/darcylee2012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/darcylee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                      <a target="_blank" href="/feed.xml">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Gitlee's Blog 2015-2017
+                  <br>
+                  Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+
+<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+ async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '5a898ca7bdbd80b38db866387473aeca';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+<!-- baidu 自动推送 -->
+<script>
+ (function(){
+   var bp = document.createElement('script');
+   var curProtocol = window.location.protocol.split(':')[0];
+   if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+   }
+   else{
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+   }
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(bp, s);
+ })();
+</script>
+<!-- end baidu 自动推送 -->
+
+
+
+<!-- Image to hack wechat -->
+  <!-- <img src="/img/icon_wechat.png" width="100" height="100" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

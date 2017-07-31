@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="iUwPtQHa_fNHOiRb8XE0eoW4AHpe8lYXqZ7dZv9pmgE" />
+    <meta name="baidu-site-verification" content="WL6lV17Um6" />
+    <meta name="baidu-site-verification" content="42RzV6AoEN" />
+    <meta baidu-gxt-verify-token="579ad5c0551c141d1d37e08df0506358">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
+    <meta name="theme-color" content="#000000">
+
+    <title>Gitlee Blog | 李家泉的博客</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.gitlee.com/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gitlee's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/resource/">resource</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>Gitlee's Blog</h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading">一直努力挣脱胖纸形象de小胖纸</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- PostList Container -->
+    		<div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                postlist-container
+            ">
+    			
+<div class="post-preview">
+    <a href="/blog/vim_replase/">
+        <h2 class="post-title">
+            Vim 替换操作
+        </h2>
+        
+        <h3 class="post-subtitle">
+            vim note
+        </h3>
+        
+        <div class="post-content-preview">
+            vim全局替换命令
+
+
+语法为 :[addr]s/源字符串/目的字符串/[option]
+全局替换命令为：:%s/源字符串/目的字符串/g
+
+[addr] 表示检索范围，省略时表示当前行。
+
+如：“1，20” ：表示从第1行到20行；
+
+“%” ：表示整个文件，同“1,$”；
+
+“. ,$” ：从当前行到文件尾；
+
+s : 表示替换操作
+
+[option] : 表示操作类型
+
+g: 表示全局...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on February 18, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/code_highlight_sample/">
+        <h2 class="post-title">
+            Code Highlight Sample
+        </h2>
+        
+        <h3 class="post-subtitle">
+            For Code block higlight test
+        </h3>
+        
+        <div class="post-content-preview">
+            说明
+
+目前使用rouge作为highlighter
+
+查看支持的themes
+
+$ rougify help style
+usage: rougify style [&lt;theme-name&gt;] [&lt;options&gt;]
+
+Print CSS styles for the given theme.  Extra options are
+passed to the the...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on November 16, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/debian8-use-ibus/">
+        <h2 class="post-title">
+            ibus使用过程中碰到的问题
+        </h2>
+        
+        <h3 class="post-subtitle">
+            ibus在debian8中不跟随，ibus-sunpinyin无法配置等问题
+        </h3>
+        
+        <div class="post-content-preview">
+            
+  主要针对在debian8 和 ubuntu-gnome-1604linux系统使用过程中遇到的问题
+
+
+ibus-sunpiny 无法打开设置
+
+下载python-ibus安装即可，依赖python-dbus软件包
+先安装python-dbus
+
+sudo apt-get install python-dbus
+
+然后下载python-ibus,下载地址
+
+输入框跟随问题。
+
+主要是因...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on November 4, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/setup-simple-git-server/">
+        <h2 class="post-title">
+            搭建简单的git服务器
+        </h2>
+        
+        <h3 class="post-subtitle">
+            在树莓派上搭建简单git服务器
+        </h3>
+        
+        <div class="post-content-preview">
+            安装git
+
+
+  sudo apt-get install git
+
+
+创建一个git用户和组
+
+创建一个git组
+
+
+  sudo groupadd git
+
+
+创建一个git用户，指定家目录/home/git, 指定登入shell为git-shell,禁止git用户以bash-shell登入服务器,并加入用户组git
+
+
+  sudo mkdir /home/git
+
+
+
+  sudo...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on October 10, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/Develop_zephry_project_on_mac/">
+        <h2 class="post-title">
+            zephyr项目在macos平台的开发
+        </h2>
+        
+        <h3 class="post-subtitle">
+            macOS平台环境设置
+        </h3>
+        
+        <div class="post-content-preview">
+            关于zephyr™项目
+
+zephyr™, 首先它是一个开源的项目，主要目的是针对资源有限的系统设计的实时的系统内核，可以胜任从简单的嵌入式传感器到复杂的物联网网关等应用场景。官方的文档也相对比较完整，可以移步官网了解一下。
+该项目开源于今年2月份，到目前版本已升级到1.5.0
+
+获取源代码
+
+$ git clone https://gerrit.zephyrproject.org/r/ze...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on August 14, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/qtevdevkeyboard/">
+        <h2 class="post-title">
+            qtevdevkeyboard实现
+        </h2>
+        
+        <h3 class="post-subtitle">
+            QT
+        </h3>
+        
+        <div class="post-content-preview">
+            this is a test page!!
+add later.
+
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on April 20, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/vpn_on_command_line/">
+        <h2 class="post-title">
+            命令行连接VPN
+        </h2>
+        
+        <h3 class="post-subtitle">
+            using VPN on the command line
+        </h3>
+        
+        <div class="post-content-preview">
+            VPN 相信大家都很熟悉，在有图形界面的系统上，使用VPN我想大家都不会特别困难。比如在windows，或者有图形界面的linux，甚至在手上，设置都相当容易。然而要在没有图形界面的系统上使用VPN呢？大家可能都没那么熟悉了，今天就来趴一趴如何在字符终端上建立VPN连接。
+
+1. 安装VPN客户端
+
+dl@debian ~/work  [Fri 29 Jan 2016 09:48:55 AM...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on January 29, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/swift-note-01/">
+        <h2 class="post-title">
+            swift－Optional类型
+        </h2>
+        
+        <h3 class="post-subtitle">
+            swift学习笔记01, Optional类型
+        </h3>
+        
+        <div class="post-content-preview">
+            使用可选类型（optionals）来处理值可能缺失的情况。可选类型表示：
+
+
+  有值，等于 x
+
+
+或者
+
+
+  没有值
+
+
+
+  C 和 Objective-C 中并没有可选类型这个概念。最接近的是 Objective-C 中的一个特性，一个方法要不返回一个对象要不返回nil，nil表示“缺少一个合法的对象”。然而，这只对对象起作用——对于结构体，基本的 C 类型或者枚举类型不起作用。对...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by gitlee on January 8, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/dump_bin_in_shell/">
+        <h2 class="post-title">
+            两个命令行察看二进制文件的工具
+        </h2>
+        
+        <h3 class="post-subtitle">
+            hexdump、xxd
+        </h3>
+        
+        <div class="post-content-preview">
+            
+  
+    hexdump
+    xxd
+  
+
+
+hexdump
+hexdump命令一般用来查看“二进制”文件的十六进制编码，但实际上它能查看任何文件，而不只限于二进制文件
+
+命令行输入：hexdump --help查看详细介绍：
+
+lijq@server » hexdump --help
+hexdump: invalid option -- '-'
+usage: hexdump [...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by darcylee on December 31, 2015
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/">
+        <h2 class="post-title">
+            Objective－C 实例化
+        </h2>
+        
+        <h3 class="post-subtitle">
+            OC
+        </h3>
+        
+        <div class="post-content-preview">
+            类实例化
+
+类的实例化位导致两个问题：构造函数、析构函数和赋值运算符如何实现，以及如何分配内存。
+
+在 C++ 中，变量默认是“自动的”：除非被声明为static，否则变量仅在自己的定义块中有意义。动态分配的内存可以一直使用，直到调用了free()或者delete。C++ 中，所有对象都遵循这一规则。
+
+然而在 Objective-C 中，所有对象都是动态分配的。其实这也是符合逻辑的，因为 ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by gitlee on December 1, 2015
+    </p>
+</div>
+<hr>
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    
+    <li class="next">
+        <a href="/page2">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+    		</div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a target="_blank" href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                      
+                      
+                      
+                      
+                      <a target="_blank" href="/tags/#学习笔记" title="学习笔记" rel="4">
+                        学习笔记
+                      </a>
+                      
+                      
+                      
+                      <a target="_blank" href="/tags/#linux" title="linux" rel="4">
+                        linux
+                      </a>
+                      
+                      
+                      
+                      <a target="_blank" href="/tags/#shell" title="shell" rel="2">
+                        shell
+                      </a>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <a target="_blank" href="/tags/#note" title="note" rel="2">
+                        note
+                      </a>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                </section>
+                
+
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+                  <hr><h5><a target="_blank" href="/about/">ABOUT ME</a></h5>
+                    <div class="short-about">
+                        
+                            <img src="/img/avatar-darcylee.jpg" />
+                        
+                        
+                            <p>写写c/c++，学学ios&Andorid，H5，javascript，perl，bash，swift，python......世界那么大，我要多看看。</p>
+                        
+                        <!-- SNS Link -->
+                        <ul class="list-inline">
+                            
+                            
+                            
+                            <li>
+                              <a target="_blank" href="https://weibo.com/darcylee2012">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                            
+                            
+                            
+                            <li>
+                              <a target="_blank" href="https://github.com/darcylee">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                            
+                            
+                            <li>
+                              <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                            
+                            
+                            <li>
+                              <a target="_blank" href="/feed.xml">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </section>
+                <!-- Begin Hot Articles -->
+                <hr>
+                <h5>HOT ARTICLES</h5>
+                <ul class="list-inline">
+                  
+                  <li>
+                    <a target="_blank" href="/blog/code_highlight_sample/">Code Highlight Sample</a>
+                  </li>
+                  
+                  <li>
+                    <a target="_blank" href="/blog/Develop_zephry_project_on_mac/">zephyr项目在macos平台的开发</a>
+                  </li>
+                  
+                  <li>
+                    <a target="_blank" href="/blog/setup-simple-git-server/">搭建简单的git服务器</a>
+                  </li>
+                  
+                  <li>
+                    <a target="_blank" href="/blog/vpn_on_command_line/">命令行连接VPN</a>
+                  </li>
+                  
+               </ul>
+                <!-- End Hot Articles -->
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                  
+                  <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
+                  
+                  <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                  
+                  <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                  
+                </ul>
+                
+    		</div>
+        
+
+</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/darcylee2012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/darcylee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                      <a target="_blank" href="/feed.xml">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Gitlee's Blog 2015-2017
+                  <br>
+                  Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+
+<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+ async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '5a898ca7bdbd80b38db866387473aeca';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+<!-- baidu 自动推送 -->
+<script>
+ (function(){
+   var bp = document.createElement('script');
+   var curProtocol = window.location.protocol.split(':')[0];
+   if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+   }
+   else{
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+   }
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(bp, s);
+ })();
+</script>
+<!-- end baidu 自动推送 -->
+
+
+
+<!-- Image to hack wechat -->
+  <!-- <img src="/img/icon_wechat.png" width="100" height="100" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

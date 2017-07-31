@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="iUwPtQHa_fNHOiRb8XE0eoW4AHpe8lYXqZ7dZv9pmgE" />
+    <meta name="baidu-site-verification" content="WL6lV17Um6" />
+    <meta name="baidu-site-verification" content="42RzV6AoEN" />
+    <meta baidu-gxt-verify-token="579ad5c0551c141d1d37e08df0506358">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
+    <meta name="theme-color" content="#000000">
+
+    <title>命令行连接VPN - Gitlee Blog | 李家泉的博客</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.gitlee.com/blog/vpn_on_command_line/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gitlee's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/resource/">resource</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-debian.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-debian.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <div class="tags">
+                    
+                      <a target="_blank" class="tag" href="/tags/#linux" title="linux">linux</a>
+                      
+                      <a target="_blank" class="tag" href="/tags/#shell" title="shell">shell</a>
+                      
+                  </div>
+                    <h1>命令行连接VPN</h1>
+                    
+                    
+                    <h2 class="subheading">using VPN on the command line</h2>
+                    
+                    <span class="meta">Posted by darcylee on January 29, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<p><code class="highlighter-rouge">VPN</code> 相信大家都很熟悉，在有图形界面的系统上，使用<code class="highlighter-rouge">VPN</code>我想大家都不会特别困难。比如在<code class="highlighter-rouge">windows</code>，或者有图形界面的<code class="highlighter-rouge">linux</code>，甚至在手上，设置都相当容易。然而要在没有图形界面的系统上使用<code class="highlighter-rouge">VPN</code>呢？大家可能都没那么熟悉了，今天就来趴一趴如何在字符终端上建立<code class="highlighter-rouge">VPN</code>连接。</p>
+
+<h4 id="1-安装vpn客户端">1. 安装<code class="highlighter-rouge">VPN</code>客户端</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:48:55 AM CST]
+<span class="gp">$ </span>sudo apt-get install pptp-linux
+</code></pre>
+</div>
+
+<h4 id="2-创建vpn连接">2. 创建<code class="highlighter-rouge">VPN</code>连接</h4>
+
+<p>假定：你需要拨号的vpn服务器地址为<code class="highlighter-rouge">44.125.4.11</code>，你从<code class="highlighter-rouge">vpn</code>服务提供商那里申请的帐号为<code class="highlighter-rouge">abc</code>，密码为<code class="highlighter-rouge">123456</code>，你么你可以这样创建一个名为<code class="highlighter-rouge">myVpnName </code>的<code class="highlighter-rouge">vpn</code>连接</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pptpsetup --create myVpnName --server 44.125.4.11 --username abc --password 123456 --encrypt --start
+</code></pre>
+</div>
+
+<ul>
+  <li>--create 后的是创建的连接名称，可以为任意名称;</li>
+  <li>--server 后接的是vpn服务器的IP;</li>
+  <li>--username 是用户名</li>
+  <li>--password 是密码，在这也可以没这个参数，命令稍后会自动询问。这样可以保证账号安全</li>
+  <li>--encrypt 是表示需要加密，不必指定加密方式，命令会读取配置文件中的加密方式</li>
+  <li>--start 是表示创建连接完后马上连接，如果你不想连，就不写</li>
+</ul>
+
+<p>如果没有出现意外，你在控制台中将看到如下输出，说明你的vpn已经建立成功，并且以成功连接到<code class="highlighter-rouge">VPN</code>服务器</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Using interface ppp0
+Connect: ppp0 &lt;--&gt; /dev/pts/1
+CHAP authentication succeeded
+<span class="nb">local  </span>IP address 192.168.99.12
+remote IP address 192.168.99.1
+</code></pre>
+</div>
+<p>我们查看下本地IP配置，发现多了一个ppp0的连接</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:52:58 AM CST]
+<span class="gp">$ </span>ifconfig
+eth0      ....
+
+lo        ....
+
+ppp0      Link encap:Point-to-Point Protocol
+          inet addr:192.168.99.12  P-t-P:192.168.99.1  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1496  Metric:1
+          RX packets:6 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:3
+          RX bytes:60 <span class="o">(</span>60.0 B<span class="o">)</span>  TX bytes:66 <span class="o">(</span>66.0 B<span class="o">)</span>
+</code></pre>
+</div>
+
+<h4 id="3-常用操作">3. 常用操作</h4>
+
+<ul>
+  <li>
+    <p>打开<code class="highlighter-rouge">VPN</code>
+<code class="highlighter-rouge">sudo pon myVpnName </code>&lt;-<code class="highlighter-rouge">myVpnName</code>就是上面创建的vpn名称</p>
+  </li>
+  <li>
+    <p>关闭<code class="highlighter-rouge">VPN</code>
+<code class="highlighter-rouge">sudo poff myVpnName</code>。如果你再次<code class="highlighter-rouge">ifconfig</code>查看本地连接，发现刚才出现的<code class="highlighter-rouge">ppp0</code>连接已经不见了。</p>
+  </li>
+</ul>
+
+<h4 id="4-全部流量走vpn通道">4. 全部流量走<code class="highlighter-rouge">vpn</code>通道</h4>
+
+<p>我们分别<code class="highlighter-rouge">ping</code>下<code class="highlighter-rouge">google</code>和<code class="highlighter-rouge">baidu</code>服务器</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:52:15 AM CST]
+<span class="gp">$ </span>ping www.google.com
+PING www.google.com <span class="o">(</span>216.58.221.68<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+^C
+--- www.google.com ping statistics ---
+14 packets transmitted, 0 received, 100% packet loss, <span class="nb">time </span>13000ms
+
+dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:53:01 AM CST]
+<span class="gp">$ </span>ping www.baidu.com
+PING www.a.shifen.com <span class="o">(</span>14.215.177.38<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 14.215.177.38: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>128 <span class="nb">time</span><span class="o">=</span>18.6 ms
+64 bytes from 14.215.177.38: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>128 <span class="nb">time</span><span class="o">=</span>19.0 ms
+64 bytes from 14.215.177.38: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>128 <span class="nb">time</span><span class="o">=</span>18.9 ms
+</code></pre>
+</div>
+<p>发现无法ping通墙外的<code class="highlighter-rouge">google</code>而国内的<code class="highlighter-rouge">baidu</code>正常，细心的你一定发现了，<code class="highlighter-rouge">baidu</code>的连接延时和没有拨<code class="highlighter-rouge">VPN</code>时是相近的。这是为什么？原因是我们新创建的<code class="highlighter-rouge">VPN</code>通道并没有被加入系统路由，可以<code class="highlighter-rouge">route</code>
+查看一下。</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~  <span class="o">[</span>Fri 29 Jan 2016 11:27:39 AM CST]
+<span class="gp">$ </span>route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
+10.211.55.0     <span class="k">*</span>               255.255.255.0   U     0      0        0 eth0
+li1100-244.memb 10.211.55.1     255.255.255.255 UGH   0      0        0 eth0
+link-local      <span class="k">*</span>               255.255.0.0     U     1000   0        0 eth0
+192.168.99.1    <span class="k">*</span>               255.255.255.255 UH    0      0        0 ppp0
+</code></pre>
+</div>
+<p>你看<code class="highlighter-rouge">default</code>后面<code class="highlighter-rouge">Iface</code>是<code class="highlighter-rouge">eth0</code>并不是我们创建的<code class="highlighter-rouge">ppp0</code>，我们需要手动创建：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dl@debian ~  [Fri 29 Jan 2016 11:32:00 AM CST]
+$ sudo route add default dev ppp0
+</code></pre>
+</div>
+<p>再次<code class="highlighter-rouge">route</code></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~  <span class="o">[</span>Fri 29 Jan 2016 11:32:48 AM CST]
+<span class="gp">$ </span>route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         <span class="k">*</span>               0.0.0.0         U     0      0        0 ppp0
+default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
+10.211.55.0     <span class="k">*</span>               255.255.255.0   U     0      0        0 eth0
+li1100-244.memb 10.211.55.1     255.255.255.255 UGH   0      0        0 eth0
+link-local      <span class="k">*</span>               255.255.0.0     U     1000   0        0 eth0
+192.168.99.1    <span class="k">*</span>               255.255.255.255 UH    0      0        0 ppp0
+</code></pre>
+</div>
+
+<p>出现了2条<code class="highlighter-rouge">default</code>，其中一条是我们创建的痛过<code class="highlighter-rouge">ppp0</code>通道的，我们再次<code class="highlighter-rouge">ping</code>一下，发现都可以通了。</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 11:33:09 AM CST]
+<span class="gp">$ </span>ping www.google.com
+PING www.google.com <span class="o">(</span>216.58.221.228<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>493 ms
+64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>440 ms
+64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>436 ms
+64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>440 ms
+64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>5 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>440 ms
+64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>6 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>444 ms
+^C
+--- www.google.com ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, <span class="nb">time </span>9511ms
+rtt min/avg/max/mdev <span class="o">=</span> 436.317/449.187/493.006/19.749 ms
+dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 11:32:54 AM CST]
+<span class="gp">$ </span>ping www.baidu.com
+PING www.a.shifen.com <span class="o">(</span>14.215.177.37<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>525 ms
+64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>570 ms
+64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>574 ms
+64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>5 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>567 ms
+^C
+--- www.a.shifen.com ping statistics ---
+5 packets transmitted, 4 received, 20% packet loss, <span class="nb">time </span>4001ms
+rtt min/avg/max/mdev <span class="o">=</span> 525.227/559.586/574.565/19.994 ms
+
+</code></pre>
+</div>
+
+<p>如果你还不能确定新创建的<code class="highlighter-rouge">VPN</code>已正常使用，可以通过下面命令来查看外网的<code class="highlighter-rouge">IP</code></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 10:31:12 AM CST]
+<span class="gp">$ </span>curl ifconfig.me
+44.125.4.11 ＃这个其实就是你vpn服务器的ip地址，这里只是个举例
+</code></pre>
+</div>
+
+<p>至于如何自动完成路由的添加，目前还没有试验出来。等发现了添加说明。</p>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                      <a href="/blog/swift-note-01/" data-toggle="tooltip" data-placement="top" title="swift－Optional类型">
+                        Previous<br>
+                        <span>swift－Optional类型</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/qtevdevkeyboard/" data-toggle="tooltip" data-placement="top" title="qtevdevkeyboard实现">
+                        Next<br>
+                        <span>qtevdevkeyboard实现</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                <!-- gitment 评论框 start -->
+                
+                <div id="container"></div>
+                <link rel="stylesheet" href="/css/gitment-style-default.css">
+                <script src="/js/gitment.browser.js"></script>
+                <script>
+                 var client_id = "e07fb815a8d03ba875dc"
+                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
+                 var gitment = new Gitment({
+                     id:  "/blog/vpn_on_command_line",
+                     owner: "darcylee",
+                     repo: "gitlee.com",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                
+                <!-- gitment 评论框 end -->
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+              <!-- Featured Tags -->
+              
+              <section>
+                <hr class="hidden-sm hidden-xs">
+                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+        				  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
+                    学习笔记
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
+                    linux
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
+                    shell
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
+                    note
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+        			  </div>
+              </section>
+              
+              <!-- Friends Blog -->
+
+              
+
+              <hr>
+
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                
+                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
+                
+                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                
+                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                
+              </ul>
+              
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+ function async(u, c) {
+     var d = document, t = 'script',
+         o = d.createElement(t),
+         s = d.getElementsByTagName(t)[0];
+     o.src = u;
+     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+     s.parentNode.insertBefore(o, s);
+ }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+            visible: 'always',
+            placement: 'right',
+            icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/darcylee2012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/darcylee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                      <a target="_blank" href="/feed.xml">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Gitlee's Blog 2015-2017
+                  <br>
+                  Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+
+<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+ async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '5a898ca7bdbd80b38db866387473aeca';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+<!-- baidu 自动推送 -->
+<script>
+ (function(){
+   var bp = document.createElement('script');
+   var curProtocol = window.location.protocol.split(':')[0];
+   if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+   }
+   else{
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+   }
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(bp, s);
+ })();
+</script>
+<!-- end baidu 自动推送 -->
+
+
+
+<!-- Image to hack wechat -->
+  <!-- <img src="/img/icon_wechat.png" width="100" height="100" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

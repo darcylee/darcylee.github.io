@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="iUwPtQHa_fNHOiRb8XE0eoW4AHpe8lYXqZ7dZv9pmgE" />
+    <meta name="baidu-site-verification" content="WL6lV17Um6" />
+    <meta name="baidu-site-verification" content="42RzV6AoEN" />
+    <meta baidu-gxt-verify-token="579ad5c0551c141d1d37e08df0506358">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
+    <meta name="theme-color" content="#000000">
+
+    <title>zephyr项目在macos平台的开发 - Gitlee Blog | 李家泉的博客</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.gitlee.com/blog/Develop_zephry_project_on_mac/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gitlee's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/resource/">resource</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-zephyr.png" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-zephyr.png')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <div class="tags">
+                    
+                      <a target="_blank" class="tag" href="/tags/#学习笔记" title="学习笔记">学习笔记</a>
+                      
+                      <a target="_blank" class="tag" href="/tags/#zephyr" title="zephyr">zephyr</a>
+                      
+                  </div>
+                    <h1>zephyr项目在macos平台的开发</h1>
+                    
+                    
+                    <h2 class="subheading">macOS平台环境设置</h2>
+                    
+                    <span class="meta">Posted by darcylee on August 14, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h2 id="关于zephyr项目">关于<code class="highlighter-rouge">zephyr™</code>项目</h2>
+
+<p><a href="https://www.zephyrproject.org">zephyr™</a>, 首先它是一个开源的项目，主要目的是针对资源有限的系统设计的实时的系统内核，可以胜任从简单的嵌入式传感器到复杂的物联网网关等应用场景。官方的文档也相对比较完整，可以<a href="https://www.zephyrproject.org/doc/">移步官网了解一下</a>。
+该项目开源于今年2月份，到目前版本已升级到1.5.0</p>
+
+<p>获取源代码</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://gerrit.zephyrproject.org/r/zephyr
+</code></pre>
+</div>
+<p>zephyr™使用类似linux内核<code class="highlighter-rouge">Kbuild</code>构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的<a href="https://www.zephyrproject.org/doc/getting_started/getting_started.html">QuickStart</a>文档后，很容易上手开发的， 文档中提供了三个不同平台<code class="highlighter-rouge">linux</code>、<code class="highlighter-rouge">windows</code>、<code class="highlighter-rouge">macOS</code>的开发环境设置介绍，如果你目前使用的是<code class="highlighter-rouge">linux</code>或者<code class="highlighter-rouge">windows</code>平台可以移步<a href="">官网</a>，寻找相对应平台的说明。这里我们要说的是基于<code class="highlighter-rouge">macOS</code>平台的开发环境设置。</p>
+
+<p>虽然官网有给出<code class="highlighter-rouge">macOS</code>平台的<a href="https://www.zephyrproject.org/doc/getting_started/installation_mac.html">开发环境设置指南</a>，但是还是会碰到一些问题，我这里记录了一下我的设置过程，以及我碰到的问题的解决办法，希望能帮到和我一样想在<code class="highlighter-rouge">macOS</code>平台上做基于<code class="highlighter-rouge">zephyr</code>的嵌入式开发的朋友。</p>
+
+<h2 id="开发环境设置">开发环境设置</h2>
+
+<ul>
+  <li>首先请把系统升级到<code class="highlighter-rouge">Mac OS X 10.11 (El Capitan)</code>，我是基于这个版本来设置的，官网也有相应的声明。</li>
+</ul>
+
+<h4 id="安装依赖包">安装依赖包</h4>
+
+<p>安装<code class="highlighter-rouge">Homebrew</code>， 安装过的同学跳过， <code class="highlighter-rouge">Homebrew</code>好比debian系Linux系统里的<code class="highlighter-rouge">apt-get</code>工具，很好很强大。安装很简单，移步<a href="http://brew.sh">Homebrew官网</a>，按照上面的说明安装。</p>
+
+<p>继续安装一些工具</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install gettext qemu help2man mpfr gmp coreutils wget python3
+
+<span class="gp">$ </span>brew tap homebrew/dupes
+
+<span class="gp">$ </span>brew install grep --with-default-names
+
+<span class="gp">$ </span>pip3 install ply
+
+<span class="gp">$ </span>brew install gettext
+</code></pre>
+</div>
+
+<p>稍作设置</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew edit crosstool-ng
+</code></pre>
+</div>
+<p>添加下面一行到<code class="highlighter-rouge">depends</code>section</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>depends_on 'grep' =&gt; '--default-names'
+</code></pre>
+</div>
+
+<p>安装<code class="highlighter-rouge">Crosstool-ng</code></p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install crosstool-ng
+
+<span class="gp">$ </span>brew link --force gettext
+</code></pre>
+</div>
+
+<h4 id="编译工具链">编译工具链</h4>
+
+<p><code class="highlighter-rouge">macOS</code>使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用<code class="highlighter-rouge">macOS</code>自带的<code class="highlighter-rouge">diskutil</code>可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫<code class="highlighter-rouge">excs</code>，<strong><em>注意Format的选择</em></strong>
+<img src="/img/in-post/post_zephyr_on_mac/creat_case-sensitive.png" alt="img" /></p>
+
+<p>创建好后，在<code class="highlighter-rouge">／Volumes</code>下面会多出一个文件夹，也就是你创建的新分区。</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /Volumes/
+Macintosh HD excs
+</code></pre>
+</div>
+<p>进入<code class="highlighter-rouge">excs</code>（根据你创建的分区名称）</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /Volumes/excs
+
+<span class="gp">$ </span>mkdir CrossToolNG
+
+<span class="gp">$ </span><span class="nb">cd </span>CrossToolNG
+
+<span class="gp">$ </span>mkdir build src x-tools
+
+<span class="gp">$ </span><span class="nb">cd </span>build
+</code></pre>
+</div>
+
+<p>复制zephyr项目下面的配置文件到<code class="highlighter-rouge">build</code>目录，zephyr提供了2个平台的配置x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。<code class="highlighter-rouge">${ZEPHYR_BASE}</code>为你zephyr项目的根目录</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>/scripts/cross_compiler/arm.config .config
+</code></pre>
+</div>
+<p>有配置过<code class="highlighter-rouge">Crosstool-ng</code>的童鞋也可以自行配置，这里不再说。</p>
+
+<p>开始构建工具链，首先</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ct-ng menuconfig
+</code></pre>
+</div>
+<p>执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
+<img src="/img/in-post/post_zephyr_on_mac/ct-ng_config1.png" alt="img" /></p>
+
+<p>打开<code class="highlighter-rouge">.config</code>文件再次确认下路径设置</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>...
+<span class="c">#</span>
+<span class="c"># Paths</span>
+<span class="c">#</span>
+<span class="nv">CT_LOCAL_TARBALLS_DIR</span><span class="o">=</span><span class="s2">"/Volumes/excs/CrossToolNG/src"</span>
+<span class="nv">CT_SAVE_TARBALLS</span><span class="o">=</span>y
+<span class="nv">CT_WORK_DIR</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">CT_TOP_DIR</span><span class="k">}</span><span class="s2">/.build"</span>
+<span class="nv">CT_PREFIX_DIR</span><span class="o">=</span><span class="s2">"/Volumes/excs/CrossToolNG/x-tools/</span><span class="k">${</span><span class="nv">CT_TARGET</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">CT_INSTALL_DIR</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">CT_PREFIX_DIR</span><span class="k">}</span><span class="s2">"</span>
+...
+＃ 下面2行很重要，必须为n，不然编译不过
+<span class="nv">CT_WANTS_STATIC_LINK</span><span class="o">=</span>n
+<span class="nv">CT_CC_STATIC_LIBSTDCXX</span><span class="o">=</span>n
+...
+</code></pre>
+</div>
+
+<p>在开始编译之前，我推荐使用<code class="highlighter-rouge">Homebrew</code>安装gcc，不要使用<code class="highlighter-rouge">macOS</code>自带的gcc版本，我一开始使用自带的gcc版本编译错误，当时没有截图， 错误信息没办法提供给你们看了。安装gcc命令很简单， 如下：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install gcc
+</code></pre>
+</div>
+<p>过程很漫长，差不多20分钟左右（15年中旬15寸低配macbookpro）， 在安装过程中本本风扇狂转。。。我也是醉了。。回归正题</p>
+
+<p>安装完成后确认一下</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gcc -v
+Using built-in specs.
+<span class="nv">COLLECT_GCC</span><span class="o">=</span>gcc
+<span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/usr/local/Cellar/gcc/5.3.0/libexec/gcc/x86_64-apple-darwin15.6.0/5.3.0/lto-wrapper
+Target: x86_64-apple-darwin15.6.0
+Configured with: ../configure --build<span class="o">=</span>x86_64-apple-darwin15.6.0 --prefix<span class="o">=</span>/usr/local/Cellar/gcc/5.3.0 --libdir<span class="o">=</span>/usr/local/Cellar/gcc/5.3.0/lib/gcc/5 --enable-languages<span class="o">=</span>c,c++,objc,obj-c++,fortran --program-suffix<span class="o">=</span>-5 --with-gmp<span class="o">=</span>/usr/local/opt/gmp --with-mpfr<span class="o">=</span>/usr/local/opt/mpfr --with-mpc<span class="o">=</span>/usr/local/opt/libmpc --with-isl<span class="o">=</span>/usr/local/opt/isl --with-system-zlib --enable-libstdcxx-time<span class="o">=</span>yes --enable-stage1-checking --enable-checking<span class="o">=</span>release --enable-lto --with-build-config<span class="o">=</span>bootstrap-debug --disable-werror --with-pkgversion<span class="o">=</span><span class="s1">'Homebrew gcc 5.3.0'</span> --with-bugurl<span class="o">=</span>https://github.com/Homebrew/homebrew/issues --enable-plugin --disable-nls --enable-multilib --with-native-system-header-dir<span class="o">=</span>/usr/include --with-sysroot<span class="o">=</span>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+Thread model: posix
+gcc version 5.3.0 <span class="o">(</span>Homebrew gcc 5.3.0<span class="o">)</span>
+</code></pre>
+</div>
+
+<p>一切准备就绪，ok，开始编译工具链</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ct-ng build
+</code></pre>
+</div>
+
+<p>又是一个漫长的等待，大概15分钟左右，提示编译成功。我们察看一下<code class="highlighter-rouge">x-tools</code>文件夹</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /Volumes/excs/CrossToolNG/x-tools
+
+<span class="gp">$ </span>ls
+arm-none-eabi
+</code></pre>
+</div>
+<p>交叉编译工具链产生了，试验一下</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>arm-none-eabi/bin
+
+<span class="gp">$ </span>./arm-none-eabi-gcc -v
+Using built-in specs.
+<span class="nv">COLLECT_GCC</span><span class="o">=</span>./arm-none-eabi-gcc
+<span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/libexec/gcc/arm-none-eabi/5.2.0/lto-wrapper
+Target: arm-none-eabi
+Configured with: /Volumes/excs/CrossToolNG/build/.build/src/gcc-5.2.0/configure --build<span class="o">=</span>x86_64-build_apple-darwin15.6.0 --host<span class="o">=</span>x86_64-build_apple-darwin15.6.0 --target<span class="o">=</span>arm-none-eabi --prefix<span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi --with-local-prefix<span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-sysroot<span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-newlib --enable-threads<span class="o">=</span>no --disable-shared --with-pkgversion<span class="o">=</span><span class="s1">'crosstool-NG crosstool-ng-1.22.0'</span> --with-float<span class="o">=</span>soft --enable-__cxa_atexit --with-gmp<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpfr<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpc<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-isl<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-cloog<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-libelf<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --enable-lto --enable-target-optspace --disable-libgomp --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-nls --disable-multilib --enable-languages<span class="o">=</span>c
+Thread model: single
+gcc version 5.2.0 <span class="o">(</span>crosstool-NG crosstool-ng-1.22.0<span class="o">)</span>
+</code></pre>
+</div>
+
+<p>没有问题，很好</p>
+
+<p>回到<code class="highlighter-rouge">zephyr</code>工程目录</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>
+
+<span class="gp">$ </span><span class="nb">source </span>zephry_env.sh
+</code></pre>
+</div>
+
+<p>编译一个例子程序helloworld试试， go</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>samples/hello_world/microkernel
+</code></pre>
+</div>
+
+<p>在编译前，先设置2个环境变量</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">export </span><span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>xtools
+
+<span class="gp">$ </span><span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools
+</code></pre>
+</div>
+
+<p>编译helloworld</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>make <span class="nv">BOARD</span><span class="o">=</span>frdm_k64f
+Using /Users/dl/work/proj/ex_projects/zephyr/boards/frdm_k64f/frdm_k64f_defconfig as base
+Merging /Users/dl/work/proj/ex_projects/zephyr/kernel/configs/nano.config
+Merging prj.conf
+<span class="c">#</span>
+<span class="c"># configuration written to .config</span>
+<span class="c">#</span>
+  GEN     ./Makefile
+scripts/kconfig/conf --silentoldconfig Kconfig
+  Using /Users/dl/work/proj/ex_projects/zephyr as <span class="nb">source </span><span class="k">for </span>kernel
+  GEN     ./Makefile
+  CHK     include/generated/version.h
+  UPD     include/generated/version.h
+  CHK     misc/generated/configs.c
+.
+.
+.
+  LD      src/built-in.o
+  AR      libzephyr.a
+  LINK    zephyr.lnk
+  BIN     zephyr.bin
+</code></pre>
+</div>
+
+<p>没有错误，编译成功，最终生成的<code class="highlighter-rouge">bin</code>文件在outdir文件下</p>
+
+<p>察看编译出来的<code class="highlighter-rouge">elf</code>文件，确实是arm平台的</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>file zephyr.elf
+zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, statically linked, not stripped
+</code></pre>
+</div>
+
+<p>到这里你的环境基本上配置好了。</p>
+
+<p>可以把上面的环境变量设置到<code class="highlighter-rouge">~/.zephyrrc</code>中，这样下次就不需要重新export了</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat ~/.zephyrrc
+<span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/CrossToolNG/x-tools
+<span class="nb">export </span><span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>xtools
+</code></pre>
+</div>
+
+<p>如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个<code class="highlighter-rouge">dmg</code>，这样有用的时候打开这个<code class="highlighter-rouge">dmg</code>就可以了。</p>
+
+<p>打开<code class="highlighter-rouge">diskutil</code>工具，选择<code class="highlighter-rouge">File-&gt;New Image-&gt;Image from folder</code>,选择<code class="highlighter-rouge">/Volumes/excs/CrossToolNG/x-tools</code>文件夹
+<img src="/img/in-post/post_zephyr_on_mac/make_xtool_dmg.png" alt="img" /></p>
+
+<p>生成一个<code class="highlighter-rouge">dmg</code><img src="/img/in-post/post_zephyr_on_mac/xtool_dmg.png" alt="img" />，有用的时候打开, 就会在<code class="highlighter-rouge">／Volumes</code>，多出<code class="highlighter-rouge">x-tools</code>文件夹</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls ／Volumes
+Macintosh HD   x-tools
+</code></pre>
+</div>
+<p>然后环境变量做相应的变更</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/x-tools
+</code></pre>
+</div>
+<p>这样，就可以把8G的分区<code class="highlighter-rouge">excs</code>删除，把磁盘空间还给<code class="highlighter-rouge">macOS</code>系统了。</p>
+
+<h2 id="使用menuconfig配置工程遇到的错误">使用<code class="highlighter-rouge">menuconfig</code>配置工程遇到的错误</h2>
+
+<p>具体错误如下</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>/samples/hello_world/microkernel
+
+<span class="gp">$ </span>make menuconfig
+  GEN     ./Makefile
+  HOSTLD  scripts/kconfig/mconf
+Undefined symbols <span class="k">for </span>architecture x86_64:
+  <span class="s2">"_acs_map"</span>, referenced from:
+      _print_arrows <span class="k">in </span>checklist.o
+      _dialog_checklist <span class="k">in </span>checklist.o
+      _dialog_clear <span class="k">in </span>util.o
+      _draw_box <span class="k">in </span>util.o
+      _dialog_inputbox <span class="k">in </span>inputbox.o
+      _dialog_textbox <span class="k">in </span>textbox.o
+.
+.
+.
+
+</code></pre>
+</div>
+
+<p>解决办法</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install ncurses
+</code></pre>
+</div>
+
+<p>然后在<code class="highlighter-rouge">~/.zephyrrc</code>中添加<code class="highlighter-rouge">ncurse</code>pkgconfig</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/opt/ncurses/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
+</code></pre>
+</div>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                      <a href="/blog/qtevdevkeyboard/" data-toggle="tooltip" data-placement="top" title="qtevdevkeyboard实现">
+                        Previous<br>
+                        <span>qtevdevkeyboard实现</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/setup-simple-git-server/" data-toggle="tooltip" data-placement="top" title="搭建简单的git服务器">
+                        Next<br>
+                        <span>搭建简单的git服务器</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                <!-- gitment 评论框 start -->
+                
+                <div id="container"></div>
+                <link rel="stylesheet" href="/css/gitment-style-default.css">
+                <script src="/js/gitment.browser.js"></script>
+                <script>
+                 var client_id = "e07fb815a8d03ba875dc"
+                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
+                 var gitment = new Gitment({
+                     id:  "/blog/Develop_zephry_project_on_mac",
+                     owner: "darcylee",
+                     repo: "gitlee.com",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                
+                <!-- gitment 评论框 end -->
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+              <!-- Featured Tags -->
+              
+              <section>
+                <hr class="hidden-sm hidden-xs">
+                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+        				  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
+                    学习笔记
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
+                    linux
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
+                    shell
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
+                    note
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+        			  </div>
+              </section>
+              
+              <!-- Friends Blog -->
+
+              
+
+              <hr>
+
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                
+                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
+                
+                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                
+                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                
+              </ul>
+              
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+ function async(u, c) {
+     var d = document, t = 'script',
+         o = d.createElement(t),
+         s = d.getElementsByTagName(t)[0];
+     o.src = u;
+     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+     s.parentNode.insertBefore(o, s);
+ }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+            visible: 'always',
+            placement: 'right',
+            icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/darcylee2012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/darcylee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                      <a target="_blank" href="/feed.xml">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Gitlee's Blog 2015-2017
+                  <br>
+                  Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+
+<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+ async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '5a898ca7bdbd80b38db866387473aeca';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+<!-- baidu 自动推送 -->
+<script>
+ (function(){
+   var bp = document.createElement('script');
+   var curProtocol = window.location.protocol.split(':')[0];
+   if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+   }
+   else{
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+   }
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(bp, s);
+ })();
+</script>
+<!-- end baidu 自动推送 -->
+
+
+
+<!-- Image to hack wechat -->
+  <!-- <img src="/img/icon_wechat.png" width="100" height="100" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

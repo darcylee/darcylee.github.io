@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="iUwPtQHa_fNHOiRb8XE0eoW4AHpe8lYXqZ7dZv9pmgE" />
+    <meta name="baidu-site-verification" content="WL6lV17Um6" />
+    <meta name="baidu-site-verification" content="42RzV6AoEN" />
+    <meta baidu-gxt-verify-token="579ad5c0551c141d1d37e08df0506358">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
+    <meta name="theme-color" content="#000000">
+
+    <title>Code Highlight Sample - Gitlee Blog | 李家泉的博客</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.gitlee.com/blog/code_highlight_sample/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gitlee's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/resource/">resource</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-default.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-default.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <div class="tags">
+                    
+                      <a target="_blank" class="tag" href="/tags/#highlight" title="highlight">highlight</a>
+                      
+                      <a target="_blank" class="tag" href="/tags/#sample" title="sample">sample</a>
+                      
+                  </div>
+                    <h1>Code Highlight Sample</h1>
+                    
+                    
+                    <h2 class="subheading">For Code block higlight test</h2>
+                    
+                    <span class="meta">Posted by darcylee on November 16, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="说明">说明</h1>
+
+<p>目前使用rouge作为highlighter</p>
+
+<h4 id="查看支持的themes">查看支持的themes</h4>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rougify <span class="nb">help </span>style
+usage: rougify style <span class="o">[</span>&lt;theme-name&gt;] <span class="o">[</span>&lt;options&gt;]
+
+Print CSS styles <span class="k">for </span>the given theme.  Extra options are
+passed to the theme.  Theme defaults to thankful_eyes.
+
+options:
+  --scope	<span class="o">(</span>default: .highlight<span class="o">)</span> a css selector to scope by
+
+available themes:
+  base16, base16.dark, base16.monokai, base16.monokai.light, base16.solarized, base16.solarized.dark, colorful, github, molokai, monokai, monokai.sublime, thankful_eyes
+
+</code></pre>
+</div>
+
+<h4 id="支持的语言">支持的语言</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">语言</th>
+      <th style="text-align: center">aliases</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">apache</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">configuration files for Apache web server</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">applescript</td>
+      <td style="text-align: center">applescript</td>
+      <td style="text-align: left">The AppleScript scripting language by Apple Inc. (http://developer.apple.com/applescript/)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">c</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The C programming language</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">clojure</td>
+      <td style="text-align: center">clj,cljs</td>
+      <td style="text-align: left">The Clojure programming language (clojure.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">coffeescript</td>
+      <td style="text-align: center">coffee,coffee-script</td>
+      <td style="text-align: left">The Coffeescript programming language (coffeescript.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">common_lisp</td>
+      <td style="text-align: center">cl,common-lisp,elisp,emacs-lisp</td>
+      <td style="text-align: left">The Common Lisp variant of Lisp (common-lisp.net)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">conf</td>
+      <td style="text-align: center">config,configuration</td>
+      <td style="text-align: left">A generic lexer for configuration files</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">cpp</td>
+      <td style="text-align: center">c++</td>
+      <td style="text-align: left">The C++ programming language</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">csharp</td>
+      <td style="text-align: center">c#,cs</td>
+      <td style="text-align: left">a multi-paradigm language targeting .NET</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">css</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Cascading Style Sheets, used to style web pages</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">dart</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Dart programming language (dartlang.com)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">diff</td>
+      <td style="text-align: center">patch,udiff</td>
+      <td style="text-align: left">Lexes unified diffs or patches</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">elixir</td>
+      <td style="text-align: center">elixir,exs</td>
+      <td style="text-align: left">Elixir language (elixir-lang.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">erb</td>
+      <td style="text-align: center">eruby,rhtml</td>
+      <td style="text-align: left">Embedded ruby template files</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">erlang</td>
+      <td style="text-align: center">erl</td>
+      <td style="text-align: left">The Erlang programming language (erlang.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">factor</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Factor, the practical stack language (factorcode.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">gherkin</td>
+      <td style="text-align: center">cucumber,behat</td>
+      <td style="text-align: left">A business-readable spec DSL ( github.com/cucumber/cucumber/wiki/Gherkin )</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">glsl</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The GLSL shader language</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">go</td>
+      <td style="text-align: center">go,golang</td>
+      <td style="text-align: left">The Go programming language (http://golang.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">groovy</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Groovy programming language (groovy.codehaus.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">haml</td>
+      <td style="text-align: center">HAML</td>
+      <td style="text-align: left">The Haml templating system for Ruby (haml.info)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">handlebars</td>
+      <td style="text-align: center">hbs,mustache</td>
+      <td style="text-align: left">the Handlebars and Mustache templating languages</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">haskell</td>
+      <td style="text-align: center">hs</td>
+      <td style="text-align: left">The Haskell programming language (haskell.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">html</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">HTML, the markup language of the web</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">http</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">http requests and responses</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ini</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">the INI configuration format</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">io</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The IO programming language (http://iolanguage.com)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">java</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Java programming language (java.com)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">javascript</td>
+      <td style="text-align: center">js</td>
+      <td style="text-align: left">JavaScript, the browser scripting language</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">json</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">JavaScript Object Notation (json.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">json-doc</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">JavaScript Object Notation with extenstions for documentation</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">liquid</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Liquid is a templating engine for Ruby (liquidmarkup.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">literate_coffeescript</td>
+      <td style="text-align: center">litcoffee</td>
+      <td style="text-align: left">Literate coffeescript</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">literate_haskell</td>
+      <td style="text-align: center">lithaskell,lhaskell,lhs</td>
+      <td style="text-align: left">Literate haskell</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">llvm</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The LLVM Compiler Infrastructure (http://llvm.org/)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">lua</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Lua (http://www.lua.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">make</td>
+      <td style="text-align: center">makefile,mf,gnumake,bsdmake</td>
+      <td style="text-align: left">Makefile syntax</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">markdown</td>
+      <td style="text-align: center">md,mkd</td>
+      <td style="text-align: left">Markdown, a light-weight markup language for authors</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">matlab</td>
+      <td style="text-align: center">m</td>
+      <td style="text-align: left">Matlab</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">moonscript</td>
+      <td style="text-align: center">moon</td>
+      <td style="text-align: left">Moonscript (http://www.moonscript.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">nginx</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">configuration files for the nginx web server (nginx.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">nim</td>
+      <td style="text-align: center">nimrod</td>
+      <td style="text-align: left">The Nim programming language (http://nim-lang.org/)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">objective_c</td>
+      <td style="text-align: center">objc</td>
+      <td style="text-align: left">an extension of C commonly used to write Apple software</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ocaml</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Objective CAML (ocaml.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">perl</td>
+      <td style="text-align: center">pl</td>
+      <td style="text-align: left">The Perl scripting language (perl.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">php</td>
+      <td style="text-align: center">php,php3,php4,php5</td>
+      <td style="text-align: left">The PHP scripting language (php.net)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">plaintext</td>
+      <td style="text-align: center">text</td>
+      <td style="text-align: left">A boring lexer that doesn’t highlight anything [aliases: text]</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">powershell</td>
+      <td style="text-align: center">posh</td>
+      <td style="text-align: left">powershell [aliases: posh]</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">praat</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Praat scripting language (praat.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">prolog</td>
+      <td style="text-align: center">prolog</td>
+      <td style="text-align: left">The Prolog programming language (http://en.wikipedia.org/wiki/Prolog)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">properties</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">.properties config files for Java</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">puppet</td>
+      <td style="text-align: center">pp</td>
+      <td style="text-align: left">The Puppet configuration management language (puppetlabs.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">python</td>
+      <td style="text-align: center">py</td>
+      <td style="text-align: left">The Python programming language (python.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">qml</td>
+      <td style="text-align: center">qml</td>
+      <td style="text-align: left">QML, a UI markup language</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">r</td>
+      <td style="text-align: center">r,R,s,S</td>
+      <td style="text-align: left">The R statistics language (r-project.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">racket</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Racket is a Lisp descended from Scheme (racket-lang.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ruby</td>
+      <td style="text-align: center">rb</td>
+      <td style="text-align: left">The Ruby programming language (ruby-lang.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">rust</td>
+      <td style="text-align: center">rs</td>
+      <td style="text-align: left">The Rust programming language (rust-lang.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">sass</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Sass stylesheet language language (sass-lang.com)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">scala</td>
+      <td style="text-align: center">scala</td>
+      <td style="text-align: left">The Scala programming language (scala-lang.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">scheme</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Scheme variant of Lisp</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">scss</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">SCSS stylesheets (sass-lang.com)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">sed</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">sed, the ultimate stream editor</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">shell</td>
+      <td style="text-align: center">bash,zsh,ksh,sh</td>
+      <td style="text-align: left">Various shell languages, including sh and bash</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">slim</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Slim template language</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">smalltalk</td>
+      <td style="text-align: center">st,squeak]</td>
+      <td style="text-align: left">The Smalltalk programming language</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">sml</td>
+      <td style="text-align: center">ml</td>
+      <td style="text-align: left">Standard ML</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">sql</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Structured Query Language, for relational databases</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">swift</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">Multi paradigm, compiled programming language developed by Apple for iOS and OS X development. (developer.apple.com/swift)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">tcl</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">The Tool Command Language (tcl.tk)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">tex</td>
+      <td style="text-align: center">TeX,LaTeX,latex</td>
+      <td style="text-align: left">The TeX typesetting system</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">toml</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left">the TOML configuration format (https://github.com/mojombo/toml)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">tulip</td>
+      <td style="text-align: center">tlp</td>
+      <td style="text-align: left">The tulip programming language http://github.com/jneen/tulip</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">vb</td>
+      <td style="text-align: center">visualbasic</td>
+      <td style="text-align: left">Visual Basic</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">viml</td>
+      <td style="text-align: center">vim,vimscript,ex</td>
+      <td style="text-align: left">VimL, the scripting language for the Vim editor (vim.org)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">xml</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: left"><desc for="this-lexer">XML</desc></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">yaml</td>
+      <td style="text-align: center">yml</td>
+      <td style="text-align: left">Yaml Ain’t Markup Language (yaml.org)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="sample">Sample</h1>
+
+<h4 id="c">C</h4>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">argc</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="ruby">ruby</h4>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Jekyll</span>
+
+  <span class="k">class</span> <span class="nc">PrismBlock</span> <span class="o">&lt;</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">Block</span>
+    <span class="kp">include</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">StandardFilters</span>
+
+    <span class="no">OPTIONS_SYNTAX</span> <span class="o">=</span> <span class="sr">%r{^([a-zA-Z0-9.+#-]+)((</span><span class="se">\s</span><span class="sr">+</span><span class="se">\w</span><span class="sr">+(=[0-9,-]+)?)*)$}</span>
+
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span> <span class="n">markup</span><span class="p">,</span> <span class="n">tokens</span><span class="p">)</span>
+      <span class="k">super</span>
+      <span class="k">if</span> <span class="n">markup</span><span class="p">.</span><span class="nf">strip</span> <span class="o">=~</span> <span class="no">OPTIONS_SYNTAX</span>
+        <span class="vi">@lang</span> <span class="o">=</span> <span class="vg">$1</span>
+        <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="vg">$2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="vg">$2</span> <span class="o">!=</span> <span class="s1">''</span>
+          <span class="n">tmp_options</span> <span class="o">=</span> <span class="p">{}</span>
+          <span class="vg">$2</span><span class="p">.</span><span class="nf">split</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">opt</span><span class="o">|</span>
+            <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">'='</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">nil?</span>
+              <span class="n">value</span> <span class="o">=</span> <span class="kp">true</span>
+            <span class="k">end</span>
+            <span class="n">tmp_options</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+          <span class="k">end</span>
+          <span class="vi">@options</span> <span class="o">=</span> <span class="n">tmp_options</span>
+        <span class="k">else</span>
+          <span class="vi">@options</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"linenos"</span> <span class="o">=&gt;</span> <span class="s2">""</span> <span class="p">}</span>
+        <span class="k">end</span>
+      <span class="k">else</span>
+        <span class="k">raise</span> <span class="no">SyntaxError</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Syntax Error in 'prism' - Valid syntax: prism &lt;lang&gt; [linenos(='1-5')]"</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+      <span class="n">code</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="k">super</span><span class="p">).</span><span class="nf">strip</span>
+
+      <span class="k">if</span> <span class="vi">@options</span><span class="p">[</span><span class="s2">"linenos"</span><span class="p">]</span> <span class="o">==</span> <span class="kp">true</span>
+        <span class="vi">@options</span><span class="p">[</span><span class="s2">"linenos"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"1-</span><span class="si">#{</span><span class="n">code</span><span class="p">.</span><span class="nf">lines</span><span class="p">.</span><span class="nf">count</span><span class="si">}</span><span class="s2">"</span>
+      <span class="k">end</span>
+
+      <span class="o">&lt;&lt;-</span><span class="no">HTML</span><span class="sh">
+&lt;div&gt;
+  &lt;pre data-line='</span><span class="si">#{</span><span class="vi">@options</span><span class="p">[</span><span class="s2">"linenos"</span><span class="p">]</span><span class="si">}</span><span class="sh">'&gt;&lt;code class='language-</span><span class="si">#{</span><span class="vi">@lang</span><span class="si">}</span><span class="sh">'&gt;</span><span class="si">#{</span><span class="n">code</span><span class="si">}</span><span class="sh">&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</span><span class="no">      HTML</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="p">.</span><span class="nf">register_tag</span><span class="p">(</span><span class="s1">'prism'</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">PrismBlock</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<h4 id="makefile">makefile</h4>
+
+<div class="language-makefile highlighter-rouge"><pre class="highlight"><code><span class="nv">BUILDDIR</span>      <span class="o">=</span> _build
+<span class="nv">EXTRAS</span>       <span class="o">?=</span> <span class="nv">$(BUILDDIR)</span>/extras
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">main clean</span>
+
+<span class="nl">main</span><span class="o">:</span>
+	<span class="p">@</span><span class="nb">echo</span> <span class="s2">"Building main facility..."</span>
+	build_main <span class="nv">$(BUILDDIR)</span>
+
+<span class="nl">clean</span><span class="o">:</span>
+	rm -rf <span class="nv">$(BUILDDIR)</span>/<span class="k">*</span>
+</code></pre>
+</div>
+
+<h4 id="markdown">markdown</h4>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="gh"># hello world</span>
+
+you can write text <span class="p">[</span><span class="nv">with links</span><span class="p">](</span><span class="sx">http://example.com</span><span class="p">)</span> inline or <span class="p">[</span><span class="nv">link references</span><span class="p">][</span><span class="ss">1</span><span class="p">]</span>.
+<span class="p">
+*</span> one _thing_ has <span class="ge">*em*</span>phasis
+<span class="p">*</span> two __things__ are <span class="gs">**bold**</span>
+
+<span class="p">[</span><span class="ss">1</span><span class="p">]:</span> <span class="sx">http://example.com</span>
+<span class="p">
+---
+</span>
+<span class="gu">hello world
+===========
+</span>
+<span class="nt">&lt;this</span><span class="na">_is</span> <span class="na">inline=</span><span class="s">"xml"</span><span class="nt">&gt;</span><span class="err">&lt;</span>/this_is&gt;
+<span class="gt">
+&gt; markdown is so cool</span><span class="sb">
+
+    so are code segments
+
+</span><span class="p">1.</span> one thing (yeah!)
+<span class="p">2.</span> two thing <span class="sb">`i can write code`, and `more`</span> wipee!
+</code></pre>
+</div>
+
+<h4 id="elisp">elisp</h4>
+
+<div class="language-elisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">prompt-for-cd</span> <span class="p">()</span>
+   <span class="s">"Prompts
+    for CD"</span>
+   <span class="p">(</span><span class="nv">prompt-read</span> <span class="s">"Title"</span> <span class="mf">1.53</span> <span class="mi">1</span> <span class="mi">2/4</span> <span class="mf">1.7</span> <span class="mf">1.7e0</span> <span class="nv">2.9E-4</span> <span class="mi">+42</span> <span class="mi">-7</span> <span class="m">#b001</span> <span class="m">#b001/100</span> <span class="mo">#o777</span> <span class="mo">#O777</span> <span class="m">#xabc55</span> <span class="m">#c</span><span class="p">(</span><span class="mi">0</span> <span class="mf">-5.6</span><span class="p">))</span>
+   <span class="p">(</span><span class="nv">prompt-read</span> <span class="s">"Artist"</span> <span class="k">&amp;rest</span><span class="p">)</span>
+   <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nb">parse-integer</span> <span class="p">(</span><span class="nv">prompt-read</span> <span class="s">"Rating"</span><span class="p">)</span> <span class="ss">:junk-allowed</span> <span class="no">t</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">"yes"</span><span class="p">)</span> <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">"no"</span> <span class="no">nil</span><span class="p">)</span> <span class="c1">;and here comment</span>
+  <span class="p">)</span>
+  <span class="c1">;; second line comment</span>
+  <span class="o">'</span><span class="p">(</span><span class="nb">+</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">defvar</span> <span class="vg">*lines*</span><span class="p">)</span>                <span class="c1">; list of all lines</span>
+  <span class="p">(</span><span class="nb">position-if-not</span> <span class="nf">#'</span><span class="nv">sys::whitespacep</span> <span class="nv">line</span> <span class="ss">:start</span> <span class="nv">beg</span><span class="p">))</span>
+  <span class="p">(</span><span class="k">quote</span> <span class="p">(</span><span class="nv">privet</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+  <span class="o">'</span><span class="p">(</span><span class="nv">hello</span> <span class="nv">world</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">*</span> <span class="mi">5</span> <span class="mi">7</span><span class="p">)</span>
+  <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">34</span> <span class="mi">5</span><span class="p">)</span>
+  <span class="p">(</span><span class="ss">:use</span> <span class="s">"aaaa"</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nv">y</span> <span class="mi">20</span><span class="p">))</span>
+    <span class="p">(</span><span class="nb">print</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
+  <span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="bash">bash</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c">###### CONFIG</span>
+<span class="nv">ACCEPTED_HOSTS</span><span class="o">=</span><span class="s2">"/root/.hag_accepted.conf"</span>
+<span class="nv">BE_VERBOSE</span><span class="o">=</span><span class="nb">false
+
+</span><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$UID</span><span class="s2">"</span> -ne 0 <span class="o">]</span>
+<span class="k">then
+ </span><span class="nb">echo</span> <span class="s2">"Superuser rights required"</span>
+ <span class="nb">exit </span>2
+<span class="k">fi
+
+</span>genApacheConf<span class="o">(){</span>
+ <span class="nb">echo</span> -e <span class="s2">"# Host </span><span class="k">${</span><span class="nv">HOME_DIR</span><span class="k">}</span><span class="nv">$1</span><span class="s2">/</span><span class="nv">$2</span><span class="s2"> :"</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="java">java</h4>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * @author John Smith &lt;john.smith@example.com&gt;
+*/</span>
+<span class="kn">package</span> <span class="n">l2f</span><span class="o">.</span><span class="na">gameserver</span><span class="o">.</span><span class="na">model</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">L2Char</span> <span class="kd">extends</span> <span class="n">L2Object</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Short</span> <span class="n">ERROR</span> <span class="o">=</span> <span class="mh">0x0001</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">moveTo</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">z</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">_ai</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="n">log</span><span class="o">(</span><span class="s">"Should not be called"</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// wtf!?</span>
+      <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="json">json</h4>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apples"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12000</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oranges"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">17500</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4 id="objc">objc</h4>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="cp">#import &lt;UIKit/UIKit.h&gt;
+#import "Dependency.h"
+</span>
+<span class="k">@protocol</span> <span class="nc">WorldDataSource</span>
+<span class="k">@optional</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">worldName</span><span class="p">;</span>
+<span class="err">@required</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">allowsToLive</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">title</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">IBAction</span><span class="p">)</span> <span class="n">show</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre>
+</div>
+
+<h4 id="shell">shell</h4>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo apt-get install gcc
+</code></pre>
+</div>
+
+<h4 id="swift">swift</h4>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">defaultName</span> <span class="o">=</span> <span class="s">"xiaoli"</span>
+<span class="k">var</span> <span class="nv">userDefinedName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?;</span>   <span class="c1">//默认值为 nil</span>
+
+<span class="k">var</span> <span class="nv">NameToUse</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
+<span class="c1">// userDefinedName 的值为空，所以 NameToUse 的值为 "xiaoli"</span>
+
+<span class="n">userDefinedName</span> <span class="o">=</span> <span class="s">"zhangsan"</span><span class="p">;</span>
+<span class="k">var</span> <span class="nv">NameToUse1</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
+<span class="c1">// userDefinedName 有值，则 NameToUse 的值为 ”zhangsan”</span>
+</code></pre>
+</div>
+
+<h4 id="css">css</h4>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="k">@font-face</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="n">Chunkfive</span><span class="p">;</span> <span class="nl">src</span><span class="p">:</span> <span class="sx">url('Chunkfive.otf')</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span><span class="o">,</span> <span class="nc">.usertext</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#F0F0F0</span><span class="p">;</span> <span class="nl">background</span><span class="p">:</span> <span class="m">#600</span><span class="p">;</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="n">Chunkfive</span><span class="p">,</span> <span class="n">sans</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@import</span> <span class="sx">url(print.css)</span><span class="p">;</span>
+<span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
+  <span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">^=</span><span class="nt">http</span><span class="o">]</span><span class="nd">::after</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="n">attr</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="less">less</h4>
+
+<pre><code class="language-less">@import "fruits";
+
+@rhythm: 1.5em;
+
+@media screen and (min-resolution: 2dppx) {
+    body {font-size: 125%}
+}
+
+section &gt; .foo + #bar:hover [href*="less"] {
+    margin:     @rhythm 0 0 @rhythm;
+    padding:    calc(5% + 20px);
+    background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+    background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+    background-blend-mode: multiply;
+}
+
+@font-face {
+    font-family: /* ? */ 'Omega';
+    src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+    display:     inline-block;
+    font-family: "Omega", Alpha, sans-serif;
+    content:     "\f085";
+    color:       rgba(98, 76 /* or 54 */, 231, .75);
+}
+</code></pre>
+
+<h4 id="tex">tex</h4>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code><span class="k">\documentclass</span><span class="p">{</span>article<span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[koi8-r]</span><span class="p">{</span>inputenc<span class="p">}</span>
+<span class="k">\hoffset</span>=0pt
+<span class="k">\voffset</span>=.3em
+<span class="k">\tolerance</span>=400
+<span class="k">\newcommand</span><span class="p">{</span><span class="k">\eTiX</span><span class="p">}{</span><span class="k">\TeX</span><span class="p">}</span>
+<span class="nt">\begin{document}</span>
+<span class="k">\section*</span><span class="p">{</span>Highlight.js<span class="p">}</span>
+<span class="nt">\begin{table}</span>[c|c]
+<span class="p">$</span><span class="nv">\frac</span><span class="nb"> </span><span class="m">12</span><span class="nv">\,</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb"> </span><span class="m">1</span><span class="p">{</span><span class="nb">x</span><span class="p">^</span><span class="m">3</span><span class="p">}</span><span class="nv">\text</span><span class="p">{</span><span class="nb">Hello </span><span class="nv">\!</span><span class="nb"> world</span><span class="p">}$</span> <span class="p">&amp;</span> <span class="k">\textbf</span><span class="p">{</span>Goodbye<span class="k">\~</span> world<span class="p">}</span> <span class="k">\\\eTiX</span> <span class="p">$</span><span class="nb"> </span><span class="nv">\pi</span><span class="o">=</span><span class="m">400</span><span class="nb"> </span><span class="p">$</span>
+<span class="nt">\end{table}</span>
+Ch<span class="k">\'</span>erie, <span class="k">\c</span><span class="p">{</span>c<span class="p">}</span>a ne me pla<span class="k">\^\i</span> t pas! <span class="c">% comment \b</span>
+G<span class="k">\"</span>otterd<span class="k">\"</span>ammerung~45<span class="k">\%</span>=34.
+<span class="p">$$</span><span class="nb">
+    </span><span class="nv">\int\limits</span><span class="p">_{</span><span class="m">0</span><span class="p">}^{</span><span class="nv">\pi</span><span class="p">}</span><span class="nv">\frac</span><span class="p">{</span><span class="m">4</span><span class="p">}{</span><span class="nb">x</span><span class="o">-</span><span class="m">7</span><span class="p">}</span><span class="o">=</span><span class="m">3</span><span class="nb">
+</span><span class="p">$$</span>
+<span class="nt">\end{document}</span>
+</code></pre>
+</div>
+
+<h4 id="asm">asm</h4>
+
+<pre><code class="language-Assembly">.text
+
+.global connect
+connect:
+    mov     r3, #2              ; s-&gt;sin_family = AF_INET
+    strh    r3, [sp]
+    ldr     r3, =server_port    ; s-&gt;sin_port = server_port
+    ldr     r3, [r3]
+    strh    r3, [sp, #2]
+    ldr     r3, =server_addr    ; s-&gt;sin_addr = server_addr
+    ldr     r3, [r3]
+    str     r3, [sp, #4]
+    mov     r3, #0              ; bzero(&amp;s-&gt;sin_zero)
+    str     r3, [sp, #8]
+    str     r3, [sp, #12]
+    mov     r1, sp      ; const struct sockaddr *addr = sp
+
+    ldr     r7, =connect_call
+    ldr     r7, [r7]
+    swi     #0
+
+    add     sp, sp, #16
+    pop     {r0}        ; pop sockfd
+
+    pop     {r7}
+    pop     {fp, ip, lr}
+    mov     sp, ip
+    bx      lr
+
+.data
+socket_call:   .long 281
+connect_call:  .long 283
+
+/* all addresses are network byte-order (big-endian) */
+server_addr:            .long 0x0100007f ; localhost
+server_port:            .hword 0x0b1a
+</code></pre>
+
+<h4 id="javascript">javascript</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+ * Execute a callback function &amp; remove it from the Cordova object
+ */</span>
+<span class="nx">Cordova</span><span class="p">.</span><span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">scId</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">callbackRef</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">parameters</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//debug.log( "Adding parameter " + arguments[i] );</span>
+        <span class="nx">parameters</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="c1">// Keep reference to callback</span>
+    <span class="nx">callbackRef</span> <span class="o">=</span> <span class="nx">Cordova</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">scId</span><span class="p">];</span>
+
+    <span class="c1">// Even IDs are success-, odd are error-callbacks - make sure we remove both</span>
+    <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="nx">scId</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">scId</span> <span class="o">=</span> <span class="nx">scId</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Remove both the success as well as the error callback from the stack</span>
+    <span class="nx">Cordova</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="nx">scId</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+
+    <span class="c1">// Finally run the callback</span>
+    <span class="k">if</span><span class="p">(</span> <span class="k">typeof</span> <span class="nx">callbackRef</span> <span class="o">==</span> <span class="s2">"function"</span> <span class="p">)</span> <span class="nx">callbackRef</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="k">this</span><span class="p">,</span> <span class="nx">parameters</span> <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * Enable a plugin for use within Cordova
+ */</span>
+<span class="nx">Cordova</span><span class="p">.</span><span class="nx">enablePlugin</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">pluginName</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Enable the plugin</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"typeof pluginName"</span><span class="p">);</span>
+    <span class="nx">Cordova</span><span class="p">.</span><span class="nx">plugins</span><span class="p">[</span><span class="nx">pluginName</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="c1">// Run constructor for plugin if available</span>
+    <span class="k">if</span><span class="p">(</span> <span class="k">typeof</span> <span class="nx">Cordova</span><span class="p">.</span><span class="nx">constructors</span><span class="p">[</span><span class="nx">pluginName</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"function"</span> <span class="p">)</span> <span class="nx">Cordova</span><span class="p">.</span><span class="nx">constructors</span><span class="p">[</span><span class="nx">pluginName</span><span class="p">]();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                      <a href="/blog/debian8-use-ibus/" data-toggle="tooltip" data-placement="top" title="ibus使用过程中碰到的问题">
+                        Previous<br>
+                        <span>ibus使用过程中碰到的问题</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/vim_replase/" data-toggle="tooltip" data-placement="top" title="Vim 替换操作">
+                        Next<br>
+                        <span>Vim 替换操作</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                <!-- gitment 评论框 start -->
+                
+                <div id="container"></div>
+                <link rel="stylesheet" href="/css/gitment-style-default.css">
+                <script src="/js/gitment.browser.js"></script>
+                <script>
+                 var client_id = "e07fb815a8d03ba875dc"
+                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
+                 var gitment = new Gitment({
+                     id:  "/blog/code_highlight_sample",
+                     owner: "darcylee",
+                     repo: "gitlee.com",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                
+                <!-- gitment 评论框 end -->
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+              <!-- Featured Tags -->
+              
+              <section>
+                <hr class="hidden-sm hidden-xs">
+                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+        				  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
+                    学习笔记
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
+                    linux
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
+                    shell
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
+                    note
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+        			  </div>
+              </section>
+              
+              <!-- Friends Blog -->
+
+              
+
+              <hr>
+
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                
+                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
+                
+                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                
+                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                
+              </ul>
+              
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+ function async(u, c) {
+     var d = document, t = 'script',
+         o = d.createElement(t),
+         s = d.getElementsByTagName(t)[0];
+     o.src = u;
+     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+     s.parentNode.insertBefore(o, s);
+ }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+            visible: 'always',
+            placement: 'right',
+            icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/darcylee2012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/darcylee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                      <a target="_blank" href="/feed.xml">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Gitlee's Blog 2015-2017
+                  <br>
+                  Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+
+<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+ async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '5a898ca7bdbd80b38db866387473aeca';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+<!-- baidu 自动推送 -->
+<script>
+ (function(){
+   var bp = document.createElement('script');
+   var curProtocol = window.location.protocol.split(':')[0];
+   if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+   }
+   else{
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+   }
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(bp, s);
+ })();
+</script>
+<!-- end baidu 自动推送 -->
+
+
+
+<!-- Image to hack wechat -->
+  <!-- <img src="/img/icon_wechat.png" width="100" height="100" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
