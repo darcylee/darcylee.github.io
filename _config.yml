@@ -59,7 +59,7 @@ kramdown:
 
 # gitment settings
 gitment_owner: darcylee
-gitment_repo: gitlee.com
+gitment_repo: darcylee.github.io
 gitment_client_id: e07fb815a8d03ba875dc
 gitment_client_secret: 8e5e26e1f87801afed7077d2ddd16ff6bd44c89d
 
