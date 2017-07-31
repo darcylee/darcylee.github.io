@@ -93,7 +93,7 @@ layout: default
                var client_id = "{{site.gitment_client_id}}"
                var client_secret = "{{site.gitment_client_secret}}"
                var gitment = new Gitment({
-                   id:  "{{page.id}}",
+                   id:  "nav-{{ page.title }}",
                    owner: "{{site.gitment_owner}}",
                    repo: "{{site.gitment_repo}}",
                    oauth: {
