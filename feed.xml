@@ -3,23 +3,29 @@
   <channel>
     <title>Gitlee's Blog</title>
     <description>一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 09 Jun 2018 18:37:08 +0800</pubDate>
-    <lastBuildDate>Sat, 09 Jun 2018 18:37:08 +0800</lastBuildDate>
+    <link>https://www.gitlee.com/</link>
+    <atom:link href="https://www.gitlee.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 09 Jun 2018 19:36:43 +0800</pubDate>
+    <lastBuildDate>Sat, 09 Jun 2018 19:36:43 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
         <title>记：更换博客托管服务</title>
         <description>&lt;h1 id=&quot;由记&quot;&gt;由记&lt;/h1&gt;
 
-&lt;p&gt;该博客原本是托管在Coding上的，之前主要考虑国内网络环境的特殊性，托管在Coding上，在国内的访问速度明显是快很多的。中间也出现了一些不稳定的情况，但是还是可以接受。但是最近访问blog时候，发现出现5秒左右的Coding广告页面，然后在跳转到真实的博客页面上。后来上Coding了解到，因为没有黄金会员，所有托管在上面的page都要显示一下广告。虽然官方解释是依据cache判断，一天最多出现一次，但是对于我这种有强迫症的人来说，还是感觉不爽。虽然网站访问速度会受到影响，为了以后不在变更托管和运行的稳定性，还有一个原因，前段时间出现的&lt;code class=&quot;highlighter-rouge&quot;&gt;多说评论&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;网易云跟帖&lt;/code&gt;等社会评论服务的关闭，因此博客评论系统也迁移到gitment，此评论框是依托github的issue创建，简直神来之笔。以上种种原因遂决定把博客迁往github。&lt;/p&gt;
-
-&lt;h1 id=&quot;思考&quot;&gt;思考&lt;/h1&gt;
+&lt;p&gt;该博客原本是托管在Coding上的，之前主要考虑国内网络环境的特殊性，托管在Coding上，
+在国内的访问速度明显是快很多的。中间也出现了一些不稳定的情况，但是还是可以接受。
+但是最近访问blog时候，发现出现5秒左右的Coding广告页面，然后在跳转到真实的博客页面上
+。后来上Coding了解到，因为没有黄金会员，所有托管在上面的page都要显示一下广告。
+虽然官方解释是依据cache判断，一天最多出现一次，但是对于我这种有强迫症的人来说，
+还是感觉不爽。虽然网站访问速度会受到影响，为了避免以后变更托管服务的麻烦和运行的
+稳定性考虑，遂决定把博客迁往github。当然还有一个原因，前段时间出现的&lt;code class=&quot;highlighter-rouge&quot;&gt;多说评论&lt;/code&gt;、
+&lt;code class=&quot;highlighter-rouge&quot;&gt;网易云跟帖&lt;/code&gt;等社会评论服务的关闭，因此博客评论系统也迁移到gitment，此评论框是
+依托github的issue创建，简直神来之笔。&lt;/p&gt;
 </description>
         <pubDate>Mon, 31 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/write-for-move-page-host/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/write-for-move-page-host/</guid>
+        <link>https://www.gitlee.com/blog/write-for-move-page-host/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/write-for-move-page-host/</guid>
         
         <category>闲言碎语</category>
         
@@ -160,8 +166,8 @@
 
 </description>
         <pubDate>Sat, 18 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/vim_replase/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/vim_replase/</guid>
+        <link>https://www.gitlee.com/blog/vim_replase/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/vim_replase/</guid>
         
         <category>vim</category>
         
@@ -963,8 +969,8 @@ server_port:            .hword 0x0b1a
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Wed, 16 Nov 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/code_highlight_sample/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/code_highlight_sample/</guid>
+        <link>https://www.gitlee.com/blog/code_highlight_sample/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/code_highlight_sample/</guid>
         
         <category>highlight</category>
         
@@ -1001,8 +1007,8 @@ server_port:            .hword 0x0b1a
 &lt;p&gt;将linux主流的GUI 框架都注册了，然后注销或者重启就搞定。&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Nov 2016 22:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/debian8-use-ibus/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/debian8-use-ibus/</guid>
+        <link>https://www.gitlee.com/blog/debian8-use-ibus/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/debian8-use-ibus/</guid>
         
         <category>note</category>
         
@@ -1104,8 +1110,8 @@ Checking connectivity... done.
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 10 Oct 2016 18:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/setup-simple-git-server/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/setup-simple-git-server/</guid>
+        <link>https://www.gitlee.com/blog/setup-simple-git-server/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/setup-simple-git-server/</guid>
         
         <category>linux</category>
         
@@ -1383,8 +1389,8 @@ Undefined symbols &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;architecture 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Sun, 14 Aug 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/Develop_zephry_project_on_mac/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/Develop_zephry_project_on_mac/</guid>
+        <link>https://www.gitlee.com/blog/Develop_zephry_project_on_mac/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/Develop_zephry_project_on_mac/</guid>
         
         <category>学习笔记</category>
         
@@ -1401,8 +1407,8 @@ Undefined symbols &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;architecture 
 add later.&lt;/p&gt;
 </description>
         <pubDate>Wed, 20 Apr 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/qtevdevkeyboard/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/qtevdevkeyboard/</guid>
+        <link>https://www.gitlee.com/blog/qtevdevkeyboard/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/qtevdevkeyboard/</guid>
         
         <category>学习笔记</category>
         
@@ -1566,8 +1572,8 @@ rtt min/avg/max/mdev &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 525.227/559.
 &lt;p&gt;至于如何自动完成路由的添加，目前还没有试验出来。等发现了添加说明。&lt;/p&gt;
 </description>
         <pubDate>Fri, 29 Jan 2016 10:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/vpn_on_command_line/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/vpn_on_command_line/</guid>
+        <link>https://www.gitlee.com/blog/vpn_on_command_line/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/vpn_on_command_line/</guid>
         
         <category>linux</category>
         
@@ -1688,8 +1694,8 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 08 Jan 2016 15:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/swift-note-01/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/swift-note-01/</guid>
+        <link>https://www.gitlee.com/blog/swift-note-01/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/swift-note-01/</guid>
         
         <category>swift</category>
         
@@ -1833,8 +1839,8 @@ xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]&lt;/p&gt;
 &lt;p&gt;这个对调试通讯协议出错的时候特别有用&lt;/p&gt;
 </description>
         <pubDate>Thu, 31 Dec 2015 10:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/dump_bin_in_shell/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/dump_bin_in_shell/</guid>
+        <link>https://www.gitlee.com/blog/dump_bin_in_shell/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/dump_bin_in_shell/</guid>
         
         <category>linux</category>
         
