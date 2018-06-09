@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/vpn_on_command_line/">
+    <link rel="canonical" href="http://localhost:4000/blog/vpn_on_command_line/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -211,18 +211,16 @@
 
 <h4 id="1-安装vpn客户端">1. 安装<code class="highlighter-rouge">VPN</code>客户端</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:48:55 AM CST]
-<span class="gp">$ </span>sudo apt-get install pptp-linux
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:48:55 AM CST]
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>pptp-linux
+</code></pre></div></div>
 
 <h4 id="2-创建vpn连接">2. 创建<code class="highlighter-rouge">VPN</code>连接</h4>
 
 <p>假定：你需要拨号的vpn服务器地址为<code class="highlighter-rouge">44.125.4.11</code>，你从<code class="highlighter-rouge">vpn</code>服务提供商那里申请的帐号为<code class="highlighter-rouge">abc</code>，密码为<code class="highlighter-rouge">123456</code>，你么你可以这样创建一个名为<code class="highlighter-rouge">myVpnName </code>的<code class="highlighter-rouge">vpn</code>连接</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pptpsetup --create myVpnName --server 44.125.4.11 --username abc --password 123456 --encrypt --start
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pptpsetup <span class="nt">--create</span> myVpnName <span class="nt">--server</span> 44.125.4.11 <span class="nt">--username</span> abc <span class="nt">--password</span> 123456 <span class="nt">--encrypt</span> <span class="nt">--start</span>
+</code></pre></div></div>
 
 <ul>
   <li>--create 后的是创建的连接名称，可以为任意名称;</li>
@@ -235,17 +233,16 @@
 
 <p>如果没有出现意外，你在控制台中将看到如下输出，说明你的vpn已经建立成功，并且以成功连接到<code class="highlighter-rouge">VPN</code>服务器</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Using interface ppp0
-Connect: ppp0 &lt;--&gt; /dev/pts/1
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Using interface ppp0
+Connect: ppp0 &lt;<span class="nt">--</span><span class="o">&gt;</span> /dev/pts/1
 CHAP authentication succeeded
 <span class="nb">local  </span>IP address 192.168.99.12
 remote IP address 192.168.99.1
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>我们查看下本地IP配置，发现多了一个ppp0的连接</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:52:58 AM CST]
-<span class="gp">$ </span>ifconfig
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:52:58 AM CST]
+<span class="nv">$ </span>ifconfig
 eth0      ....
 
 lo        ....
@@ -257,8 +254,7 @@ ppp0      Link encap:Point-to-Point Protocol
           TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:3
           RX bytes:60 <span class="o">(</span>60.0 B<span class="o">)</span>  TX bytes:66 <span class="o">(</span>66.0 B<span class="o">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="3-常用操作">3. 常用操作</h4>
 
@@ -277,26 +273,25 @@ ppp0      Link encap:Point-to-Point Protocol
 
 <p>我们分别<code class="highlighter-rouge">ping</code>下<code class="highlighter-rouge">google</code>和<code class="highlighter-rouge">baidu</code>服务器</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:52:15 AM CST]
-<span class="gp">$ </span>ping www.google.com
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:52:15 AM CST]
+<span class="nv">$ </span>ping www.google.com
 PING www.google.com <span class="o">(</span>216.58.221.68<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
 ^C
---- www.google.com ping statistics ---
+<span class="nt">---</span> www.google.com ping statistics <span class="nt">---</span>
 14 packets transmitted, 0 received, 100% packet loss, <span class="nb">time </span>13000ms
 
 dl@debian ~/work  <span class="o">[</span>Fri 29 Jan 2016 09:53:01 AM CST]
-<span class="gp">$ </span>ping www.baidu.com
+<span class="nv">$ </span>ping www.baidu.com
 PING www.a.shifen.com <span class="o">(</span>14.215.177.38<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
 64 bytes from 14.215.177.38: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>128 <span class="nb">time</span><span class="o">=</span>18.6 ms
 64 bytes from 14.215.177.38: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>128 <span class="nb">time</span><span class="o">=</span>19.0 ms
 64 bytes from 14.215.177.38: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>128 <span class="nb">time</span><span class="o">=</span>18.9 ms
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>发现无法ping通墙外的<code class="highlighter-rouge">google</code>而国内的<code class="highlighter-rouge">baidu</code>正常，细心的你一定发现了，<code class="highlighter-rouge">baidu</code>的连接延时和没有拨<code class="highlighter-rouge">VPN</code>时是相近的。这是为什么？原因是我们新创建的<code class="highlighter-rouge">VPN</code>通道并没有被加入系统路由，可以<code class="highlighter-rouge">route</code>
 查看一下。</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~  <span class="o">[</span>Fri 29 Jan 2016 11:27:39 AM CST]
-<span class="gp">$ </span>route
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian ~  <span class="o">[</span>Fri 29 Jan 2016 11:27:39 AM CST]
+<span class="nv">$ </span>route
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
@@ -304,18 +299,16 @@ default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
 li1100-244.memb 10.211.55.1     255.255.255.255 UGH   0      0        0 eth0
 link-local      <span class="k">*</span>               255.255.0.0     U     1000   0        0 eth0
 192.168.99.1    <span class="k">*</span>               255.255.255.255 UH    0      0        0 ppp0
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>你看<code class="highlighter-rouge">default</code>后面<code class="highlighter-rouge">Iface</code>是<code class="highlighter-rouge">eth0</code>并不是我们创建的<code class="highlighter-rouge">ppp0</code>，我们需要手动创建：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>dl@debian ~  [Fri 29 Jan 2016 11:32:00 AM CST]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian ~  [Fri 29 Jan 2016 11:32:00 AM CST]
 $ sudo route add default dev ppp0
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>再次<code class="highlighter-rouge">route</code></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian ~  <span class="o">[</span>Fri 29 Jan 2016 11:32:48 AM CST]
-<span class="gp">$ </span>route
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian ~  <span class="o">[</span>Fri 29 Jan 2016 11:32:48 AM CST]
+<span class="nv">$ </span>route
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         <span class="k">*</span>               0.0.0.0         U     0      0        0 ppp0
@@ -324,13 +317,12 @@ default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
 li1100-244.memb 10.211.55.1     255.255.255.255 UGH   0      0        0 eth0
 link-local      <span class="k">*</span>               255.255.0.0     U     1000   0        0 eth0
 192.168.99.1    <span class="k">*</span>               255.255.255.255 UH    0      0        0 ppp0
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>出现了2条<code class="highlighter-rouge">default</code>，其中一条是我们创建的痛过<code class="highlighter-rouge">ppp0</code>通道的，我们再次<code class="highlighter-rouge">ping</code>一下，发现都可以通了。</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 11:33:09 AM CST]
-<span class="gp">$ </span>ping www.google.com
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 11:33:09 AM CST]
+<span class="nv">$ </span>ping www.google.com
 PING www.google.com <span class="o">(</span>216.58.221.228<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
 64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>493 ms
 64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>440 ms
@@ -339,31 +331,29 @@ PING www.google.com <span class="o">(</span>216.58.221.228<span class="o">)</spa
 64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>5 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>440 ms
 64 bytes from hkg07s21-in-f4.1e100.net <span class="o">(</span>216.58.221.228<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>6 <span class="nv">ttl</span><span class="o">=</span>53 <span class="nb">time</span><span class="o">=</span>444 ms
 ^C
---- www.google.com ping statistics ---
+<span class="nt">---</span> www.google.com ping statistics <span class="nt">---</span>
 6 packets transmitted, 6 received, 0% packet loss, <span class="nb">time </span>9511ms
 rtt min/avg/max/mdev <span class="o">=</span> 436.317/449.187/493.006/19.749 ms
 dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 11:32:54 AM CST]
-<span class="gp">$ </span>ping www.baidu.com
+<span class="nv">$ </span>ping www.baidu.com
 PING www.a.shifen.com <span class="o">(</span>14.215.177.37<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
 64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>525 ms
 64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>570 ms
 64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>574 ms
 64 bytes from 14.215.177.37: <span class="nv">icmp_seq</span><span class="o">=</span>5 <span class="nv">ttl</span><span class="o">=</span>45 <span class="nb">time</span><span class="o">=</span>567 ms
 ^C
---- www.a.shifen.com ping statistics ---
+<span class="nt">---</span> www.a.shifen.com ping statistics <span class="nt">---</span>
 5 packets transmitted, 4 received, 20% packet loss, <span class="nb">time </span>4001ms
 rtt min/avg/max/mdev <span class="o">=</span> 525.227/559.586/574.565/19.994 ms
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果你还不能确定新创建的<code class="highlighter-rouge">VPN</code>已正常使用，可以通过下面命令来查看外网的<code class="highlighter-rouge">IP</code></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 10:31:12 AM CST]
-<span class="gp">$ </span>curl ifconfig.me
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dl@debian /etc/ppp/peers  <span class="o">[</span>Fri 29 Jan 2016 10:31:12 AM CST]
+<span class="nv">$ </span>curl ifconfig.me
 44.125.4.11 ＃这个其实就是你vpn服务器的ip地址，这里只是个举例
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>至于如何自动完成路由的添加，目前还没有试验出来。等发现了添加说明。</p>
 
@@ -478,6 +468,8 @@ rtt min/avg/max/mdev <span class="o">=</span> 525.227/559.586/574.565/19.994 ms
 		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
                     note
                   </a>
+                  
+                  
                   
                   
                   
@@ -601,7 +593,7 @@ rtt min/avg/max/mdev <span class="o">=</span> 525.227/559.586/574.565/19.994 ms
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2017
+                    Copyright &copy; Gitlee's Blog 2015-2018
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

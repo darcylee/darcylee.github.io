@@ -13,7 +13,7 @@
     <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
     <meta name="theme-color" content="#000000">
 
-    <title>resource - Gitlee Blog | 李家泉的博客</title>
+    <title>记：更换博客托管服务 - Gitlee Blog | 李家泉的博客</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/resource/">
+    <link rel="canonical" href="http://localhost:4000/blog/write-for-move-page-host/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -158,276 +158,235 @@
 </script>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/nav-resource.jpg')">
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-default.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-default.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>resource</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">一些网络资源收集</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <div class="tags">
+                    
+                      <a target="_blank" class="tag" href="/tags/#闲言碎语" title="闲言碎语">闲言碎语</a>
+                      
+                  </div>
+                    <h1>记：更换博客托管服务</h1>
+                    
+                    
+                    <h2 class="subheading">move to github page</h2>
+                    
+                    <span class="meta">Posted by gitlee on July 31, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="由记">由记</h1>
+
+<p>该博客原本是托管在Coding上的，之前主要考虑国内网络环境的特殊性，托管在Coding上，在国内的访问速度明显是快很多的。中间也出现了一些不稳定的情况，但是还是可以接受。但是最近访问blog时候，发现出现5秒左右的Coding广告页面，然后在跳转到真实的博客页面上。后来上Coding了解到，因为没有黄金会员，所有托管在上面的page都要显示一下广告。虽然官方解释是依据cache判断，一天最多出现一次，但是对于我这种有强迫症的人来说，还是感觉不爽。虽然网站访问速度会受到影响，为了以后不在变更托管和运行的稳定性，还有一个原因，前段时间出现的<code class="highlighter-rouge">多说评论</code>、<code class="highlighter-rouge">网易云跟帖</code>等社会评论服务的关闭，因此博客评论系统也迁移到gitment，此评论框是依托github的issue创建，简直神来之笔。以上种种原因遂决定把博客迁往github。</p>
+
+<h1 id="思考">思考</h1>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                      <a href="/blog/vim_replase/" data-toggle="tooltip" data-placement="top" title="Vim 替换操作">
+                        Previous<br>
+                        <span>Vim 替换操作</span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+
+                <!-- gitment 评论框 start -->
+                
+                <div id="container"></div>
+                <link rel="stylesheet" href="/css/gitment-style-default.css">
+                <script src="/js/gitment.browser.js"></script>
+                <script>
+                 var client_id = "e07fb815a8d03ba875dc"
+                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
+                 var gitment = new Gitment({
+                     id:  "/blog/write-for-move-page-host",
+                     owner: "darcylee",
+                     repo: "darcylee.github.io",
+                     oauth: {
+                         client_id: client_id,
+                         client_secret: client_secret,
+                     },
+                 })
+                 gitment.render('container')
+                </script>
+                
+                <!-- gitment 评论框 end -->
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
         
 
-            <!-- USE SIDEBAR -->
-            <!-- PostList Container -->
-    		<div class="
-                        col-lg-8 col-lg-offset-1
-                        col-md-8 col-md-offset-1
-                        col-sm-12
-                        col-xs-12
-                        postlist-container
-                        ">
-    		  <h4 id="android官网资讯">Android官网资讯</h4>
-
-<ul>
-  <li><a href="http://developer.android.com/intl/zh-cn/index.html">Android官方网站</a>；最权威的Google官方资料，极力推荐；</li>
-  <li><a href="http://android-developers.blogspot.com/">Android官方博客</a>：官方资讯、文章；</li>
-  <li><a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIKEOXh5TwZEv89aofHzNCiu">Android官方视频</a>：Google发布于Youtube的官方Android性能优化的视频。</li>
-</ul>
-
-<hr />
-
-<h4 id="周刊">周刊</h4>
-
-<ul>
-  <li><a href="http://androidweekly.net/">Android Weekly </a>，由一群<strong>国外Android开发者</strong>维护；</li>
-  <li><a href="http://www.androidweekly.cn/">Android开发技术周报</a>，由<strong>脉脉不嘚語</strong>维护；</li>
-  <li><a href="http://www.race604.com/tag/android-weekly/">Android周报</a>，由<strong>Android笔记</strong>维护；</li>
-  <li><a href="http://androidblog.cn/">Android Blog 周刊</a>，由<strong>Jomeslu</strong>维护。</li>
-  <li><a href="http://www.devtf.cn/">开发技术前线</a>，更多的是翻译国外Android/IOS文章。</li>
-</ul>
-
-<hr />
-
-<h4 id="资源库">资源库</h4>
-
-<ul>
-  <li><a href="http://android-arsenal.com/">Android-arsenal.com</a>：vbauer整理的Github开源库与工具带搜索功能，是国外整理得最全面的库；</li>
-  <li><a href="https://github.com/Trinea/android-open-project">Android-open-project</a>：Trinea整理的各种开源库，是国内整理得最全面的库；</li>
-  <li><a href="http://a.codekk.com/">codeKK.com</a>：从源码的角度分析Android优秀开源框架；</li>
-  <li><a href="http://www.codota.com/">codota.com</a>：收集各种API优秀示例Java代码并提供搜索功能。</li>
-  <li><a href="http://androidxref.com/">androidxref</a>：查看Android系统源码。</li>
-</ul>
-
-<hr />
-
-<h4 id="经典博客">经典博客</h4>
-
-<ul>
-  <li><a href="http://blog.csdn.net/luoshengyang/article/details/8923485">老罗的Android之旅</a>：</li>
-  <li><a href="http://blog.csdn.net/innost?viewmode=contents">Innost的专栏</a>。</li>
-</ul>
-
-<hr />
-
-
-			  <hr>
-              <!-- 多说评论框 start -->
-              <div class="comment">
-                <div class="ds-thread"
-                     data-thread-key=""
-                     data-title="resource"
-                     data-url="http://localhost:4000/resource/" >
-                </div>
-              </div>
-              <!-- 多说评论框 end -->
-
-              <!-- gitment 评论框 start -->
-              
-              <div id="container"></div>
-              <link rel="stylesheet" href="/css/gitment-style-default.css">
-              <script src="/js/gitment.browser.js"></script>
-              <script>
-               var client_id = "e07fb815a8d03ba875dc"
-               var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
-               var gitment = new Gitment({
-                   id:  "nav-resource",
-                   owner: "darcylee",
-                   repo: "darcylee.github.io",
-                   oauth: {
-                       client_id: client_id,
-                       client_secret: client_secret,
-                   },
-               })
-               gitment.render('container')
-              </script>
-              
-              <!-- gitment 评论框 end -->
-
-    		</div>
     <!-- Sidebar Container -->
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a target="_blank" href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                      
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#学习笔记" title="学习笔记" rel="4">
-                        学习笔记
-                      </a>
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#linux" title="linux" rel="4">
-                        linux
-                      </a>
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#shell" title="shell" rel="2">
-                        shell
-                      </a>
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#note" title="note" rel="2">
-                        note
-                      </a>
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                    </div>
-                </section>
-                
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                  <hr><h5><a target="_blank" href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-                        
-                            <img src="/img/avatar-darcylee.jpg" />
-                        
-                        
-                            <p>写写c/c++，学学ios&Andorid，H5，javascript，perl，bash，swift，python......世界那么大，我要多看看。</p>
-                        
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                            <li>
-                              <a target="_blank" href="https://weibo.com/darcylee2012">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                </span>
-                              </a>
-                            </li>
-                            
-                            
-                            
-                            <li>
-                              <a target="_blank" href="https://github.com/darcylee">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                 </span>
-                              </a>
-                            </li>
-                            
-                            
-                            <li>
-                              <a target="_blank" href="https://www.linkedin.com/in/rucle">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                              </a>
-                            </li>
-                            
-                            
-                            <li>
-                              <a target="_blank" href="/feed.xml">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                                </span>
-                              </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </section>
-                <!-- Begin Hot Articles -->
-                <hr>
-                <h5>HOT ARTICLES</h5>
-                <ul class="list-inline">
+              <!-- Featured Tags -->
+              
+              <section>
+                <hr class="hidden-sm hidden-xs">
+                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+        				  
                   
-                  <li>
-                    <a target="_blank" href="/blog/code_highlight_sample/">Code Highlight Sample</a>
-                  </li>
                   
-                  <li>
-                    <a target="_blank" href="/blog/Develop_zephry_project_on_mac/">zephyr项目在macos平台的开发</a>
-                  </li>
                   
-                  <li>
-                    <a target="_blank" href="/blog/setup-simple-git-server/">搭建简单的git服务器</a>
-                  </li>
+		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
+                    学习笔记
+                  </a>
                   
-                  <li>
-                    <a target="_blank" href="/blog/vpn_on_command_line/">命令行连接VPN</a>
-                  </li>
                   
-                </ul>
-                <!-- End Hot Articles -->
+                  
+		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
+                    linux
+                  </a>
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
+                    shell
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
+                    note
+                  </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+        			  </div>
+              </section>
+              
+              <!-- Friends Blog -->
 
-                <!-- Friends Blog -->
+              
+
+              <hr>
+
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
                 
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-                  
-                  <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
-                  
-                  <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
-                  
-                  <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
-                  
-                </ul>
+                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
                 
-    		</div>
-        
-	</div>
-</div>
+                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
+                
+                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
+                
+              </ul>
+              
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+ function async(u, c) {
+     var d = document, t = 'script',
+         o = d.createElement(t),
+         s = d.getElementsByTagName(t)[0];
+     o.src = u;
+     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+     s.parentNode.insertBefore(o, s);
+ }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+            visible: 'always',
+            placement: 'right',
+            icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->

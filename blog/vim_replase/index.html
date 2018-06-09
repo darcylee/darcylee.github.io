@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/vim_replase/">
+    <link rel="canonical" href="http://localhost:4000/blog/vim_replase/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -242,97 +242,85 @@
   <li>将That or this 换成 This or that</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:%s/\(That\) or \(this\)/\u\2 or \l\1/
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%s/\(That\) or \(this\)/\u\2 or \l\1/
+</code></pre></div></div>
 
 <ul>
   <li>将句尾的child换成children</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:%s/child\([ ,.;!:?]\)/children\1/g
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%s/child\([ ,.;!:?]\)/children\1/g
+</code></pre></div></div>
 
 <ul>
   <li>将mgi/r/abox换成mgi/r/asquare</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:g/mg\([ira]\)box/s//mg//my\1square/g    &lt;=&gt;  :g/mg[ira]box/s/box/square/g
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:g/mg\([ira]\)box/s//mg//my\1square/g    &lt;=&gt;  :g/mg[ira]box/s/box/square/g
+</code></pre></div></div>
 
 <ul>
   <li>将多个空格换成一个空格</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:%s/  */ /g
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%s/  */ /g
+</code></pre></div></div>
 
 <ul>
   <li>使用空格替换句号或者冒号后面的一个或者多个空格</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:%s/\([:.]\)  */\1 /g
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%s/\([:.]\)  */\1 /g
+</code></pre></div></div>
 
 <ul>
   <li>删除所有空行</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:g/^$/d
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:g/^$/d
+</code></pre></div></div>
 
 <ul>
   <li>删除所有的空白行和空行</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:g/^[  ][  ]*$/d
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:g/^[  ][  ]*$/d
+</code></pre></div></div>
 
 <ul>
   <li>在每行的开始插入两个空白</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:%s/^/&gt;  /
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%s/^/&gt;  /
+</code></pre></div></div>
 
 <ul>
   <li>在接下来的6行末尾加入.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:.,5/$/./
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:.,5/$/./
+</code></pre></div></div>
 
 <ul>
   <li>颠倒文件的行序</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:g/.*/m0O  &lt;=&gt; :g/^/m0O
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:g/.*/m0O  &lt;=&gt; :g/^/m0O
+</code></pre></div></div>
 
 <ul>
   <li>寻找不是数字的开始行,并将其移到文件尾部</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:g!/^[0-9]/m$ &lt;=&gt; g/^[^0-9]/m$
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:g!/^[0-9]/m$ &lt;=&gt; g/^[^0-9]/m$
+</code></pre></div></div>
 
 <ul>
   <li>将文件的第12到17行内容复制10词放到当前文件的尾部</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:1,10g/^/12,17t$
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:1,10g/^/12,17t$
+</code></pre></div></div>
 
 <p><strong>重复次数的作用</strong></p>
 
@@ -340,13 +328,12 @@
   <li>将chapter开始行下面的第二行的内容写道begin文件中</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>:g/^chapter/.+2w&gt;&gt;begin`
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:g/^chapter/.+2w&gt;&gt;begin`
 
 :/^part2/,/^part3/g/^chapter/.+2w&gt;&gt;begin
 
 :/^part2/,/^part3/g/^chapter/.+2w&gt;&gt;begin|+t$
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 
@@ -360,6 +347,13 @@
                         </a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/blog/write-for-move-page-host/" data-toggle="tooltip" data-placement="top" title="记：更换博客托管服务">
+                        Next<br>
+                        <span>记：更换博客托管服务</span>
+                        </a>
+                    </li>
                     
                 </ul>
 
@@ -453,6 +447,8 @@
 		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
                     note
                   </a>
+                  
+                  
                   
                   
                   
@@ -576,7 +572,7 @@
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2017
+                    Copyright &copy; Gitlee's Blog 2015-2018
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

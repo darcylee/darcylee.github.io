@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/dump_bin_in_shell/">
+    <link rel="canonical" href="http://localhost:4000/blog/dump_bin_in_shell/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -219,15 +219,14 @@
 
 <p>命令行输入：<code class="highlighter-rouge">hexdump --help</code>查看详细介绍：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » hexdump --help
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lijq@server » hexdump --help
 hexdump: invalid option -- '-'
 usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
                [-s skip] [file ...]
        hd      [-bcdovx]  [-e fmt] [-f fmt_file] [-n length]
                [-s skip] [file ...]
                
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>语法选项</p>
 
@@ -267,7 +266,7 @@ usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
 
 <p>示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » hexdump -e '16/1 "%02X " " | "' -e '16/1 "%_p" "\n"' rootfs.ubi
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lijq@server » hexdump -e '16/1 "%02X " " | "' -e '16/1 "%_p" "\n"' rootfs.ubi
 55 42 49 23 01 00 00 00 00 00 00 00 00 00 00 00 | UBI#............
 00 00 08 00 00 00 10 00 2A AD C9 72 00 00 00 00 | ........*..r....
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
@@ -277,8 +276,7 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
 55 42 49 21 01 01 00 05 7F FF EF FF 00 00 00 00 | UBI!............
 ...
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>部分引用自<a href="http://man.linuxde.net/hexdump">linuxde</a></p>
 
@@ -286,7 +284,7 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
 
 <p><code class="highlighter-rouge">xxd --help</code> 查看详细使用方法</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » xxd --help
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lijq@server » xxd --help
 Usage:
        xxd [options] [infile [outfile]]
     or
@@ -306,8 +304,7 @@ Options:
     -s [+][-]seek  start at &lt;seek&gt; bytes abs. (or +: rel.) infile offset.
     -u          use upper case hex letters.
     -v          show version: "xxd V1.10 27oct98 by Juergen Weigert".
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>语法</p>
 
@@ -332,13 +329,12 @@ xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]</p>
   <p>从0x500000处开始显示64个字节</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
 0500000: 5542 4923 0100 0000 0000 0000 0000 0000  UBI#............
 0500010: 0000 0800 0000 1000 2aad c972 0000 0000  ........*..r....
 0500020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 0500030: 0000 0000 0000 0000 0000 0000 f206 b0a2  ................
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>这个对调试通讯协议出错的时候特别有用</p>
 
 
@@ -452,6 +448,8 @@ xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]</p>
 		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
                     note
                   </a>
+                  
+                  
                   
                   
                   
@@ -575,7 +573,7 @@ xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]</p>
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2017
+                    Copyright &copy; Gitlee's Blog 2015-2018
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

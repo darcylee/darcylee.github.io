@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/code_highlight_sample/">
+    <link rel="canonical" href="http://localhost:4000/blog/code_highlight_sample/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -213,20 +213,19 @@
 
 <h4 id="查看支持的themes">查看支持的themes</h4>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rougify <span class="nb">help </span>style
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rougify <span class="nb">help </span>style
 usage: rougify style <span class="o">[</span>&lt;theme-name&gt;] <span class="o">[</span>&lt;options&gt;]
 
 Print CSS styles <span class="k">for </span>the given theme.  Extra options are
 passed to the theme.  Theme defaults to thankful_eyes.
 
 options:
-  --scope	<span class="o">(</span>default: .highlight<span class="o">)</span> a css selector to scope by
+  <span class="nt">--scope</span>	<span class="o">(</span>default: .highlight<span class="o">)</span> a css selector to scope by
 
 available themes:
   base16, base16.dark, base16.monokai, base16.monokai.light, base16.solarized, base16.solarized.dark, colorful, github, molokai, monokai, monokai.sublime, thankful_eyes
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="支持的语言">支持的语言</h4>
 
@@ -631,16 +630,15 @@ available themes:
 
 <h4 id="c">C</h4>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">argc</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">argc</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="ruby">ruby</h4>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Jekyll</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Jekyll</span>
 
   <span class="k">class</span> <span class="nc">PrismBlock</span> <span class="o">&lt;</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">Block</span>
     <span class="kp">include</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">StandardFilters</span>
@@ -688,12 +686,11 @@ available themes:
 
 <span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="p">.</span><span class="nf">register_tag</span><span class="p">(</span><span class="s1">'prism'</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">PrismBlock</span><span class="p">)</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="makefile">makefile</h4>
 
-<div class="language-makefile highlighter-rouge"><pre class="highlight"><code><span class="nv">BUILDDIR</span>      <span class="o">=</span> _build
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">BUILDDIR</span>      <span class="o">=</span> _build
 <span class="nv">EXTRAS</span>       <span class="o">?=</span> <span class="nv">$(BUILDDIR)</span>/extras
 
 <span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">main clean</span>
@@ -703,13 +700,12 @@ available themes:
 	build_main <span class="nv">$(BUILDDIR)</span>
 
 <span class="nl">clean</span><span class="o">:</span>
-	rm -rf <span class="nv">$(BUILDDIR)</span>/<span class="k">*</span>
-</code></pre>
-</div>
+	<span class="nb">rm</span> <span class="nt">-rf</span> <span class="nv">$(BUILDDIR)</span>/<span class="k">*</span>
+</code></pre></div></div>
 
 <h4 id="markdown">markdown</h4>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="gh"># hello world</span>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># hello world</span>
 
 you can write text <span class="p">[</span><span class="nv">with links</span><span class="p">](</span><span class="sx">http://example.com</span><span class="p">)</span> inline or <span class="p">[</span><span class="nv">link references</span><span class="p">][</span><span class="ss">1</span><span class="p">]</span>.
 <span class="p">
@@ -723,20 +719,19 @@ you can write text <span class="p">[</span><span class="nv">with links</span><sp
 <span class="gu">hello world
 ===========
 </span>
-<span class="nt">&lt;this</span><span class="na">_is</span> <span class="na">inline=</span><span class="s">"xml"</span><span class="nt">&gt;</span><span class="err">&lt;</span>/this_is&gt;
+<span class="nt">&lt;this</span><span class="na">_is</span> <span class="na">inline=</span><span class="s">"xml"</span><span class="nt">&gt;&lt;/this</span><span class="err">_is</span><span class="nt">&gt;</span>
 <span class="gt">
 &gt; markdown is so cool</span><span class="sb">
 
     so are code segments
 
 </span><span class="p">1.</span> one thing (yeah!)
-<span class="p">2.</span> two thing <span class="sb">`i can write code`, and `more`</span> wipee!
-</code></pre>
-</div>
+<span class="p">2.</span> two thing <span class="sb">`i can write code`</span>, and <span class="sb">`more`</span> wipee!
+</code></pre></div></div>
 
 <h4 id="elisp">elisp</h4>
 
-<div class="language-elisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">prompt-for-cd</span> <span class="p">()</span>
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">prompt-for-cd</span> <span class="p">()</span>
    <span class="s">"Prompts
     for CD"</span>
    <span class="p">(</span><span class="nv">prompt-read</span> <span class="s">"Title"</span> <span class="mf">1.53</span> <span class="mi">1</span> <span class="mi">2/4</span> <span class="mf">1.7</span> <span class="mf">1.7e0</span> <span class="nv">2.9E-4</span> <span class="mi">+42</span> <span class="mi">-7</span> <span class="m">#b001</span> <span class="m">#b001/100</span> <span class="mo">#o777</span> <span class="mo">#O777</span> <span class="m">#xabc55</span> <span class="m">#c</span><span class="p">(</span><span class="mi">0</span> <span class="mf">-5.6</span><span class="p">))</span>
@@ -756,32 +751,30 @@ you can write text <span class="p">[</span><span class="nv">with links</span><sp
   <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nv">y</span> <span class="mi">20</span><span class="p">))</span>
     <span class="p">(</span><span class="nb">print</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
   <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="bash">bash</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
 <span class="c">###### CONFIG</span>
 <span class="nv">ACCEPTED_HOSTS</span><span class="o">=</span><span class="s2">"/root/.hag_accepted.conf"</span>
 <span class="nv">BE_VERBOSE</span><span class="o">=</span><span class="nb">false
 
-</span><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$UID</span><span class="s2">"</span> -ne 0 <span class="o">]</span>
+</span><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$UID</span><span class="s2">"</span> <span class="nt">-ne</span> 0 <span class="o">]</span>
 <span class="k">then
  </span><span class="nb">echo</span> <span class="s2">"Superuser rights required"</span>
  <span class="nb">exit </span>2
 <span class="k">fi
 
 </span>genApacheConf<span class="o">(){</span>
- <span class="nb">echo</span> -e <span class="s2">"# Host </span><span class="k">${</span><span class="nv">HOME_DIR</span><span class="k">}</span><span class="nv">$1</span><span class="s2">/</span><span class="nv">$2</span><span class="s2"> :"</span>
+ <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"# Host </span><span class="k">${</span><span class="nv">HOME_DIR</span><span class="k">}</span><span class="nv">$1</span><span class="s2">/</span><span class="nv">$2</span><span class="s2"> :"</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="java">java</h4>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @author John Smith &lt;john.smith@example.com&gt;
 */</span>
 <span class="kn">package</span> <span class="n">l2f</span><span class="o">.</span><span class="na">gameserver</span><span class="o">.</span><span class="na">model</span><span class="o">;</span>
@@ -797,29 +790,27 @@ you can write text <span class="p">[</span><span class="nv">with links</span><sp
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="json">json</h4>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apples"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12000</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apples"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12000</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oranges"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">17500</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oranges"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">17500</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <h4 id="objc">objc</h4>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="cp">#import &lt;UIKit/UIKit.h&gt;
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#import &lt;UIKit/UIKit.h&gt;
 #import "Dependency.h"
 </span>
 <span class="k">@protocol</span> <span class="nc">WorldDataSource</span>
@@ -832,18 +823,16 @@ you can write text <span class="p">[</span><span class="nv">with links</span><sp
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">title</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">IBAction</span><span class="p">)</span> <span class="n">show</span><span class="p">;</span>
 <span class="k">@end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="shell">shell</h4>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo apt-get install gcc
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>gcc
+</code></pre></div></div>
 
 <h4 id="swift">swift</h4>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">defaultName</span> <span class="o">=</span> <span class="s">"xiaoli"</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">defaultName</span> <span class="o">=</span> <span class="s">"xiaoli"</span>
 <span class="k">var</span> <span class="nv">userDefinedName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?;</span>   <span class="c1">//默认值为 nil</span>
 
 <span class="k">var</span> <span class="nv">NameToUse</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
@@ -852,12 +841,11 @@ you can write text <span class="p">[</span><span class="nv">with links</span><sp
 <span class="n">userDefinedName</span> <span class="o">=</span> <span class="s">"zhangsan"</span><span class="p">;</span>
 <span class="k">var</span> <span class="nv">NameToUse1</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
 <span class="c1">// userDefinedName 有值，则 NameToUse 的值为 ”zhangsan”</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="css">css</h4>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="k">@font-face</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@font-face</span> <span class="p">{</span>
   <span class="nl">font-family</span><span class="p">:</span> <span class="n">Chunkfive</span><span class="p">;</span> <span class="nl">src</span><span class="p">:</span> <span class="sx">url('Chunkfive.otf')</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -872,8 +860,7 @@ you can write text <span class="p">[</span><span class="nv">with links</span><sp
     <span class="nl">content</span><span class="p">:</span> <span class="n">attr</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="less">less</h4>
 
@@ -908,7 +895,7 @@ section &gt; .foo + #bar:hover [href*="less"] {
 
 <h4 id="tex">tex</h4>
 
-<div class="language-tex highlighter-rouge"><pre class="highlight"><code><span class="k">\documentclass</span><span class="p">{</span>article<span class="p">}</span>
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\documentclass</span><span class="p">{</span>article<span class="p">}</span>
 <span class="k">\usepackage</span><span class="na">[koi8-r]</span><span class="p">{</span>inputenc<span class="p">}</span>
 <span class="k">\hoffset</span>=0pt
 <span class="k">\voffset</span>=.3em
@@ -925,8 +912,7 @@ G<span class="k">\"</span>otterd<span class="k">\"</span>ammerung~45<span class=
     </span><span class="nv">\int\limits</span><span class="p">_{</span><span class="m">0</span><span class="p">}^{</span><span class="nv">\pi</span><span class="p">}</span><span class="nv">\frac</span><span class="p">{</span><span class="m">4</span><span class="p">}{</span><span class="nb">x</span><span class="o">-</span><span class="m">7</span><span class="p">}</span><span class="o">=</span><span class="m">3</span><span class="nb">
 </span><span class="p">$$</span>
 <span class="nt">\end{document}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="asm">asm</h4>
 
@@ -970,17 +956,17 @@ server_port:            .hword 0x0b1a
 
 <h4 id="javascript">javascript</h4>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
  * Execute a callback function &amp; remove it from the Cordova object
  */</span>
 <span class="nx">Cordova</span><span class="p">.</span><span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">scId</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">scId</span> <span class="o">=</span> <span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
     <span class="kd">var</span> <span class="nx">callbackRef</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
     <span class="kd">var</span> <span class="nx">parameters</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="kr">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
         <span class="c1">//debug.log( "Adding parameter " + arguments[i] );</span>
-        <span class="nx">parameters</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">parameters</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kr">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
     <span class="p">}</span>
     <span class="c1">// Keep reference to callback</span>
     <span class="nx">callbackRef</span> <span class="o">=</span> <span class="nx">Cordova</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">scId</span><span class="p">];</span>
@@ -1007,8 +993,7 @@ server_port:            .hword 0x0b1a
     <span class="c1">// Run constructor for plugin if available</span>
     <span class="k">if</span><span class="p">(</span> <span class="k">typeof</span> <span class="nx">Cordova</span><span class="p">.</span><span class="nx">constructors</span><span class="p">[</span><span class="nx">pluginName</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"function"</span> <span class="p">)</span> <span class="nx">Cordova</span><span class="p">.</span><span class="nx">constructors</span><span class="p">[</span><span class="nx">pluginName</span><span class="p">]();</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
                 <hr style="visibility: hidden;">
@@ -1121,6 +1106,8 @@ server_port:            .hword 0x0b1a
 		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
                     note
                   </a>
+                  
+                  
                   
                   
                   
@@ -1244,7 +1231,7 @@ server_port:            .hword 0x0b1a
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2017
+                    Copyright &copy; Gitlee's Blog 2015-2018
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

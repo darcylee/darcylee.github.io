@@ -3,11 +3,30 @@
   <channel>
     <title>Gitlee's Blog</title>
     <description>一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。</description>
-    <link>https://www.gitlee.com/</link>
-    <atom:link href="https://www.gitlee.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 31 Jul 2017 19:37:44 +0800</pubDate>
-    <lastBuildDate>Mon, 31 Jul 2017 19:37:44 +0800</lastBuildDate>
-    <generator>Jekyll v3.5.0</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 09 Jun 2018 18:37:08 +0800</pubDate>
+    <lastBuildDate>Sat, 09 Jun 2018 18:37:08 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>记：更换博客托管服务</title>
+        <description>&lt;h1 id=&quot;由记&quot;&gt;由记&lt;/h1&gt;
+
+&lt;p&gt;该博客原本是托管在Coding上的，之前主要考虑国内网络环境的特殊性，托管在Coding上，在国内的访问速度明显是快很多的。中间也出现了一些不稳定的情况，但是还是可以接受。但是最近访问blog时候，发现出现5秒左右的Coding广告页面，然后在跳转到真实的博客页面上。后来上Coding了解到，因为没有黄金会员，所有托管在上面的page都要显示一下广告。虽然官方解释是依据cache判断，一天最多出现一次，但是对于我这种有强迫症的人来说，还是感觉不爽。虽然网站访问速度会受到影响，为了以后不在变更托管和运行的稳定性，还有一个原因，前段时间出现的&lt;code class=&quot;highlighter-rouge&quot;&gt;多说评论&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;网易云跟帖&lt;/code&gt;等社会评论服务的关闭，因此博客评论系统也迁移到gitment，此评论框是依托github的issue创建，简直神来之笔。以上种种原因遂决定把博客迁往github。&lt;/p&gt;
+
+&lt;h1 id=&quot;思考&quot;&gt;思考&lt;/h1&gt;
+</description>
+        <pubDate>Mon, 31 Jul 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/write-for-move-page-host/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/write-for-move-page-host/</guid>
+        
+        <category>闲言碎语</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Vim 替换操作</title>
@@ -46,97 +65,85 @@
   &lt;li&gt;将That or this 换成 This or that&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/\(That\) or \(this\)/\u\2 or \l\1/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/\(That\) or \(this\)/\u\2 or \l\1/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;将句尾的child换成children&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/child\([ ,.;!:?]\)/children\1/g
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/child\([ ,.;!:?]\)/children\1/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;将mgi/r/abox换成mgi/r/asquare&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/mg\([ira]\)box/s//mg//my\1square/g    &amp;lt;=&amp;gt;  :g/mg[ira]box/s/box/square/g
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/mg\([ira]\)box/s//mg//my\1square/g    &amp;lt;=&amp;gt;  :g/mg[ira]box/s/box/square/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;将多个空格换成一个空格&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/  */ /g
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/  */ /g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;使用空格替换句号或者冒号后面的一个或者多个空格&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/\([:.]\)  */\1 /g
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/\([:.]\)  */\1 /g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;删除所有空行&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/^$/d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/^$/d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;删除所有的空白行和空行&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/^[  ][  ]*$/d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/^[  ][  ]*$/d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;在每行的开始插入两个空白&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/^/&amp;gt;  /
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/^/&amp;gt;  /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;在接下来的6行末尾加入.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:.,5/$/./
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:.,5/$/./
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;颠倒文件的行序&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/.*/m0O  &amp;lt;=&amp;gt; :g/^/m0O
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/.*/m0O  &amp;lt;=&amp;gt; :g/^/m0O
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;寻找不是数字的开始行,并将其移到文件尾部&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g!/^[0-9]/m$ &amp;lt;=&amp;gt; g/^[^0-9]/m$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g!/^[0-9]/m$ &amp;lt;=&amp;gt; g/^[^0-9]/m$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;将文件的第12到17行内容复制10词放到当前文件的尾部&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:1,10g/^/12,17t$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:1,10g/^/12,17t$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;重复次数的作用&lt;/strong&gt;&lt;/p&gt;
 
@@ -144,18 +151,17 @@
   &lt;li&gt;将chapter开始行下面的第二行的内容写道begin文件中&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/^chapter/.+2w&amp;gt;&amp;gt;begin`
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:g/^chapter/.+2w&amp;gt;&amp;gt;begin`
 
 :/^part2/,/^part3/g/^chapter/.+2w&amp;gt;&amp;gt;begin
 
 :/^part2/,/^part3/g/^chapter/.+2w&amp;gt;&amp;gt;begin|+t$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 </description>
         <pubDate>Sat, 18 Feb 2017 00:00:00 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/vim_replase/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/vim_replase/</guid>
+        <link>http://localhost:4000/blog/vim_replase/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/vim_replase/</guid>
         
         <category>vim</category>
         
@@ -174,20 +180,19 @@
 
 &lt;h4 id=&quot;查看支持的themes&quot;&gt;查看支持的themes&lt;/h4&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;rougify &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;style
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rougify &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;style
 usage: rougify style &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;theme-name&amp;gt;] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;options&amp;gt;]
 
 Print CSS styles &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the given theme.  Extra options are
 passed to the theme.  Theme defaults to thankful_eyes.
 
 options:
-  --scope	&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default: .highlight&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; a css selector to scope by
+  &lt;span class=&quot;nt&quot;&gt;--scope&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default: .highlight&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; a css selector to scope by
 
 available themes:
   base16, base16.dark, base16.monokai, base16.monokai.light, base16.solarized, base16.solarized.dark, colorful, github, molokai, monokai, monokai.sublime, thankful_eyes
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;支持的语言&quot;&gt;支持的语言&lt;/h4&gt;
 
@@ -592,16 +597,15 @@ available themes:
 
 &lt;h4 id=&quot;c&quot;&gt;C&lt;/h4&gt;
 
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;ruby&quot;&gt;ruby&lt;/h4&gt;
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Jekyll&lt;/span&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Jekyll&lt;/span&gt;
 
   &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PrismBlock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Liquid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Block&lt;/span&gt;
     &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Liquid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;StandardFilters&lt;/span&gt;
@@ -649,12 +653,11 @@ available themes:
 
 &lt;span class=&quot;no&quot;&gt;Liquid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'prism'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PrismBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;makefile&quot;&gt;makefile&lt;/h4&gt;
 
-&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;BUILDDIR&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; _build
+&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;BUILDDIR&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; _build
 &lt;span class=&quot;nv&quot;&gt;EXTRAS&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;?=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(BUILDDIR)&lt;/span&gt;/extras
 
 &lt;span class=&quot;nl&quot;&gt;.PHONY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main clean&lt;/span&gt;
@@ -664,13 +667,12 @@ available themes:
 	build_main &lt;span class=&quot;nv&quot;&gt;$(BUILDDIR)&lt;/span&gt;
 
 &lt;span class=&quot;nl&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	rm -rf &lt;span class=&quot;nv&quot;&gt;$(BUILDDIR)&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+	&lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(BUILDDIR)&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;markdown&quot;&gt;markdown&lt;/h4&gt;
 
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# hello world&lt;/span&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;# hello world&lt;/span&gt;
 
 you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;with links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;http://example.com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; inline or &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;link references&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;.
 &lt;span class=&quot;p&quot;&gt;
@@ -684,20 +686,19 @@ you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=
 &lt;span class=&quot;gu&quot;&gt;hello world
 ===========
 &lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;this&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;_is&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;inline=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xml&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;/this_is&amp;gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;this&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;_is&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;inline=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xml&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/this&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_is&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;gt&quot;&gt;
 &amp;gt; markdown is so cool&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;
 
     so are code segments
 
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;1.&lt;/span&gt; one thing (yeah!)
-&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; two thing &lt;span class=&quot;sb&quot;&gt;`i can write code`, and `more`&lt;/span&gt; wipee!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; two thing &lt;span class=&quot;sb&quot;&gt;`i can write code`&lt;/span&gt;, and &lt;span class=&quot;sb&quot;&gt;`more`&lt;/span&gt; wipee!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;elisp&quot;&gt;elisp&lt;/h4&gt;
 
-&lt;div class=&quot;language-elisp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;prompt-for-cd&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;div class=&quot;language-elisp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;prompt-for-cd&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
    &lt;span class=&quot;s&quot;&gt;&quot;Prompts
     for CD&quot;&lt;/span&gt;
    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;prompt-read&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Title&quot;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.53&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2/4&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.7&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.7e0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;2.9E-4&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;+42&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;-7&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#b001&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#b001/100&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;#o777&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;#O777&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#xabc55&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;-5.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -717,32 +718,30 @@ you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;bash&quot;&gt;bash&lt;/h4&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;###### CONFIG&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;ACCEPTED_HOSTS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/root/.hag_accepted.conf&quot;&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;BE_VERBOSE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false
 
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$UID&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -ne 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$UID&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-ne&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;then
  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Superuser rights required&quot;&lt;/span&gt;
  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;2
 &lt;span class=&quot;k&quot;&gt;fi
 
 &lt;/span&gt;genApacheConf&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
- &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&quot;# Host &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HOME_DIR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; :&quot;&lt;/span&gt;
+ &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;# Host &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HOME_DIR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; :&quot;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;java&quot;&gt;java&lt;/h4&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * @author John Smith &amp;lt;john.smith@example.com&amp;gt;
 */&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l2f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;gameserver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
@@ -758,29 +757,27 @@ you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;json&quot;&gt;json&lt;/h4&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;apples&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;apples&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;oranges&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;oranges&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;objc&quot;&gt;objc&lt;/h4&gt;
 
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#import &amp;lt;UIKit/UIKit.h&amp;gt;
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#import &amp;lt;UIKit/UIKit.h&amp;gt;
 #import &quot;Dependency.h&quot;
 &lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;@protocol&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WorldDataSource&lt;/span&gt;
@@ -793,18 +790,16 @@ you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=
 &lt;span class=&quot;k&quot;&gt;@property&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nonatomic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readonly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IBAction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;shell&quot;&gt;shell&lt;/h4&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install gcc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;swift&quot;&gt;swift&lt;/h4&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;defaultName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xiaoli&quot;&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;defaultName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xiaoli&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;userDefinedName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//默认值为 nil&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;NameToUse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDefinedName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;??&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultName&lt;/span&gt;
@@ -813,12 +808,11 @@ you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=
 &lt;span class=&quot;n&quot;&gt;userDefinedName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zhangsan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;NameToUse1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDefinedName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;??&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultName&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// userDefinedName 有值，则 NameToUse 的值为 ”zhangsan”&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;css&quot;&gt;css&lt;/h4&gt;
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Chunkfive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('Chunkfive.otf')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
@@ -833,8 +827,7 @@ you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=
     &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;less&quot;&gt;less&lt;/h4&gt;
 
@@ -869,7 +862,7 @@ section &amp;gt; .foo + #bar:hover [href*=&quot;less&quot;] {
 
 &lt;h4 id=&quot;tex&quot;&gt;tex&lt;/h4&gt;
 
-&lt;div class=&quot;language-tex highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;article&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;language-tex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;article&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[koi8-r]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;inputenc&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\hoffset&lt;/span&gt;=0pt
 &lt;span class=&quot;k&quot;&gt;\voffset&lt;/span&gt;=.3em
@@ -886,8 +879,7 @@ G&lt;span class=&quot;k&quot;&gt;\&quot;&lt;/span&gt;otterd&lt;span class=&quot;
     &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\int\limits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}^{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\pi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\frac&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$$&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;asm&quot;&gt;asm&lt;/h4&gt;
 
@@ -931,17 +923,17 @@ server_port:            .hword 0x0b1a
 
 &lt;h4 id=&quot;javascript&quot;&gt;javascript&lt;/h4&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/*
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/*
  * Execute a callback function &amp;amp; remove it from the Cordova object
  */&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;Cordova&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callbackRef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parameters&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;//debug.log( &quot;Adding parameter &quot; + arguments[i] );&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// Keep reference to callback&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;callbackRef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cordova&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callbacks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
@@ -968,12 +960,11 @@ server_port:            .hword 0x0b1a
     &lt;span class=&quot;c1&quot;&gt;// Run constructor for plugin if available&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cordova&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pluginName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;function&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cordova&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pluginName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]();&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Wed, 16 Nov 2016 00:00:00 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/code_highlight_sample/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/code_highlight_sample/</guid>
+        <link>http://localhost:4000/blog/code_highlight_sample/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/code_highlight_sample/</guid>
         
         <category>highlight</category>
         
@@ -1010,8 +1001,8 @@ server_port:            .hword 0x0b1a
 &lt;p&gt;将linux主流的GUI 框架都注册了，然后注销或者重启就搞定。&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Nov 2016 22:19:30 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/debian8-use-ibus/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/debian8-use-ibus/</guid>
+        <link>http://localhost:4000/blog/debian8-use-ibus/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/debian8-use-ibus/</guid>
         
         <category>note</category>
         
@@ -1094,12 +1085,11 @@ server_port:            .hword 0x0b1a
 
 &lt;h2 id=&quot;克隆远程仓库&quot;&gt;克隆远程仓库&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git@server:/srv/test.git
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git@server:/srv/test.git
 Cloning into 'test'...
 warning: You appear to have cloned an empty repository.
 Checking connectivity... done.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;到此&lt;code class=&quot;highlighter-rouge&quot;&gt;git&lt;/code&gt;服务器搭建完成&lt;/p&gt;
 
@@ -1108,14 +1098,14 @@ Checking connectivity... done.
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt;请换成你的树梅派&lt;code class=&quot;highlighter-rouge&quot;&gt;ip&lt;/code&gt;地址或者域名&amp;nbsp;&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt;请换成你的树梅派&lt;code class=&quot;highlighter-rouge&quot;&gt;ip&lt;/code&gt;地址或者域名 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 10 Oct 2016 18:19:30 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/setup-simple-git-server/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/setup-simple-git-server/</guid>
+        <link>http://localhost:4000/blog/setup-simple-git-server/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/setup-simple-git-server/</guid>
         
         <category>linux</category>
         
@@ -1137,9 +1127,8 @@ Checking connectivity... done.
 
 &lt;p&gt;获取源代码&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://gerrit.zephyrproject.org/r/zephyr
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://gerrit.zephyrproject.org/r/zephyr
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;zephyr™使用类似linux内核&lt;code class=&quot;highlighter-rouge&quot;&gt;Kbuild&lt;/code&gt;构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的&lt;a href=&quot;https://www.zephyrproject.org/doc/getting_started/getting_started.html&quot;&gt;QuickStart&lt;/a&gt;文档后，很容易上手开发的， 文档中提供了三个不同平台&lt;code class=&quot;highlighter-rouge&quot;&gt;linux&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;windows&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;的开发环境设置介绍，如果你目前使用的是&lt;code class=&quot;highlighter-rouge&quot;&gt;linux&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;windows&lt;/code&gt;平台可以移步&lt;a href=&quot;&quot;&gt;官网&lt;/a&gt;，寻找相对应平台的说明。这里我们要说的是基于&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;平台的开发环境设置。&lt;/p&gt;
 
 &lt;p&gt;虽然官网有给出&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;平台的&lt;a href=&quot;https://www.zephyrproject.org/doc/getting_started/installation_mac.html&quot;&gt;开发环境设置指南&lt;/a&gt;，但是还是会碰到一些问题，我这里记录了一下我的设置过程，以及我碰到的问题的解决办法，希望能帮到和我一样想在&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;平台上做基于&lt;code class=&quot;highlighter-rouge&quot;&gt;zephyr&lt;/code&gt;的嵌入式开发的朋友。&lt;/p&gt;
@@ -1156,36 +1145,32 @@ Checking connectivity... done.
 
 &lt;p&gt;继续安装一些工具&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install gettext qemu help2man mpfr gmp coreutils wget python3
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gettext qemu help2man mpfr gmp coreutils wget python3
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew tap homebrew/dupes
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew tap homebrew/dupes
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install grep --with-default-names
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-default-names&lt;/span&gt;
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;pip3 install ply
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ply
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install gettext
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gettext
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;稍作设置&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew edit crosstool-ng
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew edit crosstool-ng
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;添加下面一行到&lt;code class=&quot;highlighter-rouge&quot;&gt;depends&lt;/code&gt;section&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;depends_on 'grep' =&amp;gt; '--default-names'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;depends_on 'grep' =&amp;gt; '--default-names'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;安装&lt;code class=&quot;highlighter-rouge&quot;&gt;Crosstool-ng&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install crosstool-ng
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;crosstool-ng
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew link --force gettext
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt; gettext
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;编译工具链&quot;&gt;编译工具链&lt;/h4&gt;
 
@@ -1194,42 +1179,38 @@ Checking connectivity... done.
 
 &lt;p&gt;创建好后，在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;下面会多出一个文件夹，也就是你创建的新分区。&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ls /Volumes/
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; /Volumes/
 Macintosh HD excs
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;进入&lt;code class=&quot;highlighter-rouge&quot;&gt;excs&lt;/code&gt;（根据你创建的分区名称）&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /Volumes/excs
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /Volumes/excs
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mkdir CrossToolNG
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;CrossToolNG
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;CrossToolNG
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;CrossToolNG
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mkdir build src x-tools
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;build src x-tools
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;复制zephyr项目下面的配置文件到&lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt;目录，zephyr提供了2个平台的配置x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。&lt;code class=&quot;highlighter-rouge&quot;&gt;${ZEPHYR_BASE}&lt;/code&gt;为你zephyr项目的根目录&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cp &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_BASE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/scripts/cross_compiler/arm.config .config
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_BASE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/scripts/cross_compiler/arm.config .config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;有配置过&lt;code class=&quot;highlighter-rouge&quot;&gt;Crosstool-ng&lt;/code&gt;的童鞋也可以自行配置，这里不再说。&lt;/p&gt;
 
 &lt;p&gt;开始构建工具链，首先&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng menuconfig
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ct-ng menuconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
 &lt;img src=&quot;/img/in-post/post_zephyr_on_mac/ct-ng_config1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;打开&lt;code class=&quot;highlighter-rouge&quot;&gt;.config&lt;/code&gt;文件再次确认下路径设置&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
 &lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# Paths&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
@@ -1243,85 +1224,76 @@ Macintosh HD excs
 &lt;span class=&quot;nv&quot;&gt;CT_WANTS_STATIC_LINK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;n
 &lt;span class=&quot;nv&quot;&gt;CT_CC_STATIC_LIBSTDCXX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;n
 ...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;在开始编译之前，我推荐使用&lt;code class=&quot;highlighter-rouge&quot;&gt;Homebrew&lt;/code&gt;安装gcc，不要使用&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;自带的gcc版本，我一开始使用自带的gcc版本编译错误，当时没有截图， 错误信息没办法提供给你们看了。安装gcc命令很简单， 如下：&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install gcc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;过程很漫长，差不多20分钟左右（15年中旬15寸低配macbookpro）， 在安装过程中本本风扇狂转。。。我也是醉了。。回归正题&lt;/p&gt;
 
 &lt;p&gt;安装完成后确认一下&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcc -v
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
 Using built-in specs.
 &lt;span class=&quot;nv&quot;&gt;COLLECT_GCC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;gcc
 &lt;span class=&quot;nv&quot;&gt;COLLECT_LTO_WRAPPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/Cellar/gcc/5.3.0/libexec/gcc/x86_64-apple-darwin15.6.0/5.3.0/lto-wrapper
 Target: x86_64-apple-darwin15.6.0
-Configured with: ../configure --build&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-apple-darwin15.6.0 --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/Cellar/gcc/5.3.0 --libdir&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/Cellar/gcc/5.3.0/lib/gcc/5 --enable-languages&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c,c++,objc,obj-c++,fortran --program-suffix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-5 --with-gmp&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/gmp --with-mpfr&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/mpfr --with-mpc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/libmpc --with-isl&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/isl --with-system-zlib --enable-libstdcxx-time&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;yes --enable-stage1-checking --enable-checking&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;release --enable-lto --with-build-config&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bootstrap-debug --disable-werror --with-pkgversion&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Homebrew gcc 5.3.0'&lt;/span&gt; --with-bugurl&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://github.com/Homebrew/homebrew/issues --enable-plugin --disable-nls --enable-multilib --with-native-system-header-dir&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/include --with-sysroot&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+Configured with: ../configure &lt;span class=&quot;nt&quot;&gt;--build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-apple-darwin15.6.0 &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/Cellar/gcc/5.3.0 &lt;span class=&quot;nt&quot;&gt;--libdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/Cellar/gcc/5.3.0/lib/gcc/5 &lt;span class=&quot;nt&quot;&gt;--enable-languages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c,c++,objc,obj-c++,fortran &lt;span class=&quot;nt&quot;&gt;--program-suffix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-5&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-gmp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/gmp &lt;span class=&quot;nt&quot;&gt;--with-mpfr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/mpfr &lt;span class=&quot;nt&quot;&gt;--with-mpc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/libmpc &lt;span class=&quot;nt&quot;&gt;--with-isl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/isl &lt;span class=&quot;nt&quot;&gt;--with-system-zlib&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--enable-libstdcxx-time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;yes&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--enable-stage1-checking&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--enable-checking&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;release &lt;span class=&quot;nt&quot;&gt;--enable-lto&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-build-config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bootstrap-debug &lt;span class=&quot;nt&quot;&gt;--disable-werror&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-pkgversion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Homebrew gcc 5.3.0'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-bugurl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://github.com/Homebrew/homebrew/issues &lt;span class=&quot;nt&quot;&gt;--enable-plugin&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-nls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--enable-multilib&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-native-system-header-dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/include &lt;span class=&quot;nt&quot;&gt;--with-sysroot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
 Thread model: posix
 gcc version 5.3.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Homebrew gcc 5.3.0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;一切准备就绪，ok，开始编译工具链&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ct-ng build
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ct-ng build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;又是一个漫长的等待，大概15分钟左右，提示编译成功。我们察看一下&lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt;文件夹&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /Volumes/excs/CrossToolNG/x-tools
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /Volumes/excs/CrossToolNG/x-tools
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ls
-arm-none-eabi
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;arm-none-eabi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;交叉编译工具链产生了，试验一下&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;arm-none-eabi/bin
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;arm-none-eabi/bin
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./arm-none-eabi-gcc -v
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./arm-none-eabi-gcc &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
 Using built-in specs.
 &lt;span class=&quot;nv&quot;&gt;COLLECT_GCC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;./arm-none-eabi-gcc
 &lt;span class=&quot;nv&quot;&gt;COLLECT_LTO_WRAPPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/libexec/gcc/arm-none-eabi/5.2.0/lto-wrapper
 Target: arm-none-eabi
-Configured with: /Volumes/excs/CrossToolNG/build/.build/src/gcc-5.2.0/configure --build&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-build_apple-darwin15.6.0 --host&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-build_apple-darwin15.6.0 --target&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-none-eabi --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi --with-local-prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-sysroot&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-newlib --enable-threads&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no --disable-shared --with-pkgversion&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'crosstool-NG crosstool-ng-1.22.0'&lt;/span&gt; --with-float&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;soft --enable-__cxa_atexit --with-gmp&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpfr&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-isl&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-cloog&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-libelf&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --enable-lto --enable-target-optspace --disable-libgomp --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-nls --disable-multilib --enable-languages&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c
+Configured with: /Volumes/excs/CrossToolNG/build/.build/src/gcc-5.2.0/configure &lt;span class=&quot;nt&quot;&gt;--build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-build_apple-darwin15.6.0 &lt;span class=&quot;nt&quot;&gt;--host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-build_apple-darwin15.6.0 &lt;span class=&quot;nt&quot;&gt;--target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm-none-eabi &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi &lt;span class=&quot;nt&quot;&gt;--with-local-prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot &lt;span class=&quot;nt&quot;&gt;--with-sysroot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot &lt;span class=&quot;nt&quot;&gt;--with-newlib&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--enable-threads&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no &lt;span class=&quot;nt&quot;&gt;--disable-shared&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-pkgversion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'crosstool-NG crosstool-ng-1.22.0'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;soft &lt;span class=&quot;nt&quot;&gt;--enable-__cxa_atexit&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--with-gmp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools &lt;span class=&quot;nt&quot;&gt;--with-mpfr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools &lt;span class=&quot;nt&quot;&gt;--with-mpc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools &lt;span class=&quot;nt&quot;&gt;--with-isl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools &lt;span class=&quot;nt&quot;&gt;--with-cloog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools &lt;span class=&quot;nt&quot;&gt;--with-libelf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools &lt;span class=&quot;nt&quot;&gt;--enable-lto&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--enable-target-optspace&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-libgomp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-libmudflap&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-libssp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-libquadmath&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-libquadmath-support&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-nls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-multilib&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--enable-languages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c
 Thread model: single
 gcc version 5.2.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;crosstool-NG crosstool-ng-1.22.0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;没有问题，很好&lt;/p&gt;
 
 &lt;p&gt;回到&lt;code class=&quot;highlighter-rouge&quot;&gt;zephyr&lt;/code&gt;工程目录&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_BASE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_BASE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;zephry_env.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;zephry_env.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;编译一个例子程序helloworld试试， go&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;samples/hello_world/microkernel
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;samples/hello_world/microkernel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;在编译前，先设置2个环境变量&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_GCC_VARIANT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;xtools
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_GCC_VARIANT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;xtools
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;XTOOLS_TOOLCHAIN_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;XTOOLS_TOOLCHAIN_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/excs/CrossToolNG/x-tools
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;编译helloworld&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;make &lt;span class=&quot;nv&quot;&gt;BOARD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;frdm_k64f
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make &lt;span class=&quot;nv&quot;&gt;BOARD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;frdm_k64f
 Using /Users/dl/work/proj/ex_projects/zephyr/boards/frdm_k64f/frdm_k64f_defconfig as base
 Merging /Users/dl/work/proj/ex_projects/zephyr/kernel/configs/nano.config
 Merging prj.conf
@@ -1329,40 +1301,37 @@ Merging prj.conf
 &lt;span class=&quot;c&quot;&gt;# configuration written to .config&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
   GEN     ./Makefile
-scripts/kconfig/conf --silentoldconfig Kconfig
+scripts/kconfig/conf &lt;span class=&quot;nt&quot;&gt;--silentoldconfig&lt;/span&gt; Kconfig
   Using /Users/dl/work/proj/ex_projects/zephyr as &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;kernel
   GEN     ./Makefile
   CHK     include/generated/version.h
   UPD     include/generated/version.h
   CHK     misc/generated/configs.c
-.
-.
-.
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
   LD      src/built-in.o
   AR      libzephyr.a
   LINK    zephyr.lnk
   BIN     zephyr.bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;没有错误，编译成功，最终生成的&lt;code class=&quot;highlighter-rouge&quot;&gt;bin&lt;/code&gt;文件在outdir文件下&lt;/p&gt;
 
 &lt;p&gt;察看编译出来的&lt;code class=&quot;highlighter-rouge&quot;&gt;elf&lt;/code&gt;文件，确实是arm平台的&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;file zephyr.elf
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file zephyr.elf
 zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SYSV&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, statically linked, not stripped
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;到这里你的环境基本上配置好了。&lt;/p&gt;
 
 &lt;p&gt;可以把上面的环境变量设置到&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zephyrrc&lt;/code&gt;中，这样下次就不需要重新export了&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat ~/.zephyrrc
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; ~/.zephyrrc
 &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;XTOOLS_TOOLCHAIN_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/CrossToolNG/x-tools
 &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_GCC_VARIANT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;xtools
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;，这样有用的时候打开这个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;就可以了。&lt;/p&gt;
 
@@ -1371,24 +1340,22 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 &lt;span class=&quot;o&quo
 
 &lt;p&gt;生成一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;&lt;img src=&quot;/img/in-post/post_zephyr_on_mac/xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;，有用的时候打开, 就会在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;，多出&lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt;文件夹&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ls ／Volumes
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; ／Volumes
 Macintosh HD   x-tools
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;然后环境变量做相应的变更&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;XTOOLS_TOOLCHAIN_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/x-tools
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;XTOOLS_TOOLCHAIN_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Volumes/x-tools
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;这样，就可以把8G的分区&lt;code class=&quot;highlighter-rouge&quot;&gt;excs&lt;/code&gt;删除，把磁盘空间还给&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;系统了。&lt;/p&gt;
 
 &lt;h2 id=&quot;使用menuconfig配置工程遇到的错误&quot;&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;menuconfig&lt;/code&gt;配置工程遇到的错误&lt;/h2&gt;
 
 &lt;p&gt;具体错误如下&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_BASE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/samples/hello_world/microkernel
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ZEPHYR_BASE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/samples/hello_world/microkernel
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;make menuconfig
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make menuconfig
   GEN     ./Makefile
   HOSTLD  scripts/kconfig/mconf
 Undefined symbols &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;architecture x86_64:
@@ -1399,28 +1366,25 @@ Undefined symbols &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;architecture 
       _draw_box &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;util.o
       _dialog_inputbox &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;inputbox.o
       _dialog_textbox &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;textbox.o
-.
-.
-.
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;解决办法&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install ncurses
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ncurses
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;然后在&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zephyrrc&lt;/code&gt;中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;ncurse&lt;/code&gt;pkgconfig&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PKG_CONFIG_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/ncurses/lib/pkgconfig:&lt;span class=&quot;nv&quot;&gt;$PKG_CONFIG_PATH&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PKG_CONFIG_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/ncurses/lib/pkgconfig:&lt;span class=&quot;nv&quot;&gt;$PKG_CONFIG_PATH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Sun, 14 Aug 2016 00:00:00 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/Develop_zephry_project_on_mac/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/Develop_zephry_project_on_mac/</guid>
+        <link>http://localhost:4000/blog/Develop_zephry_project_on_mac/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/Develop_zephry_project_on_mac/</guid>
         
         <category>学习笔记</category>
         
@@ -1437,8 +1401,8 @@ Undefined symbols &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;architecture 
 add later.&lt;/p&gt;
 </description>
         <pubDate>Wed, 20 Apr 2016 00:00:00 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/qtevdevkeyboard/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/qtevdevkeyboard/</guid>
+        <link>http://localhost:4000/blog/qtevdevkeyboard/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/qtevdevkeyboard/</guid>
         
         <category>学习笔记</category>
         
@@ -1455,18 +1419,16 @@ add later.&lt;/p&gt;
 
 &lt;h4 id=&quot;1-安装vpn客户端&quot;&gt;1. 安装&lt;code class=&quot;highlighter-rouge&quot;&gt;VPN&lt;/code&gt;客户端&lt;/h4&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~/work  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 09:48:55 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo apt-get install pptp-linux
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~/work  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 09:48:55 AM CST]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pptp-linux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;2-创建vpn连接&quot;&gt;2. 创建&lt;code class=&quot;highlighter-rouge&quot;&gt;VPN&lt;/code&gt;连接&lt;/h4&gt;
 
 &lt;p&gt;假定：你需要拨号的vpn服务器地址为&lt;code class=&quot;highlighter-rouge&quot;&gt;44.125.4.11&lt;/code&gt;，你从&lt;code class=&quot;highlighter-rouge&quot;&gt;vpn&lt;/code&gt;服务提供商那里申请的帐号为&lt;code class=&quot;highlighter-rouge&quot;&gt;abc&lt;/code&gt;，密码为&lt;code class=&quot;highlighter-rouge&quot;&gt;123456&lt;/code&gt;，你么你可以这样创建一个名为&lt;code class=&quot;highlighter-rouge&quot;&gt;myVpnName &lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;vpn&lt;/code&gt;连接&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pptpsetup --create myVpnName --server 44.125.4.11 --username abc --password 123456 --encrypt --start
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pptpsetup &lt;span class=&quot;nt&quot;&gt;--create&lt;/span&gt; myVpnName &lt;span class=&quot;nt&quot;&gt;--server&lt;/span&gt; 44.125.4.11 &lt;span class=&quot;nt&quot;&gt;--username&lt;/span&gt; abc &lt;span class=&quot;nt&quot;&gt;--password&lt;/span&gt; 123456 &lt;span class=&quot;nt&quot;&gt;--encrypt&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--start&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;--create 后的是创建的连接名称，可以为任意名称;&lt;/li&gt;
@@ -1479,17 +1441,16 @@ add later.&lt;/p&gt;
 
 &lt;p&gt;如果没有出现意外，你在控制台中将看到如下输出，说明你的vpn已经建立成功，并且以成功连接到&lt;code class=&quot;highlighter-rouge&quot;&gt;VPN&lt;/code&gt;服务器&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Using interface ppp0
-Connect: ppp0 &amp;lt;--&amp;gt; /dev/pts/1
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Using interface ppp0
+Connect: ppp0 &amp;lt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dev/pts/1
 CHAP authentication succeeded
 &lt;span class=&quot;nb&quot;&gt;local  &lt;/span&gt;IP address 192.168.99.12
 remote IP address 192.168.99.1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;我们查看下本地IP配置，发现多了一个ppp0的连接&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~/work  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 09:52:58 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ifconfig
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~/work  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 09:52:58 AM CST]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ifconfig
 eth0      ....
 
 lo        ....
@@ -1501,8 +1462,7 @@ ppp0      Link encap:Point-to-Point Protocol
           TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:3
           RX bytes:60 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;60.0 B&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  TX bytes:66 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;66.0 B&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;3-常用操作&quot;&gt;3. 常用操作&lt;/h4&gt;
 
@@ -1521,26 +1481,25 @@ ppp0      Link encap:Point-to-Point Protocol
 
 &lt;p&gt;我们分别&lt;code class=&quot;highlighter-rouge&quot;&gt;ping&lt;/code&gt;下&lt;code class=&quot;highlighter-rouge&quot;&gt;google&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;baidu&lt;/code&gt;服务器&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~/work  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 09:52:15 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ping www.google.com
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~/work  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 09:52:15 AM CST]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ping www.google.com
 PING www.google.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;216.58.221.68&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 56&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;84&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; bytes of data.
 ^C
---- www.google.com ping statistics ---
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; www.google.com ping statistics &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
 14 packets transmitted, 0 received, 100% packet loss, &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;13000ms
 
 dl@debian ~/work  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 09:53:01 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ping www.baidu.com
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ping www.baidu.com
 PING www.a.shifen.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14.215.177.38&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 56&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;84&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; bytes of data.
 64 bytes from 14.215.177.38: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;128 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;18.6 ms
 64 bytes from 14.215.177.38: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;128 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;19.0 ms
 64 bytes from 14.215.177.38: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;128 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;18.9 ms
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;发现无法ping通墙外的&lt;code class=&quot;highlighter-rouge&quot;&gt;google&lt;/code&gt;而国内的&lt;code class=&quot;highlighter-rouge&quot;&gt;baidu&lt;/code&gt;正常，细心的你一定发现了，&lt;code class=&quot;highlighter-rouge&quot;&gt;baidu&lt;/code&gt;的连接延时和没有拨&lt;code class=&quot;highlighter-rouge&quot;&gt;VPN&lt;/code&gt;时是相近的。这是为什么？原因是我们新创建的&lt;code class=&quot;highlighter-rouge&quot;&gt;VPN&lt;/code&gt;通道并没有被加入系统路由，可以&lt;code class=&quot;highlighter-rouge&quot;&gt;route&lt;/code&gt;
 查看一下。&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 11:27:39 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;route
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 11:27:39 AM CST]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;route
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
@@ -1548,18 +1507,16 @@ default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
 li1100-244.memb 10.211.55.1     255.255.255.255 UGH   0      0        0 eth0
 link-local      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;               255.255.0.0     U     1000   0        0 eth0
 192.168.99.1    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;               255.255.255.255 UH    0      0        0 ppp0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;你看&lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt;后面&lt;code class=&quot;highlighter-rouge&quot;&gt;Iface&lt;/code&gt;是&lt;code class=&quot;highlighter-rouge&quot;&gt;eth0&lt;/code&gt;并不是我们创建的&lt;code class=&quot;highlighter-rouge&quot;&gt;ppp0&lt;/code&gt;，我们需要手动创建：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~  [Fri 29 Jan 2016 11:32:00 AM CST]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~  [Fri 29 Jan 2016 11:32:00 AM CST]
 $ sudo route add default dev ppp0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;再次&lt;code class=&quot;highlighter-rouge&quot;&gt;route&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 11:32:48 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;route
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian ~  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 11:32:48 AM CST]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;route
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;               0.0.0.0         U     0      0        0 ppp0
@@ -1568,13 +1525,12 @@ default         10.211.55.1     0.0.0.0         UG    0      0        0 eth0
 li1100-244.memb 10.211.55.1     255.255.255.255 UGH   0      0        0 eth0
 link-local      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;               255.255.0.0     U     1000   0        0 eth0
 192.168.99.1    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;               255.255.255.255 UH    0      0        0 ppp0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;出现了2条&lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt;，其中一条是我们创建的痛过&lt;code class=&quot;highlighter-rouge&quot;&gt;ppp0&lt;/code&gt;通道的，我们再次&lt;code class=&quot;highlighter-rouge&quot;&gt;ping&lt;/code&gt;一下，发现都可以通了。&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian /etc/ppp/peers  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 11:33:09 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ping www.google.com
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian /etc/ppp/peers  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 11:33:09 AM CST]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ping www.google.com
 PING www.google.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;216.58.221.228&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 56&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;84&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; bytes of data.
 64 bytes from hkg07s21-in-f4.1e100.net &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;216.58.221.228&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;53 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;493 ms
 64 bytes from hkg07s21-in-f4.1e100.net &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;216.58.221.228&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;53 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;440 ms
@@ -1583,37 +1539,35 @@ PING www.google.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;216.58.221.228
 64 bytes from hkg07s21-in-f4.1e100.net &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;216.58.221.228&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;5 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;53 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;440 ms
 64 bytes from hkg07s21-in-f4.1e100.net &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;216.58.221.228&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;53 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;444 ms
 ^C
---- www.google.com ping statistics ---
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; www.google.com ping statistics &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
 6 packets transmitted, 6 received, 0% packet loss, &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;9511ms
 rtt min/avg/max/mdev &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 436.317/449.187/493.006/19.749 ms
 dl@debian /etc/ppp/peers  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 11:32:54 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ping www.baidu.com
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ping www.baidu.com
 PING www.a.shifen.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14.215.177.37&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 56&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;84&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; bytes of data.
 64 bytes from 14.215.177.37: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;45 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;525 ms
 64 bytes from 14.215.177.37: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;45 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;570 ms
 64 bytes from 14.215.177.37: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;45 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;574 ms
 64 bytes from 14.215.177.37: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;5 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;45 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;567 ms
 ^C
---- www.a.shifen.com ping statistics ---
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; www.a.shifen.com ping statistics &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
 5 packets transmitted, 4 received, 20% packet loss, &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;4001ms
 rtt min/avg/max/mdev &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 525.227/559.586/574.565/19.994 ms
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;如果你还不能确定新创建的&lt;code class=&quot;highlighter-rouge&quot;&gt;VPN&lt;/code&gt;已正常使用，可以通过下面命令来查看外网的&lt;code class=&quot;highlighter-rouge&quot;&gt;IP&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian /etc/ppp/peers  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 10:31:12 AM CST]
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl ifconfig.me
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dl@debian /etc/ppp/peers  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Fri 29 Jan 2016 10:31:12 AM CST]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl ifconfig.me
 44.125.4.11 ＃这个其实就是你vpn服务器的ip地址，这里只是个举例
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;至于如何自动完成路由的添加，目前还没有试验出来。等发现了添加说明。&lt;/p&gt;
 </description>
         <pubDate>Fri, 29 Jan 2016 10:19:30 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/vpn_on_command_line/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/vpn_on_command_line/</guid>
+        <link>http://localhost:4000/blog/vpn_on_command_line/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/vpn_on_command_line/</guid>
         
         <category>linux</category>
         
@@ -1646,11 +1600,10 @@ rtt min/avg/max/mdev &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 525.227/559.
 
 &lt;p&gt;下面的例子使用这种构造器来尝试将一个String转换成Int：&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;possibleNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;123&quot;&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;possibleNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;123&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;convertedNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;possibleNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// convertedNumber 被推测为类型 &quot;Int?&quot;， 或者类型 &quot;optional Int&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;因为该构造器可能会失败，所以它返回一个可选类型（optional）Int，而不是一个Int。一个可选的Int被写作Int?而不是Int。问号暗示包含的值是可选类型，也就是说可能包含Int值也可能不包含值。（不能包含其他任何值比如Bool值或者String值。只能是Int或者什么都没有。）&lt;/p&gt;
 
@@ -1658,12 +1611,11 @@ rtt min/avg/max/mdev &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 525.227/559.
 
 &lt;p&gt;你可以给可选变量赋值为nil来表示它没有值：&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;serverResponseCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;serverResponseCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// serverResponseCode 包含一个可选的 Int 值 404&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;serverResponseCode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// serverResponseCode 现在不包含值&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;nil不能用于非可选的常量和变量。如果你的代码中有常量或者变量需要处理值缺失的情况，请把它们声明成对应的可选类型。&lt;/p&gt;
@@ -1671,10 +1623,9 @@ rtt min/avg/max/mdev &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 525.227/559.
 
 &lt;p&gt;如果你声明一个可选常量或者变量但是没有赋值，它们会自动被设置为nil：&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;surveyAnswer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;surveyAnswer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// surveyAnswer 被自动设置为 nil&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;注意：
@@ -1683,27 +1634,25 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 
 &lt;p&gt;可以使用if语句和nil比较来判断一个可选值是否包含值&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;optionalVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;optionalVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;optionalVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;optionalVal contains some string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;optionalVal is nothing!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;当你确定可选类型确实包含值之后，你可以在可选的名字后面加一个感叹号（!）来获取值。这被称为可选值的强制解析（forced unwrapping）：&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;optionalVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;optionalVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;optionalVal&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;＝&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;“&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;”&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//如果没有值，则下面的if判断会出现编译错误&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;actValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optionalVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optionalVal&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; has an integer value &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;actValue&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optionalVal&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; could not be converted to an integer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;还没明白，这样的一个可选属性的设置，在实际编程里面，主要用在什么样的情况下。&lt;/p&gt;
 
@@ -1720,15 +1669,14 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 
 &lt;p&gt;空合运算符等同于下面的表达式：&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中值，反之当a中值为空时，返回默认值b。无疑空合运算符(??)提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具可读性。&lt;/p&gt;
 
 &lt;p&gt;再一个例子&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;defaultName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xiaoli&quot;&lt;/span&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;defaultName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xiaoli&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;userDefinedName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//默认值为 nil&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;NameToUse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDefinedName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;??&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultName&lt;/span&gt;
@@ -1737,12 +1685,11 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 &lt;span class=&quot;n&quot;&gt;userDefinedName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zhangsan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;NameToUse1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userDefinedName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;??&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultName&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// userDefinedName 有值，则 NameToUse 的值为 ”zhangsan”&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 08 Jan 2016 15:19:30 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/swift-note-01/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/swift-note-01/</guid>
+        <link>http://localhost:4000/blog/swift-note-01/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/swift-note-01/</guid>
         
         <category>swift</category>
         
@@ -1767,15 +1714,14 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 
 &lt;p&gt;命令行输入：&lt;code class=&quot;highlighter-rouge&quot;&gt;hexdump --help&lt;/code&gt;查看详细介绍：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » hexdump --help
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » hexdump --help
 hexdump: invalid option -- '-'
 usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
                [-s skip] [file ...]
        hd      [-bcdovx]  [-e fmt] [-f fmt_file] [-n length]
                [-s skip] [file ...]
                
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;语法选项&lt;/p&gt;
 
@@ -1815,7 +1761,7 @@ usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
 
 &lt;p&gt;示例：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » hexdump -e '16/1 &quot;%02X &quot; &quot; | &quot;' -e '16/1 &quot;%_p&quot; &quot;\n&quot;' rootfs.ubi
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » hexdump -e '16/1 &quot;%02X &quot; &quot; | &quot;' -e '16/1 &quot;%_p&quot; &quot;\n&quot;' rootfs.ubi
 55 42 49 23 01 00 00 00 00 00 00 00 00 00 00 00 | UBI#............
 00 00 08 00 00 00 10 00 2A AD C9 72 00 00 00 00 | ........*..r....
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
@@ -1825,8 +1771,7 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
 55 42 49 21 01 01 00 05 7F FF EF FF 00 00 00 00 | UBI!............
 ...
 ...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;部分引用自&lt;a href=&quot;http://man.linuxde.net/hexdump&quot;&gt;linuxde&lt;/a&gt;&lt;/p&gt;
 
@@ -1834,7 +1779,7 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xxd --help&lt;/code&gt; 查看详细使用方法&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » xxd --help
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » xxd --help
 Usage:
        xxd [options] [infile [outfile]]
     or
@@ -1854,8 +1799,7 @@ Options:
     -s [+][-]seek  start at &amp;lt;seek&amp;gt; bytes abs. (or +: rel.) infile offset.
     -u          use upper case hex letters.
     -v          show version: &quot;xxd V1.10 27oct98 by Juergen Weigert&quot;.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;语法&lt;/p&gt;
 
@@ -1880,382 +1824,21 @@ xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]&lt;/p&gt;
   &lt;p&gt;从0x500000处开始显示64个字节&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
 0500000: 5542 4923 0100 0000 0000 0000 0000 0000  UBI#............
 0500010: 0000 0800 0000 1000 2aad c972 0000 0000  ........*..r....
 0500020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 0500030: 0000 0000 0000 0000 0000 0000 f206 b0a2  ................
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;这个对调试通讯协议出错的时候特别有用&lt;/p&gt;
 </description>
         <pubDate>Thu, 31 Dec 2015 10:19:30 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/dump_bin_in_shell/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/dump_bin_in_shell/</guid>
+        <link>http://localhost:4000/blog/dump_bin_in_shell/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/dump_bin_in_shell/</guid>
         
         <category>linux</category>
         
         <category>shell</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Objective－C 实例化</title>
-        <description>&lt;h1 id=&quot;类实例化&quot;&gt;类实例化&lt;/h1&gt;
-
-&lt;p&gt;类的实例化位导致两个问题：构造函数、析构函数和赋值运算符如何实现，以及如何分配内存。&lt;/p&gt;
-
-&lt;p&gt;在 C++ 中，变量默认是“自动的”：除非被声明为static，否则变量仅在自己的定义块中有意义。动态分配的内存可以一直使用，直到调用了free()或者delete。C++ 中，所有对象都遵循这一规则。&lt;/p&gt;
-
-&lt;p&gt;然而在 Objective-C 中，所有对象都是动态分配的。其实这也是符合逻辑的，因为 C++ 更加 static，而 Objective-C 则更加动态。除非能够在运行时动态分配内存，否则 Objective-C 实现不了这么多动态的特性。&lt;/p&gt;
-
-&lt;h2 id=&quot;构造函数和初始化函数&quot;&gt;构造函数和初始化函数&lt;/h2&gt;
-
-&lt;h3 id=&quot;分配allocation和初始化initialization的区别&quot;&gt;分配&lt;em&gt;allocation&lt;/em&gt;和初始化&lt;em&gt;initialization&lt;/em&gt;的区别&lt;/h3&gt;
-&lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;C++&lt;/code&gt; 中，内存分配和对象初始化都是在构造函数中完成的。在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中，这是两个不同的函数。&lt;/p&gt;
-
-&lt;p&gt;内存分配由类方法 &lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt; 完成，此时将初始化所有的实例数据。实例数据将被初始化为 &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;，除了一个名为&lt;code class=&quot;highlighter-rouge&quot;&gt;isa&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;NSObject&lt;/code&gt;的指针。这个指针将在运行时指向对象的实际类型。实例数据根据传入的参数初始化为某一特定的值，这一过程将在一个实例方法 &lt;code class=&quot;highlighter-rouge&quot;&gt;instance method&lt;/code&gt; 中完成。这个方法通常命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;。因此，构造过程被明确地分为两步：内存分配和初始化。&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;消息被发送给类，而&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;消息则被发送给由&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;创建出来的新的对象。初始化过程不是可选的，&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;之后应该跟着&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;，之后，父类的init也会被调用，直到&lt;code class=&quot;highlighter-rouge&quot;&gt;NSObject&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;方法。这一方法完成了很多重要的工作。&lt;/p&gt;
-
-&lt;p&gt;在 C&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;+ 中，构造函数的名字是规定好的，必须与类名一致。在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中，初始化方法与普通方法没有什么区别。你可以用任何名字，只不过通常都是选用 &lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt; 这个名字。然而，我们还是强烈建议，&lt;strong&gt;初始化方法名字一定要用&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;或者 &lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt; 开头的字符串。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;使用alloc和init&quot;&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;调用&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;之后将返回一个新的对象，并且应该给这个对象发送一个&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;消息。&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;调用之后也会返回一个对象。通常，这就是初始化完成的对象。有时候，如果使用单例模式，&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;可能会返回另外的对象（单例模式要求始终返回同一对象）。因此，&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;的返回值不应该被忽略。通常，&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt;都会在一行上。&lt;/p&gt;
-
-&lt;p&gt;c++&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Objective-C&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo1&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 这是不好的行为：应该使用 init 的返回值
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;foo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo2&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 正确，不过看上去很啰嗦
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 正确，这才是通常的做法
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;为检查内存分配是否成功，C++ 可以判断 new 返回的指针是否是 0（如果使用的是 new(nothrow)运算符）。在 Objective-C 中，检查返回值是否是nil就已经足够了。&lt;/p&gt;
-
-&lt;h3 id=&quot;初始化方法的正确示例代码&quot;&gt;初始化方法的正确示例代码&lt;/h3&gt;
-
-&lt;p&gt;一个正确的初始化方法应该有如下特点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;名字以 init 开始；&lt;/li&gt;
-  &lt;li&gt;返回能够使用的对象；&lt;/li&gt;
-  &lt;li&gt;调用父类的 init 方法，直到NSObject的init方法被调用；&lt;/li&gt;
-  &lt;li&gt;保存[super init…]的返回值；&lt;/li&gt;
-  &lt;li&gt;处理构造期间出现的任何错误，无论是自己的还是父类的。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;下面一些代码：&lt;/p&gt;
-
-&lt;p&gt;c++&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Point2D&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Objective-C&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Point2D&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NSObject&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 注意，在 Objective-C 中，id 类似于 void *
-// (id) 就是对象的“一般”类型
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anX&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Point2D&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;anX&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;anY&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 调用父类的初始化方法
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 如果父类是 NSObject，必须进行 init 操作
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 如果父类 init 失败，返回 nil
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 父类调用成功，进行自己的初始化操作
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 返回指向自己的指针
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;self--super-init&quot;&gt;self = [super init…]&lt;/h2&gt;
-
-&lt;p&gt;在上一篇提到的代码中，最不可思议的可能就是这句&lt;code class=&quot;highlighter-rouge&quot;&gt;self = [super init...]&lt;/code&gt;。回想一下，self是每个方法的一个隐藏参数，指向当前对象。因此，这是一个局部变量。那么，为什么我们要改变一个局部变量的值呢？事实上，&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;必须要改变。我们将在下面解释为什么要这样做。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[super init]&lt;/code&gt;实际上返回不同于当前对象的另外一个对象。单例模式就是这样一种情况。然而， 有一个 API 可以用一个对象替换新分配的对象。&lt;code class=&quot;highlighter-rouge&quot;&gt;Core Data&lt;/code&gt;（&lt;code class=&quot;highlighter-rouge&quot;&gt;Apple&lt;/code&gt; 提供的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Cocoa&lt;/code&gt; 里面的一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;API&lt;/code&gt;）就是用了这种 &lt;code class=&quot;highlighter-rouge&quot;&gt;API&lt;/code&gt;，对实例数据做一些特殊的操作，从而让这些数据能够和数据库的字段关联起来。当继承&lt;code class=&quot;highlighter-rouge&quot;&gt;NSManagedObject&lt;/code&gt;类的时候，就需要仔细对待这种替换。在这种情形下，&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;就要指向两个对象：一个是&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;返回的对象，一个是&lt;code class=&quot;highlighter-rouge&quot;&gt;[super init]&lt;/code&gt;返回的对象。修改&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;的值对代码有一定的影响：每次访问实例数据的时候都是隐式的。&lt;/p&gt;
-
-&lt;p&gt;正如下面的代码所示：&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 此时，self 指向 alloc 返回的值
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 假设 A 进行了替换操作，返回一个不同的 self
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newSelf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 输出 self-&amp;gt;i 的值
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newSelf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 有人会认为 i 没有变化
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 事实上，此时的 self-&amp;gt;i, 实际是 newSelf-&amp;gt;i,
-&lt;/span&gt;                     &lt;span class=&quot;c1&quot;&gt;// 和之前的值可能不一样了
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;self = [super init]&lt;/code&gt;简洁明了，也不必担心以后会引入 bug。然而，我们应该注意旧的&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;指向的对象的命运：它必须被释放。第一规则很简单：谁替换&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;指针，谁就要负责处理旧的&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;指针。在这里，也就是&lt;code class=&quot;highlighter-rouge&quot;&gt;[super init]&lt;/code&gt;负责完成这一操作。例如，如果你创建&lt;code class=&quot;highlighter-rouge&quot;&gt;NSManagedObject&lt;/code&gt;子类（这个类会执行替换操作），你就不必担心旧的&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;指针。事实上，&lt;code class=&quot;highlighter-rouge&quot;&gt;NSManagedObject&lt;/code&gt;的开发者必须考虑这种处理。因此，如果你要创建一个执行替换操作的类，你必须知道如何在初始化过程中释放旧有对象。这种操作同错误处理很类似：如果因为非法参数、不可访问的资源造成构造失败，我们要如何处理？&lt;/p&gt;
-
-&lt;h2 id=&quot;初始化错误&quot;&gt;初始化错误&lt;/h2&gt;
-
-&lt;p&gt;初始化出错可能发生在三个地方：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;调用[super init…]之前：如果构造函数参数非法，那么初始化应该立即停止；&lt;/li&gt;
-  &lt;li&gt;调用[super init…]期间：如果父类调用失败，那么当前的初始化操作也应该停止；&lt;/li&gt;
-  &lt;li&gt;调用[super init…]之后：例如资源分配失败等。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;在上面每一种情形中，只要失败，就应该返回&lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;；相应的处理应该由发生错误的对象去完成。这里，我们主要关心的是1, 3情况。要释放当前对象，我们调用&lt;code class=&quot;highlighter-rouge&quot;&gt;[self release]&lt;/code&gt;即可。&lt;/p&gt;
-
-&lt;p&gt;在调用&lt;code class=&quot;highlighter-rouge&quot;&gt;dealloc&lt;/code&gt;之后，对象的析构才算完成。因此，&lt;code class=&quot;highlighter-rouge&quot;&gt;dealloc&lt;/code&gt;的实现必须同初始化方法兼容。事实上，&lt;code class=&quot;highlighter-rouge&quot;&gt;alloc&lt;/code&gt;将所有的实例数据初始化成 &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; 是相当有用的。&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NSObject&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initWithN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 第一种情况：参数合法吗？
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 我们需要一个正值
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 第二种情况：父类调用成功吗？
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 即是 self 被替换，它也是父类
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 错误发生时，谁负责释放 self？
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 第三种情况：初始化能够完成吗？
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;malloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 尝试分配资源
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 如果分配失败，我们希望发生错误
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@end@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NSObject&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initWithN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 第一种情况：参数合法吗？
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 我们需要一个正值
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 第二种情况：父类调用成功吗？
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 即是 self 被替换，它也是父类
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 错误发生时，谁负责释放 self？
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 第三种情况：初始化能够完成吗？
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;malloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 尝试分配资源
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 如果分配失败，我们希望发生错误
-&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;将构造过程合并为allocinit&quot;&gt;将构造过程合并为alloc+init&lt;/h2&gt;
-
-&lt;p&gt;有时候，alloc和init被分割成两个部分显得很罗嗦。幸运的是，我们也可以将其合并在一起。这主要牵扯到 Objective-C 的内存管理机制。简单来说，作为一个构造函数，它的名字必须以类名开头，其行为类似init，但要自己实现alloc。然而，这个对象需要注册到autorelease池中，除非发送retain消息，否则其生命周期是有限制的。以下即是示例代码：&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 啰嗦的写法
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSNumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmp1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSNumber&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp1&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 简洁一些
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSNumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmp2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSNumber&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;numberWithFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 无需调用 release
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;默认构造函数指定初始化函数&quot;&gt;默认构造函数：指定初始化函数&lt;/h2&gt;
-
-&lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中，默认构造函数没有实在的意义，因为所有对象都是动态分配内存，也就是说，构造函数都是确定的。但是，一个常用的构造函数确实可以精简代码。事实上，一个正确的初始化过程通常类似于：&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// &quot;init&quot; 或其他父类恰当的函数
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 父类初始化成功，继续其他操作……
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;剪贴复制代码是一个不良习惯。好的做法是，将共同代码放到一个独立的函数中，通常称为“指定初始化函数”。通常这种指定初始化函数会包含很多参数，因为 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 不允许参数有默认值。&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;andZ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;andZ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 指定初始化函数
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;z&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;如果指定初始化函数没有最大数量的参数，那基本上就没什么用处：&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 以下代码就有很多重复部分
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 指定初始化函数
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;andZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;z&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;初始化列表和实例数据的默认值&quot;&gt;初始化列表和实例数据的默认值&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中不存在 &lt;code class=&quot;highlighter-rouge&quot;&gt;C++&lt;/code&gt; 构造函数的初始化列表的概念。然而，不同于 &lt;code class=&quot;highlighter-rouge&quot;&gt;C++&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 的alloc会将所有实例数据初始化成 &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;，因此指针也会被初始化成&lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;。&lt;code class=&quot;highlighter-rouge&quot;&gt;C++&lt;/code&gt; 中，对象属性不同于指针，但是在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中，所有对象都被当做指针处理。&lt;/p&gt;
-
-&lt;h2 id=&quot;虚构造函数&quot;&gt;虚构造函数&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中存在虚构造函数。我们将在后面的章节中详细讲诉这个问题。&lt;/p&gt;
-
-&lt;h2 id=&quot;类构造函数&quot;&gt;类构造函数&lt;/h2&gt;
-
-&lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中，类本身就是对象，因此它也有自己的构造函数，并且也能够被重定义。它显然是一个类函数，继承自NSObject，其原型是&lt;code class=&quot;highlighter-rouge&quot;&gt;+(void) initialize&lt;/code&gt;;。&lt;/p&gt;
-
-&lt;p&gt;第一次使用这个类或其子类的时候，这个函数将被自动调用。但这并不意味着，对于指定的类，这个函数只被调用一次。事实上，如果子类没有定义&lt;code class=&quot;highlighter-rouge&quot;&gt;+(void) initialize&lt;/code&gt;;，那么 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 将调用其父类的&lt;code class=&quot;highlighter-rouge&quot;&gt;+(void) initialize&lt;/code&gt;;。&lt;/p&gt;
-
-&lt;h2 id=&quot;析构函数&quot;&gt;析构函数&lt;/h2&gt;
-&lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;C++&lt;/code&gt; 中，析构函数同构造函数一样，是一个特殊的函数。在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中，析构函数也是一个普通的实例函数，叫做&lt;code class=&quot;highlighter-rouge&quot;&gt;dealloc&lt;/code&gt;。&lt;code class=&quot;highlighter-rouge&quot;&gt;C++&lt;/code&gt; 中，当对象被释放时，析构函数将自动调用；&lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 也是类似的，但是释放对象的方式有所不同。&lt;/p&gt;
-
-&lt;p&gt;析构函数永远不应该被显式调用。在 &lt;code class=&quot;highlighter-rouge&quot;&gt;C++&lt;/code&gt; 中存在这么一种情况：开发者自己在析构时管理内存池。但是在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Objective-C&lt;/code&gt; 中没有这种限制。你可以在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Cocoa&lt;/code&gt; 中使用自定义的内存区域，但是这并不会影响平常的内存的分配、释放机制。&lt;/p&gt;
-
-&lt;p&gt;C++&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Point2D&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Objective-C&lt;/p&gt;
-
-&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Point2D&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NSObject&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dealloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 该方法可以被重定义
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Point2D&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 在这个例子中，重定义并不需要
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dealloc&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dealloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 不要忘记调用父类代码
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 01 Dec 2015 20:00:00 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/</guid>
-        
-        <category>objective-c</category>
-        
-        <category>学习笔记</category>
         
         
         <category>blog</category>

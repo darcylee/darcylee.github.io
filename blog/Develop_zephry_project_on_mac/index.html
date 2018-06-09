@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/Develop_zephry_project_on_mac/">
+    <link rel="canonical" href="http://localhost:4000/blog/Develop_zephry_project_on_mac/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -214,9 +214,8 @@
 
 <p>获取源代码</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://gerrit.zephyrproject.org/r/zephyr
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://gerrit.zephyrproject.org/r/zephyr
+</code></pre></div></div>
 <p>zephyr™使用类似linux内核<code class="highlighter-rouge">Kbuild</code>构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的<a href="https://www.zephyrproject.org/doc/getting_started/getting_started.html">QuickStart</a>文档后，很容易上手开发的， 文档中提供了三个不同平台<code class="highlighter-rouge">linux</code>、<code class="highlighter-rouge">windows</code>、<code class="highlighter-rouge">macOS</code>的开发环境设置介绍，如果你目前使用的是<code class="highlighter-rouge">linux</code>或者<code class="highlighter-rouge">windows</code>平台可以移步<a href="">官网</a>，寻找相对应平台的说明。这里我们要说的是基于<code class="highlighter-rouge">macOS</code>平台的开发环境设置。</p>
 
 <p>虽然官网有给出<code class="highlighter-rouge">macOS</code>平台的<a href="https://www.zephyrproject.org/doc/getting_started/installation_mac.html">开发环境设置指南</a>，但是还是会碰到一些问题，我这里记录了一下我的设置过程，以及我碰到的问题的解决办法，希望能帮到和我一样想在<code class="highlighter-rouge">macOS</code>平台上做基于<code class="highlighter-rouge">zephyr</code>的嵌入式开发的朋友。</p>
@@ -233,36 +232,32 @@
 
 <p>继续安装一些工具</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install gettext qemu help2man mpfr gmp coreutils wget python3
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>gettext qemu help2man mpfr gmp coreutils wget python3
 
-<span class="gp">$ </span>brew tap homebrew/dupes
+<span class="nv">$ </span>brew tap homebrew/dupes
 
-<span class="gp">$ </span>brew install grep --with-default-names
+<span class="nv">$ </span>brew <span class="nb">install grep</span> <span class="nt">--with-default-names</span>
 
-<span class="gp">$ </span>pip3 install ply
+<span class="nv">$ </span>pip3 <span class="nb">install </span>ply
 
-<span class="gp">$ </span>brew install gettext
-</code></pre>
-</div>
+<span class="nv">$ </span>brew <span class="nb">install </span>gettext
+</code></pre></div></div>
 
 <p>稍作设置</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew edit crosstool-ng
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew edit crosstool-ng
+</code></pre></div></div>
 <p>添加下面一行到<code class="highlighter-rouge">depends</code>section</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>depends_on 'grep' =&gt; '--default-names'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>depends_on 'grep' =&gt; '--default-names'
+</code></pre></div></div>
 
 <p>安装<code class="highlighter-rouge">Crosstool-ng</code></p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install crosstool-ng
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>crosstool-ng
 
-<span class="gp">$ </span>brew link --force gettext
-</code></pre>
-</div>
+<span class="nv">$ </span>brew <span class="nb">link</span> <span class="nt">--force</span> gettext
+</code></pre></div></div>
 
 <h4 id="编译工具链">编译工具链</h4>
 
@@ -271,42 +266,38 @@
 
 <p>创建好后，在<code class="highlighter-rouge">／Volumes</code>下面会多出一个文件夹，也就是你创建的新分区。</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /Volumes/
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> /Volumes/
 Macintosh HD excs
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>进入<code class="highlighter-rouge">excs</code>（根据你创建的分区名称）</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /Volumes/excs
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /Volumes/excs
 
-<span class="gp">$ </span>mkdir CrossToolNG
+<span class="nv">$ </span><span class="nb">mkdir </span>CrossToolNG
 
-<span class="gp">$ </span><span class="nb">cd </span>CrossToolNG
+<span class="nv">$ </span><span class="nb">cd </span>CrossToolNG
 
-<span class="gp">$ </span>mkdir build src x-tools
+<span class="nv">$ </span><span class="nb">mkdir </span>build src x-tools
 
-<span class="gp">$ </span><span class="nb">cd </span>build
-</code></pre>
-</div>
+<span class="nv">$ </span><span class="nb">cd </span>build
+</code></pre></div></div>
 
 <p>复制zephyr项目下面的配置文件到<code class="highlighter-rouge">build</code>目录，zephyr提供了2个平台的配置x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。<code class="highlighter-rouge">${ZEPHYR_BASE}</code>为你zephyr项目的根目录</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>/scripts/cross_compiler/arm.config .config
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>/scripts/cross_compiler/arm.config .config
+</code></pre></div></div>
 <p>有配置过<code class="highlighter-rouge">Crosstool-ng</code>的童鞋也可以自行配置，这里不再说。</p>
 
 <p>开始构建工具链，首先</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ct-ng menuconfig
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ct-ng menuconfig
+</code></pre></div></div>
 <p>执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
 <img src="/img/in-post/post_zephyr_on_mac/ct-ng_config1.png" alt="img" /></p>
 
 <p>打开<code class="highlighter-rouge">.config</code>文件再次确认下路径设置</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>...
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
 <span class="c">#</span>
 <span class="c"># Paths</span>
 <span class="c">#</span>
@@ -320,85 +311,76 @@ Macintosh HD excs
 <span class="nv">CT_WANTS_STATIC_LINK</span><span class="o">=</span>n
 <span class="nv">CT_CC_STATIC_LIBSTDCXX</span><span class="o">=</span>n
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>在开始编译之前，我推荐使用<code class="highlighter-rouge">Homebrew</code>安装gcc，不要使用<code class="highlighter-rouge">macOS</code>自带的gcc版本，我一开始使用自带的gcc版本编译错误，当时没有截图， 错误信息没办法提供给你们看了。安装gcc命令很简单， 如下：</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install gcc
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>gcc
+</code></pre></div></div>
 <p>过程很漫长，差不多20分钟左右（15年中旬15寸低配macbookpro）， 在安装过程中本本风扇狂转。。。我也是醉了。。回归正题</p>
 
 <p>安装完成后确认一下</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gcc -v
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gcc <span class="nt">-v</span>
 Using built-in specs.
 <span class="nv">COLLECT_GCC</span><span class="o">=</span>gcc
 <span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/usr/local/Cellar/gcc/5.3.0/libexec/gcc/x86_64-apple-darwin15.6.0/5.3.0/lto-wrapper
 Target: x86_64-apple-darwin15.6.0
-Configured with: ../configure --build<span class="o">=</span>x86_64-apple-darwin15.6.0 --prefix<span class="o">=</span>/usr/local/Cellar/gcc/5.3.0 --libdir<span class="o">=</span>/usr/local/Cellar/gcc/5.3.0/lib/gcc/5 --enable-languages<span class="o">=</span>c,c++,objc,obj-c++,fortran --program-suffix<span class="o">=</span>-5 --with-gmp<span class="o">=</span>/usr/local/opt/gmp --with-mpfr<span class="o">=</span>/usr/local/opt/mpfr --with-mpc<span class="o">=</span>/usr/local/opt/libmpc --with-isl<span class="o">=</span>/usr/local/opt/isl --with-system-zlib --enable-libstdcxx-time<span class="o">=</span>yes --enable-stage1-checking --enable-checking<span class="o">=</span>release --enable-lto --with-build-config<span class="o">=</span>bootstrap-debug --disable-werror --with-pkgversion<span class="o">=</span><span class="s1">'Homebrew gcc 5.3.0'</span> --with-bugurl<span class="o">=</span>https://github.com/Homebrew/homebrew/issues --enable-plugin --disable-nls --enable-multilib --with-native-system-header-dir<span class="o">=</span>/usr/include --with-sysroot<span class="o">=</span>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+Configured with: ../configure <span class="nt">--build</span><span class="o">=</span>x86_64-apple-darwin15.6.0 <span class="nt">--prefix</span><span class="o">=</span>/usr/local/Cellar/gcc/5.3.0 <span class="nt">--libdir</span><span class="o">=</span>/usr/local/Cellar/gcc/5.3.0/lib/gcc/5 <span class="nt">--enable-languages</span><span class="o">=</span>c,c++,objc,obj-c++,fortran <span class="nt">--program-suffix</span><span class="o">=</span><span class="nt">-5</span> <span class="nt">--with-gmp</span><span class="o">=</span>/usr/local/opt/gmp <span class="nt">--with-mpfr</span><span class="o">=</span>/usr/local/opt/mpfr <span class="nt">--with-mpc</span><span class="o">=</span>/usr/local/opt/libmpc <span class="nt">--with-isl</span><span class="o">=</span>/usr/local/opt/isl <span class="nt">--with-system-zlib</span> <span class="nt">--enable-libstdcxx-time</span><span class="o">=</span><span class="nb">yes</span> <span class="nt">--enable-stage1-checking</span> <span class="nt">--enable-checking</span><span class="o">=</span>release <span class="nt">--enable-lto</span> <span class="nt">--with-build-config</span><span class="o">=</span>bootstrap-debug <span class="nt">--disable-werror</span> <span class="nt">--with-pkgversion</span><span class="o">=</span><span class="s1">'Homebrew gcc 5.3.0'</span> <span class="nt">--with-bugurl</span><span class="o">=</span>https://github.com/Homebrew/homebrew/issues <span class="nt">--enable-plugin</span> <span class="nt">--disable-nls</span> <span class="nt">--enable-multilib</span> <span class="nt">--with-native-system-header-dir</span><span class="o">=</span>/usr/include <span class="nt">--with-sysroot</span><span class="o">=</span>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
 Thread model: posix
 gcc version 5.3.0 <span class="o">(</span>Homebrew gcc 5.3.0<span class="o">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>一切准备就绪，ok，开始编译工具链</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ct-ng build
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ct-ng build
+</code></pre></div></div>
 
 <p>又是一个漫长的等待，大概15分钟左右，提示编译成功。我们察看一下<code class="highlighter-rouge">x-tools</code>文件夹</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /Volumes/excs/CrossToolNG/x-tools
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /Volumes/excs/CrossToolNG/x-tools
 
-<span class="gp">$ </span>ls
-arm-none-eabi
-</code></pre>
-</div>
+<span class="nv">$ </span><span class="nb">ls
+</span>arm-none-eabi
+</code></pre></div></div>
 <p>交叉编译工具链产生了，试验一下</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>arm-none-eabi/bin
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>arm-none-eabi/bin
 
-<span class="gp">$ </span>./arm-none-eabi-gcc -v
+<span class="nv">$ </span>./arm-none-eabi-gcc <span class="nt">-v</span>
 Using built-in specs.
 <span class="nv">COLLECT_GCC</span><span class="o">=</span>./arm-none-eabi-gcc
 <span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/libexec/gcc/arm-none-eabi/5.2.0/lto-wrapper
 Target: arm-none-eabi
-Configured with: /Volumes/excs/CrossToolNG/build/.build/src/gcc-5.2.0/configure --build<span class="o">=</span>x86_64-build_apple-darwin15.6.0 --host<span class="o">=</span>x86_64-build_apple-darwin15.6.0 --target<span class="o">=</span>arm-none-eabi --prefix<span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi --with-local-prefix<span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-sysroot<span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot --with-newlib --enable-threads<span class="o">=</span>no --disable-shared --with-pkgversion<span class="o">=</span><span class="s1">'crosstool-NG crosstool-ng-1.22.0'</span> --with-float<span class="o">=</span>soft --enable-__cxa_atexit --with-gmp<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpfr<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-mpc<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-isl<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-cloog<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --with-libelf<span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools --enable-lto --enable-target-optspace --disable-libgomp --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-nls --disable-multilib --enable-languages<span class="o">=</span>c
+Configured with: /Volumes/excs/CrossToolNG/build/.build/src/gcc-5.2.0/configure <span class="nt">--build</span><span class="o">=</span>x86_64-build_apple-darwin15.6.0 <span class="nt">--host</span><span class="o">=</span>x86_64-build_apple-darwin15.6.0 <span class="nt">--target</span><span class="o">=</span>arm-none-eabi <span class="nt">--prefix</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi <span class="nt">--with-local-prefix</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot <span class="nt">--with-sysroot</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools/arm-none-eabi/arm-none-eabi/sysroot <span class="nt">--with-newlib</span> <span class="nt">--enable-threads</span><span class="o">=</span>no <span class="nt">--disable-shared</span> <span class="nt">--with-pkgversion</span><span class="o">=</span><span class="s1">'crosstool-NG crosstool-ng-1.22.0'</span> <span class="nt">--with-float</span><span class="o">=</span>soft <span class="nt">--enable-__cxa_atexit</span> <span class="nt">--with-gmp</span><span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools <span class="nt">--with-mpfr</span><span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools <span class="nt">--with-mpc</span><span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools <span class="nt">--with-isl</span><span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools <span class="nt">--with-cloog</span><span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools <span class="nt">--with-libelf</span><span class="o">=</span>/Volumes/excs/CrossToolNG/build/.build/arm-none-eabi/buildtools <span class="nt">--enable-lto</span> <span class="nt">--enable-target-optspace</span> <span class="nt">--disable-libgomp</span> <span class="nt">--disable-libmudflap</span> <span class="nt">--disable-libssp</span> <span class="nt">--disable-libquadmath</span> <span class="nt">--disable-libquadmath-support</span> <span class="nt">--disable-nls</span> <span class="nt">--disable-multilib</span> <span class="nt">--enable-languages</span><span class="o">=</span>c
 Thread model: single
 gcc version 5.2.0 <span class="o">(</span>crosstool-NG crosstool-ng-1.22.0<span class="o">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>没有问题，很好</p>
 
 <p>回到<code class="highlighter-rouge">zephyr</code>工程目录</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>
 
-<span class="gp">$ </span><span class="nb">source </span>zephry_env.sh
-</code></pre>
-</div>
+<span class="nv">$ </span><span class="nb">source </span>zephry_env.sh
+</code></pre></div></div>
 
 <p>编译一个例子程序helloworld试试， go</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>samples/hello_world/microkernel
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>samples/hello_world/microkernel
+</code></pre></div></div>
 
 <p>在编译前，先设置2个环境变量</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">export </span><span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>xtools
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>xtools
 
-<span class="gp">$ </span><span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools
-</code></pre>
-</div>
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/excs/CrossToolNG/x-tools
+</code></pre></div></div>
 
 <p>编译helloworld</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>make <span class="nv">BOARD</span><span class="o">=</span>frdm_k64f
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make <span class="nv">BOARD</span><span class="o">=</span>frdm_k64f
 Using /Users/dl/work/proj/ex_projects/zephyr/boards/frdm_k64f/frdm_k64f_defconfig as base
 Merging /Users/dl/work/proj/ex_projects/zephyr/kernel/configs/nano.config
 Merging prj.conf
@@ -406,40 +388,37 @@ Merging prj.conf
 <span class="c"># configuration written to .config</span>
 <span class="c">#</span>
   GEN     ./Makefile
-scripts/kconfig/conf --silentoldconfig Kconfig
+scripts/kconfig/conf <span class="nt">--silentoldconfig</span> Kconfig
   Using /Users/dl/work/proj/ex_projects/zephyr as <span class="nb">source </span><span class="k">for </span>kernel
   GEN     ./Makefile
   CHK     include/generated/version.h
   UPD     include/generated/version.h
   CHK     misc/generated/configs.c
-.
-.
-.
+<span class="nb">.</span>
+<span class="nb">.</span>
+<span class="nb">.</span>
   LD      src/built-in.o
   AR      libzephyr.a
   LINK    zephyr.lnk
   BIN     zephyr.bin
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>没有错误，编译成功，最终生成的<code class="highlighter-rouge">bin</code>文件在outdir文件下</p>
 
 <p>察看编译出来的<code class="highlighter-rouge">elf</code>文件，确实是arm平台的</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>file zephyr.elf
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>file zephyr.elf
 zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, statically linked, not stripped
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>到这里你的环境基本上配置好了。</p>
 
 <p>可以把上面的环境变量设置到<code class="highlighter-rouge">~/.zephyrrc</code>中，这样下次就不需要重新export了</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat ~/.zephyrrc
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> ~/.zephyrrc
 <span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/CrossToolNG/x-tools
 <span class="nb">export </span><span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>xtools
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个<code class="highlighter-rouge">dmg</code>，这样有用的时候打开这个<code class="highlighter-rouge">dmg</code>就可以了。</p>
 
@@ -448,24 +427,22 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 <span class="o">(</span>SY
 
 <p>生成一个<code class="highlighter-rouge">dmg</code><img src="/img/in-post/post_zephyr_on_mac/xtool_dmg.png" alt="img" />，有用的时候打开, 就会在<code class="highlighter-rouge">／Volumes</code>，多出<code class="highlighter-rouge">x-tools</code>文件夹</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls ／Volumes
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> ／Volumes
 Macintosh HD   x-tools
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>然后环境变量做相应的变更</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/x-tools
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/x-tools
+</code></pre></div></div>
 <p>这样，就可以把8G的分区<code class="highlighter-rouge">excs</code>删除，把磁盘空间还给<code class="highlighter-rouge">macOS</code>系统了。</p>
 
 <h2 id="使用menuconfig配置工程遇到的错误">使用<code class="highlighter-rouge">menuconfig</code>配置工程遇到的错误</h2>
 
 <p>具体错误如下</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>/samples/hello_world/microkernel
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>/samples/hello_world/microkernel
 
-<span class="gp">$ </span>make menuconfig
+<span class="nv">$ </span>make menuconfig
   GEN     ./Makefile
   HOSTLD  scripts/kconfig/mconf
 Undefined symbols <span class="k">for </span>architecture x86_64:
@@ -476,24 +453,21 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
       _draw_box <span class="k">in </span>util.o
       _dialog_inputbox <span class="k">in </span>inputbox.o
       _dialog_textbox <span class="k">in </span>textbox.o
-.
-.
-.
+<span class="nb">.</span>
+<span class="nb">.</span>
+<span class="nb">.</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>解决办法</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install ncurses
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>ncurses
+</code></pre></div></div>
 
 <p>然后在<code class="highlighter-rouge">~/.zephyrrc</code>中添加<code class="highlighter-rouge">ncurse</code>pkgconfig</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/opt/ncurses/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/opt/ncurses/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
+</code></pre></div></div>
 
 
                 <hr style="visibility: hidden;">
@@ -606,6 +580,8 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
 		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
                     note
                   </a>
+                  
+                  
                   
                   
                   
@@ -729,7 +705,7 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2017
+                    Copyright &copy; Gitlee's Blog 2015-2018
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

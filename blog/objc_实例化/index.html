@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/">
+    <link rel="canonical" href="http://localhost:4000/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -230,19 +230,17 @@
 
 <p>c++</p>
 
-<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Foo</span><span class="o">*</span> <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foo</span><span class="o">*</span> <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Objective-C</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">Foo</span><span class="o">*</span> <span class="n">foo1</span> <span class="o">=</span> <span class="p">[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">];</span>
-<span class="p">[</span><span class="n">foo1</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 这是不好的行为：应该使用 init 的返回值
-</span><span class="n">Foo</span><span class="o">*</span> <span class="n">foo2</span> <span class="o">=</span> <span class="p">[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">];</span>
-<span class="n">foo2</span> <span class="o">=</span> <span class="p">[</span><span class="n">foo2</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 正确，不过看上去很啰嗦
-</span><span class="n">Foo</span><span class="o">*</span> <span class="n">foo3</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 正确，这才是通常的做法
-</span></code></pre>
-</div>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foo</span><span class="o">*</span> <span class="n">foo1</span> <span class="o">=</span> <span class="p">[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">];</span>
+<span class="p">[</span><span class="n">foo1</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 这是不好的行为：应该使用 init 的返回值</span>
+<span class="n">Foo</span><span class="o">*</span> <span class="n">foo2</span> <span class="o">=</span> <span class="p">[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">];</span>
+<span class="n">foo2</span> <span class="o">=</span> <span class="p">[</span><span class="n">foo2</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 正确，不过看上去很啰嗦</span>
+<span class="n">Foo</span><span class="o">*</span> <span class="n">foo3</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Foo</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span> <span class="c1">// 正确，这才是通常的做法</span>
+</code></pre></div></div>
 
 <p>为检查内存分配是否成功，C++ 可以判断 new 返回的指针是否是 0（如果使用的是 new(nothrow)运算符）。在 Objective-C 中，检查返回值是否是nil就已经足够了。</p>
 
@@ -262,7 +260,7 @@
 
 <p>c++</p>
 
-<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Point2D</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Point2D</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="n">Point2D</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
@@ -275,41 +273,39 @@
 
 <span class="n">Point2D</span>  <span class="n">p1</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">Point2D</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Objective-C</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Point2D</span> <span class="p">:</span> <span class="nc">NSObject</span>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Point2D</span> <span class="p">:</span> <span class="nc">NSObject</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">// 注意，在 Objective-C 中，id 类似于 void *
-// (id) 就是对象的“一般”类型
-</span><span class="o">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">initWithX</span><span class="o">:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">anX</span> <span class="n">andY</span><span class="o">:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">anY</span><span class="p">;</span>
+<span class="c1">// 注意，在 Objective-C 中，id 类似于 void *</span>
+<span class="c1">// (id) 就是对象的“一般”类型</span>
+<span class="o">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">initWithX</span><span class="o">:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">anX</span> <span class="n">andY</span><span class="o">:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">anY</span><span class="p">;</span>
 <span class="k">@end</span>
 
 <span class="k">@implementation</span> <span class="nc">Point2D</span>
 
 <span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">anX</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">anY</span>
 <span class="p">{</span>
-    <span class="c1">// 调用父类的初始化方法
-</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 如果父类是 NSObject，必须进行 init 操作
-</span>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 如果父类 init 失败，返回 nil
-</span>    <span class="c1">// 父类调用成功，进行自己的初始化操作
-</span>    <span class="n">self</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">anX</span><span class="p">;</span>
+    <span class="c1">// 调用父类的初始化方法</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 如果父类是 NSObject，必须进行 init 操作</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 如果父类 init 失败，返回 nil</span>
+    <span class="c1">// 父类调用成功，进行自己的初始化操作</span>
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">anX</span><span class="p">;</span>
     <span class="n">self</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">anY</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">self</span><span class="p">;</span> <span class="c1">// 返回指向自己的指针
-</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span> <span class="c1">// 返回指向自己的指针</span>
+<span class="p">}</span>
 <span class="k">@end</span>
 
 <span class="p">...</span>
 
 <span class="n">Point2D</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Point2D</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithX</span><span class="p">:</span><span class="mi">3</span> <span class="nf">andY</span><span class="p">:</span><span class="mi">4</span><span class="p">];</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="self--super-init">self = [super init…]</h2>
 
@@ -319,7 +315,7 @@
 
 <p>正如下面的代码所示：</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">B</span> <span class="p">:</span> <span class="nc">A</span>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">B</span> <span class="p">:</span> <span class="nc">A</span>
 <span class="p">{</span>
 <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
 <span class="p">}</span>
@@ -330,21 +326,20 @@
 
 <span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">init</span>
 <span class="p">{</span>
-    <span class="c1">// 此时，self 指向 alloc 返回的值
-</span>    <span class="c1">// 假设 A 进行了替换操作，返回一个不同的 self
-</span>    <span class="n">id</span> <span class="n">newSelf</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">];</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// 输出 self-&gt;i 的值
-</span>    <span class="n">self</span> <span class="o">=</span> <span class="n">newSelf</span><span class="p">;</span> <span class="c1">// 有人会认为 i 没有变化
-</span>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// 事实上，此时的 self-&gt;i, 实际是 newSelf-&gt;i,
-</span>                     <span class="c1">// 和之前的值可能不一样了
-</span>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+    <span class="c1">// 此时，self 指向 alloc 返回的值</span>
+    <span class="c1">// 假设 A 进行了替换操作，返回一个不同的 self</span>
+    <span class="n">id</span> <span class="n">newSelf</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">];</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// 输出 self-&gt;i 的值</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="n">newSelf</span><span class="p">;</span> <span class="c1">// 有人会认为 i 没有变化</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// 事实上，此时的 self-&gt;i, 实际是 newSelf-&gt;i,</span>
+                     <span class="c1">// 和之前的值可能不一样了</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">@end</span>
 <span class="p">...</span>
 <span class="n">B</span><span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="n">B</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">self = [super init]</code>简洁明了，也不必担心以后会引入 bug。然而，我们应该注意旧的<code class="highlighter-rouge">self</code>指向的对象的命运：它必须被释放。第一规则很简单：谁替换<code class="highlighter-rouge">self</code>指针，谁就要负责处理旧的<code class="highlighter-rouge">self</code>指针。在这里，也就是<code class="highlighter-rouge">[super init]</code>负责完成这一操作。例如，如果你创建<code class="highlighter-rouge">NSManagedObject</code>子类（这个类会执行替换操作），你就不必担心旧的<code class="highlighter-rouge">self</code>指针。事实上，<code class="highlighter-rouge">NSManagedObject</code>的开发者必须考虑这种处理。因此，如果你要创建一个执行替换操作的类，你必须知道如何在初始化过程中释放旧有对象。这种操作同错误处理很类似：如果因为非法参数、不可访问的资源造成构造失败，我们要如何处理？</p>
 
@@ -362,7 +357,7 @@
 
 <p>在调用<code class="highlighter-rouge">dealloc</code>之后，对象的析构才算完成。因此，<code class="highlighter-rouge">dealloc</code>的实现必须同初始化方法兼容。事实上，<code class="highlighter-rouge">alloc</code>将所有的实例数据初始化成 <code class="highlighter-rouge">0</code> 是相当有用的。</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">A</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="p">{</span>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">A</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="p">{</span>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -373,20 +368,20 @@
 
 <span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithN</span><span class="p">:(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="nv">value</span>
 <span class="p">{</span>
-    <span class="c1">// 第一种情况：参数合法吗？
-</span>    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 我们需要一个正值
-</span>    <span class="p">{</span>
+    <span class="c1">// 第一种情况：参数合法吗？</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 我们需要一个正值</span>
+    <span class="p">{</span>
         <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
         <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="c1">// 第二种情况：父类调用成功吗？
-</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 即是 self 被替换，它也是父类
-</span>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 错误发生时，谁负责释放 self？
-</span>    <span class="c1">// 第三种情况：初始化能够完成吗？
-</span>    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-    <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// 尝试分配资源
-</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="c1">// 如果分配失败，我们希望发生错误
-</span>    <span class="p">{</span>
+    <span class="c1">// 第二种情况：父类调用成功吗？</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 即是 self 被替换，它也是父类</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 错误发生时，谁负责释放 self？</span>
+    <span class="c1">// 第三种情况：初始化能够完成吗？</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// 尝试分配资源</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="c1">// 如果分配失败，我们希望发生错误</span>
+    <span class="p">{</span>
         <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
         <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
     <span class="p">}</span>
@@ -402,57 +397,54 @@
 
 <span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithN</span><span class="p">:(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="nv">value</span>
 <span class="p">{</span>
-    <span class="c1">// 第一种情况：参数合法吗？
-</span>    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 我们需要一个正值
-</span>    <span class="p">{</span>
+    <span class="c1">// 第一种情况：参数合法吗？</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 我们需要一个正值</span>
+    <span class="p">{</span>
         <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
         <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="c1">// 第二种情况：父类调用成功吗？
-</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 即是 self 被替换，它也是父类
-</span>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 错误发生时，谁负责释放 self？
-</span>    <span class="c1">// 第三种情况：初始化能够完成吗？
-</span>    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-    <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// 尝试分配资源
-</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="c1">// 如果分配失败，我们希望发生错误
-</span>    <span class="p">{</span>
+    <span class="c1">// 第二种情况：父类调用成功吗？</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// 即是 self 被替换，它也是父类</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// 错误发生时，谁负责释放 self？</span>
+    <span class="c1">// 第三种情况：初始化能够完成吗？</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// 尝试分配资源</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="c1">// 如果分配失败，我们希望发生错误</span>
+    <span class="p">{</span>
         <span class="p">[</span><span class="n">self</span> <span class="nf">release</span><span class="p">];</span>
         <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">@end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="将构造过程合并为allocinit">将构造过程合并为alloc+init</h2>
 
 <p>有时候，alloc和init被分割成两个部分显得很罗嗦。幸运的是，我们也可以将其合并在一起。这主要牵扯到 Objective-C 的内存管理机制。简单来说，作为一个构造函数，它的名字必须以类名开头，其行为类似init，但要自己实现alloc。然而，这个对象需要注册到autorelease池中，除非发送retain消息，否则其生命周期是有限制的。以下即是示例代码：</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">// 啰嗦的写法
-</span><span class="n">NSNumber</span><span class="o">*</span> <span class="n">tmp1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSNumber</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFloat</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">];</span>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 啰嗦的写法</span>
+<span class="n">NSNumber</span><span class="o">*</span> <span class="n">tmp1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSNumber</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFloat</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">];</span>
 <span class="p">...</span>
 <span class="p">[</span><span class="n">tmp1</span> <span class="nf">release</span><span class="p">];</span>
-<span class="c1">// 简洁一些
-</span><span class="n">NSNumber</span><span class="o">*</span> <span class="n">tmp2</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="nf">numberWithFloat</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">];</span>
+<span class="c1">// 简洁一些</span>
+<span class="n">NSNumber</span><span class="o">*</span> <span class="n">tmp2</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="nf">numberWithFloat</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">];</span>
 <span class="p">...</span>
-<span class="c1">// 无需调用 release
-</span></code></pre>
-</div>
+<span class="c1">// 无需调用 release</span>
+</code></pre></div></div>
 
 <h2 id="默认构造函数指定初始化函数">默认构造函数：指定初始化函数</h2>
 
 <p>在 <code class="highlighter-rouge">Objective-C</code> 中，默认构造函数没有实在的意义，因为所有对象都是动态分配内存，也就是说，构造函数都是确定的。但是，一个常用的构造函数确实可以精简代码。事实上，一个正确的初始化过程通常类似于：</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// "init" 或其他父类恰当的函数
-</span>    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
-<span class="c1">// 父类初始化成功，继续其他操作……
-</span><span class="k">return</span> <span class="n">self</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span> <span class="c1">// "init" 或其他父类恰当的函数</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="c1">// 父类初始化成功，继续其他操作……</span>
+<span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>剪贴复制代码是一个不良习惯。好的做法是，将共同代码放到一个独立的函数中，通常称为“指定初始化函数”。通常这种指定初始化函数会包含很多参数，因为 <code class="highlighter-rouge">Objective-C</code> 不允许参数有默认值。</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">self</span> <span class="nf">initWithX</span><span class="p">:</span><span class="n">x</span> <span class="nf">andY</span><span class="p">:</span><span class="mi">0</span> <span class="n">andZ</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">}</span>
@@ -462,8 +454,8 @@
     <span class="k">return</span> <span class="p">[</span><span class="n">self</span> <span class="nf">initWithX</span><span class="p">:</span><span class="n">x</span> <span class="nf">andY</span><span class="p">:</span><span class="n">y</span> <span class="n">andZ</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="c1">// 指定初始化函数
-</span><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">y</span> <span class="nf">andZ</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">z</span>
+<span class="c1">// 指定初始化函数</span>
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="nf">andY</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">y</span> <span class="nf">andZ</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">z</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span>
         <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
@@ -472,13 +464,12 @@
     <span class="n">self</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
     <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果指定初始化函数没有最大数量的参数，那基本上就没什么用处：</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">// 以下代码就有很多重复部分
-</span><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="c1">// 指定初始化函数
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 以下代码就有很多重复部分</span>
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="nf">initWithX</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">x</span> <span class="c1">// 指定初始化函数
 </span><span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">]))</span>
         <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
@@ -502,8 +493,7 @@
     <span class="n">self</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
     <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="初始化列表和实例数据的默认值">初始化列表和实例数据的默认值</h2>
 
@@ -526,31 +516,29 @@
 
 <p>C++</p>
 
-<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Point2D</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Point2D</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">Point2D</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="n">Point2D</span><span class="o">::~</span><span class="n">Point2D</span><span class="p">()</span> <span class="p">{}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Objective-C</p>
 
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Point2D</span> <span class="p">:</span> <span class="nc">NSObject</span>
-<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">dealloc</span><span class="p">;</span> <span class="c1">// 该方法可以被重定义
-</span><span class="k">@end</span>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Point2D</span> <span class="p">:</span> <span class="nc">NSObject</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">dealloc</span><span class="p">;</span> <span class="c1">// 该方法可以被重定义</span>
+<span class="k">@end</span>
 
 <span class="k">@implementation</span> <span class="nc">Point2D</span>
-<span class="c1">// 在这个例子中，重定义并不需要
-</span><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">dealloc</span>
+<span class="c1">// 在这个例子中，重定义并不需要</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">dealloc</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="n">super</span> <span class="nf">dealloc</span><span class="p">];</span> <span class="c1">// 不要忘记调用父类代码
-</span><span class="p">}</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">dealloc</span><span class="p">];</span> <span class="c1">// 不要忘记调用父类代码</span>
+<span class="p">}</span>
 <span class="k">@end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
                 <hr style="visibility: hidden;">
@@ -663,6 +651,8 @@
 		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
                     note
                   </a>
+                  
+                  
                   
                   
                   
@@ -786,7 +776,7 @@
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2017
+                    Copyright &copy; Gitlee's Blog 2015-2018
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe
