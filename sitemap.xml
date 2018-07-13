@@ -6,76 +6,92 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
-  <loc>http://www.gitlee.com/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/about/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/about/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/archive/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/archive/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/resource/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/resource/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/tags/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/tags/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/code_highlight_sample/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/write-for-move-page-host/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/debian8-use-ibus/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/vim_replase/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/setup-simple-git-server/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/code_highlight_sample/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/Develop_zephry_project_on_mac/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/debian8-use-ibus/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/qtevdevkeyboard/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/setup-simple-git-server/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/vpn_on_command_line/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/Develop_zephry_project_on_mac/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/swift-note-01/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/qtevdevkeyboard/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/dump_bin_in_shell/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/vpn_on_command_line/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/swift-note-01/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/blog/about_this_blog/</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/dump_bin_in_shell/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/portfolio</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.gitlee.com/attach/2016_Hux_en_SE.pdf</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
+  <loc>https://www.gitlee.com/blog/about_this_blog/</loc>
+  <lastmod>2018-07-13T05:18:49+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
-<url>
-  <loc>http://www.gitlee.com/attach/2016_Hux_en_PD.pdf</loc>
-  <lastmod>2016-11-22T15:09:49+00:00</lastmod>
-</url>
+
+
 </urlset>
