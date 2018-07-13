@@ -69,8 +69,8 @@ gitment_client_secret: 8e5e26e1f87801afed7077d2ddd16ff6bd44c89d
 # ba_track_id: 21ec442bb527ffca4aab599ab65721e0
 ba_track_id: 5a898ca7bdbd80b38db866387473aeca
 # Google Analytics
-#ga_track_id: 'UA-87338131-1'            # Format: UA-xxxxxx-xx
-#ga_domain: www.gitlee.com
+ga_track_id: 'UA-122293548-1'            # Format: UA-xxxxxx-xx
+ga_domain: www.gitlee.com
 
 
 
