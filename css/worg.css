@@ -88,8 +88,8 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-right: 7%;
-	/* color: #6C5D4F; */
-	color: grey;
+	color: #333333;
+	/* color: grey; */
 	}
 
     /*
@@ -111,9 +111,9 @@ content: "*** "
 	font-size:1.45em;
 	line-height:16px;
 	padding:10px 0 10px 0;
-	color: black;
+	color: #191970;
 	border-bottom: 1px solid #ddd;
-    }
+	}
 
     .outline-text-2 {
 	margin-left: 0.1em
@@ -122,9 +122,9 @@ content: "*** "
     h3 {
 	font-family:sans-serif;
 	font-size:1.3em;
-	color: grey;
+	color: #a52a2a;
 	margin-left: 0.6em;
-    }
+	}
 
     /* #A34D32;*/
 
@@ -137,8 +137,8 @@ content: "*** "
 	font-family:sans-serif;
 	font-size:1.2em;
 	margin-left: 1.2em;
-	color: #A5573E;
-    }
+	color: #777777;
+	}
 
     .outline-text-4 {
 	margin-left: 1.45em;
@@ -944,7 +944,7 @@ content: "*** "
 	margin-top: 10px;
 	padding: .2em;
 	/* border: 1px solid gray; */
-	/* background-color: #ffffff; */
+	background-color: #ffffff;
 	z-index: -1000;
 	border-top: 1px solid lightgrey;
 	}
