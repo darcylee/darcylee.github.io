@@ -116,7 +116,7 @@ content: "*** "
         font-size: 1.45em;
         line-height: 16px;
         padding: 10px 0 10px 0;
-        color: #191970;
+        color: #a5573e;
         border-bottom: 1px solid #ddd;
     }
 
@@ -127,7 +127,7 @@ content: "*** "
     h3 {
         font-family: sans-serif;
         font-size: 1.3em;
-        color: #a52a2a;
+        color: #a5573e;
         margin-left: 0.6em;
     }
 
@@ -140,7 +140,7 @@ content: "*** "
         font-family: sans-serif;
         font-size: 1.2em;
         margin-left: 1.2em;
-        color: #777777;
+        color: #a5573e;
     }
 
     .outline-text-4 {
@@ -175,7 +175,7 @@ content: "*** "
         background-clip: padding-box;
         font-size: 80%;
         font-family: Lucida Console, monospace;
-        line-height: 1
+        line-height: 1;
     }
     .timestamp-kwd {
         color: #444;
