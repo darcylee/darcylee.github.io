@@ -175,7 +175,7 @@ content: "*** "
         background-clip: padding-box;
         font-size: 80%;
         font-family: Lucida Console, monospace;
-        line-height: 1
+        line-height: 1;
     }
     .timestamp-kwd {
         color: #444;
