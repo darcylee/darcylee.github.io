@@ -1,18 +1,24 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Droid+Serif);
+/* @import url(https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Droid+Serif); */
 @media all {
     html {
         margin: 0;
-        /* font-family: sans-serif; */
-        font: .9em/1.6em "Droid Serif", Cambria, Georgia, "DejaVu Serif", serif;
-        /*         line-height: 1.15; */
+        font-family: sans-serif;
+        /* font: .9em/1.6em "Droid Serif", Cambria, Georgia, "DejaVu Serif", serif; */
+        line-height: 1.15;
         -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%
+        -webkit-text-size-adjust: 100%;
     }
 
     body {
         margin-top: 0;
         font-size: 12pt;
-        line-height: 18pt
+        line-height: 18pt;
+        width: 95%;
+        margin: 2% auto;
+        /* font-size: 14px; */
+        line-height: 1.4em;
+        /* font-family: Georgia, serif; */
+        color: #333;
     }
 
     article, aside, details, figcaption, figure, footer, header, main, menu,
@@ -45,11 +51,11 @@
     a:active, a:hover {
         outline-width: 0
     }
-    
+
     a:visited {
-        /* color: gray; */
+        /* color: #55198b; */
     }
-    
+
     abbr[title] {
         border-bottom: none;
         text-decoration: underline dotted
@@ -783,18 +789,9 @@
         font-weight: 700
     }
 
-    body {
-        width: 95%;
-        margin: 2% auto;
-        font-size: 14px;
-        line-height: 1.4em;
-        /* font-family: Georgia, serif; */
-        color: #333
-    }
-
     @media screen and (min-width:600px) {
         body {
-            font-size: 16px
+            font-size: 16px;
         }
     }
 
@@ -809,11 +806,12 @@
     }
 
     ::selection {
-        background: #d6edff
+        background: #d6edff;
     }
 
     dl, ol, p, ul {
-        margin: 0 auto}
+        margin: 0 auto;
+        }
 
     .title {
         margin: .8em auto;
@@ -828,13 +826,13 @@
         line-height: 1.4;
         font-weight: 700;
         margin: 1em auto;
-        color: gray 
+        color: gray
     }
 
     .abstract {
         margin: auto;
-        width: 80%;
-        font-style: italic
+        width: 90%;
+        font-style: italic;
     }
 
     .abstract p:last-of-type:before {
@@ -842,6 +840,25 @@
         white-space: pre
     }
 
+    .warning {
+        background-color: #FFEBCC;
+    }
+
+   .note {
+        background-color: #E6F2F9;
+    }
+    
+    .error {
+        background-color: #FDF2F2;
+    }
+
+    .wy-alert,#content .note,#content .attention,#content .caution,#content .danger,#content .error, .hint,#content .important,#content .tip,#content .warning,#content .seealso,#content .admonitiontodo{
+        padding:12px;
+        line-height:24px;
+        margin-bottom:24px;
+        /* background:#e7f2fa; */
+    }
+    
     .status {
         font-size: 90%;
         margin: 2em auto
@@ -874,7 +891,7 @@
 
     a {
         color: #527d9a;
-        text-decoration: none
+        text-decoration: none;
     }
 
     a:hover {
@@ -941,7 +958,7 @@
     table {
         margin: 1em auto;
         /* border-top: 2px solid; */
-        border-collapse: collapse; 
+        border-collapse: collapse;
         border: 1px solid;
     }
 
@@ -949,12 +966,14 @@
         /* border-bottom: 2px solid; */
         /* border-top: 2px solid; */
     }
+
     thead {
-        background-color: lightgray 
+        background-color: #e5e5e5
     }
-    /*     table td + td, table th + th {
-        border-left: 1px solid gray
-    } */
+
+    /* table td + td, table th + th { */
+    /*     border-left: 1px solid gray */
+    /* } */
 
     table tr {
         /*         border-top: 1px solid #d3d3d3 */
@@ -1121,11 +1140,6 @@
         text-decoration: underline
     }
 
-    #postamble p, #preamble p {
-        font-size: 90%;
-        margin: .2em
-    }
-
     p.verse {
         margin-left: 3%
     }
@@ -1151,19 +1165,25 @@
     }
 
     .org-src-container > pre {
-        overflow: auto
+        font-family: Droid Sans Mono, Monaco, Consolas, "Lucida Console", monospace;
+        color: black;
+        font-size: 90%;
+        background-color: #ffffff;
+        padding: 1.2em;
+        border: 1px solid #dddddd;
+        overflow: auto;
     }
 
     .org-src-container > pre:before {
         display: block;
         position: absolute;
-        background-color: #b3b3b3;
+        background-color: #dddddd;
         top: 0;
         right: 0;
         padding: 0 .5em;
         border-bottom-left-radius: 8px;
         border: 0;
-        color: #fff;
+        color: #777777;
         font-size: 80%
     }
 
@@ -1471,25 +1491,25 @@
     .creator {
         display: block
     }
+
     #postamble {
         font-size: 75%;
         min-width: 700px;
-        /*         max-width: 80%; */
-        /*         margin-left: 20px; */
-        /*         margin-top: 10px; */
+        /* max-width: 80%; */
+        /* margin-left: 20px; */
+        margin-top: 30px;
         padding: .2em;
-        /*         border: 1px solid gray; */
+        /* border: 1px solid gray; */
         background-color: #ffffff;
         z-index: -1000;
         border-top: 1px solid lightgrey;
+        color:gray
     }
-
-
 }
+
 @media screen and (min-width:600px) {
     .creator {
         display: inline;
         float: right
     }
 }
-
