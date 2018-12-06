@@ -103,6 +103,9 @@
         border-style: none
     }
 
+    .figure p {
+     text-align: left;
+    }
     svg:not(:root) {
         overflow: hidden
     }
@@ -797,7 +800,7 @@
 
     @media screen and (min-width:910px) {
         body {
-/*             width: 90% */
+            width: 90%
         }
     }
 
@@ -956,7 +959,7 @@
     }
 
     table {
-        margin: 1em auto;
+        margin: 1em;
         /* border-top: 2px solid; */
         border-collapse: collapse;
         border: 1px solid;
