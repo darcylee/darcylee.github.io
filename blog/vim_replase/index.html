@@ -359,28 +359,17 @@
 
                 
 
-                <!-- gitment 评论框 start -->
                 
-                <div id="container"></div>
-                <link rel="stylesheet" href="/css/gitment-style-default.css">
-                <script src="/js/gitment.browser.js"></script>
-                <script>
-                 var client_id = "e07fb815a8d03ba875dc"
-                 var client_secret = "8e5e26e1f87801afed7077d2ddd16ff6bd44c89d"
-                 var gitment = new Gitment({
-                     id:  "/blog/vim_replase",
-                     owner: "darcylee",
-                     repo: "darcylee.github.io",
-                     oauth: {
-                         client_id: client_id,
-                         client_secret: client_secret,
-                     },
-                 })
-                 gitment.render('container')
+                <!-- utterances 评论框 start -->
+                <script src="https://utteranc.es/client.js"
+                        repo="darcylee/darcylee.github.io"
+                        issue-term="pathname"
+                        theme="github-light"
+                        crossorigin="anonymous"
+                        async>
                 </script>
+                <!-- utterances 评论框 end -->
                 
-                <!-- gitment 评论框 end -->
-
             </div>
 
     <!-- Side Catalog Container -->
