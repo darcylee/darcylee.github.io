@@ -74,38 +74,17 @@ layout: default
     		  {{ content }}
 
 			  <hr>
-              <!-- 多说评论框 start -->
-              <div class="comment">
-                <div class="ds-thread"
-                     data-thread-key="{{page.id}}"
-                     data-title="{{page.title}}"
-                     data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
-                </div>
-              </div>
-              <!-- 多说评论框 end -->
-
-              <!-- gitment 评论框 start -->
-              {% if site.gitment_owner %}
-              <div id="container"></div>
-              <link rel="stylesheet" href="/css/gitment-style-default.css">
-              <script src="/js/gitment.browser.js"></script>
-              <script>
-               var client_id = "{{site.gitment_client_id}}"
-               var client_secret = "{{site.gitment_client_secret}}"
-               var gitment = new Gitment({
-                   id:  "nav-{{ page.title }}",
-                   owner: "{{site.gitment_owner}}",
-                   repo: "{{site.gitment_repo}}",
-                   oauth: {
-                       client_id: client_id,
-                       client_secret: client_secret,
-                   },
-               })
-               gitment.render('container')
+              {% if site.utterances_owner %}
+              <!-- utterances 评论框 start -->
+              <script src="https://utteranc.es/client.js"
+                      repo="{{site.utterances_repo}}"
+                      issue-term="{{site.utterances_issue_term}}"
+                      theme="{{site.utterances_theme}}"
+                      crossorigin="anonymous"
+                      async>
               </script>
+              <!-- utterances 评论框 end -->
               {% endif %}
-              <!-- gitment 评论框 end -->
-
     		</div>
     <!-- Sidebar Container -->
             <div class="

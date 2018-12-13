@@ -52,16 +52,17 @@ markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
 
-
-
 # Disqus settings
 # disqus_username: gitlee
 
-# gitment settings
-gitment_owner: darcylee
-gitment_repo: darcylee.github.io
-gitment_client_id: e07fb815a8d03ba875dc
-gitment_client_secret: 8e5e26e1f87801afed7077d2ddd16ff6bd44c89d
+# utterances comment settings
+# https://utteranc.es/
+utterances_owner: darcylee
+utterances_repo: darcylee/darcylee.github.io
+# pathname, url, title, og:title
+utterances_issue_term: pathname
+#github-light/github-dark
+utterances_theme: github-light
 
 
 # Analytics settings
@@ -71,8 +72,6 @@ ba_track_id: 5a898ca7bdbd80b38db866387473aeca
 # Google Analytics
 ga_track_id: 'UA-122293548-1'            # Format: UA-xxxxxx-xx
 ga_domain: www.gitlee.com
-
-
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
