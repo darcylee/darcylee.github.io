@@ -983,8 +983,8 @@
     }
 
     td, th {
-        padding: .5em .5em;
-        vertical-align: middle
+        /* padding: .5em .5em; */
+        vertical-align: middle;
     }
 
     caption.t-above {
