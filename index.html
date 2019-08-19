@@ -13,6 +13,16 @@
     <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
     <meta name="theme-color" content="#000000">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gitlee Blog | 李家泉的博客">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="一直努力挣脱胖纸形象de小胖纸">
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar-darcylee.jpg">
+    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:site_name" content="Gitlee Blog | 李家泉的博客">
+
     <title>Gitlee Blog | 李家泉的博客</title>
 
     <!-- Web App Manifest -->
@@ -22,7 +32,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/">
+    <link rel="canonical" href="http://localhost:4000/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -30,18 +40,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/hux-blog.min.css">
 
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,7 +54,7 @@
     <![endif]-->
 
     <!-- ga & ba script hoook -->
-
+    <script></script>
 </head>
 
 
@@ -60,7 +62,9 @@
 <body ontouchstart="">
 
     <!-- Navigation -->
+
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -81,21 +85,39 @@
                         <a href="/">Home</a>
                     </li>
                     
+                    
+                    
+                    
                     <li>
                         <a href="/about/">About</a>
                     </li>
+                    
+                    
                     
                     <li>
                         <a href="/archive/">Archive</a>
                     </li>
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <li>
                         <a href="/resource/">resource</a>
                     </li>
                     
+                    
+                    
                     <li>
                         <a href="/tags/">Tags</a>
                     </li>
+                    
+                    
+                    
                     
                 </ul>
             </div>
@@ -142,11 +164,11 @@
     /**
      * Since Fastclick is used to delegate 'touchstart' globally
      * to hack 300ms delay in iOS by performing a fake 'click',
-     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
      * $toggle/$collapse will break global delegation.
-     *
+     * 
      * Instead, we use a 'e.target' filter to prevent handler
-     * added to document close HuxNav.
+     * added to document close HuxNav.  
      *
      * Also, we use 'click' instead of 'touchstart' as compromise
      */
@@ -159,19 +181,28 @@
 
 
     <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Gitlee's Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">一直努力挣脱胖纸形象de小胖纸</span>
-                </div>
-            </div>
+
+
+
+
+
+
+
+<header class="intro-header" style="background-image: url('/img/home-bg-libarary.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>Gitlee's Blog</h1>
+          <span class="subheading">一直努力挣脱胖纸形象de小胖纸</span>
         </div>
+      </div>
     </div>
+  </div>
 </header>
+
 
 <!-- Main Content -->
 <div class="container">
@@ -269,11 +300,22 @@ g: 表示全局...
 
 查看支持的themes
 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
 $ rougify help style
 usage: rougify style [&lt;theme-name&gt;] [&lt;options&gt;]
 
-Print CSS styles for the given theme.  Extra options are
-passed to the the...
+Print CSS styles for the given theme.  Extra op...
         </div>
     </a>
     <p class="post-meta">
@@ -376,7 +418,8 @@ zephyr™, 首先它是一个开源的项目，主要目的是针对资源有限
 
 获取源代码
 
-$ git clone https://gerrit.zephyrproject.org/r/ze...
+1
+$ git clone https://gerrit.zephyrproject.org/r/...
         </div>
     </a>
     <p class="post-meta">
@@ -422,7 +465,9 @@ add later.
 
 1. 安装VPN客户端
 
-dl@debian ~/work  [Fri 29 Jan 2016 09:48:55 AM...
+1
+2
+dl@debian ~/work  [Fri 29 Jan 2016 09:48:5...
         </div>
     </a>
     <p class="post-meta">
@@ -487,9 +532,16 @@ hexdump命令一般用来查看“二进制”文件的十六进制编码，但�
 
 命令行输入：hexdump --help查看详细介绍：
 
+1
+2
+3
+4
+5
+6
+7
 lijq@server » hexdump --help
 hexdump: invalid option -- '-'
-usage: hexdump [...
+us...
         </div>
     </a>
     <p class="post-meta">
@@ -522,160 +574,126 @@ usage: hexdump [...
             ">
                 <!-- Featured Tags -->
                 
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a target="_blank" href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                      
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#学习笔记" title="学习笔记" rel="4">
-                        学习笔记
-                      </a>
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#linux" title="linux" rel="4">
-                        linux
-                      </a>
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#shell" title="shell" rel="2">
-                        shell
-                      </a>
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      <a target="_blank" href="/tags/#note" title="note" rel="2">
-                        note
-                      </a>
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                    </div>
-                </section>
-                
+
+
+<section>
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                    title="学习笔记"
+                    rel="4">学习笔记</a>
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=linux"
+                    title="linux"
+                    rel="4">linux</a>
+        
+                <a data-sort="0010" 
+                    href="/archive/?tag=note"
+                    title="note"
+                    rel="2">note</a>
+        
+                <a data-sort="0010" 
+                    href="/archive/?tag=shell"
+                    title="shell"
+                    rel="2">shell
+    </div>
+</section>
+
 
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
-                  <hr><h5><a target="_blank" href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-                        
-                            <img src="/img/avatar-darcylee.jpg" />
-                        
-                        
-                            <p>写写c/c++，学学ios&Andorid，H5，javascript，perl，bash，swift，python......世界那么大，我要多看看。</p>
-                        
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                            <li>
-                              <a target="_blank" href="https://weibo.com/darcylee2012">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                </span>
-                              </a>
-                            </li>
-                            
-                            
-                            
-                            <li>
-                              <a target="_blank" href="https://github.com/darcylee">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                              </a>
-                            </li>
-                            
-                            
-                            <li>
-                              <a target="_blank" href="https://www.linkedin.com/in/rucle">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                              </a>
-                            </li>
-                            
-                            
-                            <li>
-                              <a target="_blank" href="/feed.xml">
-                                <span class="fa-stack fa-lg">
-                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                                </span>
-                              </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </section>
-                <!-- Begin Hot Articles -->
-                <hr>
-                <h5>HOT ARTICLES</h5>
-                <ul class="list-inline">
-                  
-                  <li>
-                    <a target="_blank" href="/blog/code_highlight_sample/">Code Highlight Sample</a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="/blog/Develop_zephry_project_on_mac/">zephyr项目在macos平台的开发</a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="/blog/setup-simple-git-server/">搭建简单的git服务器</a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" href="/blog/vpn_on_command_line/">命令行连接VPN</a>
-                  </li>
-                  
-               </ul>
-                <!-- End Hot Articles -->
+  <hr>
+  <h5><a href="/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+    
+    <img src="/img/avatar-darcylee.jpg" />
+    
+    
+    <p>写写c/c++，学学ios&Andorid，H5，javascript，perl，bash，swift，python......世界那么大，我要多看看。</p>
+    
+    <!-- SNS Link -->
+    
+
+
+<ul class="list-inline">
+
+
+  
+  <li>
+    <a href="/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/darcylee2012">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/darcylee">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/rucle">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+  </div>
+</section>
 
                 <!-- Friends Blog -->
                 
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-                  
-                  <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
-                  
-                  <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
-                  
-                  <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
-                  
-                </ul>
-                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="http://onevcat.com">王巍(@onevcat)</a></li>
+  
+  <li><a href="http://blog.devtang.com">唐巧的技术博客</a></li>
+  
+  <li><a href="http://casatwy.com">casatwy's Blog</a></li>
+  
+</ul>
+
     		</div>
         
+	</div>
+</div>
 
-</div>
-</div>
 
 
     <!-- Footer -->
@@ -683,53 +701,61 @@ usage: hexdump [...
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="http://weibo.com/darcylee2012">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/darcylee">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                      <a target="_blank" href="/feed.xml">
-                        <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    </li>
-                    
-                </ul>
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/darcylee2012">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/darcylee">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/rucle">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2018
+                    Copyright &copy; Gitlee's Blog 2015-2019
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe
@@ -747,6 +773,7 @@ usage: hexdump [...
 <script src="/js/jquery.min.js "></script>
 
 <!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
 <script src="/js/bootstrap.min.js "></script>
 
 <!-- Custom Theme JavaScript -->
@@ -754,16 +781,8 @@ usage: hexdump [...
 
 <!-- Service Worker -->
 
-<script type="text/javascript">
-    if(navigator.serviceWorker){
-        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
-        navigator.serviceWorker
-            .register('/sw.js')
-            .then((registration) => {console.log('Service Worker Registered. ', registration)})
-            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
-    }
-</script>
-
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
 
 
 <!-- async load function -->
@@ -788,30 +807,22 @@ usage: hexdump [...
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-
-<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
-<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
-
-<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async('/js/jquery.tagcloud.js',function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
         })
-    }
-</script>
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
 
 <!--fastClick.js -->
 <script>
- async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -854,12 +865,27 @@ usage: hexdump [...
 </script>
 
 
+
 <!-- Side Catalog -->
 
 <script type="text/javascript">
     function generateCatalog (selector) {
-        var P = $('div.post-container'),a,n,t,l,i,c;
+
+        // interop with multilangual 
+        if ('' == 'true') {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+
+        // init
+        var P = $(_containerSelector),a,n,t,l,i,c;
         a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
         a.each(function () {
             n = $(this).prop('tagName').toLowerCase();
             i = "#"+$(this).prop('id');
@@ -899,6 +925,9 @@ usage: hexdump [...
         });
     });
 </script>
+
+
+<!-- Multi-Lingual -->
 
 
 <!-- baidu 自动推送 -->

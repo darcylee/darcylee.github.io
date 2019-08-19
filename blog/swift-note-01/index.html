@@ -13,6 +13,29 @@
     <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
     <meta name="theme-color" content="#000000">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="swift－Optional类型 - Gitlee Blog | 李家泉的博客">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="使用可选类型（optionals）来处理值可能缺失的情况。可选类型表示：
+
+">
+    
+    <meta property="article:published_time" content="2016-01-08T15:19:30Z">
+    
+    
+    <meta property="article:author" content="gitlee">
+    
+    
+    <meta property="article:tag" content="swift">
+    
+    <meta property="article:tag" content="学习笔记">
+    
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar-darcylee.jpg">
+    <meta property="og:url" content="http://localhost:4000/blog/swift-note-01/">
+    <meta property="og:site_name" content="Gitlee Blog | 李家泉的博客">
+
     <title>swift－Optional类型 - Gitlee Blog | 李家泉的博客</title>
 
     <!-- Web App Manifest -->
@@ -22,7 +45,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/swift-note-01/">
+    <link rel="canonical" href="http://localhost:4000/blog/swift-note-01/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -30,18 +53,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/hux-blog.min.css">
 
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,7 +67,7 @@
     <![endif]-->
 
     <!-- ga & ba script hoook -->
-
+    <script></script>
 </head>
 
 
@@ -60,7 +75,9 @@
 <body ontouchstart="">
 
     <!-- Navigation -->
+
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -81,21 +98,39 @@
                         <a href="/">Home</a>
                     </li>
                     
+                    
+                    
+                    
                     <li>
                         <a href="/about/">About</a>
                     </li>
+                    
+                    
                     
                     <li>
                         <a href="/archive/">Archive</a>
                     </li>
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <li>
                         <a href="/resource/">resource</a>
                     </li>
                     
+                    
+                    
                     <li>
                         <a href="/tags/">Tags</a>
                     </li>
+                    
+                    
+                    
                     
                 </ul>
             </div>
@@ -142,11 +177,11 @@
     /**
      * Since Fastclick is used to delegate 'touchstart' globally
      * to hack 300ms delay in iOS by performing a fake 'click',
-     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
      * $toggle/$collapse will break global delegation.
-     *
+     * 
      * Instead, we use a 'e.target' filter to prevent handler
-     * added to document close HuxNav.
+     * added to document close HuxNav.  
      *
      * Also, we use 'click' instead of 'touchstart' as compromise
      */
@@ -163,38 +198,48 @@
 <!-- <img src="/img/post-bg-default.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
+
+
+
 <style type="text/css">
     header.intro-header{
         position: relative;
-        background-image: url('/img/post-bg-default.jpg')
+        background-image: url('/img/post-bg-default.jpg');
+        background: ;
     }
 
     
 </style>
+
 <header class="intro-header" >
+
     <div class="header-mask"></div>
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                  <div class="tags">
-                    
-                      <a target="_blank" class="tag" href="/tags/#swift" title="swift">swift</a>
-                      
-                      <a target="_blank" class="tag" href="/tags/#学习笔记" title="学习笔记">学习笔记</a>
-                      
-                  </div>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=swift" title="swift">swift</a>
+                        
+                        <a class="tag" href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" title="学习笔记">学习笔记</a>
+                        
+                    </div>
                     <h1>swift－Optional类型</h1>
                     
-                    
                     <h2 class="subheading">swift学习笔记01, Optional类型</h2>
-                    
                     <span class="meta">Posted by gitlee on January 8, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
+
+
+
+
 
 <!-- Post Content -->
 <article>
@@ -206,6 +251,9 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
+
+                <!-- Multi-Lingual -->
+                
 
 				<p>使用可选类型（optionals）来处理值可能缺失的情况。可选类型表示：</p>
 
@@ -227,10 +275,13 @@
 
 <p>下面的例子使用这种构造器来尝试将一个String转换成Int：</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">possibleNumber</span> <span class="o">=</span> <span class="s">"123"</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">let</span> <span class="nv">possibleNumber</span> <span class="o">=</span> <span class="s">"123"</span>
 <span class="k">let</span> <span class="nv">convertedNumber</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="n">possibleNumber</span><span class="p">)</span>
 <span class="c1">// convertedNumber 被推测为类型 "Int?"， 或者类型 "optional Int"</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>因为该构造器可能会失败，所以它返回一个可选类型（optional）Int，而不是一个Int。一个可选的Int被写作Int?而不是Int。问号暗示包含的值是可选类型，也就是说可能包含Int值也可能不包含值。（不能包含其他任何值比如Bool值或者String值。只能是Int或者什么都没有。）</p>
 
@@ -238,11 +289,15 @@
 
 <p>你可以给可选变量赋值为nil来表示它没有值：</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">serverResponseCode</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="mi">404</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="k">var</span> <span class="nv">serverResponseCode</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="mi">404</span>
 <span class="c1">// serverResponseCode 包含一个可选的 Int 值 404</span>
 <span class="n">serverResponseCode</span> <span class="o">=</span> <span class="kc">nil</span>
 <span class="c1">// serverResponseCode 现在不包含值</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <blockquote>
   <p>nil不能用于非可选的常量和变量。如果你的代码中有常量或者变量需要处理值缺失的情况，请把它们声明成对应的可选类型。</p>
@@ -250,9 +305,11 @@
 
 <p>如果你声明一个可选常量或者变量但是没有赋值，它们会自动被设置为nil：</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">surveyAnswer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">var</span> <span class="nv">surveyAnswer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
 <span class="c1">// surveyAnswer 被自动设置为 nil</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <blockquote>
   <p>注意：
@@ -261,25 +318,39 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 
 <p>可以使用if语句和nil比较来判断一个可选值是否包含值</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">optionalVal</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">var</span> <span class="nv">optionalVal</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
 
 <span class="k">if</span> <span class="n">optionalVal</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
     <span class="nf">print</span><span class="p">(</span><span class="s">"optionalVal contains some string"</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="nf">print</span><span class="p">(</span><span class="s">"optionalVal is nothing!"</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>当你确定可选类型确实包含值之后，你可以在可选的名字后面加一个感叹号（!）来获取值。这被称为可选值的强制解析（forced unwrapping）：</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">optionalVal</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">var</span> <span class="nv">optionalVal</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
 <span class="n">optionalVal</span> <span class="err">＝</span> <span class="err">“</span><span class="mi">123</span><span class="n">s</span><span class="err">”</span> <span class="c1">//如果没有值，则下面的if判断会出现编译错误</span>
 <span class="k">if</span> <span class="k">let</span> <span class="nv">actValue</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="n">optionalVal</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
     <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">optionalVal</span><span class="se">)</span><span class="s"> has an integer value </span><span class="se">\(</span><span class="n">actValue</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">else</span>  <span class="p">{</span>
     <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">optionalVal</span><span class="se">)</span><span class="s"> could not be converted to an integer"</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>还没明白，这样的一个可选属性的设置，在实际编程里面，主要用在什么样的情况下。</p>
 
@@ -296,14 +367,24 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 
 <p>空合运算符等同于下面的表达式：</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">?</span> <span class="n">a</span><span class="o">!</span> <span class="p">:</span> <span class="n">b</span>
-</code></pre></div></div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">a</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">?</span> <span class="n">a</span><span class="o">!</span> <span class="p">:</span> <span class="n">b</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中值，反之当a中值为空时，返回默认值b。无疑空合运算符(??)提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具可读性。</p>
 
 <p>再一个例子</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">defaultName</span> <span class="o">=</span> <span class="s">"xiaoli"</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="k">let</span> <span class="nv">defaultName</span> <span class="o">=</span> <span class="s">"xiaoli"</span>
 <span class="k">var</span> <span class="nv">userDefinedName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?;</span>   <span class="c1">//默认值为 nil</span>
 
 <span class="k">var</span> <span class="nv">NameToUse</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
@@ -312,14 +393,14 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 <span class="n">userDefinedName</span> <span class="o">=</span> <span class="s">"zhangsan"</span><span class="p">;</span>
 <span class="k">var</span> <span class="nv">NameToUse1</span> <span class="o">=</span> <span class="n">userDefinedName</span> <span class="p">??</span> <span class="n">defaultName</span>
 <span class="c1">// userDefinedName 有值，则 NameToUse 的值为 ”zhangsan”</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 
                 <hr style="visibility: hidden;">
                 <ul class="pager">
                     
                     <li class="previous">
-                      <a href="/blog/dump_bin_in_shell/" data-toggle="tooltip" data-placement="top" title="两个命令行察看二进制文件的工具">
+                        <a href="/blog/dump_bin_in_shell/" data-toggle="tooltip" data-placement="top" title="两个命令行察看二进制文件的工具">
                         Previous<br>
                         <span>两个命令行察看二进制文件的工具</span>
                         </a>
@@ -334,6 +415,7 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
                     </li>
                     
                 </ul>
+                <hr style="visibility: hidden;">
 
                 
 
@@ -346,7 +428,9 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
                         crossorigin="anonymous"
                         async>
                 </script>
+                
                 <!-- utterances 评论框 end -->
+
                 
             </div>
 
@@ -359,103 +443,92 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
-              <!-- Featured Tags -->
-              
-              <section>
-                <hr class="hidden-sm hidden-xs">
-                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
-                <div class="tags">
-        				  
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
-                    学习笔记
-                  </a>
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
-                    linux
-                  </a>
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
-                    shell
-                  </a>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
-                    note
-                  </a>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-        			  </div>
-              </section>
-              
-              <!-- Friends Blog -->
+                <!-- Featured Tags -->
+                
 
-              
 
-              <hr>
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                    title="学习笔记"
+                    rel="4">学习笔记</a>
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=linux"
+                    title="linux"
+                    rel="4">linux</a>
+        
+                <a data-sort="0010" 
+                    href="/archive/?tag=note"
+                    title="note"
+                    rel="2">note</a>
+        
+                <a data-sort="0010" 
+                    href="/archive/?tag=shell"
+                    title="shell"
+                    rel="2">shell
+    </div>
+</section>
 
-              <h5>FRIENDS</h5>
-              <ul class="list-inline">
+
+                <!-- Friends Blog -->
                 
-                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
-                
-                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
-                
-                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
-                
-              </ul>
-              
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="http://onevcat.com">王巍(@onevcat)</a></li>
+  
+  <li><a href="http://blog.devtang.com">唐巧的技术博客</a></li>
+  
+  <li><a href="http://casatwy.com">casatwy's Blog</a></li>
+  
+</ul>
+
             </div>
         </div>
     </div>
 </article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+
+
 
 
 
 
 <!-- async load function -->
 <script>
- function async(u, c) {
-     var d = document, t = 'script',
-         o = d.createElement(t),
-         s = d.getElementsByTagName(t)[0];
-     o.src = u;
-     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-     s.parentNode.insertBefore(o, s);
- }
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
 </script>
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
     async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
-            visible: 'always',
-            placement: 'right',
-            icon: ''
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
         };
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
@@ -479,53 +552,61 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="http://weibo.com/darcylee2012">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/darcylee">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                      <a target="_blank" href="/feed.xml">
-                        <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    </li>
-                    
-                </ul>
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/darcylee2012">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/darcylee">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/rucle">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2018
+                    Copyright &copy; Gitlee's Blog 2015-2019
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe
@@ -543,6 +624,7 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 <script src="/js/jquery.min.js "></script>
 
 <!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
 <script src="/js/bootstrap.min.js "></script>
 
 <!-- Custom Theme JavaScript -->
@@ -550,16 +632,8 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 
 <!-- Service Worker -->
 
-<script type="text/javascript">
-    if(navigator.serviceWorker){
-        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
-        navigator.serviceWorker
-            .register('/sw.js')
-            .then((registration) => {console.log('Service Worker Registered. ', registration)})
-            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
-    }
-</script>
-
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
 
 
 <!-- async load function -->
@@ -584,30 +658,22 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-
-<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
-<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
-
-<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async('/js/jquery.tagcloud.js',function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
         })
-    }
-</script>
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
 
 <!--fastClick.js -->
 <script>
- async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -650,7 +716,11 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 </script>
 
 
+
 <!-- Side Catalog -->
+
+
+<!-- Multi-Lingual -->
 
 
 <!-- baidu 自动推送 -->

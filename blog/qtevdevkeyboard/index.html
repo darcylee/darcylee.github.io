@@ -13,6 +13,29 @@
     <meta name="keywords"  content="gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog">
     <meta name="theme-color" content="#000000">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="qtevdevkeyboard实现 - Gitlee Blog | 李家泉的博客">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="this is a test page!!
+add later.
+">
+    
+    <meta property="article:published_time" content="2016-04-20T00:00:00Z">
+    
+    
+    <meta property="article:author" content="darcylee">
+    
+    
+    <meta property="article:tag" content="学习笔记">
+    
+    <meta property="article:tag" content="Qt">
+    
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar-darcylee.jpg">
+    <meta property="og:url" content="http://localhost:4000/blog/qtevdevkeyboard/">
+    <meta property="og:site_name" content="Gitlee Blog | 李家泉的博客">
+
     <title>qtevdevkeyboard实现 - Gitlee Blog | 李家泉的博客</title>
 
     <!-- Web App Manifest -->
@@ -22,7 +45,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/qtevdevkeyboard/">
+    <link rel="canonical" href="http://localhost:4000/blog/qtevdevkeyboard/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -30,18 +53,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/hux-blog.min.css">
 
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,7 +67,7 @@
     <![endif]-->
 
     <!-- ga & ba script hoook -->
-
+    <script></script>
 </head>
 
 
@@ -60,7 +75,9 @@
 <body ontouchstart="">
 
     <!-- Navigation -->
+
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -81,21 +98,39 @@
                         <a href="/">Home</a>
                     </li>
                     
+                    
+                    
+                    
                     <li>
                         <a href="/about/">About</a>
                     </li>
+                    
+                    
                     
                     <li>
                         <a href="/archive/">Archive</a>
                     </li>
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <li>
                         <a href="/resource/">resource</a>
                     </li>
                     
+                    
+                    
                     <li>
                         <a href="/tags/">Tags</a>
                     </li>
+                    
+                    
+                    
                     
                 </ul>
             </div>
@@ -142,11 +177,11 @@
     /**
      * Since Fastclick is used to delegate 'touchstart' globally
      * to hack 300ms delay in iOS by performing a fake 'click',
-     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
      * $toggle/$collapse will break global delegation.
-     *
+     * 
      * Instead, we use a 'e.target' filter to prevent handler
-     * added to document close HuxNav.
+     * added to document close HuxNav.  
      *
      * Also, we use 'click' instead of 'touchstart' as compromise
      */
@@ -163,38 +198,48 @@
 <!-- <img src="/img/post-bg-default.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
+
+
+
 <style type="text/css">
     header.intro-header{
         position: relative;
-        background-image: url('/img/post-bg-default.jpg')
+        background-image: url('/img/post-bg-default.jpg');
+        background: ;
     }
 
     
 </style>
+
 <header class="intro-header" >
+
     <div class="header-mask"></div>
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                  <div class="tags">
-                    
-                      <a target="_blank" class="tag" href="/tags/#学习笔记" title="学习笔记">学习笔记</a>
-                      
-                      <a target="_blank" class="tag" href="/tags/#Qt" title="Qt">Qt</a>
-                      
-                  </div>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" title="学习笔记">学习笔记</a>
+                        
+                        <a class="tag" href="/archive/?tag=Qt" title="Qt">Qt</a>
+                        
+                    </div>
                     <h1>qtevdevkeyboard实现</h1>
                     
-                    
                     <h2 class="subheading">QT</h2>
-                    
                     <span class="meta">Posted by darcylee on April 20, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
+
+
+
+
 
 <!-- Post Content -->
 <article>
@@ -207,6 +252,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
+                <!-- Multi-Lingual -->
+                
+
 				<p>this is a test page!!
 add later.</p>
 
@@ -215,7 +263,7 @@ add later.</p>
                 <ul class="pager">
                     
                     <li class="previous">
-                      <a href="/blog/vpn_on_command_line/" data-toggle="tooltip" data-placement="top" title="命令行连接VPN">
+                        <a href="/blog/vpn_on_command_line/" data-toggle="tooltip" data-placement="top" title="命令行连接VPN">
                         Previous<br>
                         <span>命令行连接VPN</span>
                         </a>
@@ -230,6 +278,7 @@ add later.</p>
                     </li>
                     
                 </ul>
+                <hr style="visibility: hidden;">
 
                 
 
@@ -242,7 +291,9 @@ add later.</p>
                         crossorigin="anonymous"
                         async>
                 </script>
+                
                 <!-- utterances 评论框 end -->
+
                 
             </div>
 
@@ -269,103 +320,92 @@ add later.</p>
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
-              <!-- Featured Tags -->
-              
-              <section>
-                <hr class="hidden-sm hidden-xs">
-                <h5><a target="_blank"  href="/tags/">FEATURED TAGS</a></h5>
-                <div class="tags">
-        				  
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#学习笔记" title="学习笔记" rel="4">
-                    学习笔记
-                  </a>
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#linux" title="linux" rel="4">
-                    linux
-                  </a>
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#shell" title="shell" rel="2">
-                    shell
-                  </a>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-		              <a target="_blank"  href="/tags/#note" title="note" rel="2">
-                    note
-                  </a>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-        			  </div>
-              </section>
-              
-              <!-- Friends Blog -->
+                <!-- Featured Tags -->
+                
 
-              
 
-              <hr>
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                    title="学习笔记"
+                    rel="4">学习笔记</a>
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=linux"
+                    title="linux"
+                    rel="4">linux</a>
+        
+                <a data-sort="0010" 
+                    href="/archive/?tag=note"
+                    title="note"
+                    rel="2">note</a>
+        
+                <a data-sort="0010" 
+                    href="/archive/?tag=shell"
+                    title="shell"
+                    rel="2">shell
+    </div>
+</section>
 
-              <h5>FRIENDS</h5>
-              <ul class="list-inline">
+
+                <!-- Friends Blog -->
                 
-                <li><a target="_blank" href="http://onevcat.com">王巍(@onevcat)</a></li>
-                
-                <li><a target="_blank" href="http://blog.devtang.com">唐巧的技术博客</a></li>
-                
-                <li><a target="_blank" href="http://casatwy.com">casatwy's Blog</a></li>
-                
-              </ul>
-              
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="http://onevcat.com">王巍(@onevcat)</a></li>
+  
+  <li><a href="http://blog.devtang.com">唐巧的技术博客</a></li>
+  
+  <li><a href="http://casatwy.com">casatwy's Blog</a></li>
+  
+</ul>
+
             </div>
         </div>
     </div>
 </article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+
+
 
 
 
 
 <!-- async load function -->
 <script>
- function async(u, c) {
-     var d = document, t = 'script',
-         o = d.createElement(t),
-         s = d.getElementsByTagName(t)[0];
-     o.src = u;
-     if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-     s.parentNode.insertBefore(o, s);
- }
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
 </script>
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
     async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
-            visible: 'always',
-            placement: 'right',
-            icon: ''
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
         };
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
@@ -389,53 +429,61 @@ add later.</p>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="http://weibo.com/darcylee2012">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/darcylee">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://www.linkedin.com/in/rucle">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                      <a target="_blank" href="/feed.xml">
-                        <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    </li>
-                    
-                </ul>
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/darcylee2012">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/darcylee">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/rucle">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2018
+                    Copyright &copy; Gitlee's Blog 2015-2019
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe
@@ -453,6 +501,7 @@ add later.</p>
 <script src="/js/jquery.min.js "></script>
 
 <!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
 <script src="/js/bootstrap.min.js "></script>
 
 <!-- Custom Theme JavaScript -->
@@ -460,16 +509,8 @@ add later.</p>
 
 <!-- Service Worker -->
 
-<script type="text/javascript">
-    if(navigator.serviceWorker){
-        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
-        navigator.serviceWorker
-            .register('/sw.js')
-            .then((registration) => {console.log('Service Worker Registered. ', registration)})
-            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
-    }
-</script>
-
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
 
 
 <!-- async load function -->
@@ -494,30 +535,22 @@ add later.</p>
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-
-<!-- <script>async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
-<!-- <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/atom-one-dark.min.css" rel="stylesheet"> -->
-
-<!-- <script> async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js", function(){hljs.initHighlightingOnLoad();})</script> -->
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" rel="stylesheet"> -->
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async('/js/jquery.tagcloud.js',function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
         })
-    }
-</script>
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
 
 <!--fastClick.js -->
 <script>
- async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -560,12 +593,27 @@ add later.</p>
 </script>
 
 
+
 <!-- Side Catalog -->
 
 <script type="text/javascript">
     function generateCatalog (selector) {
-        var P = $('div.post-container'),a,n,t,l,i,c;
+
+        // interop with multilangual 
+        if ('' == 'true') {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+
+        // init
+        var P = $(_containerSelector),a,n,t,l,i,c;
         a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
         a.each(function () {
             n = $(this).prop('tagName').toLowerCase();
             i = "#"+$(this).prop('id');
@@ -605,6 +653,9 @@ add later.</p>
         });
     });
 </script>
+
+
+<!-- Multi-Lingual -->
 
 
 <!-- baidu 自动推送 -->
