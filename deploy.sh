@@ -85,6 +85,7 @@ parse_args() {
 }
 
 main() {
+	jekyll build
 	parse_args "$@"
 
 	enable_expanded_output
