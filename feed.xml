@@ -3,10 +3,10 @@
   <channel>
     <title>Gitlee's Blog</title>
     <description>一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 20 Aug 2019 00:19:16 +0800</pubDate>
-    <lastBuildDate>Tue, 20 Aug 2019 00:19:16 +0800</lastBuildDate>
+    <link>https://www.gitlee.com/</link>
+    <atom:link href="https://www.gitlee.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 20 Aug 2019 00:42:41 +0800</pubDate>
+    <lastBuildDate>Tue, 20 Aug 2019 00:42:41 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -24,8 +24,8 @@
 依托github的issue创建，简直神来之笔。&lt;/p&gt;
 </description>
         <pubDate>Mon, 31 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/write-for-move-page-host/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/write-for-move-page-host/</guid>
+        <link>https://www.gitlee.com/blog/write-for-move-page-host/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/write-for-move-page-host/</guid>
         
         <category>闲言碎语</category>
         
@@ -183,8 +183,8 @@
 
 </description>
         <pubDate>Sat, 18 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/vim_replase/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/vim_replase/</guid>
+        <link>https://www.gitlee.com/blog/vim_replase/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/vim_replase/</guid>
         
         <category>vim</category>
         
@@ -1238,8 +1238,8 @@ server_port:            .hword 0x0b1a
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Wed, 16 Nov 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/code_highlight_sample/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/code_highlight_sample/</guid>
+        <link>https://www.gitlee.com/blog/code_highlight_sample/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/code_highlight_sample/</guid>
         
         <category>highlight</category>
         
@@ -1276,8 +1276,8 @@ server_port:            .hword 0x0b1a
 &lt;p&gt;将linux主流的GUI 框架都注册了，然后注销或者重启就搞定。&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Nov 2016 22:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/debian8-use-ibus/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/debian8-use-ibus/</guid>
+        <link>https://www.gitlee.com/blog/debian8-use-ibus/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/debian8-use-ibus/</guid>
         
         <category>note</category>
         
@@ -1383,8 +1383,8 @@ Checking connectivity... done.
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 10 Oct 2016 18:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/setup-simple-git-server/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/setup-simple-git-server/</guid>
+        <link>https://www.gitlee.com/blog/setup-simple-git-server/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/setup-simple-git-server/</guid>
         
         <category>linux</category>
         
@@ -1783,8 +1783,8 @@ Undefined symbols &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;architecture 
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Sun, 14 Aug 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/Develop_zephry_project_on_mac/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/Develop_zephry_project_on_mac/</guid>
+        <link>https://www.gitlee.com/blog/Develop_zephry_project_on_mac/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/Develop_zephry_project_on_mac/</guid>
         
         <category>学习笔记</category>
         
@@ -1801,8 +1801,8 @@ Undefined symbols &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;architecture 
 add later.&lt;/p&gt;
 </description>
         <pubDate>Wed, 20 Apr 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/blog/qtevdevkeyboard/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/qtevdevkeyboard/</guid>
+        <link>https://www.gitlee.com/blog/qtevdevkeyboard/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/qtevdevkeyboard/</guid>
         
         <category>学习笔记</category>
         
@@ -2049,8 +2049,8 @@ rtt min/avg/max/mdev &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 525.227/559.
 &lt;p&gt;至于如何自动完成路由的添加，目前还没有试验出来。等发现了添加说明。&lt;/p&gt;
 </description>
         <pubDate>Fri, 29 Jan 2016 10:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/vpn_on_command_line/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/vpn_on_command_line/</guid>
+        <link>https://www.gitlee.com/blog/vpn_on_command_line/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/vpn_on_command_line/</guid>
         
         <category>linux</category>
         
@@ -2204,8 +2204,8 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 08 Jan 2016 15:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/swift-note-01/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/swift-note-01/</guid>
+        <link>https://www.gitlee.com/blog/swift-note-01/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/swift-note-01/</guid>
         
         <category>swift</category>
         
@@ -2391,8 +2391,8 @@ xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]&lt;/p&gt;
 &lt;p&gt;这个对调试通讯协议出错的时候特别有用&lt;/p&gt;
 </description>
         <pubDate>Thu, 31 Dec 2015 10:19:30 +0800</pubDate>
-        <link>http://localhost:4000/blog/dump_bin_in_shell/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/dump_bin_in_shell/</guid>
+        <link>https://www.gitlee.com/blog/dump_bin_in_shell/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/dump_bin_in_shell/</guid>
         
         <category>linux</category>
         
