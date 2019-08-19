@@ -1,7 +1,6 @@
 # Site settings
 title: "Gitlee's Blog"
 SEOTitle: "Gitlee Blog | 李家泉的博客"
-header-img: img/home-bg.jpg
 email: darcylee1986@gmail.com
 description: "一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。"
 keyword: "gitlee, gitlee.com, www.gitlee.com, darcylee, rucle, @rucle, 李家泉的博客, 博客, 个人网站, gitlee blog"
@@ -51,6 +50,12 @@ plugins: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 
 # Disqus settings
 # disqus_username: gitlee
@@ -89,6 +94,11 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
+
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: false
+
 
 # hotpages
 hotpages: [
