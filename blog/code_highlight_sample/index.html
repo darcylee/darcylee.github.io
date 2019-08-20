@@ -76,7 +76,7 @@
 
     <!-- Navigation -->
 
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
 
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -211,7 +211,7 @@
     
 </style>
 
-<header class="intro-header" >
+<header class="intro-header style-text" >
 
     <div class="header-mask"></div>
     
@@ -761,7 +761,7 @@ available themes:
       <span class="k">super</span>
       <span class="k">if</span> <span class="n">markup</span><span class="p">.</span><span class="nf">strip</span> <span class="o">=~</span> <span class="no">OPTIONS_SYNTAX</span>
         <span class="vi">@lang</span> <span class="o">=</span> <span class="vg">$1</span>
-        <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="vg">$2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="vg">$2</span> <span class="o">!=</span> <span class="s1">''</span>
+        <span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="vg">$2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="vg">$2</span> <span class="o">!=</span> <span class="s1">''</span>
           <span class="n">tmp_options</span> <span class="o">=</span> <span class="p">{}</span>
           <span class="vg">$2</span><span class="p">.</span><span class="nf">split</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">opt</span><span class="o">|</span>
             <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">'='</span><span class="p">)</span>
@@ -1004,14 +1004,14 @@ you can write text <span class="p">[</span><span class="nv">with links</span><sp
 12
 </pre></td><td class="rouge-code"><pre><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apples"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12000</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apples"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12000</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="nl">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oranges"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">17500</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oranges"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">17500</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="nl">"sensitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></div></div>
@@ -1373,22 +1373,22 @@ server_port:            .hword 0x0b1a
         </a>
         
         
-                <a data-sort="0008" 
+                <a data-sort="0009" 
                     href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
                     title="学习笔记"
                     rel="4">学习笔记</a>
         
-                <a data-sort="0008" 
+                <a data-sort="0009" 
                     href="/archive/?tag=linux"
                     title="linux"
                     rel="4">linux</a>
         
-                <a data-sort="0010" 
+                <a data-sort="0011" 
                     href="/archive/?tag=note"
                     title="note"
                     rel="2">note</a>
         
-                <a data-sort="0010" 
+                <a data-sort="0011" 
                     href="/archive/?tag=shell"
                     title="shell"
                     rel="2">shell

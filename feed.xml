@@ -5,9 +5,30 @@
     <description>一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。</description>
     <link>https://www.gitlee.com/</link>
     <atom:link href="https://www.gitlee.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 20 Aug 2019 00:44:07 +0800</pubDate>
-    <lastBuildDate>Tue, 20 Aug 2019 00:44:07 +0800</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
+    <pubDate>Tue, 20 Aug 2019 12:23:02 +0800</pubDate>
+    <lastBuildDate>Tue, 20 Aug 2019 12:23:02 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>How To Gerrit</title>
+        <description>&lt;h1 id=&quot;gerrit&quot;&gt;gerrit&lt;/h1&gt;
+&lt;h2 id=&quot;提交&quot;&gt;提交&lt;/h2&gt;
+&lt;p&gt;#&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/_post/2019-8-20-how-to-gerrit/sdfasdfsadf.png&quot; alt=&quot;img/_post/2019-8-20-how-to-gerrit/sdfasdfsadf.png&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Aug 2019 00:00:00 +0800</pubDate>
+        <link>https://www.gitlee.com/blog/how-to-gerrit/</link>
+        <guid isPermaLink="true">https://www.gitlee.com/blog/how-to-gerrit/</guid>
+        
+        <category>tag1</category>
+        
+        <category>tag2</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>记：更换博客托管服务</title>
@@ -703,7 +724,7 @@ available themes:
       &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;markup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;strip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OPTIONS_SYNTAX&lt;/span&gt;
         &lt;span class=&quot;vi&quot;&gt;@lang&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$1&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defined?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;defined?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
           &lt;span class=&quot;n&quot;&gt;tmp_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
           &lt;span class=&quot;vg&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -946,14 +967,14 @@ you can write text &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=
 12
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;apples&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;apples&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;oranges&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;oranges&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;sensitive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1469,7 +1490,7 @@ Checking connectivity... done.
 &lt;h4 id=&quot;编译工具链&quot;&gt;编译工具链&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;自带的&lt;code class=&quot;highlighter-rouge&quot;&gt;diskutil&lt;/code&gt;可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫&lt;code class=&quot;highlighter-rouge&quot;&gt;excs&lt;/code&gt;，&lt;strong&gt;&lt;em&gt;注意Format的选择&lt;/em&gt;&lt;/strong&gt;
-&lt;img src=&quot;/img/in-post/post_zephyr_on_mac/creat_case-sensitive.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/_post/post_zephyr_on_mac/creat_case-sensitive.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;创建好后，在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;下面会多出一个文件夹，也就是你创建的新分区。&lt;/p&gt;
 
@@ -1513,7 +1534,7 @@ Macintosh HD excs
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ct-ng menuconfig
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
-&lt;img src=&quot;/img/in-post/post_zephyr_on_mac/ct-ng_config1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/_post/post_zephyr_on_mac/ct-ng_config1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;打开&lt;code class=&quot;highlighter-rouge&quot;&gt;.config&lt;/code&gt;文件再次确认下路径设置&lt;/p&gt;
 
@@ -1714,9 +1735,9 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 &lt;span class=&quot;o&quo
 &lt;p&gt;如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;，这样有用的时候打开这个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;就可以了。&lt;/p&gt;
 
 &lt;p&gt;打开&lt;code class=&quot;highlighter-rouge&quot;&gt;diskutil&lt;/code&gt;工具，选择&lt;code class=&quot;highlighter-rouge&quot;&gt;File-&amp;gt;New Image-&amp;gt;Image from folder&lt;/code&gt;,选择&lt;code class=&quot;highlighter-rouge&quot;&gt;/Volumes/excs/CrossToolNG/x-tools&lt;/code&gt;文件夹
-&lt;img src=&quot;/img/in-post/post_zephyr_on_mac/make_xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/_post/post_zephyr_on_mac/make_xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;生成一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;&lt;img src=&quot;/img/in-post/post_zephyr_on_mac/xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;，有用的时候打开, 就会在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;，多出&lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt;文件夹&lt;/p&gt;
+&lt;p&gt;生成一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;&lt;img src=&quot;/img/_post/post_zephyr_on_mac/xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;，有用的时候打开, 就会在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;，多出&lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt;文件夹&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -2210,193 +2231,6 @@ Swift 的nil和 Objective-C 中的nil并不一样。在 Objective-C 中，nil是
         <category>swift</category>
         
         <category>学习笔记</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>两个命令行察看二进制文件的工具</title>
-        <description>&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;hexdump&lt;/li&gt;
-    &lt;li&gt;xxd&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;hexdump&quot;&gt;hexdump&lt;/h2&gt;
-&lt;p&gt;hexdump命令一般用来查看“二进制”文件的十六进制编码，但实际上它能查看任何文件，而不只限于二进制文件&lt;/p&gt;
-
-&lt;p&gt;命令行输入：&lt;code class=&quot;highlighter-rouge&quot;&gt;hexdump --help&lt;/code&gt;查看详细介绍：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;lijq@server » hexdump --help
-hexdump: invalid option -- '-'
-usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
-               [-s skip] [file ...]
-       hd      [-bcdovx]  [-e fmt] [-f fmt_file] [-n length]
-               [-s skip] [file ...]
-               
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;语法选项&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;huxdump [选项] [文件] …&lt;/p&gt;
-
-  &lt;p&gt;-n length 只格式化输入文件的前length个字节。 
--C 输出规范的十六进制和ASCII码。 
--b 单字节八进制显示。 
--c 单字节字符显示。 
--d 双字节十进制显示。 
--o 双字节八进制显示。 
--x 双字节十六进制显示。 
--s 从偏移量开始输出。 
--e 指定格式字符串，格式字符串包含在一对单引号中，格式字符串形如：’a/b “format1” “format2”‘。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;每个格式字符串由三部分组成，每个由空格分隔，第一个形如a/b，b表示对每b个输入字节应用format1格式，a表示对每a个输入字节应用format2格式，一般a&amp;gt;b，且b只能为1，2，4，另外a可以省略，省略则a=1。format1和format2中可以使用类似printf的格式字符串，如：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;%02d：两位十进制 
-%03x：三位十六进制 
-%02o：两位八进制 
-%c：单个字符等&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;还有一些特殊的用法：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;%_ad：标记下一个输出字节的序号，用十进制表示。 
-%_ax：标记下一个输出字节的序号，用十六进制表示。 
-%_ao：标记下一个输出字节的序号，用八进制表示。 
-%_p：对不能以常规字符显示的用 . 代替。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;同一行如果要显示多个格式字符串，则可以跟多个-e选项。&lt;/p&gt;
-
-&lt;p&gt;示例：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;lijq@server » hexdump -e '16/1 &quot;%02X &quot; &quot; | &quot;' -e '16/1 &quot;%_p&quot; &quot;\n&quot;' rootfs.ubi
-55 42 49 23 01 00 00 00 00 00 00 00 00 00 00 00 | UBI#............
-00 00 08 00 00 00 10 00 2A AD C9 72 00 00 00 00 | ........*..r....
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
-00 00 00 00 00 00 00 00 00 00 00 00 F2 06 B0 A2 | ................
-FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
-*
-55 42 49 21 01 01 00 05 7F FF EF FF 00 00 00 00 | UBI!............
-...
-...
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;部分引用自&lt;a href=&quot;http://man.linuxde.net/hexdump&quot;&gt;linuxde&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;xxd&quot;&gt;xxd&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xxd --help&lt;/code&gt; 查看详细使用方法&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;lijq@server » xxd --help
-Usage:
-       xxd [options] [infile [outfile]]
-    or
-       xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]
-Options:
-    -a          toggle autoskip: A single '*' replaces nul-lines. Default off.
-    -b          binary digit dump (incompatible with -ps,-i,-r). Default hex.
-    -c cols     format &amp;lt;cols&amp;gt; octets per line. Default 16 (-i: 12, -ps: 30).
-    -E          show characters in EBCDIC. Default ASCII.
-    -g          number of octets per group in normal output. Default 2.
-    -h          print this summary.
-    -i          output in C include file style.
-    -l len      stop after &amp;lt;len&amp;gt; octets.
-    -ps         output in postscript plain hexdump style.
-    -r          reverse operation: convert (or patch) hexdump into binary.
-    -r -s off   revert with &amp;lt;off&amp;gt; added to file positions found in hexdump.
-    -s [+][-]seek  start at &amp;lt;seek&amp;gt; bytes abs. (or +: rel.) infile offset.
-    -u          use upper case hex letters.
-    -v          show version: &quot;xxd V1.10 27oct98 by Juergen Weigert&quot;.
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;语法&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xxd [options] [infile [outfile]]
-xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;常用选项&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;-b: 以二进制格式显示，每个字符将被转化成8个0/1的数据
--l: 只显示N个字符，&lt;code class=&quot;highlighter-rouge&quot;&gt;-l N&lt;/code&gt;
--s: [+][-]seek 从infile的绝对或者想对位置开始显示， &lt;code class=&quot;highlighter-rouge&quot;&gt;-s offset&lt;/code&gt;
--u: 以大写字母输出，默认小写字母输出
--g: 显示方式，&lt;code class=&quot;highlighter-rouge&quot;&gt;-g N&lt;/code&gt; 以N个byte为一组输出，默认是2&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;例子&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;从0x500000处开始显示64个字节&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
-0500000: 5542 4923 0100 0000 0000 0000 0000 0000  UBI#............
-0500010: 0000 0800 0000 1000 2aad c972 0000 0000  ........*..r....
-0500020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-0500030: 0000 0000 0000 0000 0000 0000 f206 b0a2  ................
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;这个对调试通讯协议出错的时候特别有用&lt;/p&gt;
-</description>
-        <pubDate>Thu, 31 Dec 2015 10:19:30 +0800</pubDate>
-        <link>https://www.gitlee.com/blog/dump_bin_in_shell/</link>
-        <guid isPermaLink="true">https://www.gitlee.com/blog/dump_bin_in_shell/</guid>
-        
-        <category>linux</category>
-        
-        <category>shell</category>
         
         
         <category>blog</category>

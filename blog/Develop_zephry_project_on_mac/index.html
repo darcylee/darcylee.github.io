@@ -325,7 +325,7 @@
 <h4 id="编译工具链">编译工具链</h4>
 
 <p><code class="highlighter-rouge">macOS</code>使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用<code class="highlighter-rouge">macOS</code>自带的<code class="highlighter-rouge">diskutil</code>可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫<code class="highlighter-rouge">excs</code>，<strong><em>注意Format的选择</em></strong>
-<img src="/img/in-post/post_zephyr_on_mac/creat_case-sensitive.png" alt="img" /></p>
+<img src="/img/_post/post_zephyr_on_mac/creat_case-sensitive.png" alt="img" /></p>
 
 <p>创建好后，在<code class="highlighter-rouge">／Volumes</code>下面会多出一个文件夹，也就是你创建的新分区。</p>
 
@@ -369,7 +369,7 @@ Macintosh HD excs
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span>ct-ng menuconfig
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
-<img src="/img/in-post/post_zephyr_on_mac/ct-ng_config1.png" alt="img" /></p>
+<img src="/img/_post/post_zephyr_on_mac/ct-ng_config1.png" alt="img" /></p>
 
 <p>打开<code class="highlighter-rouge">.config</code>文件再次确认下路径设置</p>
 
@@ -570,9 +570,9 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 <span class="o">(</span>SY
 <p>如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个<code class="highlighter-rouge">dmg</code>，这样有用的时候打开这个<code class="highlighter-rouge">dmg</code>就可以了。</p>
 
 <p>打开<code class="highlighter-rouge">diskutil</code>工具，选择<code class="highlighter-rouge">File-&gt;New Image-&gt;Image from folder</code>,选择<code class="highlighter-rouge">/Volumes/excs/CrossToolNG/x-tools</code>文件夹
-<img src="/img/in-post/post_zephyr_on_mac/make_xtool_dmg.png" alt="img" /></p>
+<img src="/img/_post/post_zephyr_on_mac/make_xtool_dmg.png" alt="img" /></p>
 
-<p>生成一个<code class="highlighter-rouge">dmg</code><img src="/img/in-post/post_zephyr_on_mac/xtool_dmg.png" alt="img" />，有用的时候打开, 就会在<code class="highlighter-rouge">／Volumes</code>，多出<code class="highlighter-rouge">x-tools</code>文件夹</p>
+<p>生成一个<code class="highlighter-rouge">dmg</code><img src="/img/_post/post_zephyr_on_mac/xtool_dmg.png" alt="img" />，有用的时候打开, 就会在<code class="highlighter-rouge">／Volumes</code>，多出<code class="highlighter-rouge">x-tools</code>文件夹</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -716,22 +716,22 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
         </a>
         
         
-                <a data-sort="0008" 
+                <a data-sort="0009" 
                     href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
                     title="学习笔记"
                     rel="4">学习笔记</a>
         
-                <a data-sort="0008" 
+                <a data-sort="0009" 
                     href="/archive/?tag=linux"
                     title="linux"
                     rel="4">linux</a>
         
-                <a data-sort="0010" 
+                <a data-sort="0011" 
                     href="/archive/?tag=note"
                     title="note"
                     rel="2">note</a>
         
-                <a data-sort="0010" 
+                <a data-sort="0011" 
                     href="/archive/?tag=shell"
                     title="shell"
                     rel="2">shell
