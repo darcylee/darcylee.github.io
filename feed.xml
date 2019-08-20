@@ -5,25 +5,211 @@
     <description>一个小小小小的嵌入式工程师，程序员，darcylee 这里是 @gitlee 的个人博客，与你一起发现更大的世界。</description>
     <link>https://www.gitlee.com/</link>
     <atom:link href="https://www.gitlee.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 20 Aug 2019 12:23:02 +0800</pubDate>
-    <lastBuildDate>Tue, 20 Aug 2019 12:23:02 +0800</lastBuildDate>
+    <pubDate>Tue, 20 Aug 2019 14:34:22 +0800</pubDate>
+    <lastBuildDate>Tue, 20 Aug 2019 14:34:22 +0800</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
     
       <item>
         <title>How To Gerrit</title>
-        <description>&lt;h1 id=&quot;gerrit&quot;&gt;gerrit&lt;/h1&gt;
-&lt;h2 id=&quot;提交&quot;&gt;提交&lt;/h2&gt;
-&lt;p&gt;#&lt;/p&gt;
+        <description>&lt;h1 id=&quot;gerrit&quot;&gt;Gerrit&lt;/h1&gt;
+&lt;h2 id=&quot;角色概念&quot;&gt;角色概念&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/_post/2019-8-20-how-to-gerrit/sdfasdfsadf.png&quot; alt=&quot;img/_post/2019-8-20-how-to-gerrit/sdfasdfsadf.png&quot; /&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;用户名&lt;/td&gt;
+      &lt;td&gt;角色&lt;/td&gt;
+      &lt;td&gt;说明&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;张三&lt;/td&gt;
+      &lt;td&gt;代码提交人&lt;/td&gt;
+      &lt;td&gt;准备提交代码，触发评审任务之人&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;李四&lt;/td&gt;
+      &lt;td&gt;同行评审&lt;/td&gt;
+      &lt;td&gt;技术组内同行，评审代码之人，可以不止一个&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;王五&lt;/td&gt;
+      &lt;td&gt;提交确认&lt;/td&gt;
+      &lt;td&gt;一般是 PGTTM，确认代码评审完成，可以入库&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;gerrit使用前期准备&quot;&gt;Gerrit使用前期准备&lt;/h1&gt;
+&lt;h2 id=&quot;添加ssh-key&quot;&gt;添加ssh key&lt;/h2&gt;
+
+&lt;p&gt;将自己的公钥上传到 gerrit 系统。（密钥对一般在 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh&lt;/code&gt; 目录 ）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;cat ~/.ssh/id_rsa.pub
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;上传公钥到gerrit系统&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gerrit系统主页&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;用户名称&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Settings&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;SSH Keys&lt;/code&gt; 将公钥黏贴到 &lt;code class=&quot;highlighter-rouge&quot;&gt;New SSH Key&lt;/code&gt; 中，最后点  &lt;code class=&quot;highlighter-rouge&quot;&gt;ADD NEW SSH KEY&lt;/code&gt; 将公钥添加到gerrit系统。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;请确认当前的 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa.pub&lt;/code&gt; 是自己的公钥，而不是rgos工程的公钥&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;如果 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh&lt;/code&gt; 目录下没有公钥，使用命令 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen&lt;/code&gt; 生成&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; 4096 &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; your_mail_name@gmail.com
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;默认公钥名为id_rsa.pub，可以使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt; 参数产生指定名称的密钥对。&lt;/p&gt;
+
+&lt;p&gt;当使用非标准路径（标准路径为 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh&lt;/code&gt; ）的密钥对时，需要手动指定私钥的路径，可以新建一个文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/config&lt;/code&gt; ，将以下内容加入该文件&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;Host gerrit.xxx.work
+Port 29418
+IdentityFile  /path/of/your/private_sshkey
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;验证key添加成功&quot;&gt;验证key添加成功&lt;/h2&gt;
+&lt;p&gt;使用命令 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh -p 29418 your_mail_name@gerrit.xxx.work&lt;/code&gt; ，出现如下信息，则表示添加成功&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;ssh -p 29418 your_mail_name@gerrit.xxx.work
+
+####    Welcome to Gerrit Code Review    ####
+
+Hi your_mail_name, you have successfully connected over SSH.
+
+Unfortunately, interactive shells are disabled.
+To clone a hosted Git repository, use:
+
+git clone ssh://lijiaquan@gerrit.xxx.work:29418/REPOSITORY_NAME.git
+
+Connection to gerrit.xxx.work closed.
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;创建评审项目&quot;&gt;创建评审项目&lt;/h2&gt;
+
+&lt;p&gt;这个一般由项目owner或者gerrit管理员完成，使用者无需太关心&lt;/p&gt;
+
+&lt;h2 id=&quot;项目权限配置&quot;&gt;项目权限配置&lt;/h2&gt;
+
+&lt;p&gt;目前配置权限必须在 &lt;code class=&quot;highlighter-rouge&quot;&gt;Old UI&lt;/code&gt; 下面才可以配置，可以点底部 &lt;code class=&quot;highlighter-rouge&quot;&gt;Switch to Old UI&lt;/code&gt; 进行切换&lt;/p&gt;
+
+&lt;p&gt;配置说明…&lt;/p&gt;
+
+&lt;h1 id=&quot;发起一次-review&quot;&gt;发起一次 Review&lt;/h1&gt;
+&lt;h2 id=&quot;下载gerrit仓库代码&quot;&gt;下载gerrit仓库代码&lt;/h2&gt;
+
+&lt;p&gt;必须使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;Clone with commit-msg hook&lt;/code&gt; 下的链接才能用&lt;/p&gt;
+
+&lt;h2 id=&quot;修订问题&quot;&gt;修订问题&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;正常修订代码，本地编译，完成验证等工作&lt;/li&gt;
+  &lt;li&gt;git add&lt;/li&gt;
+  &lt;li&gt;git commit （这里需要先到CAF系统上申请一个CAF表单号， commit message 必须带有CAF表单）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;推送到gerrit&quot;&gt;推送到gerrit&lt;/h2&gt;
+&lt;p&gt;本地修订并add/commit完成后，使用下面的命令，将修订推送到gerrit服务器发起评审&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;git push origin HEAD:refs/for/${branch_name}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;为方便后面的push操作，可以使用下面的命令，设置推送关联，设置完后面可以直接使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt; 命令推送到正确的分支&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;git config remote.origin.push &quot;refs/heads/*:refs/for/*&quot;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;开始评审流程&quot;&gt;开始评审流程&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ADD REVIEWER&lt;/code&gt; 添加评审人员
+  在详细评审页面左边，点击 &lt;code class=&quot;highlighter-rouge&quot;&gt;ADD REVIEWER&lt;/code&gt; 弹出菜单后，可以输入需要参与评审的人员邮件，选好后点 &lt;code class=&quot;highlighter-rouge&quot;&gt;SEND&lt;/code&gt; 相关人员将收到一个评审请求邮件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DIFF PREFERENCES&lt;/code&gt; 查看本次的修订，进行review&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REPLY&lt;/code&gt; 评审打分&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CODE REVIEW +2&lt;/code&gt; 直接允许提交（有的权限人才会显示）&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SUBMIT&lt;/code&gt; 评审通过后提交合并(代码变更会自动同步svn仓库)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ABANDON&lt;/code&gt; 放弃评审&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code-Review&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Verified&lt;/code&gt; 概念介绍&lt;/li&gt;
+  &lt;li&gt;可以使用 “?” 查看支持的快捷键说明&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;patch评审不通过被打回&quot;&gt;patch评审不通过被打回&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;本地修改后验证ok&lt;/li&gt;
+  &lt;li&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;--amend&lt;/code&gt; 参数进行commit &amp;lt;``` #很重要#&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin HEAD:refs/for/${branch_name}&lt;/code&gt; 再次推送到gerrit&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;当遇到多次修订同一个REVIEW时，第二次开始的commit必须使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;--amend&lt;/code&gt; 参数，否则push后将产生2个不同的评审单&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;reviewer 可以选择只看某次修改的点，这样可以缩小评审范围。&lt;/p&gt;
+
+&lt;h2 id=&quot;下载到本地review&quot;&gt;下载到本地review&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Review 页面&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MORE&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Download patch&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;不同选项的含义&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout&lt;/code&gt;: 拉取patch，并基于 FETCH_HEAD 签出一个独立的分支&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Cherry Pick&lt;/code&gt;: 拉取patch，并合并到当前分支上&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Format Patch&lt;/code&gt;: 拉取patch，并产生一个单独的patch文件&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Pull&lt;/code&gt;: 直接将修改merge到本地仓库&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;一般情况下，建议使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;Cherry Pick&lt;/code&gt; 来拉取，这样可以用 &lt;code class=&quot;highlighter-rouge&quot;&gt;git reset --hard HEAD~1&lt;/code&gt; 将本地工作仓库恢复成原来的样子&lt;/p&gt;
+
+&lt;h1 id=&quot;工程实践&quot;&gt;工程实践&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;vscode 插件&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Gerrit&lt;/strong&gt;: &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=tht13.gerrit-vscode&quot;&gt;https://marketplace.visualstudio.com/items?itemName=tht13.gerrit-vscode&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Gerrit View&lt;/strong&gt;: &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.gerrit-view&quot;&gt;https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.gerrit-view&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;emacs 插件&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/darcylee/magit-gerrit&quot;&gt;https://github.com/darcylee/magit-gerrit&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;TortoiseGit上的gerrit使用&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Tue, 20 Aug 2019 00:00:00 +0800</pubDate>
         <link>https://www.gitlee.com/blog/how-to-gerrit/</link>
         <guid isPermaLink="true">https://www.gitlee.com/blog/how-to-gerrit/</guid>
         
-        <category>tag1</category>
+        <category>gerrit</category>
         
-        <category>tag2</category>
+        <category>git</category>
         
         
         <category>blog</category>
@@ -1490,7 +1676,7 @@ Checking connectivity... done.
 &lt;h4 id=&quot;编译工具链&quot;&gt;编译工具链&lt;/h4&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用&lt;code class=&quot;highlighter-rouge&quot;&gt;macOS&lt;/code&gt;自带的&lt;code class=&quot;highlighter-rouge&quot;&gt;diskutil&lt;/code&gt;可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫&lt;code class=&quot;highlighter-rouge&quot;&gt;excs&lt;/code&gt;，&lt;strong&gt;&lt;em&gt;注意Format的选择&lt;/em&gt;&lt;/strong&gt;
-&lt;img src=&quot;/img/_post/post_zephyr_on_mac/creat_case-sensitive.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/post/post_zephyr_on_mac/creat_case-sensitive.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;创建好后，在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;下面会多出一个文件夹，也就是你创建的新分区。&lt;/p&gt;
 
@@ -1534,7 +1720,7 @@ Macintosh HD excs
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ct-ng menuconfig
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
-&lt;img src=&quot;/img/_post/post_zephyr_on_mac/ct-ng_config1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/post/post_zephyr_on_mac/ct-ng_config1.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;打开&lt;code class=&quot;highlighter-rouge&quot;&gt;.config&lt;/code&gt;文件再次确认下路径设置&lt;/p&gt;
 
@@ -1735,9 +1921,9 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 &lt;span class=&quot;o&quo
 &lt;p&gt;如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;，这样有用的时候打开这个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;就可以了。&lt;/p&gt;
 
 &lt;p&gt;打开&lt;code class=&quot;highlighter-rouge&quot;&gt;diskutil&lt;/code&gt;工具，选择&lt;code class=&quot;highlighter-rouge&quot;&gt;File-&amp;gt;New Image-&amp;gt;Image from folder&lt;/code&gt;,选择&lt;code class=&quot;highlighter-rouge&quot;&gt;/Volumes/excs/CrossToolNG/x-tools&lt;/code&gt;文件夹
-&lt;img src=&quot;/img/_post/post_zephyr_on_mac/make_xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/post/post_zephyr_on_mac/make_xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;生成一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;&lt;img src=&quot;/img/_post/post_zephyr_on_mac/xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;，有用的时候打开, 就会在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;，多出&lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt;文件夹&lt;/p&gt;
+&lt;p&gt;生成一个&lt;code class=&quot;highlighter-rouge&quot;&gt;dmg&lt;/code&gt;&lt;img src=&quot;/img/post/post_zephyr_on_mac/xtool_dmg.png&quot; alt=&quot;img&quot; /&gt;，有用的时候打开, 就会在&lt;code class=&quot;highlighter-rouge&quot;&gt;／Volumes&lt;/code&gt;，多出&lt;code class=&quot;highlighter-rouge&quot;&gt;x-tools&lt;/code&gt;文件夹&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
