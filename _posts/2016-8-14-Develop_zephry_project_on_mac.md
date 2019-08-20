@@ -66,7 +66,7 @@ $ brew link --force gettext
 #### 编译工具链
 
 `macOS`使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用`macOS`自带的`diskutil`可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫`excs`，**_注意Format的选择_**
-![img](/img/_post/post_zephyr_on_mac/creat_case-sensitive.png)
+![img](/img/post/post_zephyr_on_mac/creat_case-sensitive.png)
 
 创建好后，在`／Volumes`下面会多出一个文件夹，也就是你创建的新分区。
 
@@ -101,7 +101,7 @@ $ cp ${ZEPHYR_BASE}/scripts/cross_compiler/arm.config .config
 $ ct-ng menuconfig
 ```
 执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
-![img](/img/_post/post_zephyr_on_mac/ct-ng_config1.png)
+![img](/img/post/post_zephyr_on_mac/ct-ng_config1.png)
 
 
 打开`.config`文件再次确认下路径设置
@@ -244,9 +244,9 @@ export ZEPHYR_GCC_VARIANT=xtools
 如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个`dmg`，这样有用的时候打开这个`dmg`就可以了。
 
 打开`diskutil`工具，选择`File->New Image->Image from folder`,选择`/Volumes/excs/CrossToolNG/x-tools`文件夹
-![img](/img/_post/post_zephyr_on_mac/make_xtool_dmg.png)
+![img](/img/post/post_zephyr_on_mac/make_xtool_dmg.png)
 
-生成一个`dmg`![img](/img/_post/post_zephyr_on_mac/xtool_dmg.png)，有用的时候打开, 就会在`／Volumes`，多出`x-tools`文件夹
+生成一个`dmg`![img](/img/post/post_zephyr_on_mac/xtool_dmg.png)，有用的时候打开, 就会在`／Volumes`，多出`x-tools`文件夹
 
 ```shell
 $ ls ／Volumes
