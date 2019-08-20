@@ -3,7 +3,7 @@ layout:     post
 title:      "Code Highlight Sample"
 subtitle:   "For Code block higlight test"
 date:       2016-11-16
-header-img: "img/post-bg-default.jpg"
+header-style: "text"
 author:     darcylee
 catalog:    true
 tags:       [highlight, sample]
