@@ -19,7 +19,6 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Gerrit
 角色概念
-
 ">
     
     <meta property="article:published_time" content="2019-08-20T00:00:00Z">
@@ -279,7 +278,7 @@
     <tr>
       <td>王五</td>
       <td>提交确认</td>
-      <td>一般是仓库负责人，确认代码评审完成，可以入库</td>
+      <td>一般是 PGTTM，确认代码评审完成，可以入库</td>
     </tr>
   </tbody>
 </table>
@@ -287,29 +286,29 @@
 <h1 id="gerrit使用前期准备">Gerrit使用前期准备</h1>
 <h2 id="添加ssh-key">添加ssh key</h2>
 
-<p>将自己的公钥上传到 gerrit 系统。（密钥对一般在 <code class="highlighter-rouge">~/.ssh</code> 目录 ）</p>
+<p>将自己的公钥上传到 gerrit 系统。（密钥对一般在 <code class="language-plaintext highlighter-rouge">~/.ssh</code> 目录 ）</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>cat ~/.ssh/id_rsa.pub
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>上传公钥到gerrit系统</p>
 
-<p><code class="highlighter-rouge">gerrit系统主页</code> -&gt; <code class="highlighter-rouge">用户名称</code> -&gt; <code class="highlighter-rouge">Settings</code> -&gt; <code class="highlighter-rouge">SSH Keys</code> 将公钥黏贴到 <code class="highlighter-rouge">New SSH Key</code> 中，最后点  <code class="highlighter-rouge">ADD NEW SSH KEY</code> 将公钥添加到gerrit系统。</p>
+<p><code class="language-plaintext highlighter-rouge">gerrit系统主页</code> -&gt; <code class="language-plaintext highlighter-rouge">用户名称</code> -&gt; <code class="language-plaintext highlighter-rouge">Settings</code> -&gt; <code class="language-plaintext highlighter-rouge">SSH Keys</code> 将公钥黏贴到 <code class="language-plaintext highlighter-rouge">New SSH Key</code> 中，最后点  <code class="language-plaintext highlighter-rouge">ADD NEW SSH KEY</code> 将公钥添加到gerrit系统。</p>
 
 <blockquote>
-  <p>请确认当前的 <code class="highlighter-rouge">~/.ssh/id_rsa.pub</code> 是自己的公钥</p>
+  <p>请确认当前的 <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code> 是自己的公钥，而不是rgos工程的公钥</p>
 </blockquote>
 
-<p>如果 <code class="highlighter-rouge">~/.ssh</code> 目录下没有公钥，使用命令 <code class="highlighter-rouge">ssh-keygen</code> 生成</p>
+<p>如果 <code class="language-plaintext highlighter-rouge">~/.ssh</code> 目录下没有公钥，使用命令 <code class="language-plaintext highlighter-rouge">ssh-keygen</code> 生成</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>ssh-keygen <span class="nt">-b</span> 4096 <span class="nt">-t</span> rsa <span class="nt">-C</span> your_mail_name@gmail.com
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>默认公钥名为id_rsa.pub，可以使用 <code class="highlighter-rouge">-f</code> 参数产生指定名称的密钥对。</p>
+<p>默认公钥名为id_rsa.pub，可以使用 <code class="language-plaintext highlighter-rouge">-f</code> 参数产生指定名称的密钥对。</p>
 
-<p>当使用非标准路径（标准路径为 <code class="highlighter-rouge">~/.ssh</code> ）的密钥对时，需要手动指定私钥的路径，可以新建一个文件 <code class="highlighter-rouge">~/.ssh/config</code> ，将以下内容加入该文件</p>
+<p>当使用非标准路径（标准路径为 <code class="language-plaintext highlighter-rouge">~/.ssh</code> ）的密钥对时，需要手动指定私钥的路径，可以新建一个文件 <code class="language-plaintext highlighter-rouge">~/.ssh/config</code> ，将以下内容加入该文件</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -320,7 +319,7 @@ IdentityFile  /path/of/your/private_sshkey
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="验证key添加成功">验证key添加成功</h2>
-<p>使用命令 <code class="highlighter-rouge">ssh -p 29418 your_mail_name@gerrit.xxx.work</code> ，出现如下信息，则表示添加成功</p>
+<p>使用命令 <code class="language-plaintext highlighter-rouge">ssh -p 29418 your_mail_name@gerrit.xxx.work</code> ，出现如下信息，则表示添加成功</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -354,14 +353,14 @@ Connection to gerrit.xxx.work closed.
 
 <h2 id="项目权限配置">项目权限配置</h2>
 
-<p>目前配置权限必须在 <code class="highlighter-rouge">Old UI</code> 下面才可以配置，可以点底部 <code class="highlighter-rouge">Switch to Old UI</code> 进行切换</p>
+<p>目前配置权限必须在 <code class="language-plaintext highlighter-rouge">Old UI</code> 下面才可以配置，可以点底部 <code class="language-plaintext highlighter-rouge">Switch to Old UI</code> 进行切换</p>
 
 <p>配置说明…</p>
 
 <h1 id="发起一次-review">发起一次 Review</h1>
 <h2 id="下载gerrit仓库代码">下载gerrit仓库代码</h2>
 
-<p>必须使用 <code class="highlighter-rouge">Clone with commit-msg hook</code> 下的链接才能用</p>
+<p>必须使用 <code class="language-plaintext highlighter-rouge">Clone with commit-msg hook</code> 下的链接才能用</p>
 
 <h2 id="修订问题">修订问题</h2>
 
@@ -374,13 +373,13 @@ Connection to gerrit.xxx.work closed.
 <h2 id="推送到gerrit">推送到gerrit</h2>
 <p>本地修订并add/commit完成后，使用下面的命令，将修订推送到gerrit服务器发起评审</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>git push origin HEAD:refs/for/${branch_name}
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>为方便后面的push操作，可以使用下面的命令，设置推送关联，设置完后面可以直接使用 <code class="highlighter-rouge">git push</code> 命令推送到正确的分支</p>
+<p>为方便后面的push操作，可以使用下面的命令，设置推送关联，设置完后面可以直接使用 <code class="language-plaintext highlighter-rouge">git push</code> 命令推送到正确的分支</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>git config remote.origin.push "refs/heads/*:refs/for/*"
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -388,15 +387,15 @@ Connection to gerrit.xxx.work closed.
 
 <ol>
   <li>
-    <p><code class="highlighter-rouge">ADD REVIEWER</code> 添加评审人员
-  在详细评审页面左边，点击 <code class="highlighter-rouge">ADD REVIEWER</code> 弹出菜单后，可以输入需要参与评审的人员邮件，选好后点 <code class="highlighter-rouge">SEND</code> 相关人员将收到一个评审请求邮件</p>
+    <p><code class="language-plaintext highlighter-rouge">ADD REVIEWER</code> 添加评审人员
+  在详细评审页面左边，点击 <code class="language-plaintext highlighter-rouge">ADD REVIEWER</code> 弹出菜单后，可以输入需要参与评审的人员邮件，选好后点 <code class="language-plaintext highlighter-rouge">SEND</code> 相关人员将收到一个评审请求邮件</p>
   </li>
-  <li><code class="highlighter-rouge">DIFF PREFERENCES</code> 查看本次的修订，进行review</li>
-  <li><code class="highlighter-rouge">REPLY</code> 评审打分</li>
-  <li><code class="highlighter-rouge">CODE REVIEW +2</code> 直接允许提交（有的权限人才会显示）</li>
-  <li><code class="highlighter-rouge">SUBMIT</code> 评审通过后提交合并(代码变更会自动同步svn仓库)</li>
-  <li><code class="highlighter-rouge">ABANDON</code> 放弃评审</li>
-  <li><code class="highlighter-rouge">Code-Review</code> <code class="highlighter-rouge">Verified</code> 概念介绍</li>
+  <li><code class="language-plaintext highlighter-rouge">DIFF PREFERENCES</code> 查看本次的修订，进行review</li>
+  <li><code class="language-plaintext highlighter-rouge">REPLY</code> 评审打分</li>
+  <li><code class="language-plaintext highlighter-rouge">CODE REVIEW +2</code> 直接允许提交（有的权限人才会显示）</li>
+  <li><code class="language-plaintext highlighter-rouge">SUBMIT</code> 评审通过后提交合并(代码变更会自动同步svn仓库)</li>
+  <li><code class="language-plaintext highlighter-rouge">ABANDON</code> 放弃评审</li>
+  <li><code class="language-plaintext highlighter-rouge">Code-Review</code> <code class="language-plaintext highlighter-rouge">Verified</code> 概念介绍</li>
   <li>可以使用 “?” 查看支持的快捷键说明</li>
 </ol>
 
@@ -404,30 +403,30 @@ Connection to gerrit.xxx.work closed.
 
 <ol>
   <li>本地修改后验证ok</li>
-  <li>使用 <code class="highlighter-rouge">--amend</code> 参数进行commit &lt;``` #很重要#</li>
-  <li><code class="highlighter-rouge">git push origin HEAD:refs/for/${branch_name}</code> 再次推送到gerrit</li>
+  <li>使用 <code class="language-plaintext highlighter-rouge">--amend</code> 参数进行commit &lt;``` #很重要#</li>
+  <li><code class="language-plaintext highlighter-rouge">git push origin HEAD:refs/for/${branch_name}</code> 再次推送到gerrit</li>
 </ol>
 
 <blockquote>
-  <p>当遇到多次修订同一个REVIEW时，第二次开始的commit必须使用 <code class="highlighter-rouge">--amend</code> 参数，否则push后将产生2个不同的评审单</p>
+  <p>当遇到多次修订同一个REVIEW时，第二次开始的commit必须使用 <code class="language-plaintext highlighter-rouge">--amend</code> 参数，否则push后将产生2个不同的评审单</p>
 </blockquote>
 
 <p>reviewer 可以选择只看某次修改的点，这样可以缩小评审范围。</p>
 
 <h2 id="下载到本地review">下载到本地review</h2>
 
-<p><code class="highlighter-rouge">Review 页面</code> -&gt; <code class="highlighter-rouge">MORE</code> -&gt; <code class="highlighter-rouge">Download patch</code></p>
+<p><code class="language-plaintext highlighter-rouge">Review 页面</code> -&gt; <code class="language-plaintext highlighter-rouge">MORE</code> -&gt; <code class="language-plaintext highlighter-rouge">Download patch</code></p>
 
 <p>不同选项的含义</p>
 
 <ol>
-  <li><code class="highlighter-rouge">Checkout</code>: 拉取patch，并基于 FETCH_HEAD 签出一个独立的分支</li>
-  <li><code class="highlighter-rouge">Cherry Pick</code>: 拉取patch，并合并到当前分支上</li>
-  <li><code class="highlighter-rouge">Format Patch</code>: 拉取patch，并产生一个单独的patch文件</li>
-  <li><code class="highlighter-rouge">Pull</code>: 直接将修改merge到本地仓库</li>
+  <li><code class="language-plaintext highlighter-rouge">Checkout</code>: 拉取patch，并基于 FETCH_HEAD 签出一个独立的分支</li>
+  <li><code class="language-plaintext highlighter-rouge">Cherry Pick</code>: 拉取patch，并合并到当前分支上</li>
+  <li><code class="language-plaintext highlighter-rouge">Format Patch</code>: 拉取patch，并产生一个单独的patch文件</li>
+  <li><code class="language-plaintext highlighter-rouge">Pull</code>: 直接将修改merge到本地仓库</li>
 </ol>
 
-<p>一般情况下，建议使用 <code class="highlighter-rouge">Cherry Pick</code> 来拉取，这样可以用 <code class="highlighter-rouge">git reset --hard HEAD~1</code> 将本地工作仓库恢复成原来的样子</p>
+<p>一般情况下，建议使用 <code class="language-plaintext highlighter-rouge">Cherry Pick</code> 来拉取，这样可以用 <code class="language-plaintext highlighter-rouge">git reset --hard HEAD~1</code> 将本地工作仓库恢复成原来的样子</p>
 
 <h1 id="工程实践">工程实践</h1>
 <ul>
@@ -459,6 +458,13 @@ Connection to gerrit.xxx.work closed.
                         </a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/blog/upgrade-debian-10-to-11/" data-toggle="tooltip" data-placement="top" title="升级debian11(bullseye)">
+                        Next<br>
+                        <span>升级debian11(bullseye)</span>
+                        </a>
+                    </li>
                     
                 </ul>
                 <hr style="visibility: hidden;">
@@ -519,7 +525,7 @@ Connection to gerrit.xxx.work closed.
         </a>
         
         
-                <a data-sort="0009" 
+                <a data-sort="0011" 
                     href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
                     title="学习笔记"
                     rel="4">学习笔记</a>
@@ -527,19 +533,19 @@ Connection to gerrit.xxx.work closed.
                 <a data-sort="0009" 
                     href="/archive/?tag=linux"
                     title="linux"
-                    rel="4">linux</a>
+                    rel="6">linux</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=git"
                     title="git"
                     rel="2">git</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=note"
                     title="note"
                     rel="2">note</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=shell"
                     title="shell"
                     rel="2">shell
@@ -671,7 +677,7 @@ Connection to gerrit.xxx.work closed.
 
 
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2020
+                    Copyright &copy; Gitlee's Blog 2015-2021
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

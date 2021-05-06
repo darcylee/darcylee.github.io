@@ -18,7 +18,6 @@
     
     <meta property="og:type" content="article">
     <meta property="og:description" content="类实例化
-
 ">
     
     <meta property="article:published_time" content="2015-12-01T20:00:00Z">
@@ -266,15 +265,15 @@
 <h2 id="构造函数和初始化函数">构造函数和初始化函数</h2>
 
 <h3 id="分配allocation和初始化initialization的区别">分配<em>allocation</em>和初始化<em>initialization</em>的区别</h3>
-<p>在 <code class="highlighter-rouge">C++</code> 中，内存分配和对象初始化都是在构造函数中完成的。在 <code class="highlighter-rouge">Objective-C</code> 中，这是两个不同的函数。</p>
+<p>在 <code class="language-plaintext highlighter-rouge">C++</code> 中，内存分配和对象初始化都是在构造函数中完成的。在 <code class="language-plaintext highlighter-rouge">Objective-C</code> 中，这是两个不同的函数。</p>
 
-<p>内存分配由类方法 <code class="highlighter-rouge">alloc</code> 完成，此时将初始化所有的实例数据。实例数据将被初始化为 <code class="highlighter-rouge">0</code>，除了一个名为<code class="highlighter-rouge">isa</code>的<code class="highlighter-rouge">NSObject</code>的指针。这个指针将在运行时指向对象的实际类型。实例数据根据传入的参数初始化为某一特定的值，这一过程将在一个实例方法 <code class="highlighter-rouge">instance method</code> 中完成。这个方法通常命名为<code class="highlighter-rouge">init</code>。因此，构造过程被明确地分为两步：内存分配和初始化。<code class="highlighter-rouge">alloc</code>消息被发送给类，而<code class="highlighter-rouge">init</code>消息则被发送给由<code class="highlighter-rouge">alloc</code>创建出来的新的对象。初始化过程不是可选的，<code class="highlighter-rouge">alloc</code>之后应该跟着<code class="highlighter-rouge">init</code>，之后，父类的init也会被调用，直到<code class="highlighter-rouge">NSObject</code>的<code class="highlighter-rouge">init</code>方法。这一方法完成了很多重要的工作。</p>
+<p>内存分配由类方法 <code class="language-plaintext highlighter-rouge">alloc</code> 完成，此时将初始化所有的实例数据。实例数据将被初始化为 <code class="language-plaintext highlighter-rouge">0</code>，除了一个名为<code class="language-plaintext highlighter-rouge">isa</code>的<code class="language-plaintext highlighter-rouge">NSObject</code>的指针。这个指针将在运行时指向对象的实际类型。实例数据根据传入的参数初始化为某一特定的值，这一过程将在一个实例方法 <code class="language-plaintext highlighter-rouge">instance method</code> 中完成。这个方法通常命名为<code class="language-plaintext highlighter-rouge">init</code>。因此，构造过程被明确地分为两步：内存分配和初始化。<code class="language-plaintext highlighter-rouge">alloc</code>消息被发送给类，而<code class="language-plaintext highlighter-rouge">init</code>消息则被发送给由<code class="language-plaintext highlighter-rouge">alloc</code>创建出来的新的对象。初始化过程不是可选的，<code class="language-plaintext highlighter-rouge">alloc</code>之后应该跟着<code class="language-plaintext highlighter-rouge">init</code>，之后，父类的init也会被调用，直到<code class="language-plaintext highlighter-rouge">NSObject</code>的<code class="language-plaintext highlighter-rouge">init</code>方法。这一方法完成了很多重要的工作。</p>
 
-<p>在 C<code class="highlighter-rouge">+</code>+ 中，构造函数的名字是规定好的，必须与类名一致。在 <code class="highlighter-rouge">Objective-C</code> 中，初始化方法与普通方法没有什么区别。你可以用任何名字，只不过通常都是选用 <code class="highlighter-rouge">init</code> 这个名字。然而，我们还是强烈建议，<strong>初始化方法名字一定要用<code class="highlighter-rouge">init</code>或者 <code class="highlighter-rouge">init</code> 开头的字符串。</strong></p>
+<p>在 C<code class="language-plaintext highlighter-rouge">+</code>+ 中，构造函数的名字是规定好的，必须与类名一致。在 <code class="language-plaintext highlighter-rouge">Objective-C</code> 中，初始化方法与普通方法没有什么区别。你可以用任何名字，只不过通常都是选用 <code class="language-plaintext highlighter-rouge">init</code> 这个名字。然而，我们还是强烈建议，<strong>初始化方法名字一定要用<code class="language-plaintext highlighter-rouge">init</code>或者 <code class="language-plaintext highlighter-rouge">init</code> 开头的字符串。</strong></p>
 
-<h3 id="使用alloc和init">使用<code class="highlighter-rouge">alloc</code>和<code class="highlighter-rouge">init</code></h3>
+<h3 id="使用alloc和init">使用<code class="language-plaintext highlighter-rouge">alloc</code>和<code class="language-plaintext highlighter-rouge">init</code></h3>
 
-<p>调用<code class="highlighter-rouge">alloc</code>之后将返回一个新的对象，并且应该给这个对象发送一个<code class="highlighter-rouge">init</code>消息。<code class="highlighter-rouge">init</code>调用之后也会返回一个对象。通常，这就是初始化完成的对象。有时候，如果使用单例模式，<code class="highlighter-rouge">init</code>可能会返回另外的对象（单例模式要求始终返回同一对象）。因此，<code class="highlighter-rouge">init</code>的返回值不应该被忽略。通常，<code class="highlighter-rouge">alloc</code>和<code class="highlighter-rouge">init</code>都会在一行上。</p>
+<p>调用<code class="language-plaintext highlighter-rouge">alloc</code>之后将返回一个新的对象，并且应该给这个对象发送一个<code class="language-plaintext highlighter-rouge">init</code>消息。<code class="language-plaintext highlighter-rouge">init</code>调用之后也会返回一个对象。通常，这就是初始化完成的对象。有时候，如果使用单例模式，<code class="language-plaintext highlighter-rouge">init</code>可能会返回另外的对象（单例模式要求始终返回同一对象）。因此，<code class="language-plaintext highlighter-rouge">init</code>的返回值不应该被忽略。通常，<code class="language-plaintext highlighter-rouge">alloc</code>和<code class="language-plaintext highlighter-rouge">init</code>都会在一行上。</p>
 
 <p>c++</p>
 
@@ -404,9 +403,9 @@
 
 <h2 id="self--super-init">self = [super init…]</h2>
 
-<p>在上一篇提到的代码中，最不可思议的可能就是这句<code class="highlighter-rouge">self = [super init...]</code>。回想一下，self是每个方法的一个隐藏参数，指向当前对象。因此，这是一个局部变量。那么，为什么我们要改变一个局部变量的值呢？事实上，<code class="highlighter-rouge">self</code>必须要改变。我们将在下面解释为什么要这样做。</p>
+<p>在上一篇提到的代码中，最不可思议的可能就是这句<code class="language-plaintext highlighter-rouge">self = [super init...]</code>。回想一下，self是每个方法的一个隐藏参数，指向当前对象。因此，这是一个局部变量。那么，为什么我们要改变一个局部变量的值呢？事实上，<code class="language-plaintext highlighter-rouge">self</code>必须要改变。我们将在下面解释为什么要这样做。</p>
 
-<p><code class="highlighter-rouge">[super init]</code>实际上返回不同于当前对象的另外一个对象。单例模式就是这样一种情况。然而， 有一个 API 可以用一个对象替换新分配的对象。<code class="highlighter-rouge">Core Data</code>（<code class="highlighter-rouge">Apple</code> 提供的 <code class="highlighter-rouge">Cocoa</code> 里面的一个 <code class="highlighter-rouge">API</code>）就是用了这种 <code class="highlighter-rouge">API</code>，对实例数据做一些特殊的操作，从而让这些数据能够和数据库的字段关联起来。当继承<code class="highlighter-rouge">NSManagedObject</code>类的时候，就需要仔细对待这种替换。在这种情形下，<code class="highlighter-rouge">self</code>就要指向两个对象：一个是<code class="highlighter-rouge">alloc</code>返回的对象，一个是<code class="highlighter-rouge">[super init]</code>返回的对象。修改<code class="highlighter-rouge">self</code>的值对代码有一定的影响：每次访问实例数据的时候都是隐式的。</p>
+<p><code class="language-plaintext highlighter-rouge">[super init]</code>实际上返回不同于当前对象的另外一个对象。单例模式就是这样一种情况。然而， 有一个 API 可以用一个对象替换新分配的对象。<code class="language-plaintext highlighter-rouge">Core Data</code>（<code class="language-plaintext highlighter-rouge">Apple</code> 提供的 <code class="language-plaintext highlighter-rouge">Cocoa</code> 里面的一个 <code class="language-plaintext highlighter-rouge">API</code>）就是用了这种 <code class="language-plaintext highlighter-rouge">API</code>，对实例数据做一些特殊的操作，从而让这些数据能够和数据库的字段关联起来。当继承<code class="language-plaintext highlighter-rouge">NSManagedObject</code>类的时候，就需要仔细对待这种替换。在这种情形下，<code class="language-plaintext highlighter-rouge">self</code>就要指向两个对象：一个是<code class="language-plaintext highlighter-rouge">alloc</code>返回的对象，一个是<code class="language-plaintext highlighter-rouge">[super init]</code>返回的对象。修改<code class="language-plaintext highlighter-rouge">self</code>的值对代码有一定的影响：每次访问实例数据的时候都是隐式的。</p>
 
 <p>正如下面的代码所示：</p>
 
@@ -460,7 +459,7 @@
 <span class="n">B</span><span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="n">B</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><code class="highlighter-rouge">self = [super init]</code>简洁明了，也不必担心以后会引入 bug。然而，我们应该注意旧的<code class="highlighter-rouge">self</code>指向的对象的命运：它必须被释放。第一规则很简单：谁替换<code class="highlighter-rouge">self</code>指针，谁就要负责处理旧的<code class="highlighter-rouge">self</code>指针。在这里，也就是<code class="highlighter-rouge">[super init]</code>负责完成这一操作。例如，如果你创建<code class="highlighter-rouge">NSManagedObject</code>子类（这个类会执行替换操作），你就不必担心旧的<code class="highlighter-rouge">self</code>指针。事实上，<code class="highlighter-rouge">NSManagedObject</code>的开发者必须考虑这种处理。因此，如果你要创建一个执行替换操作的类，你必须知道如何在初始化过程中释放旧有对象。这种操作同错误处理很类似：如果因为非法参数、不可访问的资源造成构造失败，我们要如何处理？</p>
+<p><code class="language-plaintext highlighter-rouge">self = [super init]</code>简洁明了，也不必担心以后会引入 bug。然而，我们应该注意旧的<code class="language-plaintext highlighter-rouge">self</code>指向的对象的命运：它必须被释放。第一规则很简单：谁替换<code class="language-plaintext highlighter-rouge">self</code>指针，谁就要负责处理旧的<code class="language-plaintext highlighter-rouge">self</code>指针。在这里，也就是<code class="language-plaintext highlighter-rouge">[super init]</code>负责完成这一操作。例如，如果你创建<code class="language-plaintext highlighter-rouge">NSManagedObject</code>子类（这个类会执行替换操作），你就不必担心旧的<code class="language-plaintext highlighter-rouge">self</code>指针。事实上，<code class="language-plaintext highlighter-rouge">NSManagedObject</code>的开发者必须考虑这种处理。因此，如果你要创建一个执行替换操作的类，你必须知道如何在初始化过程中释放旧有对象。这种操作同错误处理很类似：如果因为非法参数、不可访问的资源造成构造失败，我们要如何处理？</p>
 
 <h2 id="初始化错误">初始化错误</h2>
 
@@ -472,9 +471,9 @@
   <li>调用[super init…]之后：例如资源分配失败等。</li>
 </ol>
 
-<p>在上面每一种情形中，只要失败，就应该返回<code class="highlighter-rouge">nil</code>；相应的处理应该由发生错误的对象去完成。这里，我们主要关心的是1, 3情况。要释放当前对象，我们调用<code class="highlighter-rouge">[self release]</code>即可。</p>
+<p>在上面每一种情形中，只要失败，就应该返回<code class="language-plaintext highlighter-rouge">nil</code>；相应的处理应该由发生错误的对象去完成。这里，我们主要关心的是1, 3情况。要释放当前对象，我们调用<code class="language-plaintext highlighter-rouge">[self release]</code>即可。</p>
 
-<p>在调用<code class="highlighter-rouge">dealloc</code>之后，对象的析构才算完成。因此，<code class="highlighter-rouge">dealloc</code>的实现必须同初始化方法兼容。事实上，<code class="highlighter-rouge">alloc</code>将所有的实例数据初始化成 <code class="highlighter-rouge">0</code> 是相当有用的。</p>
+<p>在调用<code class="language-plaintext highlighter-rouge">dealloc</code>之后，对象的析构才算完成。因此，<code class="language-plaintext highlighter-rouge">dealloc</code>的实现必须同初始化方法兼容。事实上，<code class="language-plaintext highlighter-rouge">alloc</code>将所有的实例数据初始化成 <code class="language-plaintext highlighter-rouge">0</code> 是相当有用的。</p>
 
 <div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -620,7 +619,7 @@
 
 <h2 id="默认构造函数指定初始化函数">默认构造函数：指定初始化函数</h2>
 
-<p>在 <code class="highlighter-rouge">Objective-C</code> 中，默认构造函数没有实在的意义，因为所有对象都是动态分配内存，也就是说，构造函数都是确定的。但是，一个常用的构造函数确实可以精简代码。事实上，一个正确的初始化过程通常类似于：</p>
+<p>在 <code class="language-plaintext highlighter-rouge">Objective-C</code> 中，默认构造函数没有实在的意义，因为所有对象都是动态分配内存，也就是说，构造函数都是确定的。但是，一个常用的构造函数确实可以精简代码。事实上，一个正确的初始化过程通常类似于：</p>
 
 <div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -632,7 +631,7 @@
 <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>剪贴复制代码是一个不良习惯。好的做法是，将共同代码放到一个独立的函数中，通常称为“指定初始化函数”。通常这种指定初始化函数会包含很多参数，因为 <code class="highlighter-rouge">Objective-C</code> 不允许参数有默认值。</p>
+<p>剪贴复制代码是一个不良习惯。好的做法是，将共同代码放到一个独立的函数中，通常称为“指定初始化函数”。通常这种指定初始化函数会包含很多参数，因为 <code class="language-plaintext highlighter-rouge">Objective-C</code> 不允许参数有默认值。</p>
 
 <div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -732,22 +731,22 @@
 
 <h2 id="初始化列表和实例数据的默认值">初始化列表和实例数据的默认值</h2>
 
-<p><code class="highlighter-rouge">Objective-C</code> 中不存在 <code class="highlighter-rouge">C++</code> 构造函数的初始化列表的概念。然而，不同于 <code class="highlighter-rouge">C++</code>，<code class="highlighter-rouge">Objective-C</code> 的alloc会将所有实例数据初始化成 <code class="highlighter-rouge">0</code>，因此指针也会被初始化成<code class="highlighter-rouge">nil</code>。<code class="highlighter-rouge">C++</code> 中，对象属性不同于指针，但是在 <code class="highlighter-rouge">Objective-C</code> 中，所有对象都被当做指针处理。</p>
+<p><code class="language-plaintext highlighter-rouge">Objective-C</code> 中不存在 <code class="language-plaintext highlighter-rouge">C++</code> 构造函数的初始化列表的概念。然而，不同于 <code class="language-plaintext highlighter-rouge">C++</code>，<code class="language-plaintext highlighter-rouge">Objective-C</code> 的alloc会将所有实例数据初始化成 <code class="language-plaintext highlighter-rouge">0</code>，因此指针也会被初始化成<code class="language-plaintext highlighter-rouge">nil</code>。<code class="language-plaintext highlighter-rouge">C++</code> 中，对象属性不同于指针，但是在 <code class="language-plaintext highlighter-rouge">Objective-C</code> 中，所有对象都被当做指针处理。</p>
 
 <h2 id="虚构造函数">虚构造函数</h2>
 
-<p><code class="highlighter-rouge">Objective-C</code> 中存在虚构造函数。我们将在后面的章节中详细讲诉这个问题。</p>
+<p><code class="language-plaintext highlighter-rouge">Objective-C</code> 中存在虚构造函数。我们将在后面的章节中详细讲诉这个问题。</p>
 
 <h2 id="类构造函数">类构造函数</h2>
 
-<p>在 <code class="highlighter-rouge">Objective-C</code> 中，类本身就是对象，因此它也有自己的构造函数，并且也能够被重定义。它显然是一个类函数，继承自NSObject，其原型是<code class="highlighter-rouge">+(void) initialize</code>;。</p>
+<p>在 <code class="language-plaintext highlighter-rouge">Objective-C</code> 中，类本身就是对象，因此它也有自己的构造函数，并且也能够被重定义。它显然是一个类函数，继承自NSObject，其原型是<code class="language-plaintext highlighter-rouge">+(void) initialize</code>;。</p>
 
-<p>第一次使用这个类或其子类的时候，这个函数将被自动调用。但这并不意味着，对于指定的类，这个函数只被调用一次。事实上，如果子类没有定义<code class="highlighter-rouge">+(void) initialize</code>;，那么 <code class="highlighter-rouge">Objective-C</code> 将调用其父类的<code class="highlighter-rouge">+(void) initialize</code>;。</p>
+<p>第一次使用这个类或其子类的时候，这个函数将被自动调用。但这并不意味着，对于指定的类，这个函数只被调用一次。事实上，如果子类没有定义<code class="language-plaintext highlighter-rouge">+(void) initialize</code>;，那么 <code class="language-plaintext highlighter-rouge">Objective-C</code> 将调用其父类的<code class="language-plaintext highlighter-rouge">+(void) initialize</code>;。</p>
 
 <h2 id="析构函数">析构函数</h2>
-<p>在 <code class="highlighter-rouge">C++</code> 中，析构函数同构造函数一样，是一个特殊的函数。在 <code class="highlighter-rouge">Objective-C</code> 中，析构函数也是一个普通的实例函数，叫做<code class="highlighter-rouge">dealloc</code>。<code class="highlighter-rouge">C++</code> 中，当对象被释放时，析构函数将自动调用；<code class="highlighter-rouge">Objective-C</code> 也是类似的，但是释放对象的方式有所不同。</p>
+<p>在 <code class="language-plaintext highlighter-rouge">C++</code> 中，析构函数同构造函数一样，是一个特殊的函数。在 <code class="language-plaintext highlighter-rouge">Objective-C</code> 中，析构函数也是一个普通的实例函数，叫做<code class="language-plaintext highlighter-rouge">dealloc</code>。<code class="language-plaintext highlighter-rouge">C++</code> 中，当对象被释放时，析构函数将自动调用；<code class="language-plaintext highlighter-rouge">Objective-C</code> 也是类似的，但是释放对象的方式有所不同。</p>
 
-<p>析构函数永远不应该被显式调用。在 <code class="highlighter-rouge">C++</code> 中存在这么一种情况：开发者自己在析构时管理内存池。但是在 <code class="highlighter-rouge">Objective-C</code> 中没有这种限制。你可以在 <code class="highlighter-rouge">Cocoa</code> 中使用自定义的内存区域，但是这并不会影响平常的内存的分配、释放机制。</p>
+<p>析构函数永远不应该被显式调用。在 <code class="language-plaintext highlighter-rouge">C++</code> 中存在这么一种情况：开发者自己在析构时管理内存池。但是在 <code class="language-plaintext highlighter-rouge">Objective-C</code> 中没有这种限制。你可以在 <code class="language-plaintext highlighter-rouge">Cocoa</code> 中使用自定义的内存区域，但是这并不会影响平常的内存的分配、释放机制。</p>
 
 <p>C++</p>
 
@@ -871,7 +870,7 @@
         </a>
         
         
-                <a data-sort="0009" 
+                <a data-sort="0011" 
                     href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
                     title="学习笔记"
                     rel="4">学习笔记</a>
@@ -879,19 +878,19 @@
                 <a data-sort="0009" 
                     href="/archive/?tag=linux"
                     title="linux"
-                    rel="4">linux</a>
+                    rel="6">linux</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=git"
                     title="git"
                     rel="2">git</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=note"
                     title="note"
                     rel="2">note</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=shell"
                     title="shell"
                     rel="2">shell
@@ -1023,7 +1022,7 @@
 
 
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2020
+                    Copyright &copy; Gitlee's Blog 2015-2021
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

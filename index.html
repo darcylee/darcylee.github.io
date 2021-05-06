@@ -220,6 +220,76 @@
             ">
     			
 <div class="post-preview">
+    <a href="/blog/rime-tweak/">
+        <h2 class="post-title">
+            Rime输入法配置
+        </h2>
+        
+        <h3 class="post-subtitle">
+            中州韵输入配置和ibus-rime美化
+        </h3>
+        
+        <div class="post-content-preview">
+            rime 通用配置
+
+详细参见官网 https://rime.im/docs/ 。以下是我使用的一些配置
+
+输入方案设定(通用)
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+#文件位置：  ~/.config/ibus/rime/default.custom.yaml
+patch:
+  "ascii_composer/switch_key/Shift_L"...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by gitlee on February 22, 2021
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/upgrade-debian-10-to-11/">
+        <h2 class="post-title">
+            升级debian11(bullseye)
+        </h2>
+        
+        <h3 class="post-subtitle">
+            从debian10 升级到 debian11 优化记录
+        </h3>
+        
+        <div class="post-content-preview">
+            当前 2021/3/22 debian11(bullseye) 暂未最终发布，但已经到了软件冻结的阶段，软件版本和特性都已经完全冻结，是时候
+升级一下自己用了2年的 debian10(buster) 了，这里记录一下整个升级和优化过程。
+
+升级方法
+
+当前还未发布完整的安装镜像，因此想要体验 bullseye 最好的办法是新安装一个纯净的 debian10 然后通过软件升级直接升
+到 bul...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by gitlee on February 22, 2021
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/blog/how-to-gerrit/">
         <h2 class="post-title">
             How To Gerrit
@@ -489,65 +559,6 @@ add later.
 </div>
 <hr>
 
-<div class="post-preview">
-    <a href="/blog/vpn_on_command_line/">
-        <h2 class="post-title">
-            命令行连接VPN
-        </h2>
-        
-        <h3 class="post-subtitle">
-            using VPN on the command line
-        </h3>
-        
-        <div class="post-content-preview">
-            VPN 相信大家都很熟悉，在有图形界面的系统上，使用VPN我想大家都不会特别困难。比如在windows，或者有图形界面的linux，甚至在手上，设置都相当容易。然而要在没有图形界面的系统上使用VPN呢？大家可能都没那么熟悉了，今天就来趴一趴如何在字符终端上建立VPN连接。
-
-1. 安装VPN客户端
-
-1
-2
-dl@debian ~/work  [Fri 29 Jan 2016 09:48:5...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by darcylee on January 29, 2016
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/swift-note-01/">
-        <h2 class="post-title">
-            swift－Optional类型
-        </h2>
-        
-        <h3 class="post-subtitle">
-            swift学习笔记01, Optional类型
-        </h3>
-        
-        <div class="post-content-preview">
-            使用可选类型（optionals）来处理值可能缺失的情况。可选类型表示：
-
-
-  有值，等于 x
-
-
-或者
-
-
-  没有值
-
-
-
-  C 和 Objective-C 中并没有可选类型这个概念。最接近的是 Objective-C 中的一个特性，一个方法要不返回一个对象要不返回nil，nil表示“缺少一个合法的对象”。然而，这只对对象起作用——对于结构体，基本的 C 类型或者枚举类型不起作用。对...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by gitlee on January 8, 2016
-    </p>
-</div>
-<hr>
-
 
 <!-- Pager -->
 
@@ -584,7 +595,7 @@ dl@debian ~/work  [Fri 29 Jan 2016 09:48:5...
         </a>
         
         
-                <a data-sort="0009" 
+                <a data-sort="0011" 
                     href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
                     title="学习笔记"
                     rel="4">学习笔记</a>
@@ -592,19 +603,19 @@ dl@debian ~/work  [Fri 29 Jan 2016 09:48:5...
                 <a data-sort="0009" 
                     href="/archive/?tag=linux"
                     title="linux"
-                    rel="4">linux</a>
+                    rel="6">linux</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=git"
                     title="git"
                     rel="2">git</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=note"
                     title="note"
                     rel="2">note</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=shell"
                     title="shell"
                     rel="2">shell
@@ -758,7 +769,7 @@ dl@debian ~/work  [Fri 29 Jan 2016 09:48:5...
 
 
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2020
+                    Copyright &copy; Gitlee's Blog 2015-2021
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

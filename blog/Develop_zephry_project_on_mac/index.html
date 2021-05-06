@@ -18,7 +18,6 @@
     
     <meta property="og:type" content="article">
     <meta property="og:description" content="关于zephyr™项目
-
 ">
     
     <meta property="article:published_time" content="2016-08-14T00:00:00Z">
@@ -255,7 +254,7 @@
                 <!-- Multi-Lingual -->
                 
 
-				<h2 id="关于zephyr项目">关于<code class="highlighter-rouge">zephyr™</code>项目</h2>
+				<h2 id="关于zephyr项目">关于<code class="language-plaintext highlighter-rouge">zephyr™</code>项目</h2>
 
 <p><a href="https://www.zephyrproject.org">zephyr™</a>, 首先它是一个开源的项目，主要目的是针对资源有限的系统设计的实时的系统内核，可以胜任从简单的嵌入式传感器到复杂的物联网网关等应用场景。官方的文档也相对比较完整，可以<a href="https://www.zephyrproject.org/doc/">移步官网了解一下</a>。
 该项目开源于今年2月份，到目前版本已升级到1.5.0</p>
@@ -265,19 +264,19 @@
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span>git clone https://gerrit.zephyrproject.org/r/zephyr
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>zephyr™使用类似linux内核<code class="highlighter-rouge">Kbuild</code>构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的<a href="https://www.zephyrproject.org/doc/getting_started/getting_started.html">QuickStart</a>文档后，很容易上手开发的， 文档中提供了三个不同平台<code class="highlighter-rouge">linux</code>、<code class="highlighter-rouge">windows</code>、<code class="highlighter-rouge">macOS</code>的开发环境设置介绍，如果你目前使用的是<code class="highlighter-rouge">linux</code>或者<code class="highlighter-rouge">windows</code>平台可以移步<a href="">官网</a>，寻找相对应平台的说明。这里我们要说的是基于<code class="highlighter-rouge">macOS</code>平台的开发环境设置。</p>
+<p>zephyr™使用类似linux内核<code class="language-plaintext highlighter-rouge">Kbuild</code>构建系统来组织整个项目的，相信有一定嵌入式linux开发经验的童鞋们，看了官网的<a href="https://www.zephyrproject.org/doc/getting_started/getting_started.html">QuickStart</a>文档后，很容易上手开发的， 文档中提供了三个不同平台<code class="language-plaintext highlighter-rouge">linux</code>、<code class="language-plaintext highlighter-rouge">windows</code>、<code class="language-plaintext highlighter-rouge">macOS</code>的开发环境设置介绍，如果你目前使用的是<code class="language-plaintext highlighter-rouge">linux</code>或者<code class="language-plaintext highlighter-rouge">windows</code>平台可以移步<a href="">官网</a>，寻找相对应平台的说明。这里我们要说的是基于<code class="language-plaintext highlighter-rouge">macOS</code>平台的开发环境设置。</p>
 
-<p>虽然官网有给出<code class="highlighter-rouge">macOS</code>平台的<a href="https://www.zephyrproject.org/doc/getting_started/installation_mac.html">开发环境设置指南</a>，但是还是会碰到一些问题，我这里记录了一下我的设置过程，以及我碰到的问题的解决办法，希望能帮到和我一样想在<code class="highlighter-rouge">macOS</code>平台上做基于<code class="highlighter-rouge">zephyr</code>的嵌入式开发的朋友。</p>
+<p>虽然官网有给出<code class="language-plaintext highlighter-rouge">macOS</code>平台的<a href="https://www.zephyrproject.org/doc/getting_started/installation_mac.html">开发环境设置指南</a>，但是还是会碰到一些问题，我这里记录了一下我的设置过程，以及我碰到的问题的解决办法，希望能帮到和我一样想在<code class="language-plaintext highlighter-rouge">macOS</code>平台上做基于<code class="language-plaintext highlighter-rouge">zephyr</code>的嵌入式开发的朋友。</p>
 
 <h2 id="开发环境设置">开发环境设置</h2>
 
 <ul>
-  <li>首先请把系统升级到<code class="highlighter-rouge">Mac OS X 10.11 (El Capitan)</code>，我是基于这个版本来设置的，官网也有相应的声明。</li>
+  <li>首先请把系统升级到<code class="language-plaintext highlighter-rouge">Mac OS X 10.11 (El Capitan)</code>，我是基于这个版本来设置的，官网也有相应的声明。</li>
 </ul>
 
 <h4 id="安装依赖包">安装依赖包</h4>
 
-<p>安装<code class="highlighter-rouge">Homebrew</code>， 安装过的同学跳过， <code class="highlighter-rouge">Homebrew</code>好比debian系Linux系统里的<code class="highlighter-rouge">apt-get</code>工具，很好很强大。安装很简单，移步<a href="http://brew.sh">Homebrew官网</a>，按照上面的说明安装。</p>
+<p>安装<code class="language-plaintext highlighter-rouge">Homebrew</code>， 安装过的同学跳过， <code class="language-plaintext highlighter-rouge">Homebrew</code>好比debian系Linux系统里的<code class="language-plaintext highlighter-rouge">apt-get</code>工具，很好很强大。安装很简单，移步<a href="http://brew.sh">Homebrew官网</a>，按照上面的说明安装。</p>
 
 <p>继续安装一些工具</p>
 
@@ -306,13 +305,13 @@
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span>brew edit crosstool-ng
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>添加下面一行到<code class="highlighter-rouge">depends</code>section</p>
+<p>添加下面一行到<code class="language-plaintext highlighter-rouge">depends</code>section</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>depends_on 'grep' =&gt; '--default-names'
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>安装<code class="highlighter-rouge">Crosstool-ng</code></p>
+<p>安装<code class="language-plaintext highlighter-rouge">Crosstool-ng</code></p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -324,17 +323,17 @@
 
 <h4 id="编译工具链">编译工具链</h4>
 
-<p><code class="highlighter-rouge">macOS</code>使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用<code class="highlighter-rouge">macOS</code>自带的<code class="highlighter-rouge">diskutil</code>可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫<code class="highlighter-rouge">excs</code>，<strong><em>注意Format的选择</em></strong>
+<p><code class="language-plaintext highlighter-rouge">macOS</code>使用的文件系统对文件名称大小写是不敏感的，而编译工具链需要一个大小写敏感的文件系统，所以我们要为编译工作提供一个大小写敏感的分区作为工具链编译空间。使用<code class="language-plaintext highlighter-rouge">macOS</code>自带的<code class="language-plaintext highlighter-rouge">diskutil</code>可以很方便的创建一个出来。创建一个8G左右的分区,分区名称可以任意，我这里叫<code class="language-plaintext highlighter-rouge">excs</code>，<strong><em>注意Format的选择</em></strong>
 <img src="/img/post/post_zephyr_on_mac/creat_case-sensitive.png" alt="img" /></p>
 
-<p>创建好后，在<code class="highlighter-rouge">／Volumes</code>下面会多出一个文件夹，也就是你创建的新分区。</p>
+<p>创建好后，在<code class="language-plaintext highlighter-rouge">／Volumes</code>下面会多出一个文件夹，也就是你创建的新分区。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span><span class="nb">ls</span> /Volumes/
 Macintosh HD excs
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>进入<code class="highlighter-rouge">excs</code>（根据你创建的分区名称）</p>
+<p>进入<code class="language-plaintext highlighter-rouge">excs</code>（根据你创建的分区名称）</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -356,12 +355,12 @@ Macintosh HD excs
 <span class="nv">$ </span><span class="nb">cd </span>build
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>复制zephyr项目下面的配置文件到<code class="highlighter-rouge">build</code>目录，zephyr提供了2个平台的配置x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。<code class="highlighter-rouge">${ZEPHYR_BASE}</code>为你zephyr项目的根目录</p>
+<p>复制zephyr项目下面的配置文件到<code class="language-plaintext highlighter-rouge">build</code>目录，zephyr提供了2个平台的配置x86、arm，我这里选择的是arm，因为我的目标平台是嵌入式arm平台。<code class="language-plaintext highlighter-rouge">${ZEPHYR_BASE}</code>为你zephyr项目的根目录</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span><span class="nb">cp</span> <span class="k">${</span><span class="nv">ZEPHYR_BASE</span><span class="k">}</span>/scripts/cross_compiler/arm.config .config
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>有配置过<code class="highlighter-rouge">Crosstool-ng</code>的童鞋也可以自行配置，这里不再说。</p>
+<p>有配置过<code class="language-plaintext highlighter-rouge">Crosstool-ng</code>的童鞋也可以自行配置，这里不再说。</p>
 
 <p>开始构建工具链，首先</p>
 
@@ -371,7 +370,7 @@ Macintosh HD excs
 <p>执行上面的命令，进行简单的配置后退出保存，主要配置编译输出的一些目录，下图是我的配置
 <img src="/img/post/post_zephyr_on_mac/ct-ng_config1.png" alt="img" /></p>
 
-<p>打开<code class="highlighter-rouge">.config</code>文件再次确认下路径设置</p>
+<p>打开<code class="language-plaintext highlighter-rouge">.config</code>文件再次确认下路径设置</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -403,7 +402,7 @@ Macintosh HD excs
 ...
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>在开始编译之前，我推荐使用<code class="highlighter-rouge">Homebrew</code>安装gcc，不要使用<code class="highlighter-rouge">macOS</code>自带的gcc版本，我一开始使用自带的gcc版本编译错误，当时没有截图， 错误信息没办法提供给你们看了。安装gcc命令很简单， 如下：</p>
+<p>在开始编译之前，我推荐使用<code class="language-plaintext highlighter-rouge">Homebrew</code>安装gcc，不要使用<code class="language-plaintext highlighter-rouge">macOS</code>自带的gcc版本，我一开始使用自带的gcc版本编译错误，当时没有截图， 错误信息没办法提供给你们看了。安装gcc命令很简单， 如下：</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span>brew <span class="nb">install </span>gcc
@@ -436,7 +435,7 @@ gcc version 5.3.0 <span class="o">(</span>Homebrew gcc 5.3.0<span class="o">)</s
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span>ct-ng build
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>又是一个漫长的等待，大概15分钟左右，提示编译成功。我们察看一下<code class="highlighter-rouge">x-tools</code>文件夹</p>
+<p>又是一个漫长的等待，大概15分钟左右，提示编译成功。我们察看一下<code class="language-plaintext highlighter-rouge">x-tools</code>文件夹</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -473,7 +472,7 @@ gcc version 5.2.0 <span class="o">(</span>crosstool-NG crosstool-ng-1.22.0<span 
 
 <p>没有问题，很好</p>
 
-<p>回到<code class="highlighter-rouge">zephyr</code>工程目录</p>
+<p>回到<code class="language-plaintext highlighter-rouge">zephyr</code>工程目录</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -545,9 +544,9 @@ scripts/kconfig/conf <span class="nt">--silentoldconfig</span> Kconfig
   BIN     zephyr.bin
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>没有错误，编译成功，最终生成的<code class="highlighter-rouge">bin</code>文件在outdir文件下</p>
+<p>没有错误，编译成功，最终生成的<code class="language-plaintext highlighter-rouge">bin</code>文件在outdir文件下</p>
 
-<p>察看编译出来的<code class="highlighter-rouge">elf</code>文件，确实是arm平台的</p>
+<p>察看编译出来的<code class="language-plaintext highlighter-rouge">elf</code>文件，确实是arm平台的</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -557,7 +556,7 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 <span class="o">(</span>SY
 
 <p>到这里你的环境基本上配置好了。</p>
 
-<p>可以把上面的环境变量设置到<code class="highlighter-rouge">~/.zephyrrc</code>中，这样下次就不需要重新export了</p>
+<p>可以把上面的环境变量设置到<code class="language-plaintext highlighter-rouge">~/.zephyrrc</code>中，这样下次就不需要重新export了</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -567,12 +566,12 @@ zephyr.elf: ELF 32-bit LSB executable, ARM, version 1 <span class="o">(</span>SY
 <span class="nb">export </span><span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>xtools
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个<code class="highlighter-rouge">dmg</code>，这样有用的时候打开这个<code class="highlighter-rouge">dmg</code>就可以了。</p>
+<p>如果你觉得最开始分割到那8G左右到空间比较浪费，我们可以做一个<code class="language-plaintext highlighter-rouge">dmg</code>，这样有用的时候打开这个<code class="language-plaintext highlighter-rouge">dmg</code>就可以了。</p>
 
-<p>打开<code class="highlighter-rouge">diskutil</code>工具，选择<code class="highlighter-rouge">File-&gt;New Image-&gt;Image from folder</code>,选择<code class="highlighter-rouge">/Volumes/excs/CrossToolNG/x-tools</code>文件夹
+<p>打开<code class="language-plaintext highlighter-rouge">diskutil</code>工具，选择<code class="language-plaintext highlighter-rouge">File-&gt;New Image-&gt;Image from folder</code>,选择<code class="language-plaintext highlighter-rouge">/Volumes/excs/CrossToolNG/x-tools</code>文件夹
 <img src="/img/post/post_zephyr_on_mac/make_xtool_dmg.png" alt="img" /></p>
 
-<p>生成一个<code class="highlighter-rouge">dmg</code><img src="/img/post/post_zephyr_on_mac/xtool_dmg.png" alt="img" />，有用的时候打开, 就会在<code class="highlighter-rouge">／Volumes</code>，多出<code class="highlighter-rouge">x-tools</code>文件夹</p>
+<p>生成一个<code class="language-plaintext highlighter-rouge">dmg</code><img src="/img/post/post_zephyr_on_mac/xtool_dmg.png" alt="img" />，有用的时候打开, 就会在<code class="language-plaintext highlighter-rouge">／Volumes</code>，多出<code class="language-plaintext highlighter-rouge">x-tools</code>文件夹</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -584,9 +583,9 @@ Macintosh HD   x-tools
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nb">export </span><span class="nv">XTOOLS_TOOLCHAIN_PATH</span><span class="o">=</span>/Volumes/x-tools
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>这样，就可以把8G的分区<code class="highlighter-rouge">excs</code>删除，把磁盘空间还给<code class="highlighter-rouge">macOS</code>系统了。</p>
+<p>这样，就可以把8G的分区<code class="language-plaintext highlighter-rouge">excs</code>删除，把磁盘空间还给<code class="language-plaintext highlighter-rouge">macOS</code>系统了。</p>
 
-<h2 id="使用menuconfig配置工程遇到的错误">使用<code class="highlighter-rouge">menuconfig</code>配置工程遇到的错误</h2>
+<h2 id="使用menuconfig配置工程遇到的错误">使用<code class="language-plaintext highlighter-rouge">menuconfig</code>配置工程遇到的错误</h2>
 
 <p>具体错误如下</p>
 
@@ -632,7 +631,7 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
 </pre></td><td class="rouge-code"><pre><span class="nv">$ </span>brew <span class="nb">install </span>ncurses
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>然后在<code class="highlighter-rouge">~/.zephyrrc</code>中添加<code class="highlighter-rouge">ncurse</code>pkgconfig</p>
+<p>然后在<code class="language-plaintext highlighter-rouge">~/.zephyrrc</code>中添加<code class="language-plaintext highlighter-rouge">ncurse</code>pkgconfig</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nb">export </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/opt/ncurses/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
@@ -716,7 +715,7 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
         </a>
         
         
-                <a data-sort="0009" 
+                <a data-sort="0011" 
                     href="/archive/?tag=%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
                     title="学习笔记"
                     rel="4">学习笔记</a>
@@ -724,19 +723,19 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
                 <a data-sort="0009" 
                     href="/archive/?tag=linux"
                     title="linux"
-                    rel="4">linux</a>
+                    rel="6">linux</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=git"
                     title="git"
                     rel="2">git</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=note"
                     title="note"
                     rel="2">note</a>
         
-                <a data-sort="0011" 
+                <a data-sort="0013" 
                     href="/archive/?tag=shell"
                     title="shell"
                     rel="2">shell
@@ -868,7 +867,7 @@ Undefined symbols <span class="k">for </span>architecture x86_64:
 
 
                 <p class="copyright text-muted">
-                    Copyright &copy; Gitlee's Blog 2015-2020
+                    Copyright &copy; Gitlee's Blog 2015-2021
                   <br>
                   Powered by <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | Theme by <a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">Hux</a>
                     <!-- <iframe

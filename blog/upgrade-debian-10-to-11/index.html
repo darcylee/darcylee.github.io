@@ -14,33 +14,29 @@
     <meta name="theme-color" content="#000000">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="两个命令行察看二进制文件的工具 - Gitlee Blog | 李家泉的博客">
+    <meta property="og:title" content="升级debian11(bullseye) - Gitlee Blog | 李家泉的博客">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="
-  
-    hexdump
-    xxd
-  
-
+    <meta property="og:description" content="当前 2021/3/22 debian11(bullseye) 暂未最终发布，但已经到了软件冻结的阶段，软件版本和特性都已经完全冻结，是时候
+升级一下自己用了2年的 debian10(buster) 了，这里记录一下整个升级和优化过程。
 ">
     
-    <meta property="article:published_time" content="2015-12-31T10:19:30Z">
+    <meta property="article:published_time" content="2021-02-22T00:00:00Z">
     
     
-    <meta property="article:author" content="darcylee">
+    <meta property="article:author" content="gitlee">
     
+    
+    <meta property="article:tag" content="debian">
     
     <meta property="article:tag" content="linux">
     
-    <meta property="article:tag" content="shell">
-    
     
     <meta property="og:image" content="https://www.gitlee.com/img/avatar-darcylee.jpg">
-    <meta property="og:url" content="https://www.gitlee.com/blog/dump_bin_in_shell/">
+    <meta property="og:url" content="https://www.gitlee.com/blog/upgrade-debian-10-to-11/">
     <meta property="og:site_name" content="Gitlee Blog | 李家泉的博客">
 
-    <title>两个命令行察看二进制文件的工具 - Gitlee Blog | 李家泉的博客</title>
+    <title>升级debian11(bullseye) - Gitlee Blog | 李家泉的博客</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -49,7 +45,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.gitlee.com/blog/dump_bin_in_shell/">
+    <link rel="canonical" href="https://www.gitlee.com/blog/upgrade-debian-10-to-11/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,7 +76,7 @@
 
     <!-- Navigation -->
 
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
 
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -199,7 +195,7 @@
 
     <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="/img/post-bg-debian.jpg" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-default.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
 
@@ -208,14 +204,14 @@
 <style type="text/css">
     header.intro-header{
         position: relative;
-        background-image: url('/img/post-bg-debian.jpg');
+        background-image: url('/img/post-bg-default.jpg');
         background: ;
     }
 
     
 </style>
 
-<header class="intro-header" >
+<header class="intro-header style-text" >
 
     <div class="header-mask"></div>
     
@@ -225,15 +221,15 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                        <a class="tag" href="/archive/?tag=debian" title="debian">debian</a>
+                        
                         <a class="tag" href="/archive/?tag=linux" title="linux">linux</a>
                         
-                        <a class="tag" href="/archive/?tag=shell" title="shell">shell</a>
-                        
                     </div>
-                    <h1>两个命令行察看二进制文件的工具</h1>
+                    <h1>升级debian11(bullseye)</h1>
                     
-                    <h2 class="subheading">hexdump、xxd</h2>
-                    <span class="meta">Posted by darcylee on December 31, 2015</span>
+                    <h2 class="subheading">从debian10 升级到 debian11 优化记录</h2>
+                    <span class="meta">Posted by gitlee on February 22, 2021</span>
                 </div>
             </div>
         </div>
@@ -259,99 +255,96 @@
                 <!-- Multi-Lingual -->
                 
 
-				<blockquote>
-  <ol>
-    <li>hexdump</li>
-    <li>xxd</li>
-  </ol>
-</blockquote>
+				<p>当前 2021/3/22 debian11(bullseye) 暂未最终发布，但已经到了软件冻结的阶段，软件版本和特性都已经完全冻结，是时候
+升级一下自己用了2年的 debian10(buster) 了，这里记录一下整个升级和优化过程。</p>
 
-<h2 id="hexdump">hexdump</h2>
-<p>hexdump命令一般用来查看“二进制”文件的十六进制编码，但实际上它能查看任何文件，而不只限于二进制文件</p>
+<h1 id="升级方法">升级方法</h1>
 
-<p>命令行输入：<code class="language-plaintext highlighter-rouge">hexdump --help</code>查看详细介绍：</p>
+<p>当前还未发布完整的安装镜像，因此想要体验 bullseye 最好的办法是新安装一个纯净的 debian10 然后通过软件升级直接升
+到 bullseye</p>
+
+<p>下载 buster live cd，推荐清华大学开源镜像站 <a href="https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current-live/">debian-cd</a></p>
+
+<h1 id="安装常用的软件">安装常用的软件</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td>软件名称</td>
+      <td>备注</td>
+    </tr>
+    <tr>
+      <td>virtualbox</td>
+      <td>安装ubuntu20.04的版本，可正常完美使用</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="静态博客-jekyll">静态博客 jekyll</h2>
+
+<h3 id="ruby">ruby</h3>
+
+<p>ruby，常规安装即可</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ sudo apt install ruby-dev ruby
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>更换国内 gem 镜像</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre>lijq@server » hexdump --help
-hexdump: invalid option -- '-'
-usage: hexdump [-bcCdovx] [-e fmt] [-f fmt_file] [-n length]
-               [-s skip] [file ...]
-       hd      [-bcdovx]  [-e fmt] [-f fmt_file] [-n length]
-               [-s skip] [file ...]
-               
+</pre></td><td class="rouge-code"><pre>$ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+$ gem sources -l
+https://gems.ruby-china.com
+# 确保只有 gems.ruby-china.com
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>语法选项</p>
+<h1 id="升级后的优化">升级后的优化</h1>
 
-<blockquote>
-  <p>huxdump [选项] [文件] …</p>
+<h2 id="安装常用的插件">安装常用的插件</h2>
 
-  <p>-n length 只格式化输入文件的前length个字节。 
--C 输出规范的十六进制和ASCII码。 
--b 单字节八进制显示。 
--c 单字节字符显示。 
--d 双字节十进制显示。 
--o 双字节八进制显示。 
--x 双字节十六进制显示。 
--s 从偏移量开始输出。 
--e 指定格式字符串，格式字符串包含在一对单引号中，格式字符串形如：’a/b “format1” “format2”‘。</p>
-</blockquote>
+<ol>
+  <li>gnome-shell-extension-dashtodock</li>
+  <li>gnome-shell-extension-draw-on-your-screen</li>
+  <li>gnome-shell-extension-easyscreencast</li>
+  <li>gnome-shell-extension-gpaste</li>
+  <li>gnome-shell-extension-move-clock</li>
+  <li>gnome-shell-extension-no-annoyance</li>
+  <li>gnome-shell-extension-remove-dropdown-arrows</li>
+  <li>gnome-shell-extension-top-icons-plus</li>
+  <li>gnome-shell-extension-trash</li>
+  <li>gnome-shell-extensions</li>
+  <li>no-title-bar 这个原始作者已不再维护，在新 gnome 下已经不可使用，但已有其他人 fork 了该插件，debian11 可以正常使用
+https://extensions.gnome.org/extension/2015/no-title-bar-forked/</li>
+</ol>
 
-<p>每个格式字符串由三部分组成，每个由空格分隔，第一个形如a/b，b表示对每b个输入字节应用format1格式，a表示对每a个输入字节应用format2格式，一般a&gt;b，且b只能为1，2，4，另外a可以省略，省略则a=1。format1和format2中可以使用类似printf的格式字符串，如：</p>
-
-<blockquote>
-  <p>%02d：两位十进制 
-%03x：三位十六进制 
-%02o：两位八进制 
-%c：单个字符等</p>
-</blockquote>
-
-<p>还有一些特殊的用法：</p>
-
-<blockquote>
-  <p>%_ad：标记下一个输出字节的序号，用十进制表示。 
-%_ax：标记下一个输出字节的序号，用十六进制表示。 
-%_ao：标记下一个输出字节的序号，用八进制表示。 
-%_p：对不能以常规字符显示的用 . 代替。</p>
-</blockquote>
-
-<p>同一行如果要显示多个格式字符串，则可以跟多个-e选项。</p>
-
-<p>示例：</p>
-
+<h2 id="安装numix主题">安装numix主题</h2>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>sudo apt install numix-gtk-theme numix-icon-theme
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="dash-to-dock-关闭快捷按键">dash to dock 关闭快捷按键</h2>
+<p>平常使用 <code class="language-plaintext highlighter-rouge">&lt;Super&gt;+1..9</code> 用来快速切换 emacs 的 buffer 以及终端的 tab，已经习惯了，虽然默认用来启动 dock 的应用程
+序虽然很方便，但是不太符合我自己的习惯。根据以往的经验，本来之 <code class="language-plaintext highlighter-rouge">dash-to-dock</code> 插件可以直接关闭掉，但是发现失效了
+最终找到这个问题记录 <a href="https://gitlab.gnome.org/GNOME/gnome-shell/-/issues/1250">issue</a>，通过如下关闭该快捷键盘</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre>lijq@server » hexdump -e '16/1 "%02X " " | "' -e '16/1 "%_p" "\n"' rootfs.ubi
-55 42 49 23 01 00 00 00 00 00 00 00 00 00 00 00 | UBI#............
-00 00 08 00 00 00 10 00 2A AD C9 72 00 00 00 00 | ........*..r....
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
-00 00 00 00 00 00 00 00 00 00 00 00 F2 06 B0 A2 | ................
-FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
-*
-55 42 49 21 01 01 00 05 7F FF EF FF 00 00 00 00 | UBI!............
-...
-...
+</pre></td><td class="rouge-code"><pre><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..9<span class="o">}</span><span class="p">;</span> <span class="k">do 
+  </span>gsettings <span class="nb">set</span> <span class="s2">"org.gnome.shell.keybindings"</span> <span class="s2">"switch-to-application-</span><span class="nv">$i</span><span class="s2">"</span> <span class="s2">"[]"</span> 
+  gsettings <span class="nb">set</span> <span class="s2">"org.gnome.shell.extensions.dash-to-dock"</span> <span class="s2">"app-hotkey-</span><span class="nv">$i</span><span class="s2">"</span> <span class="s2">"[]"</span> 
+<span class="k">done</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>部分引用自<a href="http://man.linuxde.net/hexdump">linuxde</a></p>
-
-<h2 id="xxd">xxd</h2>
-
-<p><code class="language-plaintext highlighter-rouge">xxd --help</code> 查看详细使用方法</p>
+<p>执行后可以通过下面的命令，查看</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -373,80 +366,51 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF | ................
 18
 19
 20
-</pre></td><td class="rouge-code"><pre>lijq@server » xxd --help
-Usage:
-       xxd [options] [infile [outfile]]
-    or
-       xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]
-Options:
-    -a          toggle autoskip: A single '*' replaces nul-lines. Default off.
-    -b          binary digit dump (incompatible with -ps,-i,-r). Default hex.
-    -c cols     format &lt;cols&gt; octets per line. Default 16 (-i: 12, -ps: 30).
-    -E          show characters in EBCDIC. Default ASCII.
-    -g          number of octets per group in normal output. Default 2.
-    -h          print this summary.
-    -i          output in C include file style.
-    -l len      stop after &lt;len&gt; octets.
-    -ps         output in postscript plain hexdump style.
-    -r          reverse operation: convert (or patch) hexdump into binary.
-    -r -s off   revert with &lt;off&gt; added to file positions found in hexdump.
-    -s [+][-]seek  start at &lt;seek&gt; bytes abs. (or +: rel.) infile offset.
-    -u          use upper case hex letters.
-    -v          show version: "xxd V1.10 27oct98 by Juergen Weigert".
+21
+22
+</pre></td><td class="rouge-code"><pre>gsettings list-recursively | grep -E "switch-to-(workspace|application)-[0-9]" | sort -n
+org.gnome.desktop.wm.keybindings switch-to-workspace-10 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-11 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-12 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-1 ['&lt;Super&gt;Home']
+org.gnome.desktop.wm.keybindings switch-to-workspace-2 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-3 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-4 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-5 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-6 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-7 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-8 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-9 @as []
+org.gnome.shell.keybindings switch-to-application-1 @as []
+org.gnome.shell.keybindings switch-to-application-2 @as []
+org.gnome.shell.keybindings switch-to-application-3 @as []
+org.gnome.shell.keybindings switch-to-application-4 @as []
+org.gnome.shell.keybindings switch-to-application-5 @as []
+org.gnome.shell.keybindings switch-to-application-6 @as []
+org.gnome.shell.keybindings switch-to-application-7 @as []
+org.gnome.shell.keybindings switch-to-application-8 @as []
+org.gnome.shell.keybindings switch-to-application-9 @as []
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>语法</p>
-
-<blockquote>
-  <p>xxd [options] [infile [outfile]]
-xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]</p>
-</blockquote>
-
-<p>常用选项</p>
-
-<blockquote>
-  <p>-b: 以二进制格式显示，每个字符将被转化成8个0/1的数据
--l: 只显示N个字符，<code class="language-plaintext highlighter-rouge">-l N</code>
--s: [+][-]seek 从infile的绝对或者想对位置开始显示， <code class="language-plaintext highlighter-rouge">-s offset</code>
--u: 以大写字母输出，默认小写字母输出
--g: 显示方式，<code class="language-plaintext highlighter-rouge">-g N</code> 以N个byte为一组输出，默认是2</p>
-</blockquote>
-
-<p>例子</p>
-
-<blockquote>
-  <p>从0x500000处开始显示64个字节</p>
-</blockquote>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>lijq@server » xxd -s 0x500000 -l 64 rootfs.ubi
-0500000: 5542 4923 0100 0000 0000 0000 0000 0000  UBI#............
-0500010: 0000 0800 0000 1000 2aad c972 0000 0000  ........*..r....
-0500020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-0500030: 0000 0000 0000 0000 0000 0000 f206 b0a2  ................
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p>这个对调试通讯协议出错的时候特别有用</p>
+<h2 id="中州韵输入法安装和美化-ibus">中州韵输入法安装和美化-ibus</h2>
+<p>参见 <a href="/blog/rime-tweak">Rime输入法配置</a></p>
 
 
                 <hr style="visibility: hidden;">
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/objc_%E5%AE%9E%E4%BE%8B%E5%8C%96/" data-toggle="tooltip" data-placement="top" title="Objective－C 实例化">
+                        <a href="/blog/how-to-gerrit/" data-toggle="tooltip" data-placement="top" title="How To Gerrit">
                         Previous<br>
-                        <span>Objective－C 实例化</span>
+                        <span>How To Gerrit</span>
                         </a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/swift-note-01/" data-toggle="tooltip" data-placement="top" title="swift－Optional类型">
+                        <a href="/blog/rime-tweak/" data-toggle="tooltip" data-placement="top" title="Rime输入法配置">
                         Next<br>
-                        <span>swift－Optional类型</span>
+                        <span>Rime输入法配置</span>
                         </a>
                     </li>
                     
